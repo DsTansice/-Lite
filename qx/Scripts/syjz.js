@@ -1,0 +1,1 @@
+var body=$response.body,url=$request.url;const path1="/account/detail";if(-1!=url.indexOf(path1)){let d=JSON.parse(body);d.data.vip={isvip:1,days:999},body=JSON.stringify(d)}$done({body:body});

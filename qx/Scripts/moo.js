@@ -1,0 +1,1 @@
+function re(){var e=$response.body;if(arguments[0].includes("@")){var r=arguments[0].split("@"),s=arguments[1].split("@");for(i=0;i<r.length;i++)var p=new RegExp(r[i],"g"),e=e.replace(p,s[i])}else{p=new RegExp(arguments[0],"g");e=e.replace(p,arguments[1])}$done(e)}re('"userType":\\d@"radishQty":\\d','"userType":2@"radishQty":999');

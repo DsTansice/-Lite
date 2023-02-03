@@ -1,0 +1,1 @@
+let body=$response.body;var obj=JSON.parse(body),obj={data:{userId:"1fdbhfn",name:null,gender:0,avatar:null,birthday:null,mobile:null,vipState:{state:1,forever:!1,startTime:1600334263e3,expireTime:1884343967e3}},code:1};$done({body:JSON.stringify(obj)});

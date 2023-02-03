@@ -1,0 +1,1 @@
+var body=$response.body.replace(/\u0076\u0069\u0070\u0022\u003A\u0066\u0061\u006C\u0073\u0065/g,'vip":1').replace(/\u0063\u0061\u0074\u0065\u0022\u003A\u0030/g,'cate":1').replace(/\u0065\u0078\u0070\u0069\u0072\u0079\u0022\u003A\u0030/g,'expiry":1');$done({body:body});

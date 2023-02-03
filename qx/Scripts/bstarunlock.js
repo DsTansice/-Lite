@@ -1,0 +1,1 @@
+let body=$request.body;body=(body=(body=body.replace(/&sim_code=\d+/,"&sim_code=52507")).replace(/&locale=en_US/,"&&locale=en_SG")).replace(/&s_locale=en_US/,"&s_locale=SG"),console.log(body),$done({body:body});

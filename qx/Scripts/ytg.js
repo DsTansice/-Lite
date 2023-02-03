@@ -1,0 +1,1 @@
+var origin=$response.body.match(/"originalUrl":"[^"]*"/g),body=$response.body.match(/"download1080Url":"[^"]*"/g);console.log(body),$notify("墨鱼手记","","\n"+origin[0]+"\n\n"+body[0]+"\n\n"),$done({body:body});

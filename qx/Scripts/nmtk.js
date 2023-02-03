@@ -1,0 +1,1 @@
+var body=$response.body.replace(/integral":\d/,'integral":2099').replace(/success":false/,'success":true');$done({body:body});

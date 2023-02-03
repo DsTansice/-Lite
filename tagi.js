@@ -1,0 +1,1 @@
+function tagsBarActive(){var e=window.location.pathname;"/"==(e=decodeURIComponent(e))?document.querySelector("#tags-bar")&&document.getElementById("Home").classList.add("select"):/\/tags\/.*?\//.test(e)&&(e=e.split("/")[2],document.querySelector("#category-bar"))&&document.getElementById(e).classList.add("select")}tagsBarActive();

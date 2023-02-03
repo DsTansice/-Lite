@@ -1,0 +1,1 @@
+var cuttlefish={warning:"本腳本僅供學習交流使用，禁止轉載售賣",tgchannel:"https://t.me/ddgksf2021",feedback:"https://t.me/ddgksf2013_bot"},ddgksf2013={returncode:"SUCCESS",errormsg:"",data:{id:"ddgksf2013",nickName:"公众号墨鱼手记",sign:"公众号墨鱼手记",vipStatus:1,endTime:2099,exchangeCode:null,expireDate:null}};$done({body:JSON.stringify(ddgksf2013)});

@@ -1,0 +1,1 @@
+var ddgksf2013=JSON.parse($response.body);ddgksf2013.data.equityTime=4e12,ddgksf2013.data.adEquityTime=4e12,ddgksf2013.data.exclusiveTime=4e12,$done({body:JSON.stringify(ddgksf2013)});

@@ -1,0 +1,1 @@
+var puIFu1=JSON.parse($response.body);puIFu1.data.vipTheme.type="free",puIFu1.data.needBieds=null,$done({body:JSON.stringify(puIFu1)});

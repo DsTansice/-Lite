@@ -1,0 +1,1 @@
+var obj=JSON.parse($response.body),obj={meta:{app_validate_result:0,bundleName:"pay",code:0,msg:"success",enabled:!0,paid:!0,user:null,id:56990,subscription:0,request_uri:"/iap/verify",error:""},response:{status:1}};$done({body:JSON.stringify(obj)});

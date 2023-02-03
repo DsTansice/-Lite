@@ -1,0 +1,1 @@
+const path1="/user/info";var obj=JSON.parse($response.body);-1!=$request.url.indexOf(path1)?(obj.data.vipType=1,obj.data.vipExpires=4811209694e3,obj.data.autoRenewal=!0):obj.data.isbuyVip=1,$done({body:JSON.stringify(obj)});

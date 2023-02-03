@@ -1,0 +1,1 @@
+var cuttlefish={warning:"本腳本僅供學習交流使用，禁止轉載售賣",tgchannel:"https://t.me/ddgksf2021",feedback:"https://t.me/ddgksf2013_bot"},body=$response.body.replace(/price":\d+/g,'price":0');$done({body:body});

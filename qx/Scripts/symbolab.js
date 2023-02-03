@@ -1,0 +1,1 @@
+let obj=JSON.parse($response.body);obj={valid:!0,hasUserConsumedAppleFreeTrial:!1,isCurrentlyInFreeTrial:!1,newlyAssociated:!1,membership:{isCurrentlyInFreeTrial:!1,valid:!0,hasUserConsumedAppleFreeTrial:!1,newlyAssociated:!1}},$done({body:JSON.stringify(obj)});

@@ -1,0 +1,1 @@
+var url=$request.url;let obj=JSON.parse($response.body);obj={autoRenewStatus:"0",isActive:!0,expireDateMs:4072897555e3,expirationIntent:"USER_CANCELLED",productId:"ai.laso.ios.HyperWeb.yearly.subscription"},$done({body:JSON.stringify(obj)});

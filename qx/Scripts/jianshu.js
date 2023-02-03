@@ -1,0 +1,3 @@
+let body=$response.body;/<\/html>|<\/body>/.test(body)&&(body=body.replace("</head>",`<style type="text/css">
+*{max-width:100%!important;box-sizing:border-box!important;}.side-tool, #note-fixed-ad-container, #free-reward-panel, .show-foot, .meta-bottom, aside, nav, ._13lIbp, ._3Pnjry, ._7hb9O4, ._1kCBjS, ._3tCVn5, .-pXE92, .note-graceful-button, .call-app-btn, .recommend-ad, ._2xr8G8{display:none!important}._3VRLsv, .ouvJEz{padding: 12px}._gp-ck, .W2TSX_{margin: 0!important;}
+</style></head>`),console.log("添加 tamperJS：jianshu.js")),$done({body:body});

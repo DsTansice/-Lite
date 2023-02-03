@@ -1,0 +1,1 @@
+var _0x4c2f=["headers","authorization","bearer 9fddbf3fb8ce8ef6c200bcb9e070b84a"],modifiedHeaders=$request[_0x4c2f[0]];modifiedHeaders[_0x4c2f[1]]=_0x4c2f[2],$done({headers:modifiedHeaders});

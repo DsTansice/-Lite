@@ -1,0 +1,1 @@
+var puimCea1=JSON.parse($response.body);-1!==$request.url.indexOf("hotWords")&&(puimCea1.hotwords={},puimCea1.tabs={},delete puimCea1.abver),-1!==$request.url.indexOf("hotSearchTerms")&&(puimCea1.topData.data={},puimCea1.data={}),$done({body:JSON.stringify(puimCea1)});

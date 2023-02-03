@@ -1,0 +1,1 @@
+let body=$response.body;var obj=JSON.parse(body),obj={receiptStatus:"ok",isEligibleForIntroPeriod:!0,subscriptionState:"notActive",receiptId:160761522e4,isScanner7User:!0,inAppStates:[{type:"custom purchase",productId:"scannerpro7-user",entitlements:[]}],chargingPlatform:"iOS AppStore",bundleId:"com.readdle.Scanner"};$done({body:JSON.stringify(obj)});

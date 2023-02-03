@@ -1,0 +1,1 @@
+var cuttlefish={warning:"本腳本僅供學習交流使用，禁止轉載售賣",tgchannel:"https://t.me/ddgksf2021",feedback:"https://t.me/ddgksf2013_bot"},ddgksf2013=JSON.parse($response.body);ddgksf2013.body={isVip:!0,vipEndTime:4102283483e3},$done({body:JSON.stringify(ddgksf2013)});

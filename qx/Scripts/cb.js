@@ -1,0 +1,1 @@
+body=$response.body;let obj=JSON.parse(body);obj.data={memberships:[{product_id:"castbox.premium.pro.p1y",expiry_date_ms:0xde0af0f75401000,source:"paid",name:"castbox.premium.pro"}]},body=JSON.stringify(obj),$done({body:body});

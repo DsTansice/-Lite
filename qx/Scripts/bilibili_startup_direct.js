@@ -1,0 +1,1 @@
+const Group=$prefs.valueForKey("BiliArea_Policy")||"港台番剧",message={action:"set_policy_state",content:{[Group]:"direct"}};$configuration.sendMessage(message).then(e=>{e.error&&console.log(e.error),e.ret&&JSON.stringify(e.ret),$done()},e=>{$done()});

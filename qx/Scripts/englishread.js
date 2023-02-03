@@ -1,0 +1,1 @@
+var body=$response.body;let url=$request.url;url.endsWith("QueryVipUser")&&(body={isVip:!0,code:200,expireDays:5201314}),body=JSON.stringify(body),$done({body:body});

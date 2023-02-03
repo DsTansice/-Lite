@@ -1,0 +1,1 @@
+var body=$response.body.replace(/needVerify":true/g,'needVerify":false').replace(/code":\d+/g,'code":0');$done({body:body});

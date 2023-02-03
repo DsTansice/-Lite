@@ -1,0 +1,1 @@
+var ddgksf2013;-1!=$request.url.indexOf("app/ad/queryInfoFlow")&&((ddgksf2013=JSON.parse($response.body)).obj=Object.values(ddgksf2013.obj).filter(d=>2833==d.adverId),$done({body:JSON.stringify(ddgksf2013)}));

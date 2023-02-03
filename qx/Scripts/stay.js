@@ -1,0 +1,1 @@
+let ddgksf2013=JSON.parse($response.body);ddgksf2013.biz&&(ddgksf2013.biz=Object.values(ddgksf2013.biz).filter(d=>!("promoted"==d.type))),$done({body:JSON.stringify(ddgksf2013)});
