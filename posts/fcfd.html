@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css?v=372a94e93f">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            Hexo中Markdown语法(GFM)使用 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css?v=512d6d2336">
+
+    <link rel="shortcut icon" href="/img/favicon.png?v=96e789c5be">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css?v=d318f67430">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css?v=dd643a612d">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css?v=4abb638a78">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css?v=bffe02773a">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png?v=96e789c5be","favicon":"/img/favicon.png?v=96e789c5be","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg?v=7b42f26db7","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml?v=f2133d50b5" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png?v=96e789c5be">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Hexo中Markdown语法(GFM)使用</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg?v=e52bd9a478">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2019-03-31 14:32:26</span>
+        <span class="mobile">2019-03-31 14:32</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2019-04-27 12:27:52</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Markdown/">Markdown</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.6k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>14 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <img width="267px" alt="欢迎来访呀朋友" lazyload data-src="https://wugenqiang.github.io/PictureBed/pictures/013.jpg">
+
+<span id="more"></span>
+
+<p>提起Markdown，对我来说是毕设、是项目、是不可多得的助手。<br><a class="link" target="_blank" rel="noopener" href="https://www.appinn.com/markdown/">Markdown<i class="fas fa-external-link-alt"></i></a> 是一种轻量级的”标记语言”，优点在于<br>（1）可以更加专注文章内容而不是排版样式。<br>（2）轻松的导出 HTML 和本身的 .md 文件。<br>（3）纯文本内容，兼容所有的文本编辑器与字处理软件。<br>（4）可读，直观。适合所有人的写作语言。<br>查资料了解到，Hexo下使用的MarkDown为Github的 <a class="link" target="_blank" rel="noopener" href="https://help.github.com/en/categories/writing-on-github">GFM<i class="fas fa-external-link-alt"></i></a> ，风格很漂亮，简洁美观大方。但是GFM 的MarkDown语法和标准的MarkDown稍有不同，使用过程中需要注意一些，在下面的介绍中我会进行说明的请放心。</p>
+<h1 id="1-Markdown语法"><a href="#1-Markdown语法" class="headerlink" title="1 Markdown语法"></a>1 Markdown语法</h1><h2 id="1-1-标题"><a href="#1-1-标题" class="headerlink" title="1.1 标题"></a>1.1 标题</h2><p>Markdown支持6种级别的标题，对应html标签 h1 ~ h6</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># h1   //一级标题 对应 &lt;h1&gt; &lt;/h1&gt;</span><br><span class="line">## h2   //二级标题 对应 &lt;h2&gt; &lt;/h2&gt;</span><br><span class="line">### h3  //三级标题 对应 &lt;h3&gt; &lt;/h3&gt;</span><br><span class="line">#### h4  //四级标题 对应 &lt;h4&gt; &lt;/h4&gt;</span><br><span class="line">##### h5  //五级标题 对应 &lt;h5&gt; &lt;/h5&gt;</span><br><span class="line">###### h6  //六级标题 对应 &lt;h6&gt; &lt;/h6&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-段落及区块引用"><a href="#1-2-段落及区块引用" class="headerlink" title="1.2 段落及区块引用"></a>1.2 段落及区块引用</h2><p>Markdown提供了一个特殊符号 &gt; 用于段首进行强调，被强调的文字部分将会高亮显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这段文字将会被高亮显示...</span><br></pre></td></tr></table></figure>
+
+<p>以上标记显示效果如下：</p>
+<p><img lazyload alt="image" data-src="https://wugenqiang.github.io/PictureBed/pictures/20190331144721.png"></p>
+<h2 id="1-3-插入链接或图片"><a href="#1-3-插入链接或图片" class="headerlink" title="1.3 插入链接或图片"></a>1.3 插入链接或图片</h2><p>Markdown针对链接和图片的处理也比较简单，可以使用下面的语法进行标记</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[点击跳转至百度](https://www.baidu.com)</span><br><span class="line">![图片](https://wugenqiang.github.io/PictureBed/pictures/015.jpg)</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.baidu.com/">点击跳转至百度<i class="fas fa-external-link-alt"></i></a><br><img lazyload alt="image" data-src="https://wugenqiang.github.io/PictureBed/pictures/015.jpg"></p>
+<p>注： 引用图片和链接的唯一区别就是在最前方添加一个感叹号。</p>
+<h2 id="1-4-列表"><a href="#1-4-列表" class="headerlink" title="1.4 列表"></a>1.4 列表</h2><p>Markdown支持有序列表和无序列表两种形式：</p>
+<ul>
+<li><p>无序列表使用 * 或 + 或 - 标识</p>
+</li>
+<li><p>有序列表使用数字加 . 标识，例如：1.</p>
+</li>
+</ul>
+<h2 id="1-5-分隔线"><a href="#1-5-分隔线" class="headerlink" title="1.5 分隔线"></a>1.5 分隔线</h2><p>有时候，为了排版漂亮，可能会加入分隔线。Markdown加入分隔线非常简单，使用下面任意一种形式都可以</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<hr>
+<hr>
+<h2 id="1-6-内容强调"><a href="#1-6-内容强调" class="headerlink" title="1.6 内容强调"></a>1.6 内容强调</h2><p>有时候，我们对某一部分文字进行强调，使用 * 或 _ 包裹即可。使用单一符号标记的效果是斜体，使用两个符号标记的效果是加粗</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*这里是斜体*</span><br><span class="line">_这里是斜体_</span><br><span class="line"></span><br><span class="line">**这里是加粗**</span><br><span class="line">__这里是加粗__</span><br><span class="line"></span><br><span class="line">***这里是加粗并斜体***</span><br><span class="line">___这里是加粗并斜体___</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<p><em>这里是斜体</em><br><em>这里是斜体</em></p>
+<p><strong>这里是加粗</strong><br><strong>这里是加粗</strong></p>
+<p><em><strong>这里是加粗并斜体</strong></em><br><em><strong>这里是加粗并斜体</strong></em></p>
+<h2 id="1-7-删除线"><a href="#1-7-删除线" class="headerlink" title="1.7 删除线"></a>1.7 删除线</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这样来 ~~删除一段文本~~</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<p>这样来 <del>删除一段文本</del></p>
+<h2 id="1-8-高亮显示"><a href="#1-8-高亮显示" class="headerlink" title="1.8 高亮显示"></a>1.8 高亮显示</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用&lt;code&gt;\`&lt;/code&gt;来强调字符//想打出 ` (反引号)需要转义，加&lt;code&gt;&lt;/code&gt;标签强调</span><br><span class="line">比如`突出背景色`来显示强调效果</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<p>使用<code>`</code>来强调字符<br>比如 <code>突出背景色</code> 来显示强调效果</p>
+<h2 id="1-9-嵌套引用"><a href="#1-9-嵌套引用" class="headerlink" title="1.9 嵌套引用"></a>1.9 嵌套引用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; 动物</span><br><span class="line">&gt;&gt; 水生动物</span><br><span class="line">&gt;&gt; 陆生动物</span><br><span class="line">&gt;&gt;&gt; 猴子</span><br><span class="line">&gt;&gt;&gt; 人</span><br><span class="line">&gt;&gt;&gt;&gt; 程序猿</span><br><span class="line">&gt;&gt;&gt;&gt; 攻城狮</span><br><span class="line">&gt;&gt;产品狗 <span class="comment">//这里需要注意，没有空行间隔，忽略降级引用标记</span></span><br><span class="line">射鸡虱   <span class="comment">//这里需要注意，没有空行间隔，忽略降级引用标记</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; 两栖类动物</span><br><span class="line">&gt;&gt;&gt; 大鳄鱼</span><br><span class="line">唐老鸭</span><br><span class="line"></span><br><span class="line">两个回车结束引用,不在引用范围内了！</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<blockquote>
+<p>动物</p>
+<blockquote>
+<p>水生动物<br>陆生动物</p>
+<blockquote>
+<p>猴子<br>人</p>
+<blockquote>
+<p>程序猿<br>攻城狮<br>产品狗 //这里需要注意，没有空行间隔，忽略降级引用标记<br>射鸡虱   //这里需要注意，没有空行间隔，忽略降级引用标记</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>两栖类动物</p>
+<blockquote>
+<p>大鳄鱼<br>唐老鸭</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>两个回车结束引用,不在引用范围内了！</p>
+<h2 id="1-10-修改图片"><a href="#1-10-修改图片" class="headerlink" title="1.10 修改图片"></a>1.10 修改图片</h2><h3 id="1-10-1-设置图片尺寸"><a href="#1-10-1-设置图片尺寸" class="headerlink" title="1.10.1 设置图片尺寸"></a>1.10.1 设置图片尺寸</h3><p>在 markdown 直接使用提供的语法引入图片是无法设置大小的，所以我们需要用到 html 的 img 标签。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img width="  " alt="描述" src="url"/&gt;</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img width="267px" alt="欢迎来访呀朋友" src="https://wugenqiang.github.io/PictureBed/pictures/013.jpg"/&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<img width="267px" alt="欢迎来访呀朋友" lazyload data-src="https://wugenqiang.github.io/PictureBed/pictures/013.jpg">
+
+<h3 id="1-10-2-设置图片居中"><a href="#1-10-2-设置图片居中" class="headerlink" title="1.10.2 设置图片居中"></a>1.10.2 设置图片居中</h3><p>在 markdown 设置图片居中是需要通过 div 来控制的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align=center&gt;&lt;img width="267px" alt="欢迎来访呀朋友" src="https://wugenqiang.github.io/PictureBed/pictures/013.jpg"/&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<div align="center"><img width="267px" alt="欢迎来访呀朋友" lazyload data-src="https://wugenqiang.github.io/PictureBed/pictures/013.jpg"></div>
+
+<h2 id="1-11-插入代码块"><a href="#1-11-插入代码块" class="headerlink" title="1.11 插入代码块"></a>1.11 插入代码块</h2><p>Markdown在IT圈子里面比较流行的一个重要原因是，它能够轻松漂亮地插入代码。<br>方法是，使用三个反引号 ` 进行包裹即可。如果是行内代码引用，使用单个反引号进行包裹</p>
+<p>代码块语法遵循标准 <code>markdown</code> 代码，使用 ``` 开始 ，``` 结束 例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```Python</span><br><span class="line">#!/usr/bin/env python</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">print 'Hello World! </span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p> 以上标记显示效果如下：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="built_in">print</span> <span class="string">'Hello World! </span></span><br></pre></td></tr></table></figure>
+<p>注：很多人不知道怎么输入反引号。在英文模式下，找到键盘最左侧esc键下面的第一个键点击即可。<br>有人会问：<br>如何在代码块中打出 ```<br>实际上是使用 4个` 包含 3个` 就可以了，想表示更多，最外层+1就好了。<br>````<br>```<br>```<br>````</p>
+<h2 id="1-12-插入表格"><a href="#1-12-插入表格" class="headerlink" title="1.12 插入表格"></a>1.12 插入表格</h2><p>表格是Markdown语法中比较复杂的一个，其语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">列1   | 列2 | 列3 </span><br><span class="line">----- | --- | ---- </span><br><span class="line">第1行 | 12  | 13  </span><br><span class="line">第2行 | 22  | 23  </span><br><span class="line">第3行 | 32  | 33  </span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<table>
+<thead>
+<tr>
+<th>列1</th>
+<th>列2</th>
+<th>列3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第1行</td>
+<td>12</td>
+<td>13</td>
+</tr>
+<tr>
+<td>第2行</td>
+<td>22</td>
+<td>23</td>
+</tr>
+<tr>
+<td>第3行</td>
+<td>32</td>
+<td>33</td>
+</tr>
+</tbody></table>
+<p>可以使用<code>冒号</code>来定义对齐方式：</p>
+<p>全居中样式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">表头|条目一|条目二</span><br><span class="line">:---:|:---:|:---:</span><br><span class="line">项目|项目一|项目二</span><br></pre></td></tr></table></figure>
+
+<p>以上标记显示效果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">表头</th>
+<th align="center">条目一</th>
+<th align="center">条目二</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">项目</td>
+<td align="center">项目一</td>
+<td align="center">项目二</td>
+</tr>
+</tbody></table>
+<p>可能有人喜欢左对齐或者右对齐，也可以设置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐    |  右对齐 | 居中 |</span><br><span class="line">| :-------- | -------:| :--: |</span><br><span class="line">| Computer  | 5000 元 |  1台 |</span><br><span class="line">| Phone     | 1999 元 |  1部 |</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Computer</td>
+<td align="right">5000 元</td>
+<td align="center">1台</td>
+</tr>
+<tr>
+<td align="left">Phone</td>
+<td align="right">1999 元</td>
+<td align="center">1部</td>
+</tr>
+</tbody></table>
+<p>注：三个短竖杠左右的冒号用于控制对齐方式，只放置左边冒号表示文字居左，只放置右边冒号表示文字居右，如果两边都放置冒号表示文字居中。</p>
+<h2 id="1-13-特殊符号处理"><a href="#1-13-特殊符号处理" class="headerlink" title="1.13 特殊符号处理"></a>1.13 特殊符号处理</h2><p>Markdown使用反斜杠\插入语法中用到的特殊符号。在Markdown中，主要有以下几种特殊符号需要处理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   底线</span><br><span class="line">{}  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  括弧</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   惊叹号</span><br></pre></td></tr></table></figure>
+
+<p>例如，如果你需要插入反斜杠，就连续输入两个反斜杠即可：\ \ =&gt; \ 。</p>
+<p>注：在内容中输入以上特殊符号的时候一定要注意转义，否则将导致内容显示不全，甚至排版混乱。</p>
+<p>重要：MarkDown表格中使用竖线，如何做？</p>
+<p>表格中使用竖线	竖线数目<br>|	一个竖线: &amp; # 1 2 4 ;<br>||	两个竖线: &amp; # 1 2 4 ; &amp; # 1 2 4 ;</p>
+<h2 id="1-14-文本居中引用"><a href="#1-14-文本居中引用" class="headerlink" title="1.14 文本居中引用"></a>1.14 文本居中引用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{% cq %}</span><br><span class="line">人生乃是一面镜子，</span><br><span class="line">从镜子里认识自己，</span><br><span class="line">我要称之为头等大事，</span><br><span class="line">也只是我们追求的目的！</span><br><span class="line">{% endcq %}</span><br></pre></td></tr></table></figure>
+
+<p>以上标记显示效果如下：</p>
+<p>人生乃是一面镜子，<br>从镜子里认识自己，<br>我要称之为头等大事，<br>也只是我们追求的目的！</p>
+<p>注：如果想修改字号，可以如下面这样设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;font size="4"&gt;</span><br><span class="line">{% cq %}</span><br><span class="line">  人生乃是一面镜子，</span><br><span class="line">  从镜子里认识自己，</span><br><span class="line">  我要称之为头等大事，</span><br><span class="line">  也只是我们追求的目的！</span><br><span class="line">{% endcq %}</span><br><span class="line">&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<font size="4">
+
+<p>  人生乃是一面镜子，<br>  从镜子里认识自己，<br>  我要称之为头等大事，<br>  也只是我们追求的目的！</p>
+</font>
+
+<h2 id="1-15-主题自带样式-note-标签"><a href="#1-15-主题自带样式-note-标签" class="headerlink" title="1.15 主题自带样式 note 标签"></a>1.15 主题自带样式 note 标签</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="note default"&gt;&lt;p&gt;default&lt;/p&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>以上标记显示效果如下：</p>
+<div class="note default"><p>default</p></div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="note primary"&gt;&lt;p&gt;primary&lt;/p&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<div class="note primary"><p>primary</p></div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="note success"&gt;&lt;p&gt;success&lt;/p&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<div class="note success"><p>success</p></div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="note warning"&gt;&lt;p&gt;warning&lt;/p&gt;&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<div class="note warning"><p>warning</p></div>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="note danger"&gt;&lt;p&gt;danger&lt;/p&gt;&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以上标记显示效果如下：</p>
+<div class="note danger"><p>danger</p></div>
+
+<p>在<code>主题配置文件</code>中需要配置下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Note tag (bs-callout).</span><br><span class="line">note:</span><br><span class="line">  # 风格</span><br><span class="line">  style: flat</span><br><span class="line">  # 要不要图标</span><br><span class="line">  icons: true</span><br><span class="line">  # 圆角矩形</span><br><span class="line">  border_radius: 3</span><br><span class="line">  light_bg_offset: 0</span><br></pre></td></tr></table></figure>
+<h2 id="1-16-文字处理"><a href="#1-16-文字处理" class="headerlink" title="1.16 文字处理"></a>1.16 文字处理</h2><h3 id="1-16-1-文字背景色"><a href="#1-16-1-文字背景色" class="headerlink" title="1.16.1 文字背景色"></a>1.16.1 文字背景色</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#FFFF00&gt;背景色的设置是按照十六进制颜色值：#FFFF00&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#D1EEEE&gt;背景色的设置是按照十六进制颜色值：#D1EEEE&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#C0FF3E&gt;背景色的设置是按照十六进制颜色值：#C0FF3E&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#54FF9F&gt;背景色的设置是按照十六进制颜色值：#54FF9F&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<table><tr><td bgcolor="#FFFF00">背景色的设置是按照十六进制颜色值：#FFFF00</td></tr></table>
+
+<table><tr><td bgcolor="#D1EEEE">背景色的设置是按照十六进制颜色值：#D1EEEE</td></tr></table>
+
+<table><tr><td bgcolor="#C0FF3E">背景色的设置是按照十六进制颜色值：#C0FF3E</td></tr></table>
+
+<table><tr><td bgcolor="#54FF9F">背景色的设置是按照十六进制颜色值：#54FF9F</td></tr></table>
+
+<h3 id="1-16-2-文字字体"><a href="#1-16-2-文字字体" class="headerlink" title="1.16.2 文字字体"></a>1.16.2 文字字体</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;font face="黑体"&gt;我是黑体字&lt;/font&gt;</span><br><span class="line">&lt;font face="宋体"&gt;我是宋体字&lt;/font&gt;</span><br><span class="line">&lt;font face="微软雅黑"&gt;我是微软雅黑字&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><font face="黑体">我是黑体字</font><br><font face="宋体">我是宋体字</font><br><font face="微软雅黑">我是微软雅黑字</font></p>
+<h3 id="1-16-3-文字大小"><a href="#1-16-3-文字大小" class="headerlink" title="1.16.3 文字大小"></a>1.16.3 文字大小</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">size为1：&lt;font size="1"&gt;size为1&lt;/font&gt;</span><br><span class="line">size为2：&lt;font size="2"&gt;size为2&lt;/font&gt;</span><br><span class="line">size为3：&lt;font size="3"&gt;size为3&lt;/font&gt;</span><br><span class="line">size为4：&lt;font size="4"&gt;size为4&lt;/font&gt;</span><br><span class="line">size为10：&lt;font size="10"&gt;size为10&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p>size为1：<font size="1">size为1</font><br>size为2：<font size="2">size为2</font><br>size为3：<font size="3">size为3</font><br>size为4：<font size="4">size为4</font><br>size为10：<font size="10">size为10</font></p>
+<h3 id="1-16-4-文字颜色"><a href="#1-16-4-文字颜色" class="headerlink" title="1.16.4 文字颜色"></a>1.16.4 文字颜色</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">红色文字：&lt;font color="red"&gt;红色文字&lt;/font&gt;</span><br><span class="line">浅红色文字：&lt;font color="#dd0000"&gt;浅红色文字&lt;/font&gt; </span><br><span class="line">蓝色文字：&lt;font color="blue"&gt;蓝色文字&lt;/font&gt;</span><br><span class="line">浅蓝色文字：&lt;font color="#0000dd"&gt;浅蓝色文字&lt;/font&gt;</span><br><span class="line">绿色文字：&lt;font color="green"&gt;绿色文字&lt;/font&gt;</span><br><span class="line">金黄色文字：&lt;font color="#FFFF00"&gt;金黄色文字&lt;/font&gt;</span><br><span class="line">浅黄色文字：&lt;font color="#dddd00"&gt;浅黄色文字&lt;/font&gt; </span><br><span class="line">深黄色文字：&lt;font color="#666600"&gt;深黄色文字&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p>红色文字：<font color="red">红色文字</font><br>浅红色文字：<font color="#dd0000">浅红色文字</font><br>蓝色文字：<font color="blue">蓝色文字</font><br>浅蓝色文字：<font color="#0000dd">浅蓝色文字</font><br>绿色文字：<font color="green">绿色文字</font><br>金黄色文字：<font color="#FFFF00">金黄色文字</font><br>浅黄色文字：<font color="#dddd00">浅黄色文字</font><br>深黄色文字：<font color="#666600">深黄色文字</font></p>
+<p>需要其它更多的颜色，可以到下面这个网址查更多颜色的 RGB，或者直接用颜色的英文代替 RGB<br><a class="link" target="_blank" rel="noopener" href="http://www.114la.com/other/rgb.htm">RGB颜色查询对照表<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="1-16-4-同时改变字体，字号和颜色"><a href="#1-16-4-同时改变字体，字号和颜色" class="headerlink" title="1.16.4 同时改变字体，字号和颜色"></a>1.16.4 同时改变字体，字号和颜色</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;font face="字体" size="字号" color="颜色"&gt;这里是需要突出显示的内容&lt;/font&gt;</span><br><span class="line">&lt;font face="黑体"&gt;我是黑体字&lt;/font&gt;</span><br><span class="line">&lt;font face="微软雅黑"&gt;我是微软雅黑&lt;/font&gt;</span><br><span class="line">&lt;font face="STCAIYUN"&gt;我是华文彩云&lt;/font&gt;</span><br><span class="line">&lt;font color=red&gt;我是红色&lt;/font&gt;</span><br><span class="line">&lt;font color=#008000&gt;我是绿色&lt;/font&gt;</span><br><span class="line">&lt;font color=Blue&gt;我是蓝色&lt;/font&gt;</span><br><span class="line">&lt;font size=5&gt;我是尺寸&lt;/font&gt;</span><br><span class="line">&lt;font face="黑体" color=green size=5&gt;我是黑体，绿色，尺寸为5&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><font face="字体" size="字号" color="颜色">这里是需要突出显示的内容</font><br><font face="黑体">我是黑体字</font><br><font face="微软雅黑">我是微软雅黑</font><br><font face="STCAIYUN">我是华文彩云</font><br><font color="red">我是红色</font><br><font color="#008000">我是绿色</font><br><font color="Blue">我是蓝色</font><br><font size="5">我是尺寸</font><br><font face="黑体" color="green" size="5">我是黑体，绿色，尺寸为5</font></p>
+<h2 id="1-17-使用Emoji表情"><a href="#1-17-使用Emoji表情" class="headerlink" title="1.17 使用Emoji表情"></a>1.17 使用Emoji表情</h2><p>使用前首先要开启 <code>emoji</code>，默认是不显示的，参考：<a class="link" target="_blank" rel="noopener" href="https://wugenqiang.gitee.io/articles/hexo-do-optimization.html#3-27-%E5%BC%80%E5%90%AFemoji%E8%A1%A8%E6%83%85">开启emoji表情<i class="fas fa-external-link-alt"></i></a><br>开启 <code>emoji</code> 后进行操作</p>
+<p>举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello Hexo NexT :smile:</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<p>Hello Hexo NexT  :smile:</p>
+<p>更多可用 Emoji 代码参见 <a class="link" target="_blank" rel="noopener" href="https://www.webfx.com/tools/emoji-cheat-sheet/">emoji-cheat-sheet<i class="fas fa-external-link-alt"></i></a> 和 <a class="link" target="_blank" rel="noopener" href="https://www.emojicopy.com/">emojicopy<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="1-18-复选框列表-github可用-hexo不支持"><a href="#1-18-复选框列表-github可用-hexo不支持" class="headerlink" title="1.18 复选框列表(github可用,hexo不支持)"></a>1.18 复选框列表(github可用,hexo不支持)</h2><p>在列表符号后面加上 <code>[x]</code> 或者 <code>[ ]</code> 代表<code>选中</code>或者<code>未选中</code>情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- [ ] content </span><br><span class="line">-空格[空格]空格content </span><br><span class="line">解释: [ ]括号里面的空格可以换成[x],代表选中对话框</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input checked disabled type="checkbox"> C</li>
+<li><input checked disabled type="checkbox"> C++</li>
+<li><input checked disabled type="checkbox"> Java</li>
+<li><input checked disabled type="checkbox"> Qt</li>
+<li><input checked disabled type="checkbox"> Android</li>
+<li><input disabled type="checkbox"> C#</li>
+<li><input disabled type="checkbox"> .NET</li>
+</ul>
+<h2 id="1-19-脚注"><a href="#1-19-脚注" class="headerlink" title="1.19 脚注"></a>1.19 脚注</h2><p>使用 <code>[^1]</code> <code>[^1]: </code>的脚注对来表示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Here is a footnote reference,[^1] and another.[^longnote]</span><br><span class="line"></span><br><span class="line">[^1]: Here is the footnote.</span><br><span class="line"></span><br><span class="line">[^longnote]: Here's one with multiple blocks.</span><br><span class="line">    Subsequent paragraphs are indented to show that they</span><br><span class="line">    belong to the previous footnote.</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p>Here is a footnote reference,[^1] and another.[^longnote]</p>
+<p>[^1]: Here is the footnote.</p>
+<p>[^longnote]: Here’s one with multiple blocks.<br>    Subsequent paragraphs are indented to show that they<br>    belong to the previous footnote.</p>
+<h1 id="2-文章编辑"><a href="#2-文章编辑" class="headerlink" title="2 文章编辑"></a>2 文章编辑</h1><h2 id="2-1-文章配置"><a href="#2-1-文章配置" class="headerlink" title="2.1 文章配置"></a>2.1 文章配置</h2><p>在<code>hexo</code>文件夹下右键点击<code>Git Bash here</code>后键入<code>$hexo new page "name"</code>，<code>source/_post</code> 文件夹中就会生成<code>name.md</code>文件，打开后即可编辑，编辑格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名</span><br><span class="line">date: <span class="number">2019</span>-<span class="number">04</span>-09 <span class="number">12</span>:<span class="number">27</span>:<span class="number">52</span>     <span class="comment">//发表日期</span></span><br><span class="line">updated: <span class="number">2019</span>-<span class="number">04</span>-09 <span class="number">13</span>:<span class="number">27</span>:<span class="number">52</span>  <span class="comment">//更新日期</span></span><br><span class="line">categories: Markdown          <span class="comment">//文章分类</span></span><br><span class="line">tags: [tag1,tag2]             <span class="comment">//文章标签，多标签时使用英文逗号隔开</span></span><br><span class="line">photos:                       <span class="comment">//如果使用Fancybox（文章头部展示图片），如此设置  </span></span><br><span class="line">                              <span class="comment">//注意冒号后面有空格</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-文章折叠"><a href="#2-2-文章折叠" class="headerlink" title="2.2 文章折叠"></a>2.2 文章折叠</h2><p>在要显示的文字末尾添加如下代码实现文章在主页的折叠显示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Hexo中Markdown语法(GFM)使用</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2019-03-31 14:32:26</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/fcfd.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Markdown/">#Markdown</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev" rel="prev" href="/posts/fb0c.html">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">PicGo + GitHub 图床，让 Markdown 飞起</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next" rel="next" href="/posts/c920.html">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Hexo NexT 加入背景图片</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Markdown%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">1 Markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%A0%87%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%AE%B5%E8%90%BD%E5%8F%8A%E5%8C%BA%E5%9D%97%E5%BC%95%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 段落及区块引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%8F%92%E5%85%A5%E9%93%BE%E6%8E%A5%E6%88%96%E5%9B%BE%E7%89%87"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 插入链接或图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E5%88%97%E8%A1%A8"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E5%88%86%E9%9A%94%E7%BA%BF"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 分隔线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-%E5%86%85%E5%AE%B9%E5%BC%BA%E8%B0%83"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 内容强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 删除线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 高亮显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-%E5%B5%8C%E5%A5%97%E5%BC%95%E7%94%A8"><span class="nav-number">1.9.</span> <span class="nav-text">1.9 嵌套引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-%E4%BF%AE%E6%94%B9%E5%9B%BE%E7%89%87"><span class="nav-number">1.10.</span> <span class="nav-text">1.10 修改图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-1-%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8"><span class="nav-number">1.10.1.</span> <span class="nav-text">1.10.1 设置图片尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-2-%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E5%B1%85%E4%B8%AD"><span class="nav-number">1.10.2.</span> <span class="nav-text">1.10.2 设置图片居中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-11-%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">1.11.</span> <span class="nav-text">1.11 插入代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-12-%E6%8F%92%E5%85%A5%E8%A1%A8%E6%A0%BC"><span class="nav-number">1.12.</span> <span class="nav-text">1.12 插入表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-13-%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E5%A4%84%E7%90%86"><span class="nav-number">1.13.</span> <span class="nav-text">1.13 特殊符号处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-14-%E6%96%87%E6%9C%AC%E5%B1%85%E4%B8%AD%E5%BC%95%E7%94%A8"><span class="nav-number">1.14.</span> <span class="nav-text">1.14 文本居中引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-15-%E4%B8%BB%E9%A2%98%E8%87%AA%E5%B8%A6%E6%A0%B7%E5%BC%8F-note-%E6%A0%87%E7%AD%BE"><span class="nav-number">1.15.</span> <span class="nav-text">1.15 主题自带样式 note 标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-16-%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86"><span class="nav-number">1.16.</span> <span class="nav-text">1.16 文字处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-16-1-%E6%96%87%E5%AD%97%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-number">1.16.1.</span> <span class="nav-text">1.16.1 文字背景色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-16-2-%E6%96%87%E5%AD%97%E5%AD%97%E4%BD%93"><span class="nav-number">1.16.2.</span> <span class="nav-text">1.16.2 文字字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-16-3-%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.16.3.</span> <span class="nav-text">1.16.3 文字大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-16-4-%E6%96%87%E5%AD%97%E9%A2%9C%E8%89%B2"><span class="nav-number">1.16.4.</span> <span class="nav-text">1.16.4 文字颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-16-4-%E5%90%8C%E6%97%B6%E6%94%B9%E5%8F%98%E5%AD%97%E4%BD%93%EF%BC%8C%E5%AD%97%E5%8F%B7%E5%92%8C%E9%A2%9C%E8%89%B2"><span class="nav-number">1.16.5.</span> <span class="nav-text">1.16.4 同时改变字体，字号和颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-17-%E4%BD%BF%E7%94%A8Emoji%E8%A1%A8%E6%83%85"><span class="nav-number">1.17.</span> <span class="nav-text">1.17 使用Emoji表情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18-%E5%A4%8D%E9%80%89%E6%A1%86%E5%88%97%E8%A1%A8-github%E5%8F%AF%E7%94%A8-hexo%E4%B8%8D%E6%94%AF%E6%8C%81"><span class="nav-number">1.18.</span> <span class="nav-text">1.18 复选框列表(github可用,hexo不支持)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19-%E8%84%9A%E6%B3%A8"><span class="nav-number">1.19.</span> <span class="nav-text">1.19 脚注</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">2 文章编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E6%96%87%E7%AB%A0%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 文章配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%96%87%E7%AB%A0%E6%8A%98%E5%8F%A0"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 文章折叠</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            ©
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span> 
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png?v=9693e72d12"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center" href="/atom.xml" target="_blank">
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js?v=cbd27e8569"></script>
+
+<script src="/js/main.js?v=3ab50fd2bb"></script>
+
+<script src="/js/header-shrink.js?v=0418df63d7"></script>
+
+<script src="/js/back2top.js?v=139ceb0539"></script>
+
+<script src="/js/dark-light-toggle.js?v=f21816b072"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js?v=0ce0b1d637"></script>
+
+
+
+
+    
+<script src="/js/code-block.js?v=63706df46d"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js?v=f1e4b68ec3"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js?v=34bd3800c9"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js?v=864a144dbb"></script>
+
+        
+        
+            
+<script src="/js/toc.js?v=037238356c"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js?v=cdf1c08dca"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

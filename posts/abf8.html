@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css?v=372a94e93f">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            Web App 相关技术 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css?v=512d6d2336">
+
+    <link rel="shortcut icon" href="/img/favicon.png?v=96e789c5be">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css?v=d318f67430">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css?v=dd643a612d">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css?v=4abb638a78">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css?v=bffe02773a">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png?v=96e789c5be","favicon":"/img/favicon.png?v=96e789c5be","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg?v=7b42f26db7","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml?v=f2133d50b5" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png?v=96e789c5be">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Web App 相关技术</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg?v=e52bd9a478">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2015-06-17 14:06:05</span>
+        <span class="mobile">2015-06-17 14:06</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:40:28</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaScript-HTML-CSS-Sass-%E7%A7%BB%E5%8A%A8%E7%AB%AF-XSS-AMD-requireJS-CommonJS-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-WebApp/">JavaScript HTML CSS Sass 移动端 XSS AMD requireJS CommonJS 性能优化 WebApp</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>5.7k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>23 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <ul>
+<li>content<br>{:toc}</li>
+</ul>
+<blockquote>
+<p>往前推2到3年，前端工程师还在忧心忡忡地想，移动互联网时代下，前端是不是没有生存空间了。但今天一看，在我们团队，前端工程师超过一半的工作都是在做移动端的Web或者APP的开发。移动Web或者APP在技术本质上是和做桌面端Web没有本质区别，但是移动端的坑那是非常的多，通过学习这部分内容，让你成为一名桌面移动通吃的前端开发工程师。</p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>参考： <a class="link" target="_blank" rel="noopener" href="http://junmer.github.io/mobile-dev-get-started/">移动 Web 开发入门<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>上面这个 slide 资料讲的非常好，算是一个入门的介绍吧。带我们建立基本的移动 web 开发知识体系和常见问题的实践。包含以下几个方面：</p>
+<ul>
+<li><p>基本概念</p>
+<ul>
+<li><p>Native</p>
+<p>  本地应用 使用 Java \ Objective-C \ Swift 开发</p>
+</li>
+<li><p>WebApp</p>
+<p>  网页应用 html5 开发</p>
+</li>
+<li><p>Hybrid</p>
+<p>  混合应用 ooxx(native, web)</p>
+</li>
+<li><p>对比</p>
+</li>
+</ul>
+</li>
+<li><p>视觉</p>
+<ul>
+<li>设备的像素</li>
+<li>文字单位使用 rem</li>
+<li>viewport 属性</li>
+<li>横屏竖屏</li>
+<li>Flex 伸缩布局</li>
+<li>响应式设计</li>
+<li>软键盘</li>
+<li>隐藏地址栏</li>
+<li>苹果设备添加到主屏图标</li>
+</ul>
+</li>
+<li><p>交互</p>
+<ul>
+<li>Touch</li>
+<li>click 延迟</li>
+<li>Scroll</li>
+<li>Gestures(hammer –A javascript library for multi-touch gestures)</li>
+<li>手指友好设计</li>
+<li>HTML5 APIS（图像，摇动，声音等）</li>
+</ul>
+</li>
+<li><p>实践</p>
+<ul>
+<li>屏蔽点击元素时的阴影</li>
+<li>图像（像素、矢量图标、base64 减少请求、lazyload）</li>
+<li>CSS3（合理使用渐变/圆角/阴影、代替 js 动画、translate3d、解决动画闪烁）</li>
+<li>localStorage</li>
+<li>避免（iframe、fixed + input）</li>
+<li>SPA 或 Multi page</li>
+<li>can I use</li>
+<li>压缩合并</li>
+<li>@G/3G 下建立连接时间</li>
+</ul>
+</li>
+<li><p>调试</p>
+<ul>
+<li><p>浏览器自己的调试工具，模拟手机设备</p>
+</li>
+<li><p>weinre</p>
+<p>  关于 weinre 我写了一篇博客介绍它。<a class="link" target="_blank" rel="noopener" href="http://gaohaoyang.github.io/2015/06/18/weinre/">Weinre –WebApp 调试工具<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="head-标签"><a href="#head-标签" class="headerlink" title="head 标签"></a>head 标签</h2><p>参考：</p>
+<ul>
+<li><a class="link" target="_blank" rel="noopener" href="http://www.css88.com/archives/5480">移动前端不得不了解的html5 head 头标签<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<p>上面的链接详细的讲解了：</p>
+<ul>
+<li><p>DOCTYPE</p>
+</li>
+<li><p>charset</p>
+</li>
+<li><p>lang属性</p>
+</li>
+<li><p>优先使用 IE 最新版本和 Chrome</p>
+</li>
+<li><p>360 使用Google Chrome Frame</p>
+</li>
+<li><p>SEO 优化部分：页面标题<title>标签(head 头部必须)，页面关键词 keywords，页面描述内容 description，定义网页作者 author，网页搜索引擎索引方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;为移动设备添加 viewport&lt;/p&gt;
+&lt;p&gt;  &lt;code&gt;viewport&lt;/code&gt; 可以让布局在移动浏览器上显示的更好。 通常会写&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="highlight html"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="line"&gt;&lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt; =&lt;span class="string"&gt;"viewport"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt; =&lt;span class="string"&gt;"initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="comment"&gt;&lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;content 参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;width viewport 宽度(数值/device-width)&lt;/li&gt;
+&lt;li&gt;height viewport 高度(数值/device-height)&lt;/li&gt;
+&lt;li&gt;initial-scale 初始缩放比例&lt;/li&gt;
+&lt;li&gt;maximum-scale 最大缩放比例&lt;/li&gt;
+&lt;li&gt;minimum-scale 最小缩放比例&lt;/li&gt;
+&lt;li&gt;user-scalable 是否允许用户缩放(yes/no)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ios 设备，iOS 图标，Android，Windows 8&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class="highlight html"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;78&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;79&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;80&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;81&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;82&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;83&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;84&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;85&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;86&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;87&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;88&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;89&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;90&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;91&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;92&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;93&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;94&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;95&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;96&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="line"&gt;&lt;span class="meta"&gt;&lt;!DOCTYPE &lt;span class="keyword"&gt;html&lt;/span&gt;&gt;&lt;/span&gt; &lt;span class="comment"&gt;&lt;!-- 使用 HTML5 doctype，不区分大小写 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;html&lt;/span&gt; &lt;span class="attr"&gt;lang&lt;/span&gt;=&lt;span class="string"&gt;"zh-cmn-Hans"&lt;/span&gt;&gt;&lt;/span&gt; &lt;span class="comment"&gt;&lt;!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;head&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 声明文档使用的字符编码 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;charset&lt;/span&gt;=&lt;span class="string"&gt;'utf-8'&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 优先使用 IE 最新版本和 Chrome --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;http-equiv&lt;/span&gt;=&lt;span class="string"&gt;"X-UA-Compatible"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"IE=edge,chrome=1"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 页面描述 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"description"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"不超过150个字符"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 页面关键词 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"keywords"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;""&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 网页作者 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"author"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"name, email@gmail.com"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 搜索引擎抓取 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"robots"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"index,follow"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 为移动设备添加 viewport --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"viewport"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- `width=device-width` 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边 http://bigc.at/ios-webapp-viewport-meta.orz --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iOS 设备 begin --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"apple-mobile-web-app-title"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"标题"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 添加到主屏后的标题（iOS 6 新增） --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"apple-mobile-web-app-capable"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"yes"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"apple-itunes-app"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"apple-mobile-web-app-status-bar-style"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"black"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 设置苹果工具栏颜色 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"format-detection"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"telphone=no, email=no"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"renderer"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"webkit"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 避免IE使用兼容模式 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;http-equiv&lt;/span&gt;=&lt;span class="string"&gt;"X-UA-Compatible"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"IE=edge"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"HandheldFriendly"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"true"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 微软的老式浏览器 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"MobileOptimized"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"320"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- uc强制竖屏 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"screen-orientation"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"portrait"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- QQ强制竖屏 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"x5-orientation"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"portrait"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- UC强制全屏 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"full-screen"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"yes"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- QQ强制全屏 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"x5-fullscreen"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"true"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- UC应用模式 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"browsermode"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"application"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- QQ应用模式 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"x5-page-mode"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"app"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- windows phone 点击无高光 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"msapplication-tap-highlight"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"no"&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iOS 图标 begin --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-icon-precomposed"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/apple-touch-icon-57x57-precomposed.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-icon-precomposed"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"114x114"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/apple-touch-icon-114x114-precomposed.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-icon-precomposed"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"144x144"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/apple-touch-icon-144x144-precomposed.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iOS 图标 end --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iOS 启动画面 begin --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-startup-image"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"768x1004"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/splash-screen-768x1004.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-startup-image"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"1536x2008"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/splash-screen-1536x2008.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-startup-image"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"1024x748"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/Default-Portrait-1024x748.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-startup-image"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"2048x1496"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/splash-screen-2048x1496.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPad 横屏 2048x1496（Retina） --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-startup-image"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/splash-screen-320x480.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-startup-image"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"640x960"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/splash-screen-640x960.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"apple-touch-startup-image"&lt;/span&gt; &lt;span class="attr"&gt;sizes&lt;/span&gt;=&lt;span class="string"&gt;"640x1136"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/splash-screen-640x1136.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iOS 启动画面 end --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- iOS 设备 end --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"msapplication-TileColor"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"#000"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- Windows 8 磁贴颜色 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;meta&lt;/span&gt; &lt;span class="attr"&gt;name&lt;/span&gt;=&lt;span class="string"&gt;"msapplication-TileImage"&lt;/span&gt; &lt;span class="attr"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;"icon.png"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- Windows 8 磁贴图标 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"alternate"&lt;/span&gt; &lt;span class="attr"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;"application/rss+xml"&lt;/span&gt; &lt;span class="attr"&gt;title&lt;/span&gt;=&lt;span class="string"&gt;"RSS"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/rss.xml"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 添加 RSS 订阅 --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;link&lt;/span&gt; &lt;span class="attr"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;"shortcut icon"&lt;/span&gt; &lt;span class="attr"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;"image/ico"&lt;/span&gt; &lt;span class="attr"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;"/favicon.ico"&lt;/span&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="comment"&gt;&lt;!-- 添加 favicon icon --&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;title&lt;/span&gt;&gt;&lt;/span&gt;标题&lt;span class="tag"&gt;&lt;/&lt;span class="name"&gt;title&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="tag"&gt;&lt;/&lt;span class="name"&gt;head&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="tag"&gt;&lt;&lt;span class="name"&gt;body&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="tag"&gt;&lt;/&lt;span class="name"&gt;body&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="tag"&gt;&lt;/&lt;span class="name"&gt;html&lt;/span&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id="页面切换动画"&gt;&lt;a href="#页面切换动画" class="headerlink" title="页面切换动画"&gt;&lt;/a&gt;页面切换动画&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html" &gt;移动端重构系列13——页面切换&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.w3cplus.com/css3/css3-3d-transform.html" &gt;CSS3 3D Transform&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关于 HammerJS 的一个中文文档&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.cnblogs.com/iamlilinfeng/p/4239957.html" &gt;Hammer.js&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="CSS-Processing"&gt;&lt;a href="#CSS-Processing" class="headerlink" title="CSS Processing"&gt;&lt;/a&gt;CSS Processing&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;CSS语言由于其自身语言设计的问题，加上一些浏览器兼容性问题，往往会使得我们在写它的时候，要写很多冗余代码，或者为了兼容性对同一个样式设定写好几遍。针对这些问题，诞生了CSS预处理和后处理的概念及相关方法、工具。&lt;/p&gt;
+&lt;p&gt;这些工具和方法帮助我们能够更加高效地书写可维护性更强的CSS代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里我尝试使用了 Sass，果然很好用。下面记录几个 sass 教程。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.w3cplus.com/sassguide/" &gt;Sass入门-w3cplus&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/06/sass.html" &gt;SASS用法指南-阮一峰&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="安装"&gt;&lt;a href="#安装" class="headerlink" title="安装"&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;首先要有 ruby 环境。&lt;/p&gt;
+&lt;p&gt;由于国内网络原因（你懂的），导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时候我们可以通过gem sources命令来配置源，先移除默认的 &lt;a class="link"   target="_blank" rel="noopener" href="https://rubygems.org/" &gt;https://rubygems.org&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt; 源，然后添加淘宝的源 &lt;a class="link"   target="_blank" rel="noopener" href="https://ruby.taobao.org/%EF%BC%8C%E7%84%B6%E5%90%8E%E6%9F%A5%E7%9C%8B%E4%B8%8B%E5%BD%93%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E6%BA%90%E6%98%AF%E5%93%AA%E4%B8%AA%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%98%AF%E6%B7%98%E5%AE%9D%E7%9A%84%EF%BC%8C%E5%88%99%E8%A1%A8%E7%A4%BA%E5%8F%AF%E4%BB%A5%E8%BE%93%E5%85%A5" &gt;https://ruby.taobao.org/，然后查看下当前使用的源是哪个，如果是淘宝的，则表示可以输入&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt; sass 安装命令 &lt;code&gt;gem install sass&lt;/code&gt; 了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ gem sources --remove https://rubygems.org/
+$ gem sources -a https://ruby.taobao.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org
+# 请确保只有 ruby.taobao.org
+$ gem install sass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="编译"&gt;&lt;a href="#编译" class="headerlink" title="编译"&gt;&lt;/a&gt;编译&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sass --watch style.scss:style.css --style expanded
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h3 id="补充"&gt;&lt;a href="#补充" class="headerlink" title="补充"&gt;&lt;/a&gt;补充&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;rem&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;字体单位使用 rem，用户在手机上设置了字体大小时，不会打破布局，造成混乱。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.w3cplus.com/css3/define-font-size-with-css3-rem" &gt;CSS3的REM设置字体大小-w3cplus&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.iyunlu.com/view/css-xhtml/76.html" &gt;响应式十日谈第一日：使用 rem 设置文字大小-一丝&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="安全"&gt;&lt;a href="#安全" class="headerlink" title="安全"&gt;&lt;/a&gt;安全&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;安全是大家经常容易忽视，但其实一旦出现影响会非常大的问题，尤其对于没有经历过企业开发，或者没有踩过坑的同学，如果等到公司工作，做实际项目后非常容易发生安全问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="分类"&gt;&lt;a href="#分类" class="headerlink" title="分类"&gt;&lt;/a&gt;分类&lt;/h3&gt;&lt;p&gt;WEB基本攻击大致可以分为三大类：“资源枚举”、“参数操纵” 和 “其它攻击”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;资源枚举&lt;/li&gt;
+&lt;li&gt;参数操纵&lt;ul&gt;
+&lt;li&gt;SQL注入&lt;/li&gt;
+&lt;li&gt;XPath注入&lt;/li&gt;
+&lt;li&gt;cgi命令执行&lt;/li&gt;
+&lt;li&gt;XXS（cross-site scripting跨域脚本攻击）其重点是“跨域”和“客户端执行”&lt;ul&gt;
+&lt;li&gt;Reflected XSS ——基于反射的XSS攻击。主要依靠站点服务端返回脚本，在客户端触发执行从而发起WEB攻击。&lt;/li&gt;
+&lt;li&gt;DOM-based or local XSS——基于DOM或本地的XSS攻击&lt;/li&gt;
+&lt;li&gt;Stored XSS——基于存储的XSS攻击&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;会话劫持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;其它攻击&lt;ul&gt;
+&lt;li&gt;CSRF（cross-site request forgery）跨站请求伪造&lt;/li&gt;
+&lt;li&gt;钓鱼攻击指的是网站的伪造，比如ta0bao.com，然后在其中应用XSS等方式发起攻击。&lt;/li&gt;
+&lt;li&gt;拒绝服务（DoS）指的是向网站发起洪水一样的请求（Traffic Floor），导致服务器超负荷并关闭，处理方法常规是采用QoS（Quality of Service）的软硬件解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="关于-XSS"&gt;&lt;a href="#关于-XSS" class="headerlink" title="关于 XSS"&gt;&lt;/a&gt;关于 XSS&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;跨网站脚本&lt;/strong&gt;（Cross-site scripting，通常简称为XSS或跨站脚本或跨站脚本攻击）是一种网站应用程序的安全漏洞攻击，是代码注入的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了HTML以及用户端脚本语言。&lt;/p&gt;
+&lt;p&gt;XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是JavaScript，但实际上也可以包括Java， VBScript， ActiveX， Flash 或者甚至是普通的HTML。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、会话和cookie等各种内容。&lt;/p&gt;
+&lt;p&gt;——维基百科&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="XSS-防护"&gt;&lt;a href="#XSS-防护" class="headerlink" title="XSS 防护"&gt;&lt;/a&gt;XSS 防护&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;浏览器解析顺序：&lt;/p&gt;
+&lt;p&gt; HTML Parser &gt;&gt; CSS Parser &gt;&gt; JavaScript Parser&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;浏览器解码顺序：&lt;/p&gt;
+&lt;p&gt; HTML Decoding &gt;&gt; URL Decoding &gt;&gt; JavaScript Decoding&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;具体的防护方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;验证输入并且基于语境和按照正确的顺序转义不可信数据&lt;ul&gt;
+&lt;li&gt;HTML 中的字符串&lt;/li&gt;
+&lt;li&gt;HTML 属性中的字符串&lt;/li&gt;
+&lt;li&gt;事件句柄属性和 JavaScript 中的字符串&lt;/li&gt;
+&lt;li&gt;HTML 属性中的 URL 路径&lt;/li&gt;
+&lt;li&gt;HTML 风格属性和 CSS 中的字符串&lt;/li&gt;
+&lt;li&gt;JavaScript 中的 HTML&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;始终遵循白名单优于黑名单的做法&lt;/li&gt;
+&lt;li&gt;使用 UTF-8 为默认的字符编码以及设置 content 为 text/html&lt;/li&gt;
+&lt;li&gt;不要将用户可以控制的文本放在&lt;meta&gt;标签前。通过使用不同的字符集注射可以导致 XSS。&lt;/li&gt;
+&lt;li&gt;使用 &lt;!DOCTYPE html&gt;&lt;/li&gt;
+&lt;li&gt;使用推荐的 HTTP 响应头进行 XSS 防护&lt;/li&gt;
+&lt;li&gt;防止 CRLF 注入/HTTP 响应拆分&lt;/li&gt;
+&lt;li&gt;禁止 TRACE 和其他非必要方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于 innerHTML 的方式输出的，我们可以采用如下的方式转码&lt;/p&gt;
+&lt;figure class="highlight js"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="line"&gt;&lt;span class="comment"&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="comment"&gt; * 转码 XSS 防护&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="comment"&gt; * &lt;span class="doctag"&gt;@param&lt;/span&gt;  {&lt;span class="type"&gt;String&lt;/span&gt;} str 用户输入的字符串&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="comment"&gt; * &lt;span class="doctag"&gt;@return&lt;/span&gt; {&lt;span class="type"&gt;String&lt;/span&gt;}     转码后的字符串&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="comment"&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;&lt;span class="keyword"&gt;function&lt;/span&gt; &lt;span class="title function_"&gt;changeCode&lt;/span&gt;(&lt;span class="params"&gt;str&lt;/span&gt;) {&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    str = str.&lt;span class="title function_"&gt;replace&lt;/span&gt;(&lt;span class="regexp"&gt;/&amp;/g&lt;/span&gt;, &lt;span class="string"&gt;"&amp;amp;"&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;              .&lt;span class="title function_"&gt;replace&lt;/span&gt;(&lt;span class="regexp"&gt;/&lt;/g&lt;/span&gt;, &lt;span class="string"&gt;"&amp;lt;"&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;              .&lt;span class="title function_"&gt;replace&lt;/span&gt;(&lt;span class="regexp"&gt;/&gt;/g&lt;/span&gt;, &lt;span class="string"&gt;"&amp;gt;"&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;              .&lt;span class="title function_"&gt;replace&lt;/span&gt;(&lt;span class="regexp"&gt;/"/g&lt;/span&gt;, &lt;span class="string"&gt;"&amp;quot;"&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;              .&lt;span class="title function_"&gt;replace&lt;/span&gt;(&lt;span class="regexp"&gt;/'/g&lt;/span&gt;, &lt;span class="string"&gt;"&amp;#x27;"&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;              .&lt;span class="title function_"&gt;replace&lt;/span&gt;(&lt;span class="regexp"&gt;/\//g&lt;/span&gt;, &lt;span class="string"&gt;"&amp;#x2f;"&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="keyword"&gt;return&lt;/span&gt; str;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.cnblogs.com/vajoy/p/4176908.html" &gt;浅谈WEB安全性（前端向）&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.freebuf.com/articles/web/40520.html" &gt;XSS的原理分析与解剖&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/" &gt;原创翻译：给开发者的终极XSS防护备忘录&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="性能优化"&gt;&lt;a href="#性能优化" class="headerlink" title="性能优化"&gt;&lt;/a&gt;性能优化&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在自己做一些小项目时，可能是学校的一些网站项目，流量可能日均都不超过500，而且大多是校园局域网内访问；或者是开发一些实验室的MIS系统，这辈子你都不会去使用你开发的这个系统。在这样一些项目中，性能优化往往会被你忽略。&lt;/p&gt;
+&lt;p&gt;但是如果你是做一个日均PV数万、数十万、甚至更大的量级，开发的页面会被全国各地，不同网络条件的用户来进行访问。这个时候，性能问题就无法忽视了。在当今的网络条件下，如果你的页面3秒都无法完成首屏渲染，一定会让你的网站流失很多用户。&lt;/p&gt;
+&lt;p&gt;整个网站的性能优化有很多的环节和工作，大多数时候，不是前端工程师单独就能完成的，尤其在职能划分明确的公司中，往往需要前后端、运维、DBA等多个职位协同完成。所以，在我们的课程中，主要让你了解整个性能优化都涉及哪些方面的工作，同时，我们会专注介绍一些在前端领域可以重点关注的技术点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里就是网页的打开速度，如果你的网页打开速度很慢，那么一定会有用户的流失。所以性能优化很重要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;网页内容&lt;ul&gt;
+&lt;li&gt;减少http请求次数&lt;/li&gt;
+&lt;li&gt;减少DNS查询次数&lt;/li&gt;
+&lt;li&gt;避免页面跳转&lt;/li&gt;
+&lt;li&gt;缓存Ajax&lt;/li&gt;
+&lt;li&gt;延迟加载&lt;/li&gt;
+&lt;li&gt;提前加载&lt;/li&gt;
+&lt;li&gt;减少DOM元素数量&lt;/li&gt;
+&lt;li&gt;根据域名划分内容&lt;/li&gt;
+&lt;li&gt;减少iframe数量&lt;/li&gt;
+&lt;li&gt;避免404&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;服务器&lt;ul&gt;
+&lt;li&gt;使用CDN&lt;/li&gt;
+&lt;li&gt;添加Expires 或Cache-Control报文头&lt;/li&gt;
+&lt;li&gt;Gzip压缩传输文件&lt;/li&gt;
+&lt;li&gt;配置ETags&lt;/li&gt;
+&lt;li&gt;尽早flush输出&lt;/li&gt;
+&lt;li&gt;使用GET Ajax请求&lt;/li&gt;
+&lt;li&gt;避免空的图片src&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cookie&lt;ul&gt;
+&lt;li&gt;减少Cookie大小&lt;/li&gt;
+&lt;li&gt;页面内容使用无cookie域名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CSS&lt;ul&gt;
+&lt;li&gt;将样式表置顶&lt;/li&gt;
+&lt;li&gt;避免CSS表达式&lt;/li&gt;
+&lt;li&gt;用&lt;link&gt;代替@import&lt;/li&gt;
+&lt;li&gt;避免使用Filters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Javascript&lt;ul&gt;
+&lt;li&gt;将脚本置底&lt;/li&gt;
+&lt;li&gt;使用外部Javascirpt和CSS文件&lt;/li&gt;
+&lt;li&gt;精简Javascript和CSS&lt;/li&gt;
+&lt;li&gt;去除重复脚本&lt;/li&gt;
+&lt;li&gt;减少DOM访问&lt;/li&gt;
+&lt;li&gt;使用智能事件处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;图片&lt;ul&gt;
+&lt;li&gt;优化图像&lt;/li&gt;
+&lt;li&gt;优化CSS Sprite&lt;/li&gt;
+&lt;li&gt;不要在HTML中缩放图片&lt;/li&gt;
+&lt;li&gt;使用小且可缓存的favicon.ico&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;移动客户端&lt;ul&gt;
+&lt;li&gt;保持单个内容小于25KB&lt;/li&gt;
+&lt;li&gt;打包组建成符合文档&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;具体细节参考文章：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html" &gt;毫秒必争，前端网页性能最佳实践&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我在 ToDo 这个任务中主要使用了 CDN 来加载静态资源。比如我使用了 &lt;a class="link"   target="_blank" rel="noopener" href="http://cdn.code.baidu.com/" &gt;百度静态资源公共库&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;。引用了里面的 fontawesome，速度果然比在 GitHub 仓库里快很多。下一步是压缩我自己写的静态资源。&lt;/p&gt;
+&lt;p&gt;其他参考资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers#section:maximising-parallelisation" &gt;给网页设计师和前端开发者看的前端性能优化&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/?p=3152" &gt;梳理：提高前端性能方面的处理以及不足&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html" &gt;css sprite原理优缺点及使用&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/" &gt;CSS Sprites：鱼翅还是三鹿？&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.cnblogs.com/leefreeman/p/3998757.html" &gt;大型网站的灵魂——性能&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://web.jobbole.com/35339/" &gt;编写高效的 CSS 选择器&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="模块化"&gt;&lt;a href="#模块化" class="headerlink" title="模块化"&gt;&lt;/a&gt;模块化&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;对于一个复杂项目，特别是多人协作的复杂项目，如何合理划分模块，如何更加方便地进行模块加载，如何管理模块之间的依赖，是一个项目团队都会面临的问题，目前业界已经有了一些较为普遍的解决方案，如AMD。这个部分希望你能够通过学习JavaScript的模块化，学习如何合理地规划项目模块，合理使用模块化工具来优化你的项目代码结构。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一个模块就是实现特定功能的文件，有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。模块开发需要遵循一定的规范，否则就都乱套了。&lt;/p&gt;
+&lt;p&gt;根据AMD规范，我们可以使用 &lt;code&gt;define&lt;/code&gt; 定义模块，使用 &lt;code&gt;require&lt;/code&gt; 调用模块。&lt;/p&gt;
+&lt;p&gt;目前，通行的 js 模块规范主要有两种：&lt;code&gt;CommonJS&lt;/code&gt; 和 &lt;code&gt;AMD&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id="AMD规范"&gt;&lt;a href="#AMD规范" class="headerlink" title="AMD规范"&gt;&lt;/a&gt;AMD规范&lt;/h3&gt;&lt;p&gt;AMD 即 Asynchronous Module Definition，中文名是“异步模块定义”的意思。它是一个在浏览器端模块化开发的规范，服务器端的规范是 CommonJS&lt;/p&gt;
+&lt;p&gt;模块将被异步加载，模块加载不影响后面语句的运行。所有依赖某些模块的语句均放置在回调函数中。&lt;/p&gt;
+&lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化的产出。&lt;/p&gt;
+&lt;p&gt;详细 API 如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)" &gt;AMD（中文版）&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="CommonJS规范"&gt;&lt;a href="#CommonJS规范" class="headerlink" title="CommonJS规范"&gt;&lt;/a&gt;CommonJS规范&lt;/h3&gt;&lt;p&gt;CommonJS 是服务器端模块的规范，Node.js 采用了这个规范。Node.JS 首先采用了 js 模块化的概念。&lt;/p&gt;
+&lt;p&gt;根据 CommonJS 规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为 global 对象的属性。&lt;/p&gt;
+&lt;p&gt;输出模块变量的最好方法是使用 module.exports 对象。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="为什么要用-requireJS"&gt;&lt;a href="#为什么要用-requireJS" class="headerlink" title="为什么要用 requireJS"&gt;&lt;/a&gt;为什么要用 requireJS&lt;/h3&gt;&lt;p&gt;试想一下，如果一个网页有很多的js文件，那么浏览器在下载该页面的时候会先加载js文件，从而停止了网页的渲染，如果文件越多，浏览器可能失去响应。其次，要保证js文件的依赖性，依赖性最大的模块（文件）要放在最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。&lt;/p&gt;
+&lt;p&gt;RequireJS就是为了解决这两个问题而诞生的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（1）实现js文件的异步加载，避免网页失去响应；&lt;br&gt;（2）管理模块之间的依赖性，便于代码的编写和维护。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="requireJS"&gt;&lt;a href="#requireJS" class="headerlink" title="requireJS"&gt;&lt;/a&gt;requireJS&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://requirejs.org/" &gt;requireJS 官网&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.requirejs.cn/" &gt;requireJS 中文网&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="AMD和CMD"&gt;&lt;a href="#AMD和CMD" class="headerlink" title="AMD和CMD"&gt;&lt;/a&gt;AMD和CMD&lt;/h3&gt;&lt;p&gt;CMD（Common Module Definition） 通用模块定义。该规范明确了模块的基本书写格式和基本交互规则。该规范是在国内发展出来的。AMD是依赖关系前置，CMD是按需加载。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。&lt;br&gt;CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="https://github.com/seajs/seajs/issues/242" &gt;CMD 模块定义规范&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AMD:提前执行（异步加载：依赖先执行）+延迟执行&lt;br&gt;CMD:延迟执行（运行到需加载，根据顺序执行）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id="参考"&gt;&lt;a href="#参考" class="headerlink" title="参考"&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" &gt;Javascript模块化编程（一）：模块的写法–阮一峰&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" &gt;Javascript模块化编程（二）：AMD规范&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" &gt;Javascript模块化编程（三）：require.js的用法&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://segmentfault.com/a/1190000000733959" &gt;详解 JavaScript 模块开发&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html?utm_source=tuicool" &gt;浅谈模块化的JavaScript&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://div.io/topic/430" &gt;再谈 SeaJS 与 RequireJS 的差异&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;玩转AMD系列 by erik@EFE&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://efe.baidu.com/blog/dissecting-amd-preface/" &gt;玩转AMD - 写在前面&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://efe.baidu.com/blog/dissecting-amd-what/" &gt;玩转AMD - 设计思路&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://efe.baidu.com/blog/dissecting-amd-how/" &gt;玩转AMD - 应用实践&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://efe.baidu.com/blog/dissecting-amd-loader/" &gt;玩转AMD - Loader&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="前端工程化"&gt;&lt;a href="#前端工程化" class="headerlink" title="前端工程化"&gt;&lt;/a&gt;前端工程化&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;业界目前有非常多的前端开发工具，完成一些开发过程中可以自动化完成的工作，提高研发效率，并且可以提高多人协作时的开发过程一致性，提高整个项目的运维效率。&lt;/p&gt;
+&lt;p&gt;在EFE日常工作中，我们是基于EDP，完成项目开发过程中的项目构建、包管理、调试、单测、静态检测、打包、压缩、优化、项目部署等一系列所有工作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注：&lt;/p&gt;
+&lt;p&gt;如果网络不好，可以使用 &lt;a class="link"   target="_blank" rel="noopener" href="http://npm.taobao.org/" &gt;淘宝 NPM 镜像&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id="参考-1"&gt;&lt;a href="#参考-1" class="headerlink" title="参考"&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://div.io/topic/439" &gt;前端工程与模块化框架&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://mweb.baidu.com/p/baidusearch-front-end-road.html" &gt;手机百度前端工程化之路&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/yunlong-on-fis" &gt;对话百度前端工程师张云龙：F.I.S与前端工业化&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="https://github.com/ecomfe/edp" &gt;EDP&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.w3cplus.com/tools/grunt-tutorial-start-grunt.html" &gt;Grunt教程——初涉Grunt&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.open-open.com/lib/view/open1417068223049.html" &gt;gulp入门指南&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.w3ctech.com/topic/134" &gt;Gulp开发教程（翻译）&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://www.gulpjs.com.cn/" &gt;Gulp 中文网&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link"   target="_blank" rel="noopener" href="https://github.com/ericdum/mujiang.info/issues/6" &gt;npm的package.json中文文档&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="最终作品"&gt;&lt;a href="#最终作品" class="headerlink" title="最终作品"&gt;&lt;/a&gt;最终作品&lt;/h2&gt;&lt;p&gt;在任务三中，做了一个 PC 端的 ToDo 应用。任务四是将它优化，以适应移动端设备。&lt;/p&gt;
+&lt;h3 id="ToDo-WebApp-Version"&gt;&lt;a href="#ToDo-WebApp-Version" class="headerlink" title="ToDo WebApp Version"&gt;&lt;/a&gt;ToDo WebApp Version&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="link"   target="_blank" rel="noopener" href="https://github.com/baidu-ife/ife/tree/master/task/task0004" &gt;任务四要求&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="link"   target="_blank" rel="noopener" href="https://github.com/Gaohaoyang/ToDo-WebApp" &gt;源代码&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://gaohaoyang.github.io/ToDo-WebApp/" &gt;在线 demo&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;手机查看 ↓ 二维码 ↓&lt;/p&gt;
+&lt;p&gt;  &lt;img  
+                     lazyload
+                     alt="image"
+                     data-src="http://7q5cdt.com1.z0.glb.clouddn.com/task4-code-todoWebApp.png"
+                      alt="todoWebApp"
+                &gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a class="link"   target="_blank" rel="noopener" href="http://gaohaoyang.github.io/" &gt;我的博客 HyG&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="Details"&gt;&lt;a href="#Details" class="headerlink" title="Details"&gt;&lt;/a&gt;Details&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;数据存储&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  以 JSON 模拟数据表的形式存储于 LocalStorage 中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;   使用数据库的思想，构建3张表。
+   cateJson 分类
+   childCateJson 子分类
+   taskJson 任务
+
+   分类表 cate
+   ----------------------
+   id* | name | child(FK)
+   ----------------------
+
+   子分类表 childCate
+   --------------------------------
+   id* | pid(FK) | name | child(FK)
+   --------------------------------
+
+   任务表 task
+   ----------------------------------------------
+   id* | pid(FK) | finish | name | date | content
+   ----------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;使用 &lt;code&gt;Sass&lt;/code&gt; 重构了 CSS 代码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  使用分块、继承等方式，使得代码更加清晰明了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;响应式布局&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  针对手机端细节做了很多调整，更符合手机上的视觉交互习惯。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;加入页面切换效果&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  使用 &lt;code&gt;translate3d()&lt;/code&gt;，纯 CSS3 切换动画效果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;处理了 XSS 防护&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  对可能造成破坏的字符进行转码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;性能优化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  使用 CDN 处理静态资源 fontAwesome，压缩静态资源等&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;模块化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  使用 requireJS 模块化 JavaScript 代码。重构 JavaScript 代码。优化之前写的耦合性高的绑定事件，重新绑定事件，降低耦合性。期间根据具体需求重写了事件代理的代码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;前端工程化&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  使用 gulp，自动编译 Sass，压缩 CSS 和 JavaScript 代码。并且配置了自动流程。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="其他"&gt;&lt;a href="#其他" class="headerlink" title="其他"&gt;&lt;/a&gt;其他&lt;/h2&gt;&lt;h3 id="webkit-tap-highlight-color-属性"&gt;&lt;a href="#webkit-tap-highlight-color-属性" class="headerlink" title="-webkit-tap-highlight-color 属性"&gt;&lt;/a&gt;&lt;code&gt;-webkit-tap-highlight-color&lt;/code&gt; 属性&lt;/h3&gt;&lt;p&gt;感谢 &lt;a class="link"   target="_blank" rel="noopener" href="https://github.com/fiona23" &gt;fiona&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt; 指出。&lt;/p&gt;
+&lt;p&gt;safari移动端点击的时候会闪一下加上 &lt;code&gt;-webkit-tap-highlight-color: transparent;&lt;/code&gt; 就不会闪了。&lt;/p&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a target="_blank" rel="noopener" href="http://www.css88.com/webkit/-webkit-tap-highlight-color/"&gt;&lt;code&gt;-webkit-tap-highlight-color&lt;/code&gt;  css88&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a target="_blank" rel="noopener" href="http://ued.ctrip.com/webkitcss/prop/tap-highlight-color.html"&gt;&lt;code&gt;-webkit-tap-highlight-color&lt;/code&gt; 属性&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id="textarea-标签-disabled-颜色"&gt;&lt;a href="#textarea-标签-disabled-颜色" class="headerlink" title="textarea 标签 disabled 颜色"&gt;&lt;/a&gt;textarea 标签 disabled 颜色&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;为什么用 disabled 属性？&lt;/p&gt;
+&lt;p&gt;  因为我发现仅仅使用 readonly 属性，在 IE 下是显示光标的。于是使用 disabled。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;出现的问题&lt;/p&gt;
+&lt;p&gt;  各家浏览器对于 disabled 属性有自己的样式设定，比如 IE 下是灰色的。苹果设备下也是。改变这些样式的方法也不是统一的。如果要兼容 Safari 必须加上&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="highlight plaintext"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="line"&gt;background: #fff;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;-webkit-text-fill-color: rgba(0, 0, 0, 1);&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;-webkit-opacity: 1;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;于是最终代码如下：&lt;/p&gt;
+&lt;figure class="highlight css"&gt;&lt;table&gt;&lt;tr&gt;&lt;td class="gutter"&gt;&lt;pre&gt;&lt;span class="line"&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="line"&gt;&lt;span class="selector-tag"&gt;textarea&lt;/span&gt;&lt;span class="selector-pseudo"&gt;:disabled&lt;/span&gt; {&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="attribute"&gt;color&lt;/span&gt;:&lt;span class="number"&gt;#000&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    &lt;span class="attribute"&gt;background&lt;/span&gt;: &lt;span class="number"&gt;#fff&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    -webkit-text-fill-&lt;span class="attribute"&gt;color&lt;/span&gt;: &lt;span class="built_in"&gt;rgba&lt;/span&gt;(&lt;span class="number"&gt;0&lt;/span&gt;, &lt;span class="number"&gt;0&lt;/span&gt;, &lt;span class="number"&gt;0&lt;/span&gt;, &lt;span class="number"&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;    -webkit-&lt;span class="attribute"&gt;opacity&lt;/span&gt;: &lt;span class="number"&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class="line"&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考：&lt;a class="link"   target="_blank" rel="noopener" href="http://stackoverflow.com/a/4648315" &gt;Disabled input text color 中的评论&lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+            &lt;/div&gt;
+
+            
+                &lt;div class="post-copyright-info"&gt;
+                    
+&lt;div class="article-copyright-info-container"&gt;
+    &lt;ul class="copyright-info-content"&gt;
+        &lt;li class="post-title"&gt;
+            &lt;span class="type"&gt;本文标题&lt;/span&gt;：&lt;span class="content"&gt;Web App 相关技术&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class="post-author"&gt;
+            &lt;span class="type"&gt;本文作者&lt;/span&gt;：&lt;span class="content"&gt;Pin Young&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class="post-time"&gt;
+            &lt;span class="type"&gt;创建时间&lt;/span&gt;：&lt;span class="content"&gt;2015-06-17 14:06:05&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class="post-link"&gt;
+            &lt;span class="type"&gt;本文链接&lt;/span&gt;：&lt;span class="content"&gt;posts/abf8.html&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class="post-license"&gt;
+            &lt;span class="type"&gt;版权声明&lt;/span&gt;：&lt;span class="content"&gt;本博客所有文章除特别声明外，均采用 &lt;a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"&gt;BY-NC-SA&lt;/a&gt; 许可协议。转载请注明出处！&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"&gt;
+        &lt;i class="fa-solid fa-copy"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+                &lt;/div&gt;
+            
+
+            
+                &lt;ul class="post-tags-box"&gt;
+                    
+                        &lt;li class="tag-item"&gt;
+                            &lt;a href="/tags/JavaScript-HTML-CSS-Sass-%E7%A7%BB%E5%8A%A8%E7%AB%AF-XSS-AMD-requireJS-CommonJS-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-WebApp/"&gt;#JavaScript HTML CSS Sass 移动端 XSS AMD requireJS CommonJS 性能优化 WebApp&lt;/a&gt;&nbsp;
+                        &lt;/li&gt;
+                    
+                &lt;/ul&gt;
+            
+
+            
+                &lt;div class="article-nav"&gt;
+                    
+                        &lt;div class="article-prev"&gt;
+                            &lt;a class="prev"
+                               rel="prev"
+                               href="/posts/90f8.html"
+                            &gt;
+                            &lt;span class="left arrow-icon flex-center"&gt;
+                              &lt;i class="fas fa-chevron-left"&gt;&lt;/i&gt;
+                            &lt;/span&gt;
+                                &lt;span class="title flex-center"&gt;
+                                &lt;span class="post-nav-title-item"&gt;Weinre --WebApp 调试工具&lt;/span&gt;
+                                &lt;span class="post-nav-item"&gt;上一篇&lt;/span&gt;
+                            &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                    
+                    
+                        &lt;div class="article-next"&gt;
+                            &lt;a class="next"
+                               rel="next"
+                               href="/posts/59ed.html"
+                            &gt;
+                            &lt;span class="title flex-center"&gt;
+                                &lt;span class="post-nav-title-item"&gt;JavaScript 面向对象&lt;/span&gt;
+                                &lt;span class="post-nav-item"&gt;下一篇&lt;/span&gt;
+                            &lt;/span&gt;
+                                &lt;span class="right arrow-icon flex-center"&gt;
+                              &lt;i class="fas fa-chevron-right"&gt;&lt;/i&gt;
+                            &lt;/span&gt;
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                    
+                &lt;/div&gt;
+            
+
+            
+        &lt;/div&gt;
+
+        
+            &lt;div class="toc-content-container"&gt;
+                &lt;div class="post-toc-wrap"&gt;
+    &lt;div class="post-toc"&gt;
+        &lt;ol class="nav"&gt;&lt;li class="nav-item nav-level-2"&gt;&lt;a class="nav-link" href="#%E6%A6%82%E5%BF%B5"&gt;&lt;span class="nav-number"&gt;1.&lt;/span&gt; &lt;span class="nav-text"&gt;概念&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class="nav-item nav-level-2"&gt;&lt;a class="nav-link" href="#head-%E6%A0%87%E7%AD%BE"&gt;&lt;span class="nav-number"&gt;2.&lt;/span&gt; &lt;span class="nav-text"&gt;head 标签&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+            &lt;/div&gt;
+        
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+                
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class="page-main-content-bottom"&gt;
+            
+&lt;footer class="footer"&gt;
+    &lt;div class="info-container"&gt;
+        &lt;div class="copyright-info info-item"&gt;
+            ©
+            
+                &lt;span&gt;2014&lt;/span&gt; -
+            
+            2023
+            
+                &nbsp;&lt;i class="fas fa-heart icon-animate"&gt;&lt;/i&gt;
+                &nbsp;&lt;a href="/"&gt;Pin Young&lt;/a&gt;
+            
+        &lt;/div&gt;
+        
+            &lt;script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt;&lt;/script&gt;
+            &lt;div class="website-count info-item"&gt;
+                
+                    访问人数&nbsp;&lt;span id="busuanzi_value_site_uv"&gt;&lt;/span&gt; 
+                
+                
+                    总访问量&nbsp;&lt;span id="busuanzi_value_site_pv"&gt;&lt;/span&gt;
+                
+            &lt;/div&gt;
+        
+        &lt;div class="theme-info info-item"&gt;
+            由 &lt;a target="_blank" href="https://hexo.io"&gt;Hexo&lt;/a&gt; 驱动&nbsp;|&nbsp;主题&nbsp;&lt;a class="theme-version" target="_blank" href="https://github.com/dstansice"&gt;零域Lite 1.3.1&lt;/a&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"&gt;&lt;/script&gt;
+         
+            &lt;div class="icp-info info-item"&gt;
+            &lt;div class="theme-info info-item"&gt;
+                &lt;a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"&gt;&lt;img src="https://0skyu.cn/beian.png" style="float:left;"/&gt;&lt;p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;"&gt;津公网安备 12011002021027号&lt;/p&gt;&lt;/a&gt; 
+                &lt;/div&gt;
+                 &lt;div class="theme-info info-item"&gt;
+               &lt;center&gt; &lt;a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                &gt;
+                    津ICP备2021004482号-1
+                &lt;/a&gt;&lt;/center&gt;
+                &lt;/div&gt;
+                
+            &lt;/div&gt;
+        
+        
+            &lt;div class="deploy-info info-item"&gt;
+                
+                    &lt;a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/"&gt;
+                
+                    本站由 &lt;span class="tooltip" data-content="腾讯云"&gt;&lt;img src="/images/deploy-provider/tencent_cloud.png"&gt;&lt;/span&gt; 提供部署服务
+                
+                    &lt;/a&gt;
+                
+            &lt;/div&gt;
+        
+    &lt;/div&gt;
+&lt;/footer&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    
+        &lt;div class="post-tools"&gt;
+            &lt;div class="post-tools-container"&gt;
+    &lt;ul class="tools-list"&gt;
+        &lt;!-- TOC aside toggle --&gt;
+        
+            &lt;li class="tools-item flex-center toggle-show-toc"&gt;
+                &lt;i class="fas fa-list"&gt;&lt;/i&gt;
+            &lt;/li&gt;
+        
+
+        &lt;!-- go comment --&gt;
+        
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+        &lt;/div&gt;
+    
+
+    &lt;div class="right-bottom-side-tools"&gt;
+        &lt;div class="side-tools-container"&gt;
+    &lt;ul class="side-tools-list"&gt;
+        &lt;li class="tools-item tool-font-adjust-plus flex-center"&gt;
+            &lt;i class="fas fa-search-plus"&gt;&lt;/i&gt;
+        &lt;/li&gt;
+
+        &lt;li class="tools-item tool-font-adjust-minus flex-center"&gt;
+            &lt;i class="fas fa-search-minus"&gt;&lt;/i&gt;
+        &lt;/li&gt;
+
+        &lt;li class="tools-item tool-dark-light-toggle flex-center"&gt;
+            &lt;i class="fas fa-moon"&gt;&lt;/i&gt;
+        &lt;/li&gt;
+
+        &lt;!-- rss --&gt;
+        
+            &lt;li class="tools-item rss flex-center"&gt;
+                &lt;a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                &gt;
+                    &lt;i class="fas fa-rss"&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+        
+
+        
+            &lt;li class="tools-item tool-scroll-to-top flex-center"&gt;
+                &lt;i class="fas fa-arrow-up"&gt;&lt;/i&gt;
+            &lt;/li&gt;
+        
+
+        &lt;li class="tools-item tool-scroll-to-bottom flex-center"&gt;
+            &lt;i class="fas fa-arrow-down"&gt;&lt;/i&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ul class="exposed-tools-list"&gt;
+        &lt;li class="tools-item tool-toggle-show flex-center"&gt;
+            &lt;i class="fas fa-cog fa-spin"&gt;&lt;/i&gt;
+        &lt;/li&gt;
+        
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class="zoom-in-image-mask"&gt;
+    &lt;img class="zoom-in-image"&gt;
+&lt;/div&gt;
+
+
+    
+        &lt;div class="search-pop-overlay"&gt;
+    &lt;div class="popup search-popup"&gt;
+        &lt;div class="search-header"&gt;
+          &lt;span class="search-input-field-pre"&gt;
+            &lt;i class="fas fa-keyboard"&gt;&lt;/i&gt;
+          &lt;/span&gt;
+            &lt;div class="search-input-container"&gt;
+                &lt;input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                &gt;
+            &lt;/div&gt;
+            &lt;span class="close-popup-btn"&gt;
+                &lt;i class="fas fa-times"&gt;&lt;/i&gt;
+            &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div id="search-result"&gt;
+            &lt;div id="no-result"&gt;
+                &lt;i class="fas fa-spinner fa-pulse fa-5x fa-fw"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    
+
+&lt;/main&gt;
+
+
+
+
+&lt;script src="/js/utils.js"&gt;&lt;/script&gt;
+
+&lt;script src="/js/main.js"&gt;&lt;/script&gt;
+
+&lt;script src="/js/header-shrink.js"&gt;&lt;/script&gt;
+
+&lt;script src="/js/back2top.js"&gt;&lt;/script&gt;
+
+&lt;script src="/js/dark-light-toggle.js"&gt;&lt;/script&gt;
+
+
+
+
+
+    
+&lt;script src="/js/local-search.js"&gt;&lt;/script&gt;
+
+
+
+
+    
+&lt;script src="/js/code-block.js"&gt;&lt;/script&gt;
+
+
+
+
+    
+&lt;script src="/js/lazyload.js"&gt;&lt;/script&gt;
+
+
+
+&lt;div class="post-scripts pjax"&gt;
+    
+        
+&lt;script src="/js/post-helper.js"&gt;&lt;/script&gt;
+
+        
+            
+&lt;script src="/js/libs/anime.min.js"&gt;&lt;/script&gt;
+
+        
+        
+            
+&lt;script src="/js/toc.js"&gt;&lt;/script&gt;
+
+        
+    
+&lt;/div&gt;
+
+
+    
+&lt;script src="/js/libs/pjax.min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    window.addEventListener('DOMContentLoaded', () =&gt; {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () =&gt; {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () =&gt; {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+&lt;/script&gt;
+
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</title></p></li></ul></div></div></div></div></div></div></div></main></body></html>

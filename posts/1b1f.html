@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css?v=372a94e93f">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            nginx升级1.9,支持tcp代理的stream模块 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css?v=512d6d2336">
+
+    <link rel="shortcut icon" href="/img/favicon.png?v=96e789c5be">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css?v=d318f67430">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css?v=dd643a612d">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css?v=4abb638a78">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css?v=bffe02773a">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png?v=96e789c5be","favicon":"/img/favicon.png?v=96e789c5be","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg?v=7b42f26db7","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml?v=f2133d50b5" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png?v=96e789c5be">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">nginx升级1.9,支持tcp代理的stream模块</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg?v=e52bd9a478">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2018-05-08 19:47:01</span>
+        <span class="mobile">2018-05-08 19:47</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:31:48</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/nginx/">nginx</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="nginx升级-amp-支持tcp-x2F-socket转发"><a href="#nginx升级-amp-支持tcp-x2F-socket转发" class="headerlink" title="nginx升级&amp;支持tcp/socket转发"></a>nginx升级&amp;支持tcp/socket转发</h1><p>回忆：坑的来源<br>    外网服务器nginx一直用的好好的，主要用于http代理和反代理，忽然有一天，客户想要外网访问内网的kafka，这样就必须<br>要支持tcp转发了，好吧，开始操作</p>
+<p>前提：<br>nginx的安装：<br>sudo apt-get install nginx</p>
+<pre><code>首先客户外网服务器nginx是1.4版本的，支持tcp转发必须升级到1.9以上了
+</code></pre>
+<h2 id="升级nginx"><a href="#升级nginx" class="headerlink" title="升级nginx"></a>升级nginx</h2><h3 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h3><pre><code>lsb_release -a
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 14.04.5 LTS</span><br><span class="line">Release:	14.04</span><br><span class="line">Codename:	trusty</span><br></pre></td></tr></table></figure>
+<h3 id="下载最nginx-版为1-9-12"><a href="#下载最nginx-版为1-9-12" class="headerlink" title="下载最nginx 版为1.9.12"></a>下载最nginx 版为1.9.12</h3><p>wget <a class="link" target="_blank" rel="noopener" href="http://nginx.org/download/nginx-1.9.12.tar.gz">http://nginx.org/download/nginx-1.9.12.tar.gz<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>tar zxvf nginx-1.9.12.tar.gz</p>
+<p>cd nginx-1.9.12 </p>
+<h3 id="查看原来的nginx信息"><a href="#查看原来的nginx信息" class="headerlink" title="查看原来的nginx信息"></a>查看原来的nginx信息</h3><p>nginx -V</p>
+<p>nginx version: nginx/1.4</p>
+<p>built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04)</p>
+<p>built with OpenSSL 1.0.1f 6 Jan 2014</p>
+<p>TLS SNI support enabled</p>
+<p>configure arguments: –prefix=/etc/nginx –sbin-path=/usr/sbin/nginx –conf-path=/etc/nginx/nginx.conf –error-log-path=/var/log/nginx/error.log –http-log-path=/var/log/nginx/access.log –pid-path=/var/run/nginx.pid –lock-path=/var/run/nginx.lock –http-client-body-temp-path=/var/cache/nginx/client_temp –http-proxy-temp-path=/var/cache/nginx/proxy_temp –http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp –http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp –http-scgi-temp-path=/var/cache/nginx/scgi_temp –user=nginx –group=nginx –with-http_ssl_module –with-http_realip_module –with-http_addition_module –with-http_sub_module –with-http_dav_module –with-http_flv_module –with-http_mp4_module –with-http_gunzip_module –with-http_gzip_static_module –with-http_random_index_module –with-http_secure_link_module –with-http_stub_status_module –with-http_auth_request_module –with-mail –with-mail_ssl_module –with-file-aio –with-http_spdy_module –with-cc-opt=’-g -O2 -fstack-protector –param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2’ –with-ld-opt=’-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,–as-needed’ –with-ipv6</p>
+<h3 id="执行configure命令-后面跟上原来nginx的配置"><a href="#执行configure命令-后面跟上原来nginx的配置" class="headerlink" title=".执行configure命令,后面跟上原来nginx的配置"></a>.执行configure命令,后面跟上原来nginx的配置</h3><p>./configure –prefix=/etc/nginx –sbin-path=/usr/sbin/nginx –conf-path=/etc/nginx/nginx.conf –error-log-path=/var/log/nginx/error.log –http-log-path=/var/log/nginx/access.log –pid-path=/var/run/nginx.pid –lock-path=/var/run/nginx.lock –http-client-body-temp-path=/var/cache/nginx/client_temp –http-proxy-temp-path=/var/cache/nginx/proxy_temp –http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp –http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp –http-scgi-temp-path=/var/cache/nginx/scgi_temp –user=nginx –group=nginx –with-http_ssl_module –with-http_realip_module –with-http_addition_module –with-http_sub_module –with-http_dav_module –with-http_flv_module –with-http_mp4_module –with-http_gunzip_module –with-http_gzip_static_module –with-http_random_index_module –with-http_secure_link_module –with-http_stub_status_module –with-http_auth_request_module –with-mail –with-mail_ssl_module –with-file-aio –with-http_spdy_module –with-cc-opt=’-g -O2 -fstack-protector –param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2’ –with-ld-opt=’-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,–as-needed’ –with-ipv6</p>
+<p>错误1</p>
+<p>./configure: error: invalid option “–with-http_spdy_module”</p>
+<p>根据官方文档说明需要修改为</p>
+<p>–with-file-aio –with-http_v2_module</p>
+<p>参考： (<a class="link" target="_blank" rel="noopener" href="http://www.klfy.net/blog/636.shtml">http://www.klfy.net/blog/636.shtml<i class="fas fa-external-link-alt"></i></a>)</p>
+<p>错误2</p>
+<p>./configure: error: the HTTP rewrite module requires the PCRE library.</p>
+<p>rewrite需要pcre支持,</p>
+<p>apt-get install libpcre3 libpcre3-dev</p>
+<p>#重新生成makefile</p>
+<p>./configure –prefix=/etc/nginx –sbin-path=/usr/sbin/nginx –conf-path=/etc/nginx/nginx.conf –error-log-path=/var/log/nginx/error.log –http-log-path=/var/log/nginx/access.log –pid-path=/var/run/nginx.pid –lock-path=/var/run/nginx.lock –http-client-body-temp-path=/var/cache/nginx/client_temp –http-proxy-temp-path=/var/cache/nginx/proxy_temp –http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp –http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp –http-scgi-temp-path=/var/cache/nginx/scgi_temp –user=nginx –group=nginx –with-http_ssl_module –with-http_realip_module –with-http_addition_module –with-http_sub_module –with-http_dav_module –with-http_flv_module –with-http_mp4_module –with-http_gunzip_module –with-http_gzip_static_module –with-http_random_index_module –with-http_secure_link_module –with-http_stub_status_module –with-http_auth_request_module –with-mail –with-mail_ssl_module –with-file-aio –with-http_v2_module –with-cc-opt=’-g -O2 -fstack-protector –param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2’ –with-ld-opt=’-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,–as-needed’ –with-ipv6 </p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>make</p>
+<p>会在objs/目录下 编译生成nginx</p>
+<p>objs/nginx -v</p>
+<p>nginx version: nginx/1.9.12</p>
+<h3 id="备份原来的nginx到nginx1-4"><a href="#备份原来的nginx到nginx1-4" class="headerlink" title="备份原来的nginx到nginx1.4"></a>备份原来的nginx到nginx1.4</h3><p>mv /usr/sbin/nginx /usr/sbin/nginx1.4 </p>
+<p>#复制新的nginx到/usr/sbin/nginx</p>
+<p>cp objs/nginx /usr/sbin/nginx</p>
+<h3 id="升级命令"><a href="#升级命令" class="headerlink" title="升级命令"></a>升级命令</h3><p>make upgrade </p>
+<p>/usr/sbin/nginx -t</p>
+<p>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</p>
+<p>nginx: configuration file /etc/nginx/nginx.conf test is successful</p>
+<p>kill -USR2 <code>cat /var/run/nginx.pid</code></p>
+<p>sleep 1</p>
+<p>test -f /var/run/nginx.pid.oldbin</p>
+<p>kill -QUIT <code>cat /var/run/nginx.pid.oldbin</code></p>
+<h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3><p>nginx -v</p>
+<p>nginx version: nginx/1.9.12</p>
+<h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><p>/usr/sbin/nginx -t</p>
+<p>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</p>
+<p>nginx: configuration file /etc/nginx/nginx.conf test is successful</p>
+<p>###重启nginx</p>
+<p> nginx -s reload</p>
+<h2 id="Nginx支持socket转发"><a href="#Nginx支持socket转发" class="headerlink" title="Nginx支持socket转发"></a>Nginx支持socket转发</h2><p> 有个接口是通过socket通信，对端服务器访问存在IP限制，只好通过跳板机，因为它具备访问对端服务器的权限。nginx1.9开始支持tcp层的转发，通过stream实现的，而socket也是基于tcp通信。</p>
+<p> 1.安装nginx，stream模块默认不安装的，需要手动添加参数：–with-stream<br> 2.nginx.conf 配置<br> nginx.conf<br> </p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> user nginx;</span><br><span class="line">worker_processes <span class="number">1</span>;</span><br><span class="line">error_log /<span class="keyword">var</span>/log/nginx/error.<span class="property">log</span> warn;</span><br><span class="line">pid /<span class="keyword">var</span>/run/nginx.<span class="property">pid</span>;</span><br><span class="line">events {</span><br><span class="line">worker_connections <span class="number">1024</span>;</span><br><span class="line">}</span><br><span class="line">http {</span><br><span class="line">.................</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"># tcp层转发的配置文件夹</span><br><span class="line"></span><br><span class="line">include /etc/nginx/tcp.<span class="property">d</span><span class="comment">/*.conf;</span></span><br></pre></td></tr></table></figure><br> 请注意，stream配置不能放到http内，即不能放到/etc/nginx/conf.d/，因为stream是通过tcp层转发，而不是http转发。<br> 3.在tcp.d下新建个test.conf文件，内容如下：<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> stream {</span><br><span class="line">    # 添加socket转发的代理</span><br><span class="line">    upstream bss_num_socket {</span><br><span class="line">        hash $remote_addr consistent;</span><br><span class="line">        # 转发的目的地址和端口</span><br><span class="line">        server <span class="number">130.51</span><span class="number">.11</span><span class="number">.33</span>:<span class="number">19001</span> weight=<span class="number">5</span> max_fails=<span class="number">3</span> fail_timeout=30s;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    # 提供转发的服务，即访问<span class="attr">localhost</span>:<span class="number">30001</span>，会跳转至代理bss_num_socket指定的转发地址</span><br><span class="line">    server {</span><br><span class="line">       listen <span class="number">30001</span>;</span><br><span class="line">       proxy_connect_timeout 1s;</span><br><span class="line">       proxy_timeout 3s;</span><br><span class="line">       proxy_pass bss_num_socket;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure><p></p>
+<p> 4.重启nginx</p>
+<p> 问题来了，重启报错：<br> 1.nginx: [emerg] unknown directive “stream “<br> nginx没有安装stream模块，configure时添加–with-stream</p>
+<p> 解决：<br> 重新执行上方的./configure编译，后面记得加–with-stream<br> make<br> make install</p>
+<p> ok!升级完成，tcp转发完成</p>
+<p> 你很优秀，使劲夸我吧！～～～</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">nginx升级1.9,支持tcp代理的stream模块</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2018-05-08 19:47:01</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/1b1f.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/nginx/">#nginx</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev" rel="prev" href="/posts/a5e7.html">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">前端技术周刊 - 2018/05/16</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next" rel="next" href="/posts/e6c3.html">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">docker构建nginx1.13</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx%E5%8D%87%E7%BA%A7-amp-%E6%94%AF%E6%8C%81tcp-x2F-socket%E8%BD%AC%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">nginx升级&amp;支持tcp/socket转发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7nginx"><span class="nav-number">1.1.</span> <span class="nav-text">升级nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.1.</span> <span class="nav-text">查看系统信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%9C%80nginx-%E7%89%88%E4%B8%BA1-9-12"><span class="nav-number">1.1.2.</span> <span class="nav-text">下载最nginx 版为1.9.12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%8E%9F%E6%9D%A5%E7%9A%84nginx%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.4.</span> <span class="nav-text">查看原来的nginx信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8Cconfigure%E5%91%BD%E4%BB%A4-%E5%90%8E%E9%9D%A2%E8%B7%9F%E4%B8%8A%E5%8E%9F%E6%9D%A5nginx%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.5.</span> <span class="nav-text">.执行configure命令,后面跟上原来nginx的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-number">1.1.6.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD%E5%8E%9F%E6%9D%A5%E7%9A%84nginx%E5%88%B0nginx1-4"><span class="nav-number">1.1.7.</span> <span class="nav-text">备份原来的nginx到nginx1.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.8.</span> <span class="nav-text">升级命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC"><span class="nav-number">1.1.9.</span> <span class="nav-text">查看版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.10.</span> <span class="nav-text">检查配置信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx%E6%94%AF%E6%8C%81socket%E8%BD%AC%E5%8F%91"><span class="nav-number">1.2.</span> <span class="nav-text">Nginx支持socket转发</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            ©
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span> 
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png?v=9693e72d12"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center" href="/atom.xml" target="_blank">
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js?v=cbd27e8569"></script>
+
+<script src="/js/main.js?v=3ab50fd2bb"></script>
+
+<script src="/js/header-shrink.js?v=0418df63d7"></script>
+
+<script src="/js/back2top.js?v=139ceb0539"></script>
+
+<script src="/js/dark-light-toggle.js?v=f21816b072"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js?v=0ce0b1d637"></script>
+
+
+
+
+    
+<script src="/js/code-block.js?v=63706df46d"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js?v=f1e4b68ec3"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js?v=34bd3800c9"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js?v=864a144dbb"></script>
+
+        
+        
+            
+<script src="/js/toc.js?v=037238356c"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js?v=cdf1c08dca"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

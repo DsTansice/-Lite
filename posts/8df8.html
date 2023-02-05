@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css?v=372a94e93f">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="am start, user, adb, INTERACT_ACROSS_USERS_FULL">
+    <meta name="description" content="am start 命令有时并不会乖乖如我们所愿，这时候我们需要知对策并知其所以然。">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            从 am start 的 --user 参数说到 Android 多用户 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css?v=512d6d2336">
+
+    <link rel="shortcut icon" href="/img/favicon.png?v=96e789c5be">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css?v=d318f67430">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css?v=dd643a612d">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css?v=4abb638a78">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css?v=bffe02773a">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png?v=96e789c5be","favicon":"/img/favicon.png?v=96e789c5be","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg?v=7b42f26db7","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml?v=f2133d50b5" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png?v=96e789c5be">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">从 am start 的 --user 参数说到 Android 多用户</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg?v=e52bd9a478">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2021-03-28 00:00:00</span>
+        <span class="mobile">2021-03-28 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:40:34</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Android/">Android</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>15 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>本文的讨论围绕一个 <code>java.lang.SecurityException</code> 展开，异常的关键词是权限 <code>android.permission.INTERACT_ACROSS_USERS_FULL</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: startActivity asks to run as user -<span class="number">2</span> but is calling from user <span class="number">0</span>; <span class="built_in">this</span> <span class="keyword">requires</span> android.permission.INTERACT_ACROSS_USERS_FULL</span><br><span class="line">    at android.os.Parcel.readException(Parcel.java:<span class="number">1425</span>)</span><br><span class="line">    at android.os.Parcel.readException(Parcel.java:<span class="number">1379</span>)</span><br><span class="line">    at android.app.ActivityManagerProxy.startActivityAsUser(ActivityManagerNative.java:<span class="number">1921</span>)</span><br><span class="line">    at com.android.commands.am.Am.runStart(Am.java:<span class="number">494</span>)</span><br><span class="line">    at com.android.commands.am.Am.run(Am.java:<span class="number">109</span>)</span><br><span class="line">    at com.android.commands.am.Am.main(Am.java:<span class="number">82</span>)</span><br><span class="line">    at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)</span><br><span class="line">    at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:<span class="number">235</span>)</span><br></pre></td></tr></table></figure>
+
+<p>先就我所了解的知识说一下此异常发生的背景。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="Android-系统里的多用户"><a href="#Android-系统里的多用户" class="headerlink" title="Android 系统里的多用户"></a>Android 系统里的多用户</h3><p>Android 系统是基于 Linux 内核，而 Linux 内核中用于支持多用户机制的 uid 在 Android 中被用于标识 app-specific sandbox。<a class="link" target="_blank" rel="noopener" href="http://developer.android.com/reference/android/os/Process.html#myUid()">android.os.Process 类的 myUid() 方法<i class="fas fa-external-link-alt"></i></a> 的描述里的原话是：</p>
+<blockquote>
+<p>Returns the identifier of this process’s uid. This is the kernel uid that the process is running under, which is the identity of its app-specific sandbox. It is different from myUserHandle() in that a uid identifies a specific app sandbox in a specific user.</p>
+</blockquote>
+<p>所以注定 Android 如果要实现多用户不能直接使用 Linux 的 uid 机制了，需要另做一套机制。</p>
+<p>在 Android API level 17 的 Features 列表里有一项是</p>
+<blockquote>
+<p>Multiple user accounts (tablets only)</p>
+</blockquote>
+<p>所以在 API level 17 以上的 Android 系统里其实已经内置了多用户的支持，只不过暂时只对平板启用（据说是因为多用户手机专利早已被 Symbian 雇员注册，不知真假。）。在实现上是新引入了 <a class="link" target="_blank" rel="noopener" href="http://developer.android.com/reference/android/os/UserHandle.html">UserHandle<i class="fas fa-external-link-alt"></i></a> 的概念，封装了 user id，在 <a class="link" target="_blank" rel="noopener" href="http://developer.android.com/reference/android/os/Process.html#myUserHandle()">android.os.Process 类的 myUserHandle() 方法<i class="fas fa-external-link-alt"></i></a> 的描述里的原话是：</p>
+<blockquote>
+<p>Returns this process’s user handle. This is the user the process is running under. It is distinct from myUid() in that a particular user will have multiple distinct apps running under it each with their own uid.</p>
+</blockquote>
+<h3 id="user-id-与-uid"><a href="#user-id-与-uid" class="headerlink" title="user id 与 uid"></a>user id 与 uid</h3><p><strong>结论</strong></p>
+<ol>
+<li>user id = uid / 100000</li>
+<li>目前 Android 手机上所有 APP 的 user id 都为 0</li>
+<li>root 权限与 uid 是否为 0 有关，与 user id 无关</li>
+</ol>
+<p><strong>分析</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Representation of a user on the device.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">UserHandle</span> <span class="keyword">implements</span> <span class="title class_">Parcelable</span> {</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@hide</span> Range of uids allocated for a user.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">PER_USER_RANGE</span> <span class="operator">=</span> <span class="number">100000</span>;</span><br><span class="line">    ......</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@hide</span> Enable multi-user related side effects. Set this to false if</span></span><br><span class="line"><span class="comment">     * there are problems with single user use-cases.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">boolean</span> <span class="variable">MU_ENABLED</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">    ......</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the user id for a given uid.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@hide</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">getUserId</span><span class="params">(<span class="type">int</span> uid)</span> {</span><br><span class="line">        <span class="keyword">if</span> (MU_ENABLED) {</span><br><span class="line">            <span class="keyword">return</span> uid / PER_USER_RANGE;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>这个类定义在 frameworks/base/core/java/android/os/UserHandle.java 里。</p>
+<p>上面这段代码能得出结论 1 里的公式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tools for managing OS processes.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Process</span> {</span><br><span class="line">    ......</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Defines the root UID.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@hide</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">ROOT_UID</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    ......</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Defines the start of a range of UIDs (and GIDs), going from this</span></span><br><span class="line"><span class="comment">     * number to {<span class="doctag">@link</span> #LAST_APPLICATION_UID} that are reserved for assigning</span></span><br><span class="line"><span class="comment">     * to applications.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">FIRST_APPLICATION_UID</span> <span class="operator">=</span> <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Last of application-specific UIDs starting at</span></span><br><span class="line"><span class="comment">     * {<span class="doctag">@link</span> #FIRST_APPLICATION_UID}.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">LAST_APPLICATION_UID</span> <span class="operator">=</span> <span class="number">19999</span>;</span><br><span class="line">    ......        </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>这个类定义在 frameworks/base/core/java/android/os/Process.java 里。</p>
+<p>从 <code>FIRST_APPLICATION_UID</code> 与 <code>LAST_APPLICATION_UID</code> 的值，结合结论 1 里的公式来看，所有 APP 运行时获取自身的 user id 都为 0；而运行时 uid 为 <code>ROOT_UID</code> （即 0）的 APP 获取自身的 user id 也为 0，所以 user id 是否为 0 与是否获取 root 权限并无关联。</p>
+<h3 id="异常发生的场景"><a href="#异常发生的场景" class="headerlink" title="异常发生的场景"></a>异常发生的场景</h3><p>该异常发生在 API level 17 以上的机型里，在 APP 或者 APP 调用的 Native 进程里使用 am start 来启动 Activity 时。</p>
+<p>在 Java 代码中直接 startActivity 并不会触发此异常。</p>
+<p>好了，背景交待完毕，下面按惯例先上结论及解决方案，以便急于解决文章开始提到的异常而不想探究原理的同学可以省时地带着结论心满意足地离去。</p>
+<h2 id="结论及解决方案"><a href="#结论及解决方案" class="headerlink" title="结论及解决方案"></a>结论及解决方案</h2><p>在 API level 17 以上的 Android 设备里，通过 am start 命令来启动 Activity 时会校验调用 am 命令的进程的 user id 与 am 进程从 –user 参数获取到的 user id（默认值为 UserHandle.USER_CURRENT，即 -2）是否相等， 如果想在 APP 或者 APP 调用的 Native 进程里使用 am start 来启动 Activity，那么需要给其传递能通过校验的 –user 参数，参数值可以直接硬编码为 0，也可以使用 <code>android.os.Process.myUserHandle().hashCode()</code> 的值。</p>
+<p>如果不给 am start 传递正确的 –user 参数，那调用进程对应 uid 需要拥有 INTERACT_ACROSS_USERS_FULL 权限，但是该权限的 protectionLevel 为 <code>signature|installer</code>，一般场景下是无法获取到的。</p>
+<p>我做了一个 Demo APP，通过 <code>Runtime.getRuntime().exec("am start xxxxxxx");</code> 来启动拔号程序界面，有两个按钮分别模拟了传递与不传递 –user 参数的情况，有兴趣的同学可以看看现象，完整源码在 <a class="link" target="_blank" rel="noopener" href="https://github.com/mzlogin/AndroidPractices/tree/master/android-studio/AuthorityDemo">AuthorityDemo<i class="fas fa-external-link-alt"></i></a>。</p>
+<p>运行截图如下：</p>
+<p><img lazyload alt="image" data-src="/images/posts/android/authority-demo.png"></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>接下来我们将借助于源码对 am start 的执行过程进行分析，一点一点吹散迷雾。</p>
+<h3 id="am-start-的执行过程"><a href="#am-start-的执行过程" class="headerlink" title="am start 的执行过程"></a>am start 的执行过程</h3><p>am 命令的源码在 frameworks/base/cmds/am 里，里面的 am 文件即为 am 命令主体：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/system/bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Script to start "am" on the device, which has a very rudimentary</span></span><br><span class="line"><span class="comment"># shell.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">base=/system</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$base</span>/framework/am.jar</span><br><span class="line"><span class="built_in">exec</span> app_process <span class="variable">$base</span>/bin com.android.commands.am.Am <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码在 framworks/base/cmds/am/am 里。</p>
+<p>am 命令是通过 app_process 最终调用到 com.android.commands.am.Am 类的 main 方法，并将所有参数传递给 main 来执行后续流程的。app_process 相关知识与 am start 执行逻辑无关，此处略去不表，放在本文最后一节附录中讲解。</p>
+<p>am start 的关键方法调用如下：</p>
+<p><img lazyload alt="image" data-src="/images/posts/android/am-start-call-stack.svg"></p>
+<p>文章开始处的异常就是在 handleIncomingUser 方法里校验 user id 和权限失败之后抛出的。下面按方法调用层级详细分析一下，如下源码所在源文件可以在上图中找到：</p>
+<h4 id="Am-main"><a href="#Am-main" class="headerlink" title="Am.main"></a>Am.main</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line">    (<span class="keyword">new</span> <span class="title class_">Am</span>()).run(args);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>就是一个简单的 new 和 run 方法调用，而 Am 类中并无 <code>run(String[])</code> 原型的方法，所以其实调用的是 Am 类的基类 BaseCommand 的 run 方法。</p>
+<h4 id="BaseCommand-run"><a href="#BaseCommand-run" class="headerlink" title="BaseCommand.run"></a>BaseCommand.run</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">(String[] args)</span> {</span><br><span class="line">    ......</span><br><span class="line">    mArgs = args;</span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        onRun();</span><br><span class="line">        ......</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>BaseCommand 类的 onRun 方法是一个抽象方法，所以其实 run 方法只是保存了参数，然后调用了 Am 的 onRun 方法。</p>
+<h4 id="Am-onRun"><a href="#Am-onRun" class="headerlink" title="Am.onRun"></a>Am.onRun</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onRun</span><span class="params">()</span> <span class="keyword">throws</span> Exception {</span><br><span class="line"></span><br><span class="line">    mAm = ActivityManagerNative.getDefault();</span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">op</span> <span class="operator">=</span> nextArgRequired();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (op.equals(<span class="string">"start"</span>)) {</span><br><span class="line">        runStart();</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>onRun 方法主要是对 am 命令后第一个参数进行判断并进行相应的方法调用，我们可以看到 <code>am start</code> 是调用了 runStart 方法。</p>
+<p>这里可以顺便留意到的是 mAm 对象，追踪 <code>ActivityManagerNative.getDefault()</code> 可以知道它最终通过 binder 机制对应 ActivityManagerService 对象。</p>
+<h4 id="Am-runStart"><a href="#Am-runStart" class="headerlink" title="Am.runStart"></a>Am.runStart</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Am</span> <span class="keyword">extends</span> <span class="title class_">BaseCommand</span> {</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">mWaitOption</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> mUserId;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">private</span> Intent <span class="title function_">makeIntent</span><span class="params">(<span class="type">int</span> defUser)</span> <span class="keyword">throws</span> URISyntaxException {</span><br><span class="line">        ......</span><br><span class="line">        mWaitOption = <span class="literal">false</span>;</span><br><span class="line">        ......</span><br><span class="line">        mUserId = defUser;</span><br><span class="line">        ......</span><br><span class="line">        <span class="keyword">while</span> ((opt=nextOption()) != <span class="literal">null</span>) {</span><br><span class="line">            <span class="keyword">if</span> (opt.equals(<span class="string">"-a"</span>)) {</span><br><span class="line">                ......</span><br><span class="line">            } <span class="keyword">else</span> <span class="keyword">if</span> (opt.equals(<span class="string">"-W"</span>)) {</span><br><span class="line">                mWaitOption = <span class="literal">true</span>;</span><br><span class="line">                ......</span><br><span class="line">            } <span class="keyword">else</span> <span class="keyword">if</span> (opt.equals(<span class="string">"--user"</span>)) {</span><br><span class="line">                mUserId = parseUserArg(nextArgRequired());</span><br><span class="line">            }</span><br><span class="line">            ......</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">runStart</span><span class="params">()</span> <span class="keyword">throws</span> Exception {</span><br><span class="line">        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> makeIntent(UserHandle.USER_CURRENT);</span><br><span class="line">        ......</span><br><span class="line">        <span class="keyword">if</span> (mWaitOption) {</span><br><span class="line">            result = mAm.startActivityAndWait(<span class="literal">null</span>, <span class="literal">null</span>, intent, mimeType,</span><br><span class="line">                        <span class="literal">null</span>, <span class="literal">null</span>, <span class="number">0</span>, mStartFlags, profilerInfo, <span class="literal">null</span>, mUserId);</span><br><span class="line">            res = result.result;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            res = mAm.startActivityAsUser(<span class="literal">null</span>, <span class="literal">null</span>, intent, mimeType,</span><br><span class="line">                    <span class="literal">null</span>, <span class="literal">null</span>, <span class="number">0</span>, mStartFlags, profilerInfo, <span class="literal">null</span>, mUserId);</span><br><span class="line">        }</span><br><span class="line">        ......</span><br><span class="line">        <span class="keyword">switch</span> (res) {</span><br><span class="line">            <span class="comment">// 启动 Activity 的结果提示</span></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (mWaitOption &amp;&amp; launched) {</span><br><span class="line">            <span class="comment">// 输出启动 Activity 的结果状态，起止时间等</span></span><br><span class="line">        }</span><br><span class="line">        ......</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>由如上代码可知，一般通过 am start 启动 Activity 时若未传 -W 参数（我一般的做法），会调用 ActivityManagerService.startActivityAsUser 来启动 Activity。（ActivityManagerService.startActivityAndWait 其实与 ActivityManagerService.startActivityAsUser 类似，只是在启动 Activity 后多了一个等待过程，下面不再重复分析。）</p>
+<p>而 mUserId 的值，若命令行中有 –user 参数，则被赋为该参数的值；若命令行中无 –user 参数，则默认为 <code>UserHandle.USER_CURRENT</code> 的值，在 frameworks/base/core/java/android/os/UserHandle.java 中可知此默认值为 -2。</p>
+<p>-2 这个数字是不是有点似曾相似？没错，文首的异常信息里就有这个值。</p>
+<h4 id="ActivityManagerService-startActivityAsUser"><a href="#ActivityManagerService-startActivityAsUser" class="headerlink" title="ActivityManagerService.startActivityAsUser"></a>ActivityManagerService.startActivityAsUser</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">startActivityAsUser</span><span class="params">(IApplicationThread caller, String callingPackage,</span></span><br><span class="line"><span class="params">        Intent intent, String resolvedType, IBinder resultTo, String resultWho, <span class="type">int</span> requestCode,</span></span><br><span class="line"><span class="params">        <span class="type">int</span> startFlags, ProfilerInfo profilerInfo, Bundle options, <span class="type">int</span> userId)</span> {</span><br><span class="line">    enforceNotIsolatedCaller(<span class="string">"startActivity"</span>);</span><br><span class="line">    userId = handleIncomingUser(Binder.getCallingPid(), Binder.getCallingUid(), userId,</span><br><span class="line">            <span class="literal">false</span>, ALLOW_FULL_ONLY, <span class="string">"startActivity"</span>, <span class="literal">null</span>);</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> Switch to user app stacks here.</span></span><br><span class="line">    <span class="keyword">return</span> mStackSupervisor.startActivityMayWait(caller, -<span class="number">1</span>, callingPackage, intent,</span><br><span class="line">            resolvedType, <span class="literal">null</span>, <span class="literal">null</span>, resultTo, resultWho, requestCode, startFlags,</span><br><span class="line">            profilerInfo, <span class="literal">null</span>, <span class="literal">null</span>, options, <span class="literal">false</span>, userId, <span class="literal">null</span>, <span class="literal">null</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p><code>Binder.getCallingUid()</code> 是一个 native 方法，在 frameworks/base/core/java/android/os/Binder.java 中能找到，它其实就是返回了当前进程的 uid，而<strong>该 uid 是从父进程继承的</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return the Linux uid assigned to the process that sent you the</span></span><br><span class="line"><span class="comment"> * current transaction that is being processed.  This uid can be used with</span></span><br><span class="line"><span class="comment"> * higher-level system services to determine its identity and check</span></span><br><span class="line"><span class="comment"> * permissions.  If the current thread is not currently executing an</span></span><br><span class="line"><span class="comment"> * incoming transaction, then its own uid is returned.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">getCallingUid</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="ActivityManagerService-handleIncomingUser"><a href="#ActivityManagerService-handleIncomingUser" class="headerlink" title="ActivityManagerService.handleIncomingUser"></a>ActivityManagerService.handleIncomingUser</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">handleIncomingUser</span><span class="params">(<span class="type">int</span> callingPid, <span class="type">int</span> callingUid, <span class="type">int</span> userId, <span class="type">boolean</span> allowAll,</span></span><br><span class="line"><span class="params">        <span class="type">int</span> allowMode, String name, String callerPackage)</span> {</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">callingUserId</span> <span class="operator">=</span> UserHandle.getUserId(callingUid);</span><br><span class="line">    <span class="keyword">if</span> (callingUserId == userId) {</span><br><span class="line">        <span class="keyword">return</span> userId;</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">if</span> (callingUid != <span class="number">0</span> &amp;&amp; callingUid != Process.SYSTEM_UID) {</span><br><span class="line">        <span class="keyword">final</span> <span class="type">boolean</span> allow;</span><br><span class="line">        <span class="keyword">if</span> (checkComponentPermission(INTERACT_ACROSS_USERS_FULL, callingPid,</span><br><span class="line">                callingUid, -<span class="number">1</span>, <span class="literal">true</span>) == PackageManager.PERMISSION_GRANTED) {</span><br><span class="line">            <span class="comment">// If the caller has this permission, they always pass go.  And collect $200.</span></span><br><span class="line">            allow = <span class="literal">true</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (allowMode == ALLOW_FULL_ONLY) {</span><br><span class="line">            <span class="comment">// We require full access, sucks to be you.</span></span><br><span class="line">            allow = <span class="literal">false</span>;</span><br><span class="line">        } <span class="keyword">else</span> <span class="keyword">if</span> (......) {</span><br><span class="line">            ......</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (!allow) {</span><br><span class="line">            <span class="keyword">if</span> (userId == UserHandle.USER_CURRENT_OR_SELF) {</span><br><span class="line">                <span class="comment">// In this case, they would like to just execute as their</span></span><br><span class="line">                <span class="comment">// owner user instead of failing.</span></span><br><span class="line">                targetUserId = callingUserId;</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="number">128</span>);</span><br><span class="line">                builder.append(<span class="string">"Permission Denial: "</span>);</span><br><span class="line">                builder.append(name);</span><br><span class="line">                <span class="keyword">if</span> (callerPackage != <span class="literal">null</span>) {</span><br><span class="line">                    builder.append(<span class="string">" from "</span>);</span><br><span class="line">                    builder.append(callerPackage);</span><br><span class="line">                }</span><br><span class="line">                builder.append(<span class="string">" asks to run as user "</span>);</span><br><span class="line">                builder.append(userId);</span><br><span class="line">                builder.append(<span class="string">" but is calling from user "</span>);</span><br><span class="line">                builder.append(UserHandle.getUserId(callingUid));</span><br><span class="line">                builder.append(<span class="string">"; this requires "</span>);</span><br><span class="line">                builder.append(INTERACT_ACROSS_USERS_FULL);</span><br><span class="line">                <span class="keyword">if</span> (allowMode != ALLOW_FULL_ONLY) {</span><br><span class="line">                    builder.append(<span class="string">" or "</span>);</span><br><span class="line">                    builder.append(INTERACT_ACROSS_USERS);</span><br><span class="line">                }</span><br><span class="line">                <span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> builder.toString();</span><br><span class="line">                Slog.w(TAG, msg);</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">SecurityException</span>(msg);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>它先校验了当前进程的 user id 与参数里的 userId（即 –user 的值或默认的 -2）是否相等，如果相等则正常返回，执行后续的启动 Activity 动作；</p>
+<p>如果不相等，普通应用程序的 callingUid 必为 0，则先进行权限校验，看当前 pid 和 uid 是否被赋予了 INTERACT_ACROSS_USERS_FULL 权限，我们在前面的「结论及解决方案」一节中已经交待过，该权限的 protectionLevel 为 <code>signature|installer</code>，一般场景下是无法获取到的；</p>
+<p>如果没有 INTERACT_ACROSS_USERS_FULL 权限，allowMode 参数值又为 ALLOW_FULL_ONLY 则将抛出 SecurityException，从上一小节「ActivityManagerService.startActivityAsUser」中调用 handleIncomingUser 的参数可知 allowMode 参数就是 ALLOW_FULL_ONLY。</p>
+<p>上方代码段里的 <code>Permission Denial: </code>、<code>asks to run as user</code> 和 <code>but is calling from user</code> 等字符串是不是很熟悉？这就是从文首开始困惑我们的异常抛出的地方。</p>
+<p>至此，am start 的大概执行过程和异常发生的情景分析完成。</p>
+<h4 id="实现功能，避免异常"><a href="#实现功能，避免异常" class="headerlink" title="实现功能，避免异常"></a>实现功能，避免异常</h4><p>从上方的分析可知，要避免异常最直接有效的方法就是让 handleIncomingUser 方法正常返回，既然声明 INTERACT_ACROSS_USERS_FULL 权限的路不通，就只有传递 –user 参数了。</p>
+<p>那么给这个参数传递什么值呢？</p>
+<p>从上文的分析可知，该参数应该与 am 进程的 user id 相等，所以传递父进程的 user id 即可。（user id 由 uid 运算得来，而 uid 与父进程相同。）</p>
+<p>由「背景」一节可知，所有 APP 进程的 user id 都为 0，所以该参数直接写 0 是可以的；如果不想硬编码，那么可以先用 Process 类的 <code>myUserHandle()</code> 方法获取进程的 user handle：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns this process's user handle.  This is the</span></span><br><span class="line"><span class="comment"> * user the process is running under.  It is distinct from</span></span><br><span class="line"><span class="comment"> * {<span class="doctag">@link</span> #myUid()} in that a particular user will have multiple</span></span><br><span class="line"><span class="comment"> * distinct apps running under it each with their own uid.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> UserHandle <span class="title function_">myUserHandle</span><span class="params">()</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">UserHandle</span>(UserHandle.getUserId(myUid()));</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>这段代码定义在 frameworks/base/core/java/android/os/Process.java 中。</p>
+<p>继续分析 UserHandle 类里的相关方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">UserHandle</span> <span class="keyword">implements</span> <span class="title class_">Parcelable</span> {</span><br><span class="line">    ......</span><br><span class="line">    <span class="comment">/** <span class="doctag">@hide</span> */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserHandle</span><span class="params">(<span class="type">int</span> h)</span> {</span><br><span class="line">        mHandle = h;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the userId stored in this UserHandle.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@hide</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@SystemApi</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getIdentifier</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> mHandle;</span><br><span class="line">    }</span><br><span class="line">    ......</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> {</span><br><span class="line">        <span class="keyword">return</span> mHandle;</span><br><span class="line">    }</span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
+
+<p>这段代码定义在 frameworks/base/core/java/android/os/UserHandle.java 中。</p>
+<p>构造方法 <code>UserHandle(int h)</code> 里将 user id 保存在 mHandle 成员里，本来 UserHandle 类有一个 getIdentifier 方法可以返回 mHandle 的，但该方法被标为了 SystemApi 和 hide，无法正常调用，所以找了一个取巧的办法，使用也返回 mHandle 值的 hashCode 方法来达成目标。</p>
+<p>所以 am start 的 –user 的参数可以直接写为 0，也可以使用 <code>android.os.Process.myUserHandle().hashCode()</code> 的值。</p>
+<h2 id="引申思考"><a href="#引申思考" class="headerlink" title="引申思考"></a>引申思考</h2><p>启动 Activity 的方法并非只有在 APP 进程里使用 am start 一种，还有通过 adb 命令 adb shell am start 或在 APP 进程里使用 startActivity 等，它们为什么没有抛出此异常呢？继续探索。</p>
+<h3 id="为何-adb-shell-am-start-不抛此异常"><a href="#为何-adb-shell-am-start-不抛此异常" class="headerlink" title="为何 adb shell am start 不抛此异常"></a>为何 adb shell am start 不抛此异常</h3><p><strong>原因：</strong> shell 是拥有 INTERACT_ACROSS_USERS_FULL 权限的，所以 am start 作为其子进程继承了 shell 的 uid 和对应权限，在如上流程中 ActivityManagerService.handleIncomingUser 里通过了权限检查，不会抛出文首的异常。</p>
+<p>在 frameworks/base/packages/Shell/AndroidManifest.xml 里有如下声明：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">package</span>=<span class="string">"com.android.shell"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">coreApp</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:sharedUserId</span>=<span class="string">"android.uid.shell"</span></span></span><br><span class="line"><span class="tag">        &gt;</span></span><br><span class="line">    ......</span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERACT_ACROSS_USERS_FULL"</span> /&gt;</span></span><br><span class="line">    ......</span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span>    </span><br></pre></td></tr></table></figure>
+
+<h3 id="Java-代码里-startActivity-的执行过程"><a href="#Java-代码里-startActivity-的执行过程" class="headerlink" title="Java 代码里 startActivity 的执行过程"></a>Java 代码里 startActivity 的执行过程</h3><p><img lazyload alt="image" data-src="/images/posts/android/start-activity-call-stack.svg"></p>
+<p>其实与 am start 一样，都是执行到了 ActivityManagerService.startActivityAsUser，区别在于参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">startActivity</span><span class="params">(IApplicationThread caller, String callingPackage,</span></span><br><span class="line"><span class="params">        Intent intent, String resolvedType, IBinder resultTo, String resultWho, <span class="type">int</span> requestCode,</span></span><br><span class="line"><span class="params">        <span class="type">int</span> startFlags, ProfilerInfo profilerInfo, Bundle options)</span> {</span><br><span class="line">    <span class="keyword">return</span> startActivityAsUser(caller, callingPackage, intent, resolvedType, resultTo,</span><br><span class="line">        resultWho, requestCode, startFlags, profilerInfo, options,</span><br><span class="line">        UserHandle.getCallingUserId());</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>在 am start 流程中的，传给 startActivityAsUser 的最后一个参数是 –user 传入的或者默认的 -2，而 Java 代码里的 startActivity 流程中传给 startActivityAsUser 的是 <code>UserHandle.getCallingUserId()</code>，相当于到 handleIncomingUser 中是当前进程的 user id 与当前进程的 user id 比较（必相等），如果相等则通过校验，所以必能通过校验，不会抛出文首说的异常。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="app-process-简要执行过程"><a href="#app-process-简要执行过程" class="headerlink" title="app_process 简要执行过程"></a>app_process 简要执行过程</h3><p><img lazyload alt="image" data-src="/images/posts/android/app-process.svg"></p>
+<p>在第 2 步，AndroidRuntime::start 中调用了 <code>startVm</code> 启动虚拟机，最终在第 5 步 AppRuntime::onStarted 中调用通过参数传进来的类的 main 方法，并将类名后的参数传给它。</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">从 am start 的 --user 参数说到 Android 多用户</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/8df8.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev" rel="prev" href="/posts/bb90.html">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Android 系统缓存扫描与清理方法分析</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next" rel="next" href="/posts/15b3.html">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">不藏拙的人生</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-%E7%B3%BB%E7%BB%9F%E9%87%8C%E7%9A%84%E5%A4%9A%E7%94%A8%E6%88%B7"><span class="nav-number">1.1.</span> <span class="nav-text">Android 系统里的多用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user-id-%E4%B8%8E-uid"><span class="nav-number">1.2.</span> <span class="nav-text">user id 与 uid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%8F%91%E7%94%9F%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-number">1.3.</span> <span class="nav-text">异常发生的场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">结论及解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#am-start-%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">am start 的执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Am-main"><span class="nav-number">3.1.1.</span> <span class="nav-text">Am.main</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BaseCommand-run"><span class="nav-number">3.1.2.</span> <span class="nav-text">BaseCommand.run</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Am-onRun"><span class="nav-number">3.1.3.</span> <span class="nav-text">Am.onRun</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Am-runStart"><span class="nav-number">3.1.4.</span> <span class="nav-text">Am.runStart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ActivityManagerService-startActivityAsUser"><span class="nav-number">3.1.5.</span> <span class="nav-text">ActivityManagerService.startActivityAsUser</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ActivityManagerService-handleIncomingUser"><span class="nav-number">3.1.6.</span> <span class="nav-text">ActivityManagerService.handleIncomingUser</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD%EF%BC%8C%E9%81%BF%E5%85%8D%E5%BC%82%E5%B8%B8"><span class="nav-number">3.1.7.</span> <span class="nav-text">实现功能，避免异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%B3%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">引申思考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BD%95-adb-shell-am-start-%E4%B8%8D%E6%8A%9B%E6%AD%A4%E5%BC%82%E5%B8%B8"><span class="nav-number">4.1.</span> <span class="nav-text">为何 adb shell am start 不抛此异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-%E4%BB%A3%E7%A0%81%E9%87%8C-startActivity-%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">4.2.</span> <span class="nav-text">Java 代码里 startActivity 的执行过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-process-%E7%AE%80%E8%A6%81%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">5.1.</span> <span class="nav-text">app_process 简要执行过程</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            ©
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span> 
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png?v=9693e72d12"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center" href="/atom.xml" target="_blank">
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js?v=cbd27e8569"></script>
+
+<script src="/js/main.js?v=3ab50fd2bb"></script>
+
+<script src="/js/header-shrink.js?v=0418df63d7"></script>
+
+<script src="/js/back2top.js?v=139ceb0539"></script>
+
+<script src="/js/dark-light-toggle.js?v=f21816b072"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js?v=0ce0b1d637"></script>
+
+
+
+
+    
+<script src="/js/code-block.js?v=63706df46d"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js?v=f1e4b68ec3"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js?v=34bd3800c9"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js?v=864a144dbb"></script>
+
+        
+        
+            
+<script src="/js/toc.js?v=037238356c"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js?v=cdf1c08dca"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

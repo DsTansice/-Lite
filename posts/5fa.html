@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css?v=372a94e93f">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            koa 源码解析(1) |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css?v=512d6d2336">
+
+    <link rel="shortcut icon" href="/img/favicon.png?v=96e789c5be">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css?v=d318f67430">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css?v=dd643a612d">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css?v=4abb638a78">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css?v=bffe02773a">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png?v=96e789c5be","favicon":"/img/favicon.png?v=96e789c5be","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg?v=7b42f26db7","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml?v=f2133d50b5" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png?v=96e789c5be">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">koa 源码解析(1)</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg?v=e52bd9a478">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2018-02-01 15:55:09</span>
+        <span class="mobile">2018-02-01 15:55</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:32:49</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/application-js/">application.js</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.3k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="koa"><a href="#koa" class="headerlink" title="koa"></a>koa</h1><p>koa 是由 Express 原班人马打造的，致力于成为一个更小、更富有表现力、更健壮的 Web 框架。 使用 koa 编写 web 应用，通过组合不同的 generator，可以免除重复繁琐的回调函数嵌套， 并极大地提升错误处理的效率。koa 不在内核方法中绑定任何中间件， 它仅仅提供了一个轻量优雅的函数库，使得编写 Web 应用变得得心应手。</p>
+<p>安装、版本依赖请<a class="link" target="_blank" rel="noopener" href="https://koa.bootcss.com/">点我点我<i class="fas fa-external-link-alt"></i></a> ~ O(∩_∩)O 哈哈~</p>
+<p>开篇怎能没有 hello world 呢？→_→</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">async</span> ctx =&gt; {</span><br><span class="line">  ctx.<span class="property">body</span> = <span class="string">'Hello World'</span>;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不满意 换个口味吧？</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">async</span> ctx =&gt; {</span><br><span class="line">  ctx.<span class="property">body</span> = <span class="string">'Hello World'</span>;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>(app.<span class="title function_">callback</span>()).<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="koa-图解"><a href="#koa-图解" class="headerlink" title="koa 图解"></a>koa 图解</h2><p>图中一层一层的洋葱圈，其实就是每一个中间件函数<code>middlewarefn(ctx, next)</code>，有的是系统中间件，有的是用户中间件，这取决于用户如何定义中间件在系统中的功能层级（都是通过 app.use()加载，koa 内部不封装任何中间件函数）。</p>
+<p>路线分析：外层到内层-对 request 请求进行处理，内层再到外层-对 response 请求进行处理。</p>
+<p>代码分析：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 某一个中间件函数</span></span><br><span class="line"><span class="keyword">async</span> middlewarefn (ctx, next) {</span><br><span class="line">  <span class="comment">// 外层到内层的代码</span></span><br><span class="line">  ......</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">next</span>();</span><br><span class="line">  <span class="comment">// 内层到外层的代码</span></span><br><span class="line">  ......</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="koa-核心文件"><a href="#koa-核心文件" class="headerlink" title="koa 核心文件"></a>koa 核心文件</h2><p>有且仅有 4 个（精简、流畅、易用）</p>
+<ul>
+<li>application.js</li>
+<li>context.js</li>
+<li>request.js</li>
+<li>response.js</li>
+</ul>
+<h3 id="application-js"><a href="#application-js" class="headerlink" title="application.js"></a>application.js</h3><p>今天主要解剖一下这个货 ^_^</p>
+<p>继承自 Emitter 类，主要用于监听 error。</p>
+<p>利用<code>require('debug')('koa:application')</code>模块，把所有的 debug 都输出在 koa:application 域下，便于查看。</p>
+<p>构造函数的参数简单易懂：</p>
+<ul>
+<li>proxy false</li>
+<li>middleware []</li>
+<li>subdomainOffset 2</li>
+<li>env process.env.NODE_ENV || ‘development’</li>
+<li>context 上下文对象</li>
+<li>request 请求级别对象</li>
+<li>response 请求级别对象</li>
+</ul>
+<p>应用实例。从用户的角度出发，从事的工作是暴露给用户可使用的方法；</p>
+<p>例如：</p>
+<ul>
+<li>listen()</li>
+<li>use()</li>
+<li>toJSON()</li>
+<li>inspect()</li>
+</ul>
+<h4 id="listen"><a href="#listen" class="headerlink" title="listen()"></a>listen()</h4><p>不言而喻，最基本的功能。可以看出，核心是调用了<code>this.callback()</code>方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">listen</span>(<span class="params">...args</span>) {</span><br><span class="line">  <span class="title function_">debug</span>(<span class="string">'listen'</span>);</span><br><span class="line">  <span class="keyword">const</span> server = http.<span class="title function_">createServer</span>(<span class="variable language_">this</span>.<span class="title function_">callback</span>());</span><br><span class="line">  <span class="keyword">return</span> server.<span class="title function_">listen</span>(...args);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="use"><a href="#use" class="headerlink" title="use()"></a>use()</h4><p><code>require('is-generator-function')</code>模块，可以判定该函数是否是生成器函数，进而使用<code>require('koa-convert')</code>模块把生成器函数转换为可解析的 Promise 函数。有兴趣的同学可以研究一下这 2 个模块。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="title function_">isGeneratorFunction</span>(fn)) {</span><br><span class="line">  fn = <span class="title function_">convert</span>(fn);</span><br><span class="line">}</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">middleware</span>.<span class="title function_">push</span>(fn);</span><br><span class="line"><span class="keyword">return</span> <span class="variable language_">this</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="toJSON"><a href="#toJSON" class="headerlink" title="toJSON()"></a>toJSON()</h4><p><code>require('only')</code>模块，返回该对象中指定的&lt;key, value&gt;，形成一个新的对象。参数可以使数组（数组中是 key），也可以是字符串（用空格隔开 key）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="title function_">only</span>(<span class="variable language_">this</span>, [<span class="string">'subdomainOffset'</span>, <span class="string">'proxy'</span>, <span class="string">'env'</span>]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="inspect"><a href="#inspect" class="headerlink" title="inspect()"></a>inspect()</h4><p>直观理解：返回 toJSON()方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">toJSON</span>();</span><br></pre></td></tr></table></figure>
+
+<p>从功能性角度来讲，他主要的使命是：</p>
+<ul>
+<li>callback()</li>
+<li>createContext()</li>
+<li>handleRequest()</li>
+<li>respond()</li>
+<li>onerror()</li>
+</ul>
+<h4 id="callback"><a href="#callback" class="headerlink" title="callback()"></a>callback()</h4><p><code>require('koa-compose')</code>模块，把列表中的中间件按先后顺序用 Promise 封装；next()方法返回的恰恰是上一个函数执行的环境，只不过就是把中间件函数变成了 middleware 数组中的下一个，说白了就是递归执行。该模块的核心代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">function</span> <span class="title function_">dispatch</span> (i) {</span><br><span class="line">      <span class="keyword">if</span> (i &lt;= index) <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">'next() called multiple times'</span>))</span><br><span class="line">      index = i</span><br><span class="line">      <span class="keyword">let</span> fn = middleware[i]</span><br><span class="line">      <span class="keyword">if</span> (i === middleware.<span class="property">length</span>) fn = next</span><br><span class="line">      <span class="keyword">if</span> (!fn) <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>()</span><br><span class="line">      <span class="keyword">try</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(<span class="title function_">fn</span>(context, <span class="keyword">function</span> <span class="title function_">next</span> () {</span><br><span class="line">          <span class="keyword">return</span> <span class="title function_">dispatch</span>(i + <span class="number">1</span>)</span><br><span class="line">        }))</span><br><span class="line">      } <span class="keyword">catch</span> (err) {</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(err)</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>接着就是创建上下文环境 createContext()，然后执行 handlerequest()方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">callback</span>()</span><br><span class="line">  <span class="keyword">const</span> fn = <span class="title function_">compose</span>(<span class="variable language_">this</span>.<span class="property">middleware</span>);</span><br><span class="line">  <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="title function_">listeners</span>(<span class="string">'error'</span>).<span class="property">length</span>) <span class="variable language_">this</span>.<span class="title function_">on</span>(<span class="string">'error'</span>, <span class="variable language_">this</span>.<span class="property">onerror</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleRequest</span> = (<span class="params">req, res</span>) =&gt; {</span><br><span class="line">    <span class="keyword">const</span> ctx = <span class="variable language_">this</span>.<span class="title function_">createContext</span>(req, res);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">handleRequest</span>(ctx, fn);</span><br><span class="line">  };</span><br><span class="line">  <span class="keyword">return</span> handleRequest;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="createContext"><a href="#createContext" class="headerlink" title="createContext()"></a>createContext()</h4><p>乍一看，我的个神啊，这么多，密密麻麻，不用害怕，其实真正核心的就只有这几行：</p>
+<p>把 application 的实例赋值给上下文 context，把 http 中的 req,res 赋值给上下文 context；接下来把 req，res 同时赋值给 request.js 和 response.js 暴露出来的静态对象（便于使用）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">context.<span class="property">app</span> = request.<span class="property">app</span> = response.<span class="property">app</span> = <span class="variable language_">this</span>;</span><br><span class="line">context.<span class="property">req</span> = request.<span class="property">req</span> = response.<span class="property">req</span> = req;</span><br><span class="line">context.<span class="property">res</span> = request.<span class="property">res</span> = response.<span class="property">res</span> = res;</span><br><span class="line">request.<span class="property">ctx</span> = response.<span class="property">ctx</span> = context;</span><br><span class="line">request.<span class="property">response</span> = response;</span><br><span class="line">response.<span class="property">request</span> = request;</span><br></pre></td></tr></table></figure>
+
+<p>其余的代码很好理解，上下文对象 ctx 加入 cookie，ip, originalUrl, accept, state 参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">createContext</span>(<span class="params">req, res</span>) {</span><br><span class="line">  <span class="keyword">const</span> context = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="variable language_">this</span>.<span class="property">context</span>);</span><br><span class="line">  <span class="keyword">const</span> request = context.<span class="property">request</span> = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="variable language_">this</span>.<span class="property">request</span>);</span><br><span class="line">  <span class="keyword">const</span> response = context.<span class="property">response</span> = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="variable language_">this</span>.<span class="property">response</span>);</span><br><span class="line">  context.<span class="property">app</span> = request.<span class="property">app</span> = response.<span class="property">app</span> = <span class="variable language_">this</span>;</span><br><span class="line">  context.<span class="property">req</span> = request.<span class="property">req</span> = response.<span class="property">req</span> = req;</span><br><span class="line">  context.<span class="property">res</span> = request.<span class="property">res</span> = response.<span class="property">res</span> = res;</span><br><span class="line">  request.<span class="property">ctx</span> = response.<span class="property">ctx</span> = context;</span><br><span class="line">  request.<span class="property">response</span> = response;</span><br><span class="line">  response.<span class="property">request</span> = request;</span><br><span class="line">  context.<span class="property">originalUrl</span> = request.<span class="property">originalUrl</span> = req.<span class="property">url</span>;</span><br><span class="line">  context.<span class="property">cookies</span> = <span class="keyword">new</span> <span class="title class_">Cookies</span>(req, res, {</span><br><span class="line">  <span class="attr">keys</span>: <span class="variable language_">this</span>.<span class="property">keys</span>,</span><br><span class="line">  <span class="attr">secure</span>: request.<span class="property">secure</span></span><br><span class="line">  });</span><br><span class="line">  request.<span class="property">ip</span> = request.<span class="property">ips</span>[<span class="number">0</span>] || req.<span class="property">socket</span>.<span class="property">remoteAddress</span> || <span class="string">''</span>;</span><br><span class="line">  context.<span class="property">accept</span> = request.<span class="property">accept</span> = <span class="title function_">accepts</span>(req);</span><br><span class="line">  context.<span class="property">state</span> = {};</span><br><span class="line">  <span class="keyword">return</span> context;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h4 id="respond"><a href="#respond" class="headerlink" title="respond()"></a>respond()</h4><p>分别根据 buffer、string 和 stream 流来区分对待；默认 JSON 封装数据，再顺便求一个字节长度。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="title class_">Buffer</span>.<span class="title function_">isBuffer</span>(body)) <span class="keyword">return</span> res.<span class="title function_">end</span>(body);</span><br><span class="line"><span class="keyword">if</span> (<span class="string">'string'</span> == <span class="keyword">typeof</span> body) <span class="keyword">return</span> res.<span class="title function_">end</span>(body);</span><br><span class="line"><span class="keyword">if</span> (body <span class="keyword">instanceof</span> <span class="title class_">Stream</span>) <span class="keyword">return</span> body.<span class="title function_">pipe</span>(res); <span class="comment">// body: json</span></span><br><span class="line">body = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(body);</span><br><span class="line"><span class="keyword">if</span> (!res.<span class="property">headersSent</span>) {</span><br><span class="line">  ctx.<span class="property">length</span> = <span class="title class_">Buffer</span>.<span class="title function_">byteLength</span>(body);</span><br><span class="line">}</span><br><span class="line">res.<span class="title function_">end</span>(body);</span><br></pre></td></tr></table></figure>
+
+<h4 id="onerror"><a href="#onerror" class="headerlink" title="onerror()"></a>onerror()</h4><p>只打印 stack，默认在开头加一个空格，自己也不能解惑。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> msg = err.<span class="property">stack</span> || err.<span class="title function_">toString</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">error</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">error</span>(msg.<span class="title function_">replace</span>(<span class="regexp">/^/gm</span>, <span class="string">' '</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">error</span>();</span><br></pre></td></tr></table></figure>
+
+<p>敬请期待下一节 koa 源码分析(2) request.js ^_^</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">koa 源码解析(1)</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2018-02-01 15:55:09</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/5fa.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/application-js/">#application.js</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev" rel="prev" href="/posts/e4ea.html">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">ubuntu网络的设置方式</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next" rel="next" href="/posts/7b95.html">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">PWA 方案相关技术分享</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koa"><span class="nav-number">1.</span> <span class="nav-text">koa</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#koa-%E5%9B%BE%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">koa 图解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#koa-%E6%A0%B8%E5%BF%83%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">koa 核心文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#application-js"><span class="nav-number">1.2.1.</span> <span class="nav-text">application.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#listen"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">listen()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#use"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">use()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toJSON"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">toJSON()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#inspect"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">inspect()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#callback"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">callback()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#createContext"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">createContext()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#respond"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">respond()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onerror"><span class="nav-number">1.2.1.8.</span> <span class="nav-text">onerror()</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            ©
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span> 
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png?v=9693e72d12"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center" href="/atom.xml" target="_blank">
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js?v=cbd27e8569"></script>
+
+<script src="/js/main.js?v=3ab50fd2bb"></script>
+
+<script src="/js/header-shrink.js?v=0418df63d7"></script>
+
+<script src="/js/back2top.js?v=139ceb0539"></script>
+
+<script src="/js/dark-light-toggle.js?v=f21816b072"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js?v=0ce0b1d637"></script>
+
+
+
+
+    
+<script src="/js/code-block.js?v=63706df46d"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js?v=f1e4b68ec3"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js?v=34bd3800c9"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js?v=864a144dbb"></script>
+
+        
+        
+            
+<script src="/js/toc.js?v=037238356c"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js?v=cdf1c08dca"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

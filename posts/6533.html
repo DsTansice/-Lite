@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css?v=372a94e93f">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            读Effective C++ |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css?v=512d6d2336">
+
+    <link rel="shortcut icon" href="/img/favicon.png?v=96e789c5be">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css?v=d318f67430">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css?v=dd643a612d">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css?v=4abb638a78">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css?v=bffe02773a">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png?v=96e789c5be","favicon":"/img/favicon.png?v=96e789c5be","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg?v=7b42f26db7","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml?v=f2133d50b5" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png?v=96e789c5be">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">读Effective C++</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg?v=e52bd9a478">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2018-02-04 20:04:46</span>
+        <span class="mobile">2018-02-04 20:04</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:30:31</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="读Effective-C"><a href="#读Effective-C" class="headerlink" title="读Effective C++"></a>读Effective C++</h1><p>2018年一月份读书：《Effective C++：改善程序与设计的55个具体做法》</p>
+<p>一月份利用晚上的时间粗读本书，算是对C++基础知识的复习与学习；按照章节顺序来读，前面部分较基础，后边涉及到泛型编程，看不太懂。</p>
+<p>读完之后写下本篇，是对一月份学习的一个简要总结，督促后边继续学习，也是对本书内容进行索引总结，方便遇到具体问题快速查阅，以节省时间。</p>
+<h2 id="内容索引"><a href="#内容索引" class="headerlink" title="内容索引"></a>内容索引</h2><p>本书共介绍C++程序设计的55个准则，作者已按照类型划分不同分类：</p>
+<h3 id="1-基础介绍"><a href="#1-基础介绍" class="headerlink" title="1 基础介绍"></a>1 基础介绍</h3><p>通用的也是常用的准则：</p>
+<ol>
+<li><strong>了解C++组成</strong>。四部分：基础C, Object-Oriented C++, Template C++(泛型编程), STL(程序库)</li>
+<li>用<strong>const, enum, inline</strong>替换#define</li>
+<li><strong>尽可能使用const</strong>。</li>
+<li><strong>对象被使用前先初始化</strong>。比如声明变量时就赋初值，构造函数使用成员初值列表，而不要在函数内进行赋值</li>
+</ol>
+<h3 id="2-类的基础方法"><a href="#2-类的基础方法" class="headerlink" title="2 类的基础方法"></a>2 类的基础方法</h3><p>主要是这几个编译器会默认给你生成的类方法：默认构造函数，析构函数，拷贝构造函数，拷贝赋值操作符</p>
+<ol>
+<li><strong>如果不要编译器生成的，要明确拒绝</strong>。如将方法声明为private，并且不实现</li>
+<li><strong>为多态基类声明virtual析构函数</strong></li>
+<li><strong>别让异常逃离析构函数</strong>。析构函数要捕获异常，要么吞下它们，要么结束程序</li>
+<li><strong>不在构造和析构过程调用virtual函数</strong>。</li>
+<li>**令operate＝返回一个reference to *this **。为了支持连等赋值</li>
+<li><strong>在operate＝中处理自我赋值</strong>。因为可能出现删除自己，再取自己内容的情况</li>
+<li><strong>复制对象时勿忘其每一部分</strong>。</li>
+</ol>
+<h3 id="3-资源管理"><a href="#3-资源管理" class="headerlink" title="3 资源管理"></a>3 资源管理</h3><p>资源包括动态内存分配，以及文件描述符，互斥锁，数据库连接，sockets等。当你不再使用它时，必须还给系统，否则会导致内存泄漏。</p>
+<p>使用对象来管理内存，主要是使用类的构造函数，析构函数，拷贝函数。如在构造函数中获得资源，并在析构函数中释放资源。</p>
+<ol>
+<li><strong>小心拷贝行为</strong>。禁止拷贝，使用引用计数法</li>
+<li><strong>提供对原始资源的访问</strong>。设计时要保留访问原始数据的接口</li>
+<li><strong>new和delete要采用相同形式</strong>。如new delete/ new[] delete[]</li>
+<li><strong>以独立对象将newed对象置入智能指针</strong>。智能指针会自动释放资源</li>
+</ol>
+<h3 id="4-设计与声明"><a href="#4-设计与声明" class="headerlink" title="4 设计与声明"></a>4 设计与声明</h3><p>作者说，软件设计是令软件作出你希望它做出的事情，以一般性的构想开始，最终演变成十足的细节，以允许特殊接口的开发。</p>
+<p>接口的设计，要易用，不易误用。应该向开源库学习，提供的接口清晰无歧义，并尽可能考虑各种输入与异常安全。</p>
+<ol>
+<li><strong>设计class犹如设计type</strong>。作者提出一系列问题，是在设计高效classes时需要考虑的</li>
+<li><strong>使用传引用替换传值</strong>。传值涉及对象的拷贝，这就需要时间与空间成本；不过对内置类型，传值可能更好</li>
+<li><strong>必须返回对象时，不要返回reference</strong>。最怕引用指向local stack对象</li>
+<li><strong>将成员变量声明为private</strong>。封装，划分访问控制更安全</li>
+<li><strong>宁以non-member non-friend替换member函数</strong>。增加封装性</li>
+<li><strong>若所有参数皆需要类型转换，请采用non-member函数</strong></li>
+<li><strong>考虑写不抛出异常的swap函数</strong>。</li>
+</ol>
+<h3 id="5-实现"><a href="#5-实现" class="headerlink" title="5 实现"></a>5 实现</h3><p>设计部分完成之后就该实现了，实现部分要多考虑一些细节问题，避免降低效率，代码膨胀，过度耦合，资源泄漏等问题。</p>
+<ol>
+<li><strong>尽可能延后变量定义式的出现时间</strong>。防止程序提前结束，导致不必要的构造和析构</li>
+<li><strong>少做转型动作</strong>。也是会影响效率；尽量使用新式转换(四种)</li>
+<li><strong>避免返回handles指向对象内部成分</strong>。</li>
+<li><strong>为异常安全努力是值得的</strong>。不泄漏资源，不允许数据败坏</li>
+<li><strong>了解inline</strong>。会被编译器替换，免除函数调用开销，但是可能会导致代码膨胀</li>
+<li><strong>将文件间的编译依存关系降至最低</strong>。</li>
+</ol>
+<h3 id="6-继承和面向对象设计"><a href="#6-继承和面向对象设计" class="headerlink" title="6 继承和面向对象设计"></a>6 继承和面向对象设计</h3><p>我感觉这是C++的精华部分，也挺重要。</p>
+<ol>
+<li><strong>public继承表示is－a关系</strong>。</li>
+<li><strong>避免遮掩继承而来的名称</strong>。作用域的遮掩行为；可使用using声明式使用基类的名称</li>
+<li><strong>区分接口继承和实现继承</strong>。选择派生类是继承基类的接口，还是接口加实现</li>
+<li><strong>考虑virtual函数以外的其他选择</strong>。作者提供了几个方案来替代虚函数</li>
+<li><strong>绝不重新定义继承而来的non-virtual函数以及缺省参数值</strong>。virtual函数是动态绑定</li>
+<li><strong>通过复合塑模出has-a或根据某物实现出</strong>。</li>
+<li><strong>明智而审慎地使用private继承和多重继承</strong>。</li>
+</ol>
+<h3 id="7-模板和泛型编程"><a href="#7-模板和泛型编程" class="headerlink" title="7 模板和泛型编程"></a>7 模板和泛型编程</h3><p>关于模板和泛型编程，看的不是很懂，也没仔细看，这里就先直接拷贝作者的条款，以后再看有新的理解再修改补充。</p>
+<ol>
+<li><strong>了解隐式接口和编译器多态</strong></li>
+<li><strong>了解typename的双重意义</strong></li>
+<li><strong>学习处理模板化基类内的名称</strong></li>
+<li><strong>将与参数无关的代码抽离templates</strong></li>
+<li><strong>运用成员函数模板接受所有兼容类型</strong></li>
+<li><strong>需要类型转换时请为模板定义非成员函数</strong></li>
+<li><strong>请使用traits classes表现类型信息</strong></li>
+<li><strong>认识template元编程</strong></li>
+</ol>
+<h3 id="8-定制new和delete"><a href="#8-定制new和delete" class="headerlink" title="8 定制new和delete"></a>8 定制new和delete</h3><p>手动管理内存，才能获得最佳的效率。</p>
+<ol>
+<li><strong>了解new－handler的行为</strong>。指定函数处理分配内存失败的情况</li>
+<li><strong>了解new delete的合理替换时机</strong>。有许多理由需要定制，包括改善效能，对heap运用错误进行调试，收集heap使用信息</li>
+<li><strong>编写new delete时需固守常规</strong>。包括一些固有的程式，以及异常情况的处理</li>
+<li><strong>写了placement new也要写placement delete</strong>。placement版本的new是一个特定位置上的new，一般接受一个void*,指向对象被构造之处，防止出现内存分配成功，但构造函数失败导致的内存泄漏问题</li>
+</ol>
+<h3 id="9-杂项"><a href="#9-杂项" class="headerlink" title="9 杂项"></a>9 杂项</h3><ol>
+<li><strong>不要轻忽编译器的警告</strong>。有可能因为错过警告而导致复杂的调试情况</li>
+<li><strong>熟悉标准程序库</strong>。熟悉标准程序库，相当于在编写代码时拥有各种工具组件可以挑选，方便快速开发出程序，当然可能对部分对速度有更高要求的程序不太适用，但是通用性还是很高</li>
+<li><strong>熟悉Boost</strong>。因为标准程序库多数是从Boost中取来，Boost功能也更强一些</li>
+</ol>
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>本书非常经典，只读一遍还远无法掌握其精髓，之后需要多看，可能不同的时期看收获也是不一样的。</p>
+<p>接下来准备粗读下《C++标准程序库》，了解标准程序库有哪些组件，将常用的记熟，不常用的需要的时候可以快速找到即可。</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">读Effective C++</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2018-02-04 20:04:46</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/6533.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C++</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev" rel="prev" href="/posts/e995.html">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">MySQL:reading initial communication packet问题解决方法</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next" rel="next" href="/posts/2aa5.html">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack 优化(1)</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BBEffective-C"><span class="nav-number">1.</span> <span class="nav-text">读Effective C++</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95"><span class="nav-number">1.1.</span> <span class="nav-text">内容索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.1.</span> <span class="nav-text">1 基础介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%B1%BB%E7%9A%84%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">2 类的基础方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.3.</span> <span class="nav-text">3 资源管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%A3%B0%E6%98%8E"><span class="nav-number">1.1.4.</span> <span class="nav-text">4 设计与声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.5.</span> <span class="nav-text">5 实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%BB%A7%E6%89%BF%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.1.6.</span> <span class="nav-text">6 继承和面向对象设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%A8%A1%E6%9D%BF%E5%92%8C%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B"><span class="nav-number">1.1.7.</span> <span class="nav-text">7 模板和泛型编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E5%AE%9A%E5%88%B6new%E5%92%8Cdelete"><span class="nav-number">1.1.8.</span> <span class="nav-text">8 定制new和delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E6%9D%82%E9%A1%B9"><span class="nav-number">1.1.9.</span> <span class="nav-text">9 杂项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">1.2.</span> <span class="nav-text">下一步</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            ©
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span> 
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png?v=9693e72d12"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center" href="/atom.xml" target="_blank">
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js?v=cbd27e8569"></script>
+
+<script src="/js/main.js?v=3ab50fd2bb"></script>
+
+<script src="/js/header-shrink.js?v=0418df63d7"></script>
+
+<script src="/js/back2top.js?v=139ceb0539"></script>
+
+<script src="/js/dark-light-toggle.js?v=f21816b072"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js?v=0ce0b1d637"></script>
+
+
+
+
+    
+<script src="/js/code-block.js?v=63706df46d"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js?v=f1e4b68ec3"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js?v=34bd3800c9"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js?v=864a144dbb"></script>
+
+        
+        
+            
+<script src="/js/toc.js?v=037238356c"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js?v=cdf1c08dca"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
