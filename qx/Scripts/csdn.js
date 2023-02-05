@@ -1,27 +1,4 @@
-/**
- * 名称：csdn.js
- * 地址：
- * 
- * 制作：Senku
- *
- ******** 以下为 tamperJS 自动生成的 rewrite 相关信息，可能需要根据情况适当调整 ********
-
-[rewrite]
-.*:\/\/.*\.csdn\.net\/.* url script-response-body csdn.js
-
-[mitm]
-, *.csdn.net
-
- ********
- * 工具: tamperJS BY @elecV2
- * 频道: https://t.me/elecV2
- *
-**/
-
-let body = $response.body
-
-if (/<\/html>|<\/body>/.test(body)) {
-  body = body.replace('</body>', `<script src='https://cdn.jsdelivr.net/npm/jquery.cookie/jquery.cookie.js'></script><script src='https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js'></script><script src='https://cdn.jsdelivr.net/gh/adlered/bolo-solo/src/main/webapp/js/lib/jquery/jquery.showtips.js'></script>
+let body=$response.body;/<\/html>|<\/body>/.test(body)&&(body=body.replace("</body>",`<script src='https://cdn.jsdelivr.net/npm/jquery.cookie/jquery.cookie.js'></script><script src='https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js'></script><script src='https://cdn.jsdelivr.net/gh/adlered/bolo-solo/src/main/webapp/js/lib/jquery/jquery.showtips.js'></script>
 <script>
 function GM_openInTab(e){return window.open(e)}function GM_addStyle(e){"use strict";let t=document.getElementsByTagName("head")[0];if(t){let s=document.createElement("style");return s.setAttribute("type","text/css"),s.textContent=e,t.appendChild(s),s}return null}const GM_log=console.log;function GM_xmlhttpRequest(e){"use strict";let t=new XMLHttpRequest;if(__setupRequestEvent(e,t,"abort"),__setupRequestEvent(e,t,"error"),__setupRequestEvent(e,t,"load"),__setupRequestEvent(e,t,"progress"),__setupRequestEvent(e,t,"readystatechange"),t.open(e.method,e.url,!e.synchronous,e.user||"",e.password||""),e.overrideMimeType&&t.overrideMimeType(e.overrideMimeType),e.headers)for(let s in e.headers)Object.prototype.hasOwnProperty.call(e.headers,s)&&t.setRequestHeader(s,e.headers[s]);let s=e.data?e.data:null;return e.binary?t.sendAsBinary(s):t.send(s)}function __setupRequestEvent(e,t,s){"use strict";e["on"+s]&&t.addEventListener(s,function(n){let r={responseText:t.responseText,responseXML:t.responseXML,readyState:t.readyState,responseHeaders:null,status:null,statusText:null,finalUrl:null};switch(s){case"progress":r.lengthComputable=n.lengthComputable,r.loaded=n.loaded,r.total=n.total;break;case"error":break;default:if(4!=t.readyState)break;r.responseHeaders=t.getAllResponseHeaders(),r.status=t.status,r.statusText=t.statusText}e["on"+s](r)})}const GM_info={script:{name:"elecV2",namespace:"https://t.me/elecV2"},uuid:"47c23801-2b5c-4dbc-88a0-636297fd6b86"},__GM_STORAGE_PREFIX=["",GM_info.script.namespace,GM_info.script.name,""].join("***");function GM_deleteValue(e){"use strict";localStorage.removeItem(__GM_STORAGE_PREFIX+e)}function GM_getValue(e,t){"use strict";let s=localStorage.getItem(__GM_STORAGE_PREFIX+e);return null===s&&void 0!==t?t:s}function GM_listValues(){"use strict";let e=__GM_STORAGE_PREFIX.length,t=[];for(let s=0;s<localStorage.length;s++){let n=localStorage.key(s);n.substr(0,e)===__GM_STORAGE_PREFIX&&t.push(n.substr(e))}return t}function GM_setValue(e,t){"use strict";localStorage.setItem(__GM_STORAGE_PREFIX+e,t)}function GM_getResourceURL(e){"use strict";return"greasemonkey-script:"+GM_info.uuid+"/"+e}
 </script>
@@ -745,9 +722,4 @@ function showTips() {
 	};
 	$("#greenerSettings").showTips(config);
 }
-}(console)</script></body>`)
-
-  console.log('添加 tamperJS：csdn.js')
-}
-
-$done({ body })
+}(console)</script></body>`),console.log("添加 tamperJS：csdn.js")),$done({body:body});
