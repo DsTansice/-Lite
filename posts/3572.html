@@ -1,2 +1,693 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>CentOS下php安装mcrypt扩展 | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">CentOS下php安装mcrypt扩展</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2016-01-26 22:41:04</span> <span class="mobile">2016-01-26 22:41</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-02 13:36:33</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/linux/">linux</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/linux/">linux</a>&nbsp;</li><li>| <a href="/tags/php/">php</a>&nbsp;</li><li>| <a href="/tags/mcrypt/">mcrypt</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>896 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><h2 id="确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤"><a href="#确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤" class="headerlink" title="确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤"></a>确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@test-206 ~]# yum list installed|grep mcrypt</span><br><span class="line">libmcrypt.x86_64                          2.5.8-4.el5.centos           installed</span><br><span class="line">libmcrypt-devel.x86_64                    2.5.8-4.el5.centos           installed</span><br><span class="line">mcrypt.x86_64                             2.6.8-1.el5                  installed</span><br></pre></td></tr></table></figure><p>以上显示已经安装过，若没有，则按以下两种方式安装</p><h3 id="yum命令懒人安装"><a href="#yum命令懒人安装" class="headerlink" title="yum命令懒人安装"></a>yum命令懒人安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libmcrypt libmcrypt-devel mcrypt mhash</span><br></pre></td></tr></table></figure><p>执行后会显示即将安装的相关库，你可以根据你的linux限定x86_64或者i386，如yum install libmcrypt.x86_64（如果yum命令无法连接仓库，请检查你的&#x2F;etc&#x2F;yum.repos.d&#x2F;里的文件正确性，以及你的&#x2F;etc&#x2F;host是不是可达里面的域名）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">================================================================================</span><br><span class="line"> Package              Arch        Version                   Repository     Size</span><br><span class="line">================================================================================</span><br><span class="line">Installing:</span><br><span class="line"> libmcrypt            i386        2.5.7-5.el5               epel          124 k</span><br><span class="line"> libmcrypt            x86_64      2.5.8-4.el5.centos        extras        105 k</span><br><span class="line"> libmcrypt-devel      i386        2.5.7-5.el5               epel          103 k</span><br><span class="line"> libmcrypt-devel      x86_64      2.5.8-4.el5.centos        extras         10 k</span><br><span class="line"> mcrypt               x86_64      2.6.8-1.el5               epel           88 k</span><br><span class="line"> mhash                i386        0.9.2-6.el5               epel          141 k</span><br><span class="line"> mhash                x86_64      0.9.9-1.el5.rf            rpmforge      161 k</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">================================================================================</span><br><span class="line">Install       7 Package(s)</span><br><span class="line">Upgrade       0 Package(s)</span><br><span class="line"></span><br><span class="line">Total download size: 731 k</span><br><span class="line">Is this ok [y/N]:</span><br></pre></td></tr></table></figure><p>确定安装，最后显示</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Installed:</span><br><span class="line">  libmcrypt.x86_64 0:2.5.8-4.el5.centos</span><br><span class="line">  libmcrypt-devel.x86_64 0:2.5.8-4.el5.centos</span><br><span class="line">  mcrypt.x86_64 0:2.6.8-1.el5</span><br><span class="line">  mhash.x86_64 0:0.9.9-1.el5.rf</span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure><h3 id="源码编译安装"><a href="#源码编译安装" class="headerlink" title="源码编译安装"></a>源码编译安装</h3><h4 id="去http-www-sourceforge-net下载Libmcrypt-mhash-mcrypt安装包"><a href="#去http-www-sourceforge-net下载Libmcrypt-mhash-mcrypt安装包" class="headerlink" title="去http://www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包"></a>去<a class="link" target="_blank" rel="noopener" href="http://www.sourceforge.net下载libmcrypt,mhash,mcrypt安装包/">http://www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包<i class="fas fa-external-link-alt"></i></a></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libmcrypt(libmcrypt-2.5.8.tar.gz )：</span><br><span class="line">mcrypt(mcrypt-2.6.8.tar.gz ):</span><br><span class="line">mhash(mhash-0.9.9.9.tar.gz ):</span><br></pre></td></tr></table></figure><p>####先安装Libmcrypt</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#tar -zxvf libmcrypt-2.5.8.tar.gz</span><br><span class="line">#cd libmcrypt-2.5.8</span><br><span class="line">#./configure</span><br><span class="line">#make</span><br><span class="line">#make install 说明：libmcript默认安装在/usr/local </span><br></pre></td></tr></table></figure><h4 id="安装mhash"><a href="#安装mhash" class="headerlink" title="安装mhash"></a>安装mhash</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#tar -zxvf mhash-0.9.9.9.tar.gz</span><br><span class="line">#cd mhash-0.9.9.9</span><br><span class="line">#./configure</span><br><span class="line">#make</span><br><span class="line">#make install</span><br></pre></td></tr></table></figure><h4 id="安装mcrypt"><a href="#安装mcrypt" class="headerlink" title="安装mcrypt"></a>安装mcrypt</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#tar -zxvf mcrypt-2.6.8.tar.gz</span><br><span class="line">#cd mcrypt-2.6.8</span><br><span class="line">#LD_LIBRARY_PATH=/usr/local/lib ./configure</span><br><span class="line">#make</span><br><span class="line">#make install</span><br></pre></td></tr></table></figure><p>最后，还是检查下，是否安装成功</p><h2 id="安装php的mcrypt扩展-动态加载编译"><a href="#安装php的mcrypt扩展-动态加载编译" class="headerlink" title="安装php的mcrypt扩展(动态加载编译)"></a>安装php的mcrypt扩展(动态加载编译)</h2><p>下载php下的mcrypt扩展或者直接下载php的完整安装包</p><p><a class="link" target="_blank" rel="noopener" href="http://cn.php.net/releases/">http://cn.php.net/releases/<i class="fas fa-external-link-alt"></i></a> 网页下找到自己服务器的php版本，下载后tar解压（本人的是php5.3.3）</p><p>进入ext&#x2F;mcrypt文件夹</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 14:45 ~]# cd php-5.3.3/ext/mcrypt/</span><br></pre></td></tr></table></figure><p>执行phpize命令（phpize是用来扩展php扩展模块的，通过phpize可以建立php的外挂模块，如果没有？yum install php53-devel里包含了，或者其他方法）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 14:48 mcrypt]# whereis phpize    //为了确定phpize存在</span><br><span class="line">phpize: /usr/bin/phpize /usr/share/man/man1/phpize.1.gz</span><br><span class="line">[root@*_* 14:48 mcrypt]# phpize</span><br><span class="line">Configuring for:</span><br><span class="line">PHP Api Version:         20090626</span><br><span class="line">Zend Module Api No:      20090626</span><br><span class="line">Zend Extension Api No:   220090626</span><br></pre></td></tr></table></figure><p>执行完后，会发现当前目录下多了一些configure文件，最后执行php-config命令就基本完成了</p><p>执行以下命令，确保你的&#x2F;usr&#x2F;bin&#x2F;php-config是存在的</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:02 mcrypt]# whereis php-config</span><br><span class="line">php-config: /usr/bin/php-config /usr/share/man/man1/php-config.1.gz</span><br><span class="line">[root@*_* 15:02 mcrypt]# ./configure --with-php-config=/usr/bin/php-config</span><br></pre></td></tr></table></figure><p>如果遇到以下错误，请先安装gcc，命令yum install gcc</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configure: error: no acceptable C compiler found in $PATH</span><br></pre></td></tr></table></figure><p>直到不报错，出现：config.status: creating config.h，执行以下命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:06 mcrypt]# make &amp;&amp; make install</span><br></pre></td></tr></table></figure><p>最后的最后，会提示你如下，说明你大功告成了</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Installing shared extensions:     /usr/lib64/php/modules/</span><br></pre></td></tr></table></figure><p>顺便检查下&#x2F;usr&#x2F;lib64&#x2F;php&#x2F;modules&#x2F;里的mrcypt.so扩展是否已经创建成功</p><p>然后的事就简单了，给你的php.ini添加一条extension&#x3D;mcrypt.so</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:09 mcrypt]# cd /etc/php.d</span><br></pre></td></tr></table></figure><p>创建一个mrcypt.ini文件就行，里面写extension&#x3D;mcrypt.so</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:17 php.d]# echo &#x27;extension=mcrypt.so&#x27; &gt; mcrypt.ini</span><br></pre></td></tr></table></figure><h2 id="重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？"><a href="#重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？" class="headerlink" title="重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？"></a>重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？</h2></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">CentOS下php安装mcrypt扩展</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2016-01-26 22:41:04</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/3572.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/linux/">#linux</a>&nbsp;</li><li class="tag-item"><a href="/tags/php/">#php</a>&nbsp;</li><li class="tag-item"><a href="/tags/mcrypt/">#mcrypt</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/undefined.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">centos-delete-php</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/3623.html"><span class="title flex-center"><span class="post-nav-title-item">为Hexo博客添加顶部加载条</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E4%BD%A0%E7%9A%84linux%E6%B2%A1%E6%9C%89%E5%AE%89%E8%A3%85mcrypt%E5%BA%93%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%B7%B2%E5%AE%89%E8%A3%85%EF%BC%8C%E8%B7%B3%E8%BF%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yum%E5%91%BD%E4%BB%A4%E6%87%92%E4%BA%BA%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">yum命令懒人安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">源码编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BBhttp-www-sourceforge-net%E4%B8%8B%E8%BD%BDLibmcrypt-mhash-mcrypt%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.2.1.</span> <span class="nav-text">去http:&#x2F;&#x2F;www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mhash"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装mhash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mcrypt"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装mcrypt</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85php%E7%9A%84mcrypt%E6%89%A9%E5%B1%95-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E7%BC%96%E8%AF%91"><span class="nav-number">2.</span> <span class="nav-text">安装php的mcrypt扩展(动态加载编译)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%90%AFapache%EF%BC%8C%E6%9F%A5%E9%98%85phpinfo%EF%BC%8Cmcrypt%E6%A8%A1%E5%9D%97%E6%89%A9%E5%B1%95%E6%98%AF%E4%B8%8D%E6%98%AF%E5%8A%A0%E8%BD%BD%E4%BA%86%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            CentOS下php安装mcrypt扩展 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">CentOS下php安装mcrypt扩展</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2016-01-26 22:41:04</span>
+        <span class="mobile">2016-01-26 22:41</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:36:33</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/linux/">linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/linux/">linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/php/">php</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/mcrypt/">mcrypt</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>896 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h2 id="确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤"><a href="#确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤" class="headerlink" title="确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤"></a>确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@test-206 ~]# yum list installed|grep mcrypt</span><br><span class="line">libmcrypt.x86_64                          2.5.8-4.el5.centos           installed</span><br><span class="line">libmcrypt-devel.x86_64                    2.5.8-4.el5.centos           installed</span><br><span class="line">mcrypt.x86_64                             2.6.8-1.el5                  installed</span><br></pre></td></tr></table></figure>
+<p>以上显示已经安装过，若没有，则按以下两种方式安装</p>
+<h3 id="yum命令懒人安装"><a href="#yum命令懒人安装" class="headerlink" title="yum命令懒人安装"></a>yum命令懒人安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libmcrypt libmcrypt-devel mcrypt mhash</span><br></pre></td></tr></table></figure>
+
+<p>执行后会显示即将安装的相关库，你可以根据你的linux限定x86_64或者i386，如yum install libmcrypt.x86_64（如果yum命令无法连接仓库，请检查你的&#x2F;etc&#x2F;yum.repos.d&#x2F;里的文件正确性，以及你的&#x2F;etc&#x2F;host是不是可达里面的域名）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Dependencies Resolved</span><br><span class="line"></span><br><span class="line">================================================================================</span><br><span class="line"> Package              Arch        Version                   Repository     Size</span><br><span class="line">================================================================================</span><br><span class="line">Installing:</span><br><span class="line"> libmcrypt            i386        2.5.7-5.el5               epel          124 k</span><br><span class="line"> libmcrypt            x86_64      2.5.8-4.el5.centos        extras        105 k</span><br><span class="line"> libmcrypt-devel      i386        2.5.7-5.el5               epel          103 k</span><br><span class="line"> libmcrypt-devel      x86_64      2.5.8-4.el5.centos        extras         10 k</span><br><span class="line"> mcrypt               x86_64      2.6.8-1.el5               epel           88 k</span><br><span class="line"> mhash                i386        0.9.2-6.el5               epel          141 k</span><br><span class="line"> mhash                x86_64      0.9.9-1.el5.rf            rpmforge      161 k</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">================================================================================</span><br><span class="line">Install       7 Package(s)</span><br><span class="line">Upgrade       0 Package(s)</span><br><span class="line"></span><br><span class="line">Total download size: 731 k</span><br><span class="line">Is this ok [y/N]:</span><br></pre></td></tr></table></figure>
+
+<p>确定安装，最后显示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Installed:</span><br><span class="line">  libmcrypt.x86_64 0:2.5.8-4.el5.centos</span><br><span class="line">  libmcrypt-devel.x86_64 0:2.5.8-4.el5.centos</span><br><span class="line">  mcrypt.x86_64 0:2.6.8-1.el5</span><br><span class="line">  mhash.x86_64 0:0.9.9-1.el5.rf</span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure>
+
+<h3 id="源码编译安装"><a href="#源码编译安装" class="headerlink" title="源码编译安装"></a>源码编译安装</h3><h4 id="去http-www-sourceforge-net下载Libmcrypt-mhash-mcrypt安装包"><a href="#去http-www-sourceforge-net下载Libmcrypt-mhash-mcrypt安装包" class="headerlink" title="去http://www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包"></a>去<a class="link"   target="_blank" rel="noopener" href="http://www.sourceforge.net下载libmcrypt,mhash,mcrypt安装包/" >http://www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包<i class="fas fa-external-link-alt"></i></a></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">libmcrypt(libmcrypt-2.5.8.tar.gz )：</span><br><span class="line">mcrypt(mcrypt-2.6.8.tar.gz ):</span><br><span class="line">mhash(mhash-0.9.9.9.tar.gz ):</span><br></pre></td></tr></table></figure>
+<p>####先安装Libmcrypt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#tar -zxvf libmcrypt-2.5.8.tar.gz</span><br><span class="line">#cd libmcrypt-2.5.8</span><br><span class="line">#./configure</span><br><span class="line">#make</span><br><span class="line">#make install 说明：libmcript默认安装在/usr/local </span><br></pre></td></tr></table></figure>
+
+<h4 id="安装mhash"><a href="#安装mhash" class="headerlink" title="安装mhash"></a>安装mhash</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#tar -zxvf mhash-0.9.9.9.tar.gz</span><br><span class="line">#cd mhash-0.9.9.9</span><br><span class="line">#./configure</span><br><span class="line">#make</span><br><span class="line">#make install</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装mcrypt"><a href="#安装mcrypt" class="headerlink" title="安装mcrypt"></a>安装mcrypt</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#tar -zxvf mcrypt-2.6.8.tar.gz</span><br><span class="line">#cd mcrypt-2.6.8</span><br><span class="line">#LD_LIBRARY_PATH=/usr/local/lib ./configure</span><br><span class="line">#make</span><br><span class="line">#make install</span><br></pre></td></tr></table></figure>
+
+<p>最后，还是检查下，是否安装成功</p>
+<h2 id="安装php的mcrypt扩展-动态加载编译"><a href="#安装php的mcrypt扩展-动态加载编译" class="headerlink" title="安装php的mcrypt扩展(动态加载编译)"></a>安装php的mcrypt扩展(动态加载编译)</h2><p>下载php下的mcrypt扩展或者直接下载php的完整安装包</p>
+<p><a class="link"   target="_blank" rel="noopener" href="http://cn.php.net/releases/" >http://cn.php.net/releases/<i class="fas fa-external-link-alt"></i></a> 网页下找到自己服务器的php版本，下载后tar解压（本人的是php5.3.3）</p>
+<p>进入ext&#x2F;mcrypt文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 14:45 ~]# cd php-5.3.3/ext/mcrypt/</span><br></pre></td></tr></table></figure>
+
+<p>执行phpize命令（phpize是用来扩展php扩展模块的，通过phpize可以建立php的外挂模块，如果没有？yum install php53-devel里包含了，或者其他方法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 14:48 mcrypt]# whereis phpize    //为了确定phpize存在</span><br><span class="line">phpize: /usr/bin/phpize /usr/share/man/man1/phpize.1.gz</span><br><span class="line">[root@*_* 14:48 mcrypt]# phpize</span><br><span class="line">Configuring for:</span><br><span class="line">PHP Api Version:         20090626</span><br><span class="line">Zend Module Api No:      20090626</span><br><span class="line">Zend Extension Api No:   220090626</span><br></pre></td></tr></table></figure>
+
+<p>执行完后，会发现当前目录下多了一些configure文件，最后执行php-config命令就基本完成了</p>
+<p>执行以下命令，确保你的&#x2F;usr&#x2F;bin&#x2F;php-config是存在的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:02 mcrypt]# whereis php-config</span><br><span class="line">php-config: /usr/bin/php-config /usr/share/man/man1/php-config.1.gz</span><br><span class="line">[root@*_* 15:02 mcrypt]# ./configure --with-php-config=/usr/bin/php-config</span><br></pre></td></tr></table></figure>
+<p>如果遇到以下错误，请先安装gcc，命令yum install gcc</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configure: error: no acceptable C compiler found in $PATH</span><br></pre></td></tr></table></figure>
+<p>直到不报错，出现：config.status: creating config.h，执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:06 mcrypt]# make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>最后的最后，会提示你如下，说明你大功告成了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Installing shared extensions:     /usr/lib64/php/modules/</span><br></pre></td></tr></table></figure>
+<p>顺便检查下&#x2F;usr&#x2F;lib64&#x2F;php&#x2F;modules&#x2F;里的mrcypt.so扩展是否已经创建成功</p>
+<p>然后的事就简单了，给你的php.ini添加一条extension&#x3D;mcrypt.so</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:09 mcrypt]# cd /etc/php.d</span><br></pre></td></tr></table></figure>
+<p>创建一个mrcypt.ini文件就行，里面写extension&#x3D;mcrypt.so</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@*_* 15:17 php.d]# echo &#x27;extension=mcrypt.so&#x27; &gt; mcrypt.ini</span><br></pre></td></tr></table></figure>
+
+<h2 id="重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？"><a href="#重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？" class="headerlink" title="重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？"></a>重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？</h2>
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">CentOS下php安装mcrypt扩展</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2016-01-26 22:41:04</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/3572.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/linux/">#linux</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/php/">#php</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/mcrypt/">#mcrypt</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/undefined.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">centos-delete-php</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/3623.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">为Hexo博客添加顶部加载条</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E4%BD%A0%E7%9A%84linux%E6%B2%A1%E6%9C%89%E5%AE%89%E8%A3%85mcrypt%E5%BA%93%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%B7%B2%E5%AE%89%E8%A3%85%EF%BC%8C%E8%B7%B3%E8%BF%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">确认你的linux没有安装mcrypt库，如果已安装，跳过安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yum%E5%91%BD%E4%BB%A4%E6%87%92%E4%BA%BA%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">yum命令懒人安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">源码编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BBhttp-www-sourceforge-net%E4%B8%8B%E8%BD%BDLibmcrypt-mhash-mcrypt%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.2.1.</span> <span class="nav-text">去http:&#x2F;&#x2F;www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mhash"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装mhash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mcrypt"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装mcrypt</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85php%E7%9A%84mcrypt%E6%89%A9%E5%B1%95-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E7%BC%96%E8%AF%91"><span class="nav-number">2.</span> <span class="nav-text">安装php的mcrypt扩展(动态加载编译)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%90%AFapache%EF%BC%8C%E6%9F%A5%E9%98%85phpinfo%EF%BC%8Cmcrypt%E6%A8%A1%E5%9D%97%E6%89%A9%E5%B1%95%E6%98%AF%E4%B8%8D%E6%98%AF%E5%8A%A0%E8%BD%BD%E4%BA%86%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">重启apache，查阅phpinfo，mcrypt模块扩展是不是加载了？</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

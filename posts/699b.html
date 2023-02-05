@@ -1,2 +1,743 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>Teach Yourself Programming in Ten Years | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">Teach Yourself Programming in Ten Years</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2016-01-26 09:23:20</span> <span class="mobile">2016-01-26 09:23</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-02 13:39:54</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/coding/">coding</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>2.8k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>17 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><p>&amp;emsp;前段时间在备战期末，不禁感慨自己大脑的知识接收效率，指数级增长……导致博客好久没有更新了，不过归根结底还是由于自己的惰性，今天趁此立个目标，每周至少保持一次更新。也算是对自己的激励吧！希望大家能够监督！！<br>废话不多说，昨日晚上刷短乎，偶然看到一篇关于编程的文章: <strong>Teach Yourself Programming in Ten Years</strong>，很是不错，拿来跟大家分享。</p><blockquote><p>这可是<strong>轮子哥</strong>推荐过的哦</p></blockquote><span id="more"></span><p>原文如下：</p><h2 id="Why-is-everyone-in-such-a-rush"><a href="#Why-is-everyone-in-such-a-rush" class="headerlink" title="Why is everyone in such a rush?"></a><strong>Why is everyone in such a rush?</strong></h2><p>&amp;emsp;Walk into any bookstore, and you’ll see how to Teach Yourself Java in 24 Hours alongside endless variations offering to teach C, SQL, Ruby, Algorithms, and so on in a few days or hours. The Amazon advanced search for <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&unfiltered=1&field-keywords=&field-author=&field-title=teach+yourself+hours&field-isbn=&field-publisher=&node=&field-p_n_condition-type=&field-feature_browse-bin=&field-subject=&field-language=&field-dateop=After&field-datemod=&field-dateyear=2000&sort=relevanceexprank&Adv-Srch-Books-Submit.x=16&Adv-Srch-Books-Submit.y=5">title: teach, yourself, hours, since: 2000<i class="fas fa-external-link-alt"></i></a> and found 512 such books. Of the top ten, nine are programming books (the other is about bookkeeping). Similar results come from replacing “teach yourself” with “learn” or “hours” with “days.”<br>&amp;emsp;The conclusion is that either people are in a big rush to learn about programming, or that programming is somehow fabulously easier to learn than anything else. Felleisen et al. give a nod to this trend in their book <a class="link" target="_blank" rel="noopener" href="http://www.ccs.neu.edu/home/matthias/HtDP2e/index.html">How to Design Programs<i class="fas fa-external-link-alt"></i></a>, when they say “Bad programming is easy. Idiots can learn it in 21 days, even if they are dummies.” The Abtruse Goose comic also had <a class="link" target="_blank" rel="noopener" href="http://abstrusegoose.com/249">their take<i class="fas fa-external-link-alt"></i></a>.</p><p>&amp;emsp;Let’s analyze what a title like <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/Sams-Teach-Yourself-Hours-5th/dp/0672333317/ref=sr_1_6?s=books&ie=UTF8&qid=1412708443&sr=1-6&keywords=learn+c+++days">Teach Yourself C++ in 24 Hours<i class="fas fa-external-link-alt"></i></a> could mean:</p><ul><li><strong>Teach Yourself</strong>: In 24 hours you won’t have time to write several significant programs, and learn from your successes and failures with them. You won’t have time to work with an experienced programmer and understand what it is like to live in a C++ environment. In short, you won’t have time to learn much. So the book can only be talking about a superficial familiarity, not a deep understanding. As Alexander Pope said, a little learning is a dangerous thing.</li><li><strong>C++</strong>: In 24 hours you might be able to learn some of the syntax of C++ (if you already know another language), but you couldn’t learn much about how to use the language. In short, if you were, say, a Basic programmer, you could learn to write programs in the style of Basic using C++ syntax, but you couldn’t learn what C++ is actually good (and bad) for. So what’s the point? <a class="link" target="_blank" rel="noopener" href="http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html">Alan Perlis<i class="fas fa-external-link-alt"></i></a> once said: “A language that doesn’t affect the way you think about programming, is not worth knowing”. One possible point is that you have to learn a tiny bit of C++ (or more likely, something like JavaScript or Processing) because you need to interface with an existing tool to accomplish a specific task. But then you’re not learning how to program; you’re learning to accomplish that task.</li><li><strong>in 24 Hours</strong>: Unfortunately, this is not enough, as the next section shows.</li></ul><h2 id="Teach-Yourself-Programming-in-Ten-Years"><a href="#Teach-Yourself-Programming-in-Ten-Years" class="headerlink" title="Teach Yourself Programming in Ten Years"></a><strong>Teach Yourself Programming in Ten Years</strong></h2><p>&amp;emsp;Researchers (<a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/034531509X/">Bloom (1985)<i class="fas fa-external-link-alt"></i></a>, <a href="#bh">Bryan &amp; Harter (1899)</a>, <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0805803092">Hayes (1989)<i class="fas fa-external-link-alt"></i></a>, <a href="#sc">Simmon &amp; Chase (1973)</a>) have shown it takes about ten years to develop expertise in any of a wide variety of areas, including chess playing, music composition, telegraph operation, painting, piano playing, swimming, tennis, and research in neuropsychology and topology. The key is deliberative practice: not just doing it again and again, but challenging yourself with a task that is just beyond your current ability, trying it, analyzing your performance while and after doing it, and correcting any mistakes. Then repeat. And repeat again. There appear to be no real shortcuts: even Mozart, who was a musical prodigy at age 4, took 13 more years before he began to produce world-class music. In another genre, the Beatles seemed to burst onto the scene with a string of #1 hits and an appearance on the Ed Sullivan show in 1964. But they had been playing small clubs in Liverpool and Hamburg since 1957, and while they had mass appeal early on, their first great critical success, Sgt. Peppers, was released in 1967. <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017922">Malcolm Gladwell<i class="fas fa-external-link-alt"></i></a> has popularized the idea, although he concentrates on 10,000 hours rather than 10 years.</p><p>&amp;emsp;It may be that 10,000 hours, not 10 years, is the magic number. Or it might be some other metric; Henri Cartier-Bresson (1908-2004) said “Your first 10,000 photographs are your worst.” True expertise may take a lifetime: Samuel Johnson (1709-1784) said “Excellence in any department can be attained only by the labor of a lifetime; it is not to be purchased at a lesser price.” And Chaucer (1340-1400) complained “the lyf so short, the craft so long to lerne.” Hippocrates (c. 400BC) is known for the excerpt “ars longa, vita brevis”, which is part of the longer quotation “Ars longa, vita brevis, occasio praeceps, experimentum periculosum, iudicium difficile”, which in English renders as “Life is short, [the] craft long, opportunity fleeting, experiment treacherous, judgment difficult.” Of course, no single number can be the final answer: it doesn’t seem reasonable to assume that each of programming, chess playing, checkers playing, and music playing could all require exactly the same amount of time to master, nor that all people will take exactly the same amount of time.</p><h2 id="So-You-Want-to-be-a-Programmer"><a href="#So-You-Want-to-be-a-Programmer" class="headerlink" title="So You Want to be a Programmer"></a><strong>So You Want to be a Programmer</strong></h2><p>Here’s my recipe for programming success:</p><ul><li>Get <strong>interested</strong> in programming, and do some because it is fun. Make sure that it keeps being enough fun so that you will be willing to put in your ten years&#x2F;10,000 hours.</li><li><strong>Program</strong>. The best kind of learning is <a class="link" target="_blank" rel="noopener" href="http://www.engines4ed.org/hyperbook/nodes/NODE-120-pg.html">learning by doing<i class="fas fa-external-link-alt"></i></a>. To put it more technically, “the maximal level of performance for individuals in a given domain is not attained automatically as a function of extended experience, but the level of performance can be increased even by highly experienced individuals as a result of deliberate efforts to improve.” <a class="link" target="_blank" rel="noopener" href="http://www2.umassd.edu/swpi/DesignInCS/expertise.html">(p. 366)<i class="fas fa-external-link-alt"></i></a> and “the most effective learning requires a well-defined task with an appropriate difficulty level for the particular individual, informative feedback, and opportunities for repetition and corrections of errors.” (p. 20-21) The book <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0521357349">Cognition in Practice: Mind, Mathematics, and Culture in Everyday Life<i class="fas fa-external-link-alt"></i></a> is an interesting reference for this viewpoint.</li><li><strong>Talk with</strong> other programmers; read other programs. This is more important than any book or training course.</li><li>If you want, put in four years at a <strong>college</strong> (or more at a graduate school). This will give you access to some jobs that require credentials, and it will give you a deeper understanding of the field, but if you don’t enjoy school, you can (with some dedication) get similar experience on your own or on the job. In any case, book learning alone won’t be enough. “Computer science education cannot make anybody an expert programmer any more than studying brushes and pigment can make somebody an expert painter” says Eric Raymond, author of The New Hacker’s Dictionary. One of the best programmers I ever hired had only a High School degree; he’s produced a lot of <a class="link" target="_blank" rel="noopener" href="http://www.xemacs.org/">great<i class="fas fa-external-link-alt"></i></a> <a class="link" target="_blank" rel="noopener" href="http://www.mozilla.org/">software<i class="fas fa-external-link-alt"></i></a>, has his own <a class="link" target="_blank" rel="noopener" href="http://groups.google.com/groups?q=alt.fan.jwz&meta=site=groups">news group<i class="fas fa-external-link-alt"></i></a>, and made enough in stock options to buy his own <a class="link" target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/DNA_Lounge">nightclub<i class="fas fa-external-link-alt"></i></a>.</li><li>Work on <strong>projects</strong> <strong>with</strong> other programmers. Be the best programmer on some projects; be the worst on some others. When you’re the best, you get to test your abilities to lead a project, and to inspire others with yo	ur vision. When you’re the worst, you learn what the masters do, and you learn what they don’t like to do (because they make you do it for them).</li><li>Work on <strong>projects after</strong> other programmers. Understand a program written by someone else. See what it takes to understand and fix it when the original programmers are not around. Think about how to design your programs to make it easier for those who will maintain them after you.</li><li>Learn at least a half dozen <strong>programming languages</strong>. Include one language that emphasizes class abstractions (like Java or C++), one that emphasizes functional abstraction (like Lisp or ML or Haskell), one that supports syntactic abstraction (like Lisp), one that supports declarative specifications (like Prolog or C++ templates), and one that emphasizes parallelism (like Clojure or Go).</li><li>Remember that there is a “<strong>computer</strong>“ in “computer science”. Know how long it takes your computer to execute an instruction, fetch a word from memory (with and without a cache miss), read consecutive words from disk, and seek to a new location on disk. (<a href="#answers">Answers here</a>.)</li><li>Get involved in a language <strong>standardization</strong> effort. It could be the ANSI C++ committee, or it could be deciding if your local coding style will have 2 or 4 space indentation levels. Either way, you learn about what other people like in a language, how deeply they feel so, and perhaps even a little about why they feel so.</li><li>Have the good sense to <strong>get off</strong> the language standardization effort as quickly as possible.</li></ul><p>With all that in mind, its questionable how far you can get just by book learning. Before my first child was born, I read all the How To books, and still felt like a clueless novice. 30 Months later, when my second child was due, did I go back to the books for a refresher? No. Instead, I relied on my personal experience, which turned out to be far more useful and reassuring to me than the thousands of pages written by experts.</p><p>Fred Brooks, in his essay <a class="link" target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/No_Silver_Bullet">No Silver Bullet<i class="fas fa-external-link-alt"></i></a> identified a three-part plan for finding great software designers:</p><p>&amp;emsp;1. Systematically identify top designers as early as possible.<br>&amp;emsp;2. Assign a career mentor to be responsible for the development of the prospect and carefully keep a career file.<br>&amp;emsp;3. Provide opportunities for growing designers to interact and stimulate each other.</p><p>This assumes that some people already have the qualities necessary for being a great designer; the job is to properly coax them along. <a class="link" target="_blank" rel="noopener" href="http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html">Alan Perlis<i class="fas fa-external-link-alt"></i></a> put it more succinctly: “Everyone can be taught to sculpt: Michelangelo would have had to be taught how not to. So it is with the great programmers”. Perlis is saying that the greats have some internal quality that transcends their training. But where does the quality come from? Is it innate? Or do they develop it through diligence? As Auguste Gusteau (the fictional chef in Ratatouille) puts it, “anyone can cook, but only the fearless can be great.” I think of it more as willingness to devote a large portion of one’s life to deliberative practice. But maybe fearless is a way to summarize that. Or, as Gusteau’s critic, Anton Ego, says: “Not everyone can become a great artist, but a great artist can come from anywhere.”</p><p>So go ahead and buy that Java&#x2F;Ruby&#x2F;Javascript&#x2F;PHP book; you’ll probably get some use out of it. But you won’t change your life, or your real overall expertise as a programmer in 24 hours or 21 days. How about working hard to continually improve over 24 months? Well, now you’re starting to get somewhere…</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>References</strong></h2><p>Bloom, Benjamin (ed.) <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/034531509X">Developing Talent in Young People<i class="fas fa-external-link-alt"></i></a>, Ballantine, 1985.</p><p>Brooks, Fred, <a class="link" target="_blank" rel="noopener" href="http://citeseer.nj.nec.com/context/7718/0">No Silver Bullets<i class="fas fa-external-link-alt"></i></a>, IEEE Computer, vol. 20, no. 4, 1987, p. 10-19.</p><p id="bh">Bryan, W.L. & Harter, N. "Studies on the telegraphic language: The acquisition of a hierarchy of habits. Psychology Review, 1899, 8, 345-375</p><p>Hayes, John R., <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0805803092">Complete Problem Solver<i class="fas fa-external-link-alt"></i></a> Lawrence Erlbaum, 1989.</p><p>Chase, William G. &amp; Simon, Herbert A. <a class="link" target="_blank" rel="noopener" href="http://books.google.com/books?id=dYPSHAAACAAJ&dq=%22perception+in+chess%22+simon&ei=z4PyR5iIAZnmtQPbyLyuDQ">“Perception in Chess”<i class="fas fa-external-link-alt"></i></a> Cognitive Psychology, 1973, 4, 55-81.</p><p>Lave, Jean, <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0521357349">Cognition in Practice: Mind, Mathematics, and Culture in Everyday Life<i class="fas fa-external-link-alt"></i></a>, Cambridge University Press, 1988.</p><p id="answers"></p>## **Answers** Approximate timing for various operations on a typical PC:<table><thead><tr><th align="left">execute typical instruction</th><th align="left">1&#x2F;1,000,000,000 sec &#x3D; 1 nanosec</th></tr></thead><tbody><tr><td align="left">fetch from L1 cache memory</td><td align="left">0.5 nanosec</td></tr><tr><td align="left">branch misprediction</td><td align="left">5 nanosec</td></tr><tr><td align="left">fetch from L2 cache memory</td><td align="left">7 nanosec</td></tr><tr><td align="left">Mutex lock&#x2F;unlock</td><td align="left">25 nanosec</td></tr><tr><td align="left">fetch from main memory</td><td align="left">100 nanosec</td></tr><tr><td align="left">send 2K bytes over 1Gbps network</td><td align="left">20,000 nanosec</td></tr><tr><td align="left">read 1MB sequentially from memory</td><td align="left">250,000 nanosec</td></tr><tr><td align="left">fetch from new disk location (seek)</td><td align="left">8,000,000 nanosec</td></tr><tr><td align="left">read 1MB sequentially from disk</td><td align="left">20,000,000 nanosec</td></tr><tr><td align="left">send packet US to Europe and back</td><td align="left">150 milliseconds &#x3D; 150,000,000 nanosec</td></tr></tbody></table><h2 id="Appendix-Language-Choice"><a href="#Appendix-Language-Choice" class="headerlink" title="Appendix: Language Choice"></a><strong>Appendix: Language Choice</strong></h2><p>&amp;emsp;Several people have asked what programming language they should learn first. There is no one answer, but consider these points:</p><ul><li><strong>Use your friends</strong>. When asked “what operating system should I use, Windows, Unix, or Mac?”, my answer is usually: “use whatever your friends use.” The advantage you get from learning from your friends will offset any intrinsic difference between OS, or between programming languages. Also consider your future friends: the community of programmers that you will be a part of if you continue. Does your chosen language have a large growing community or a small dying one? Are there books, web sites, and online forums to get answers from? Do you like the people in those forums?</li><li><strong>Keep it simple</strong>. Programming languages such as C++ and Java are designed for professional development by large teams of experienced programmers who are concerned about the run-time efficiency of their code. As a result, these languages have complicated parts designed for these circumstances. You’re concerned with learning to program. You don’t need that complication. You want a language that was designed to be easy to learn and remember by a single new programmer.</li><li><strong>Play</strong>. Which way would you rather learn to play the piano: the normal, interactive way, in which you hear each note as soon as you hit a key, or “batch” mode, in which you only hear the notes after you finish a whole song? Clearly, interactive mode makes learning easier for the piano, and also for programming. Insist on a language with an interactive mode and use it.<br>&amp;emsp;Given these criteria, my recommendations for a first programming language would be <a class="link" target="_blank" rel="noopener" href="http://python.org/">Python<i class="fas fa-external-link-alt"></i></a> or <a class="link" target="_blank" rel="noopener" href="http://www.schemers.org/">Scheme<i class="fas fa-external-link-alt"></i></a>. Another choice is Javascript, not because it is perfectly well-designed for beginners, but because there are so many online tutorials for it, such as <a class="link" target="_blank" rel="noopener" href="https://www.khanacademy.org/computing/cs/programming">Khan Academy’s tutorial<i class="fas fa-external-link-alt"></i></a>. But your circumstances may vary, and there are other good choices. If your age is a single-digit, you might prefer <a class="link" target="_blank" rel="noopener" href="http://alice.org/">Alice<i class="fas fa-external-link-alt"></i></a> or <a class="link" target="_blank" rel="noopener" href="http://www.squeak.org/">Squeak<i class="fas fa-external-link-alt"></i></a> or <a class="link" target="_blank" rel="noopener" href="https://blockly-demo.appspot.com/static/apps/index.html">Blockly<i class="fas fa-external-link-alt"></i></a> (older learners might also enjoy these). The important thing is that you choose and get started.</li></ul><h2 id="Appendix-Books-and-Other-Resources"><a href="#Appendix-Books-and-Other-Resources" class="headerlink" title="Appendix: Books and Other Resources"></a><strong>Appendix: Books and Other Resources</strong></h2><p>&amp;emsp;Several people have asked what books and web pages they should learn from. I repeat that “book learning alone won’t be enough” but I can recommend the following:</p><ul><li><strong>Scheme</strong>: <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/0262011530">Structure and Interpretation of Computer Programs (Abelson &amp; Sussman)<i class="fas fa-external-link-alt"></i></a> is probably the best introduction to computer science, and it does teach programming as a way of understanding the computer science. You can see <a class="link" target="_blank" rel="noopener" href="http://www.swiss.ai.mit.edu/classes/6.001/abelson-sussman-lectures/">online videos of lectures<i class="fas fa-external-link-alt"></i></a> on this book, as well as the <a class="link" target="_blank" rel="noopener" href="http://mitpress.mit.edu/sicp/full-text/book/book.html">complete text online<i class="fas fa-external-link-alt"></i></a>. The book is challenging and will weed out some people who perhaps could be successful with another approach.</li><li><strong>Scheme</strong>: <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/0262062186">How to Design Programs (Felleisen et al.)<i class="fas fa-external-link-alt"></i></a> is one of the best books on how to actually design programs in an elegant and functional way.</li><li><strong>Python</strong>: <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/1887902996">Python Programming: An Intro to CS (Zelle)<i class="fas fa-external-link-alt"></i></a> is a good introduction using Python.</li><li><strong>Python</strong>: Several online <a class="link" target="_blank" rel="noopener" href="http://wiki.python.org/moin/BeginnersGuide">tutorials<i class="fas fa-external-link-alt"></i></a> are available at <a class="link" target="_blank" rel="noopener" href="http://python.org/">Python.org<i class="fas fa-external-link-alt"></i></a>.</li><li><strong>Oz</strong>: <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/0262220695">Concepts, Techniques, and Models of Computer Programming (Van Roy &amp; Haridi)<i class="fas fa-external-link-alt"></i></a> is seen by some as the modern-day successor to Abelson &amp; Sussman. It is a tour through the big ideas of programming, covering a wider range than Abelson &amp; Sussman while being perhaps easier to read and follow. It uses a language, Oz, that is not widely known but serves as a basis for learning other languages.</li></ul><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a><strong>Notes</strong></h2><p>T. Capey points out that the <a class="link" target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0805803092">Complete Problem Solver<i class="fas fa-external-link-alt"></i></a> page on Amazon now has the “Teach Yourself Bengali in 21 days” and “Teach Yourself Grammar and Style” books under the “Customers who shopped for this item also shopped for these items” section. I guess that a large portion of the people who look at that book are coming from this page. Thanks to Ross Cohen for help with Hippocrates.</p><h2 id="文章来源"><a href="#文章来源" class="headerlink" title="文章来源"></a>文章来源</h2><p><a class="link" target="_blank" rel="noopener" href="http://www.norvig.com/21-days.html#sc">http://www.norvig.com/21-days.html#sc<i class="fas fa-external-link-alt"></i></a><br>如有问题请联系 <a class="link" href="mailto:&#x57;&#97;&#x79;&#100;&#x72;&#x6f;&#x77;&#64;&#49;&#x36;&#51;&#46;&#99;&#111;&#x6d;">&#x57;&#97;&#x79;&#100;&#x72;&#x6f;&#x77;&#64;&#49;&#x36;&#51;&#46;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">Teach Yourself Programming in Ten Years</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2016-01-26 09:23:20</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/699b.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/coding/">#coding</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/3623.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">为Hexo博客添加顶部加载条</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/2f84.html"><span class="title flex-center"><span class="post-nav-title-item">【OpenMP学习笔记】编译制导指令</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-is-everyone-in-such-a-rush"><span class="nav-number">1.</span> <span class="nav-text">Why is everyone in such a rush?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Teach-Yourself-Programming-in-Ten-Years"><span class="nav-number">2.</span> <span class="nav-text">Teach Yourself Programming in Ten Years</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#So-You-Want-to-be-a-Programmer"><span class="nav-number">3.</span> <span class="nav-text">So You Want to be a Programmer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Appendix-Language-Choice"><span class="nav-number">5.</span> <span class="nav-text">Appendix: Language Choice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Appendix-Books-and-Other-Resources"><span class="nav-number">6.</span> <span class="nav-text">Appendix: Books and Other Resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">7.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%9D%A5%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text">文章来源</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            Teach Yourself Programming in Ten Years |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Teach Yourself Programming in Ten Years</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2016-01-26 09:23:20</span>
+        <span class="mobile">2016-01-26 09:23</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:39:54</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/coding/">coding</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.8k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>17 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>&amp;emsp;前段时间在备战期末，不禁感慨自己大脑的知识接收效率，指数级增长……导致博客好久没有更新了，不过归根结底还是由于自己的惰性，今天趁此立个目标，每周至少保持一次更新。也算是对自己的激励吧！希望大家能够监督！！<br>  废话不多说，昨日晚上刷短乎，偶然看到一篇关于编程的文章: <strong>Teach Yourself Programming in Ten Years</strong>，很是不错，拿来跟大家分享。</p>
+<blockquote>
+<p>这可是<strong>轮子哥</strong>推荐过的哦</p>
+</blockquote>
+<span id="more"></span>
+<p>原文如下：</p>
+<h2 id="Why-is-everyone-in-such-a-rush"><a href="#Why-is-everyone-in-such-a-rush" class="headerlink" title="Why is everyone in such a rush?"></a><strong>Why is everyone in such a rush?</strong></h2><p>&amp;emsp;Walk into any bookstore, and you’ll see how to Teach Yourself Java in 24 Hours alongside endless variations offering to teach C, SQL, Ruby, Algorithms, and so on in a few days or hours. The Amazon advanced search for <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/gp/search/ref=sr_adv_b/?search-alias=stripbooks&unfiltered=1&field-keywords=&field-author=&field-title=teach+yourself+hours&field-isbn=&field-publisher=&node=&field-p_n_condition-type=&field-feature_browse-bin=&field-subject=&field-language=&field-dateop=After&field-datemod=&field-dateyear=2000&sort=relevanceexprank&Adv-Srch-Books-Submit.x=16&Adv-Srch-Books-Submit.y=5" >title: teach, yourself, hours, since: 2000<i class="fas fa-external-link-alt"></i></a> and found 512 such books. Of the top ten, nine are programming books (the other is about bookkeeping). Similar results come from replacing “teach yourself” with “learn” or “hours” with “days.”<br>&amp;emsp;The conclusion is that either people are in a big rush to learn about programming, or that programming is somehow fabulously easier to learn than anything else. Felleisen et al. give a nod to this trend in their book <a class="link"   target="_blank" rel="noopener" href="http://www.ccs.neu.edu/home/matthias/HtDP2e/index.html" >How to Design Programs<i class="fas fa-external-link-alt"></i></a>, when they say “Bad programming is easy. Idiots can learn it in 21 days, even if they are dummies.” The Abtruse Goose comic also had <a class="link"   target="_blank" rel="noopener" href="http://abstrusegoose.com/249" >their take<i class="fas fa-external-link-alt"></i></a>.</p>
+<p>&amp;emsp;Let’s analyze what a title like <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/Sams-Teach-Yourself-Hours-5th/dp/0672333317/ref=sr_1_6?s=books&ie=UTF8&qid=1412708443&sr=1-6&keywords=learn+c+++days" >Teach Yourself C++ in 24 Hours<i class="fas fa-external-link-alt"></i></a> could mean:</p>
+<ul>
+<li><strong>Teach Yourself</strong>: In 24 hours you won’t have time to write several significant programs, and learn from your successes and failures with them. You won’t have time to work with an experienced programmer and understand what it is like to live in a C++ environment. In short, you won’t have time to learn much. So the book can only be talking about a superficial familiarity, not a deep understanding. As Alexander Pope said, a little learning is a dangerous thing.</li>
+<li><strong>C++</strong>: In 24 hours you might be able to learn some of the syntax of C++ (if you already know another language), but you couldn’t learn much about how to use the language. In short, if you were, say, a Basic programmer, you could learn to write programs in the style of Basic using C++ syntax, but you couldn’t learn what C++ is actually good (and bad) for. So what’s the point? <a class="link"   target="_blank" rel="noopener" href="http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html" >Alan Perlis<i class="fas fa-external-link-alt"></i></a> once said: “A language that doesn’t affect the way you think about programming, is not worth knowing”. One possible point is that you have to learn a tiny bit of C++ (or more likely, something like JavaScript or Processing) because you need to interface with an existing tool to accomplish a specific task. But then you’re not learning how to program; you’re learning to accomplish that task.</li>
+<li><strong>in 24 Hours</strong>: Unfortunately, this is not enough, as the next section shows.</li>
+</ul>
+<h2 id="Teach-Yourself-Programming-in-Ten-Years"><a href="#Teach-Yourself-Programming-in-Ten-Years" class="headerlink" title="Teach Yourself Programming in Ten Years"></a><strong>Teach Yourself Programming in Ten Years</strong></h2><p>&amp;emsp;Researchers (<a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/034531509X/" >Bloom (1985)<i class="fas fa-external-link-alt"></i></a>, <a href="#bh">Bryan &amp; Harter (1899)</a>, <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0805803092" >Hayes (1989)<i class="fas fa-external-link-alt"></i></a>, <a href="#sc">Simmon &amp; Chase (1973)</a>) have shown it takes about ten years to develop expertise in any of a wide variety of areas, including chess playing, music composition, telegraph operation, painting, piano playing, swimming, tennis, and research in neuropsychology and topology. The key is deliberative practice: not just doing it again and again, but challenging yourself with a task that is just beyond your current ability, trying it, analyzing your performance while and after doing it, and correcting any mistakes. Then repeat. And repeat again. There appear to be no real shortcuts: even Mozart, who was a musical prodigy at age 4, took 13 more years before he began to produce world-class music. In another genre, the Beatles seemed to burst onto the scene with a string of #1 hits and an appearance on the Ed Sullivan show in 1964. But they had been playing small clubs in Liverpool and Hamburg since 1957, and while they had mass appeal early on, their first great critical success, Sgt. Peppers, was released in 1967. <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017922" >Malcolm Gladwell<i class="fas fa-external-link-alt"></i></a> has popularized the idea, although he concentrates on 10,000 hours rather than 10 years.</p>
+<p>&amp;emsp;It may be that 10,000 hours, not 10 years, is the magic number. Or it might be some other metric; Henri Cartier-Bresson (1908-2004) said “Your first 10,000 photographs are your worst.” True expertise may take a lifetime: Samuel Johnson (1709-1784) said “Excellence in any department can be attained only by the labor of a lifetime; it is not to be purchased at a lesser price.” And Chaucer (1340-1400) complained “the lyf so short, the craft so long to lerne.” Hippocrates (c. 400BC) is known for the excerpt “ars longa, vita brevis”, which is part of the longer quotation “Ars longa, vita brevis, occasio praeceps, experimentum periculosum, iudicium difficile”, which in English renders as “Life is short, [the] craft long, opportunity fleeting, experiment treacherous, judgment difficult.” Of course, no single number can be the final answer: it doesn’t seem reasonable to assume that each of programming, chess playing, checkers playing, and music playing could all require exactly the same amount of time to master, nor that all people will take exactly the same amount of time.</p>
+<h2 id="So-You-Want-to-be-a-Programmer"><a href="#So-You-Want-to-be-a-Programmer" class="headerlink" title="So You Want to be a Programmer"></a><strong>So You Want to be a Programmer</strong></h2><p>Here’s my recipe for programming success:</p>
+<ul>
+<li>Get <strong>interested</strong> in programming, and do some because it is fun. Make sure that it keeps being enough fun so that you will be willing to put in your ten years&#x2F;10,000 hours.</li>
+<li><strong>Program</strong>. The best kind of learning is <a class="link"   target="_blank" rel="noopener" href="http://www.engines4ed.org/hyperbook/nodes/NODE-120-pg.html" >learning by doing<i class="fas fa-external-link-alt"></i></a>. To put it more technically, “the maximal level of performance for individuals in a given domain is not attained automatically as a function of extended experience, but the level of performance can be increased even by highly experienced individuals as a result of deliberate efforts to improve.” <a class="link"   target="_blank" rel="noopener" href="http://www2.umassd.edu/swpi/DesignInCS/expertise.html" >(p. 366)<i class="fas fa-external-link-alt"></i></a> and “the most effective learning requires a well-defined task with an appropriate difficulty level for the particular individual, informative feedback, and opportunities for repetition and corrections of errors.” (p. 20-21) The book <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0521357349" >Cognition in Practice: Mind, Mathematics, and Culture in Everyday Life<i class="fas fa-external-link-alt"></i></a> is an interesting reference for this viewpoint.</li>
+<li><strong>Talk with</strong> other programmers; read other programs. This is more important than any book or training course.</li>
+<li>If you want, put in four years at a <strong>college</strong> (or more at a graduate school). This will give you access to some jobs that require credentials, and it will give you a deeper understanding of the field, but if you don’t enjoy school, you can (with some dedication) get similar experience on your own or on the job. In any case, book learning alone won’t be enough. “Computer science education cannot make anybody an expert programmer any more than studying brushes and pigment can make somebody an expert painter” says Eric Raymond, author of The New Hacker’s Dictionary. One of the best programmers I ever hired had only a High School degree; he’s produced a lot of <a class="link"   target="_blank" rel="noopener" href="http://www.xemacs.org/" >great<i class="fas fa-external-link-alt"></i></a> <a class="link"   target="_blank" rel="noopener" href="http://www.mozilla.org/" >software<i class="fas fa-external-link-alt"></i></a>, has his own <a class="link"   target="_blank" rel="noopener" href="http://groups.google.com/groups?q=alt.fan.jwz&meta=site=groups" >news group<i class="fas fa-external-link-alt"></i></a>, and made enough in stock options to buy his own <a class="link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/DNA_Lounge" >nightclub<i class="fas fa-external-link-alt"></i></a>.</li>
+<li>Work on <strong>projects</strong> <strong>with</strong> other programmers. Be the best programmer on some projects; be the worst on some others. When you’re the best, you get to test your abilities to lead a project, and to inspire others with yo	ur vision. When you’re the worst, you learn what the masters do, and you learn what they don’t like to do (because they make you do it for them).</li>
+<li>Work on <strong>projects after</strong> other programmers. Understand a program written by someone else. See what it takes to understand and fix it when the original programmers are not around. Think about how to design your programs to make it easier for those who will maintain them after you.</li>
+<li>Learn at least a half dozen <strong>programming languages</strong>. Include one language that emphasizes class abstractions (like Java or C++), one that emphasizes functional abstraction (like Lisp or ML or Haskell), one that supports syntactic abstraction (like Lisp), one that supports declarative specifications (like Prolog or C++ templates), and one that emphasizes parallelism (like Clojure or Go).</li>
+<li>Remember that there is a “<strong>computer</strong>“ in “computer science”. Know how long it takes your computer to execute an instruction, fetch a word from memory (with and without a cache miss), read consecutive words from disk, and seek to a new location on disk. (<a href="#answers">Answers here</a>.)</li>
+<li>Get involved in a language <strong>standardization</strong> effort. It could be the ANSI C++ committee, or it could be deciding if your local coding style will have 2 or 4 space indentation levels. Either way, you learn about what other people like in a language, how deeply they feel so, and perhaps even a little about why they feel so.</li>
+<li>Have the good sense to <strong>get off</strong> the language standardization effort as quickly as possible.</li>
+</ul>
+<p>With all that in mind, its questionable how far you can get just by book learning. Before my first child was born, I read all the How To books, and still felt like a clueless novice. 30 Months later, when my second child was due, did I go back to the books for a refresher? No. Instead, I relied on my personal experience, which turned out to be far more useful and reassuring to me than the thousands of pages written by experts.</p>
+<p>Fred Brooks, in his essay <a class="link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/No_Silver_Bullet" >No Silver Bullet<i class="fas fa-external-link-alt"></i></a> identified a three-part plan for finding great software designers:</p>
+<p>&amp;emsp;1. Systematically identify top designers as early as possible.<br>&amp;emsp;2. Assign a career mentor to be responsible for the development of the prospect and carefully keep a career file.<br>&amp;emsp;3. Provide opportunities for growing designers to interact and stimulate each other.</p>
+<p>This assumes that some people already have the qualities necessary for being a great designer; the job is to properly coax them along. <a class="link"   target="_blank" rel="noopener" href="http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html" >Alan Perlis<i class="fas fa-external-link-alt"></i></a> put it more succinctly: “Everyone can be taught to sculpt: Michelangelo would have had to be taught how not to. So it is with the great programmers”. Perlis is saying that the greats have some internal quality that transcends their training. But where does the quality come from? Is it innate? Or do they develop it through diligence? As Auguste Gusteau (the fictional chef in Ratatouille) puts it, “anyone can cook, but only the fearless can be great.” I think of it more as willingness to devote a large portion of one’s life to deliberative practice. But maybe fearless is a way to summarize that. Or, as Gusteau’s critic, Anton Ego, says: “Not everyone can become a great artist, but a great artist can come from anywhere.”</p>
+<p>So go ahead and buy that Java&#x2F;Ruby&#x2F;Javascript&#x2F;PHP book; you’ll probably get some use out of it. But you won’t change your life, or your real overall expertise as a programmer in 24 hours or 21 days. How about working hard to continually improve over 24 months? Well, now you’re starting to get somewhere…</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>References</strong></h2><p>Bloom, Benjamin (ed.) <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/034531509X" >Developing Talent in Young People<i class="fas fa-external-link-alt"></i></a>, Ballantine, 1985.</p>
+<p>Brooks, Fred, <a class="link"   target="_blank" rel="noopener" href="http://citeseer.nj.nec.com/context/7718/0" >No Silver Bullets<i class="fas fa-external-link-alt"></i></a>, IEEE Computer, vol. 20, no. 4, 1987, p. 10-19.</p>
+<p id="bh">Bryan, W.L. & Harter, N. "Studies on the telegraphic language: The acquisition of a hierarchy of habits. Psychology Review, 1899, 8, 345-375</p>
+
+<p>Hayes, John R., <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0805803092" >Complete Problem Solver<i class="fas fa-external-link-alt"></i></a> Lawrence Erlbaum, 1989.</p>
+<p>Chase, William G. &amp; Simon, Herbert A. <a class="link"   target="_blank" rel="noopener" href="http://books.google.com/books?id=dYPSHAAACAAJ&dq=%22perception+in+chess%22+simon&ei=z4PyR5iIAZnmtQPbyLyuDQ" >“Perception in Chess”<i class="fas fa-external-link-alt"></i></a> Cognitive Psychology, 1973, 4, 55-81.</p>
+<p>Lave, Jean, <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0521357349" >Cognition in Practice: Mind, Mathematics, and Culture in Everyday Life<i class="fas fa-external-link-alt"></i></a>, Cambridge University Press, 1988.</p>
+<p id="answers"></p>
+## **Answers**
+Approximate timing for various operations on a typical PC:
+
+<table>
+<thead>
+<tr>
+<th align="left">execute typical instruction</th>
+<th align="left">1&#x2F;1,000,000,000 sec &#x3D; 1 nanosec</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">fetch from L1 cache memory</td>
+<td align="left">0.5 nanosec</td>
+</tr>
+<tr>
+<td align="left">branch misprediction</td>
+<td align="left">5 nanosec</td>
+</tr>
+<tr>
+<td align="left">fetch from L2 cache memory</td>
+<td align="left">7 nanosec</td>
+</tr>
+<tr>
+<td align="left">Mutex lock&#x2F;unlock</td>
+<td align="left">25 nanosec</td>
+</tr>
+<tr>
+<td align="left">fetch from main memory</td>
+<td align="left">100 nanosec</td>
+</tr>
+<tr>
+<td align="left">send 2K bytes over 1Gbps network</td>
+<td align="left">20,000 nanosec</td>
+</tr>
+<tr>
+<td align="left">read 1MB sequentially from memory</td>
+<td align="left">250,000 nanosec</td>
+</tr>
+<tr>
+<td align="left">fetch from new disk location (seek)</td>
+<td align="left">8,000,000 nanosec</td>
+</tr>
+<tr>
+<td align="left">read 1MB sequentially from disk</td>
+<td align="left">20,000,000 nanosec</td>
+</tr>
+<tr>
+<td align="left">send packet US to Europe and back</td>
+<td align="left">150 milliseconds &#x3D; 150,000,000 nanosec</td>
+</tr>
+</tbody></table>
+<h2 id="Appendix-Language-Choice"><a href="#Appendix-Language-Choice" class="headerlink" title="Appendix: Language Choice"></a><strong>Appendix: Language Choice</strong></h2><p>&amp;emsp;Several people have asked what programming language they should learn first. There is no one answer, but consider these points:</p>
+<ul>
+<li><strong>Use your friends</strong>. When asked “what operating system should I use, Windows, Unix, or Mac?”, my answer is usually: “use whatever your friends use.” The advantage you get from learning from your friends will offset any intrinsic difference between OS, or between programming languages. Also consider your future friends: the community of programmers that you will be a part of if you continue. Does your chosen language have a large growing community or a small dying one? Are there books, web sites, and online forums to get answers from? Do you like the people in those forums?</li>
+<li><strong>Keep it simple</strong>. Programming languages such as C++ and Java are designed for professional development by large teams of experienced programmers who are concerned about the run-time efficiency of their code. As a result, these languages have complicated parts designed for these circumstances. You’re concerned with learning to program. You don’t need that complication. You want a language that was designed to be easy to learn and remember by a single new programmer.</li>
+<li><strong>Play</strong>. Which way would you rather learn to play the piano: the normal, interactive way, in which you hear each note as soon as you hit a key, or “batch” mode, in which you only hear the notes after you finish a whole song? Clearly, interactive mode makes learning easier for the piano, and also for programming. Insist on a language with an interactive mode and use it.<br>&amp;emsp;Given these criteria, my recommendations for a first programming language would be <a class="link"   target="_blank" rel="noopener" href="http://python.org/" >Python<i class="fas fa-external-link-alt"></i></a> or <a class="link"   target="_blank" rel="noopener" href="http://www.schemers.org/" >Scheme<i class="fas fa-external-link-alt"></i></a>. Another choice is Javascript, not because it is perfectly well-designed for beginners, but because there are so many online tutorials for it, such as <a class="link"   target="_blank" rel="noopener" href="https://www.khanacademy.org/computing/cs/programming" >Khan Academy’s tutorial<i class="fas fa-external-link-alt"></i></a>. But your circumstances may vary, and there are other good choices. If your age is a single-digit, you might prefer <a class="link"   target="_blank" rel="noopener" href="http://alice.org/" >Alice<i class="fas fa-external-link-alt"></i></a> or <a class="link"   target="_blank" rel="noopener" href="http://www.squeak.org/" >Squeak<i class="fas fa-external-link-alt"></i></a> or <a class="link"   target="_blank" rel="noopener" href="https://blockly-demo.appspot.com/static/apps/index.html" >Blockly<i class="fas fa-external-link-alt"></i></a> (older learners might also enjoy these). The important thing is that you choose and get started.</li>
+</ul>
+<h2 id="Appendix-Books-and-Other-Resources"><a href="#Appendix-Books-and-Other-Resources" class="headerlink" title="Appendix: Books and Other Resources"></a><strong>Appendix: Books and Other Resources</strong></h2><p>&amp;emsp;Several people have asked what books and web pages they should learn from. I repeat that “book learning alone won’t be enough” but I can recommend the following:</p>
+<ul>
+<li><strong>Scheme</strong>: <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/0262011530" >Structure and Interpretation of Computer Programs (Abelson &amp; Sussman)<i class="fas fa-external-link-alt"></i></a> is probably the best introduction to computer science, and it does teach programming as a way of understanding the computer science. You can see <a class="link"   target="_blank" rel="noopener" href="http://www.swiss.ai.mit.edu/classes/6.001/abelson-sussman-lectures/" >online videos of lectures<i class="fas fa-external-link-alt"></i></a> on this book, as well as the <a class="link"   target="_blank" rel="noopener" href="http://mitpress.mit.edu/sicp/full-text/book/book.html" >complete text online<i class="fas fa-external-link-alt"></i></a>. The book is challenging and will weed out some people who perhaps could be successful with another approach.</li>
+<li><strong>Scheme</strong>: <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/0262062186" >How to Design Programs (Felleisen et al.)<i class="fas fa-external-link-alt"></i></a> is one of the best books on how to actually design programs in an elegant and functional way.</li>
+<li><strong>Python</strong>: <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/1887902996" >Python Programming: An Intro to CS (Zelle)<i class="fas fa-external-link-alt"></i></a> is a good introduction using Python.</li>
+<li><strong>Python</strong>: Several online <a class="link"   target="_blank" rel="noopener" href="http://wiki.python.org/moin/BeginnersGuide" >tutorials<i class="fas fa-external-link-alt"></i></a> are available at <a class="link"   target="_blank" rel="noopener" href="http://python.org/" >Python.org<i class="fas fa-external-link-alt"></i></a>.</li>
+<li><strong>Oz</strong>: <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/gp/product/0262220695" >Concepts, Techniques, and Models of Computer Programming (Van Roy &amp; Haridi)<i class="fas fa-external-link-alt"></i></a> is seen by some as the modern-day successor to Abelson &amp; Sussman. It is a tour through the big ideas of programming, covering a wider range than Abelson &amp; Sussman while being perhaps easier to read and follow. It uses a language, Oz, that is not widely known but serves as a basis for learning other languages.</li>
+</ul>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a><strong>Notes</strong></h2><p>T. Capey points out that the <a class="link"   target="_blank" rel="noopener" href="http://www.amazon.com/exec/obidos/ASIN/0805803092" >Complete Problem Solver<i class="fas fa-external-link-alt"></i></a> page on Amazon now has the “Teach Yourself Bengali in 21 days” and “Teach Yourself Grammar and Style” books under the “Customers who shopped for this item also shopped for these items” section. I guess that a large portion of the people who look at that book are coming from this page. Thanks to Ross Cohen for help with Hippocrates.</p>
+<h2 id="文章来源"><a href="#文章来源" class="headerlink" title="文章来源"></a>文章来源</h2><p><a class="link"   target="_blank" rel="noopener" href="http://www.norvig.com/21-days.html#sc" >http://www.norvig.com/21-days.html#sc<i class="fas fa-external-link-alt"></i></a><br>如有问题请联系 <a class="link"   href="mailto:&#87;&#x61;&#x79;&#100;&#114;&#111;&#x77;&#64;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;" >&#87;&#x61;&#x79;&#100;&#114;&#111;&#x77;&#64;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Teach Yourself Programming in Ten Years</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2016-01-26 09:23:20</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/699b.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/coding/">#coding</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/3623.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">为Hexo博客添加顶部加载条</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/2f84.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">【OpenMP学习笔记】编译制导指令</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-is-everyone-in-such-a-rush"><span class="nav-number">1.</span> <span class="nav-text">Why is everyone in such a rush?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Teach-Yourself-Programming-in-Ten-Years"><span class="nav-number">2.</span> <span class="nav-text">Teach Yourself Programming in Ten Years</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#So-You-Want-to-be-a-Programmer"><span class="nav-number">3.</span> <span class="nav-text">So You Want to be a Programmer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Appendix-Language-Choice"><span class="nav-number">5.</span> <span class="nav-text">Appendix: Language Choice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Appendix-Books-and-Other-Resources"><span class="nav-number">6.</span> <span class="nav-text">Appendix: Books and Other Resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">7.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%9D%A5%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text">文章来源</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

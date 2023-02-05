@@ -1,2 +1,695 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>CUDA C/C++总结 | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">CUDA C/C++总结</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2020-03-01 21:51:37</span> <span class="mobile">2020-03-01 21:51</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-02 13:33:45</span> </span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/CUDA-C/">CUDA C</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><p>本篇为学习笔记,学习内容为2019年参加英伟达GTC会议的课程</p><p>需要提下学习CUDA的目的,就是为了加速自己的应用,相比于CPU-only的应用程序,可以用GPU实现较大加速,当然程序首先是计算密集型而非IO密集型</p><h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>GPU加速系统,又被称<strong>异构系统</strong>(Heterogeneous),由CPU和GPU组成</p><p>如果熟悉C编程,可以很快上手CUDA编程,两者在代码形式上有很多类似地方,一个比较重要概念是GPU的<em>launch kernel</em></p><p>C代码用gcc编译,cuda代码用<em>nvcc</em>编译,nvcc内部会调用gcc</p><p>启动核函数的配置 &lt;&lt;&lt;blocks,threads&gt;&gt;&gt; thread是最小执行单位,由threads组成block,多个block组成grid;kernel只能运行在一个grid</p><p>一般最简单的加速示例就是一个CPU的循环,执行简单的算术运算;主要是暗示我们什么类型的程序适合GPU加速</p><p>关于threads:</p><ul><li>每个block中的threads个数上限是1024</li><li>一个block中的threads个数由内置变量<em>blockDim.x</em>给出,多个block中计算thread索引公式为:<em>threadIdx.x + blockIdx.x * blockDim.x</em></li><li>grid中block的个数<em>gridDim.x</em>,因此一个grid的线程总数就是<em>gridDim.x * blockDim.x</em></li><li>一般一个thread一次处理一个数据</li><li>注意数据与threads个数很多时候都不是一一对应的,所以要特别注意索引越界问题;一般方式是将数组长度N传入kernel,算出thread索引,与N比较</li><li>block中的threads个数为32的倍数时最优化</li><li>当多个block的threads总数依然无法覆盖待处理数据长度时,在kernel中用loop来重复利用threads处理后续数据;如数据有2048个,线程总数只有1024,则每一个线程处理两个数据</li></ul><p>cuda6之后的版本可以分配出CPU&#x2F;GPU都能访问的内存,API接口为:<em>cudaMallocManaged</em></p><p>关于异常处理:</p><ul><li>一些cuda函数的返回值类型为cudaError_t, 可用来检查错误<em>cudaGetErrorString(err)</em></li><li>无返回值的kernel, 使用<em>cudaGetLastError()</em> 返回cudaError_t类型</li><li>另外,如果有一组kernel出错,因为kernel执行是异步的,为了排查错误,可以调用同步函数如cudaDeviceSynchronize() 会返回kernel执行的错误</li><li>自己封装一个宏来进行错误检查是有必要的</li></ul><h1 id="统一内存管理"><a href="#统一内存管理" class="headerlink" title="统一内存管理"></a>统一内存管理</h1><p>迭代设计过程:</p><p>APOD:Assess Parallelize Optimize Deploy</p><p>评估-&gt;并行-&gt;优化-&gt;部署</p><p>使用Nsight命令行工具<strong>nsys</strong>来评估性能,确定优化机会</p><p>nsys基本用法: nsys profile –stats&#x3D;true exe</p><p>它会生成qdrep报告,包含诸多信息:API统计,kernel执行统计,内存拷贝的大小和时间等</p><p>程序优化方法之一:更改kernel launch的<strong>配置参数</strong></p><p>Streaming Multiprocessor 流处理单元SM</p><ul><li>一个block中的threads被调度到SM上执行;多个block可以被调度到同一个SM上</li><li>为了尽可能并行,提高性能:将grid size设置为给定GPU上的SM个数的倍数,防止不对齐导致的资源浪费</li><li>SMs创建,管理,调度和执行的单位是一个block中的一组32个threads,叫做wraps;由有half-wrap的概念,16个线程为一组,更细粒度的并行</li></ul><p>为了获取SM的数量,调用API:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> deviceId;</span><br><span class="line">cudaGetDevice(&amp;deviceId);</span><br><span class="line">cudaDeviceProp props;</span><br><span class="line">cudaGetDeviceProperties(&amp;props, deviceId);</span><br><span class="line">SMs = props.multiProcessorCount;</span><br></pre></td></tr></table></figure><p>基础知识:CUDA’s Unified Memory</p><ul><li>关于Unified Memory,当UM分配之后,不管host还是device都无法访问,访问时会发生page fault,然后触发内存的迁移,将需要的数据按batches迁移</li><li>使用UM要注意避免不必要的时间开销,比如需要大的连续内存块,避免页错误</li></ul><p>Asynchronous Memory Prefetching<br>异步内存预取:减小页错误和按需内存迁移的间接开销的技术,提高性能</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cudaMemPrefetchAsync(pointerToSomeUMData, size, deviceId);        <span class="comment">// Prefetch to GPU device.</span></span><br><span class="line">cudaMemPrefetchAsync(pointerToSomeUMData, size, cudaCpuDeviceId); <span class="comment">// Prefetch to host. `cudaCpuDeviceId`</span></span><br></pre></td></tr></table></figure><h1 id="流异步和性能分析"><a href="#流异步和性能分析" class="headerlink" title="流异步和性能分析"></a>流异步和性能分析</h1><p>Nsight Systems 可视化的性能分析工具,其可以直接打开nsys生成的qdrep文件</p><p>Concurrent CUDA Streams 并发流;流是一系列顺序执行的命令,kernel的执行,和许多内存迁移都是发生在流内,不指定的情况下使用default stream</p><p>关于控制流的几个规则:</p><ul><li>流内的操作是顺序的</li><li>不同流内的操作相互之间不保证有任何顺序,即可认为不相关</li><li>默认流执行前会阻塞直到其他所有流都执行完成,反之亦然,默认流执行的时候其他流也被阻塞</li></ul><p>API:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cudaStream_t stream;       <span class="comment">// CUDA streams are of type `cudaStream_t`.</span></span><br><span class="line">cudaStreamCreate(&amp;stream); <span class="comment">// Note that a pointer must be passed to `cudaCreateStream`.</span></span><br><span class="line"></span><br><span class="line">someKernel&lt;&lt;&lt;number_of_blocks, threads_per_block, <span class="number">0</span>, stream&gt;&gt;&gt;(); <span class="comment">// `stream` is passed as 4th EC argument.</span></span><br><span class="line"></span><br><span class="line">cudaStreamDestroy(stream); <span class="comment">// Note that a value, not a pointer, is passed to `cudaDestroyStream`.</span></span><br></pre></td></tr></table></figure><p>第三个参数是每个block允许使用的shared memory的bytes,默认为0</p><p>profile driven and iterative 配置文件驱动和迭代</p><p>当确定数据只在device使用,最好只分配device的内存,减小数据迁移的开销,API:</p><ul><li>cudaMalloc() only GPU</li><li>cudaMallocHost() only CPU 锁页内存,允许异步拷贝到GPU;过多的锁页内存会影响CPU性能,使用 cudaFreeHost()来释放</li><li>cudaMemcpy() device与host相互拷贝</li></ul><p>Using Streams to Overlap data transfers and code execution</p><p>只要CPU内存是锁页内存,就可以使用cudaMemcpyAsync()来进行异步拷贝,另一个条件就是使用非默认流</p><p>默认情况下GPU函数执行时对CPU函数是异步的,而异步拷贝,不仅对CPU,对GPU的kernel也是异步的,可以达到边计算边拷贝数据的目的,从而掩盖数据传输时间,尽量挖掘GPU计算能力</p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">CUDA C/C++总结</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2020-03-01 21:51:37</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/57fa.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/CUDA-C/">#CUDA C</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/f89e.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">C++命令行解析库CLI11介绍</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/823f.html"><span class="title flex-center"><span class="post-nav-title-item">windows远程桌面连接报错</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">统一内存管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E5%BC%82%E6%AD%A5%E5%92%8C%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">流异步和性能分析</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            CUDA C/C++总结 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">CUDA C/C++总结</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2020-03-01 21:51:37</span>
+        <span class="mobile">2020-03-01 21:51</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:33:45</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CUDA-C/">CUDA C</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>本篇为学习笔记,学习内容为2019年参加英伟达GTC会议的课程</p>
+<p>需要提下学习CUDA的目的,就是为了加速自己的应用,相比于CPU-only的应用程序,可以用GPU实现较大加速,当然程序首先是计算密集型而非IO密集型</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><p>GPU加速系统,又被称<strong>异构系统</strong>(Heterogeneous),由CPU和GPU组成</p>
+<p>如果熟悉C编程,可以很快上手CUDA编程,两者在代码形式上有很多类似地方,一个比较重要概念是GPU的<em>launch kernel</em></p>
+<p>C代码用gcc编译,cuda代码用<em>nvcc</em>编译,nvcc内部会调用gcc</p>
+<p>启动核函数的配置 &lt;&lt;&lt;blocks,threads&gt;&gt;&gt; thread是最小执行单位,由threads组成block,多个block组成grid;kernel只能运行在一个grid</p>
+<p>一般最简单的加速示例就是一个CPU的循环,执行简单的算术运算;主要是暗示我们什么类型的程序适合GPU加速</p>
+<p>关于threads:</p>
+<ul>
+<li>每个block中的threads个数上限是1024</li>
+<li>一个block中的threads个数由内置变量<em>blockDim.x</em>给出,多个block中计算thread索引公式为:<em>threadIdx.x + blockIdx.x * blockDim.x</em></li>
+<li>grid中block的个数<em>gridDim.x</em>,因此一个grid的线程总数就是<em>gridDim.x * blockDim.x</em></li>
+<li>一般一个thread一次处理一个数据</li>
+<li>注意数据与threads个数很多时候都不是一一对应的,所以要特别注意索引越界问题;一般方式是将数组长度N传入kernel,算出thread索引,与N比较</li>
+<li>block中的threads个数为32的倍数时最优化</li>
+<li>当多个block的threads总数依然无法覆盖待处理数据长度时,在kernel中用loop来重复利用threads处理后续数据;如数据有2048个,线程总数只有1024,则每一个线程处理两个数据</li>
+</ul>
+<p>cuda6之后的版本可以分配出CPU&#x2F;GPU都能访问的内存,API接口为:<em>cudaMallocManaged</em></p>
+<p>关于异常处理:</p>
+<ul>
+<li>一些cuda函数的返回值类型为cudaError_t, 可用来检查错误<em>cudaGetErrorString(err)</em></li>
+<li>无返回值的kernel, 使用<em>cudaGetLastError()</em> 返回cudaError_t类型</li>
+<li>另外,如果有一组kernel出错,因为kernel执行是异步的,为了排查错误,可以调用同步函数如cudaDeviceSynchronize() 会返回kernel执行的错误</li>
+<li>自己封装一个宏来进行错误检查是有必要的</li>
+</ul>
+<h1 id="统一内存管理"><a href="#统一内存管理" class="headerlink" title="统一内存管理"></a>统一内存管理</h1><p>迭代设计过程:</p>
+<p>APOD:Assess Parallelize Optimize Deploy</p>
+<p>评估-&gt;并行-&gt;优化-&gt;部署</p>
+<p>使用Nsight命令行工具<strong>nsys</strong>来评估性能,确定优化机会</p>
+<p>nsys基本用法: nsys profile –stats&#x3D;true exe</p>
+<p>它会生成qdrep报告,包含诸多信息:API统计,kernel执行统计,内存拷贝的大小和时间等</p>
+<p>程序优化方法之一:更改kernel launch的<strong>配置参数</strong></p>
+<p>Streaming Multiprocessor 流处理单元SM</p>
+<ul>
+<li>一个block中的threads被调度到SM上执行;多个block可以被调度到同一个SM上</li>
+<li>为了尽可能并行,提高性能:将grid size设置为给定GPU上的SM个数的倍数,防止不对齐导致的资源浪费</li>
+<li>SMs创建,管理,调度和执行的单位是一个block中的一组32个threads,叫做wraps;由有half-wrap的概念,16个线程为一组,更细粒度的并行</li>
+</ul>
+<p>为了获取SM的数量,调用API:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> deviceId;</span><br><span class="line">cudaGetDevice(&amp;deviceId);</span><br><span class="line">cudaDeviceProp props;</span><br><span class="line">cudaGetDeviceProperties(&amp;props, deviceId);</span><br><span class="line">SMs = props.multiProcessorCount;</span><br></pre></td></tr></table></figure>
+
+<p>基础知识:CUDA’s Unified Memory</p>
+<ul>
+<li>关于Unified Memory,当UM分配之后,不管host还是device都无法访问,访问时会发生page fault,然后触发内存的迁移,将需要的数据按batches迁移</li>
+<li>使用UM要注意避免不必要的时间开销,比如需要大的连续内存块,避免页错误</li>
+</ul>
+<p>Asynchronous Memory Prefetching<br>异步内存预取:减小页错误和按需内存迁移的间接开销的技术,提高性能</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cudaMemPrefetchAsync(pointerToSomeUMData, size, deviceId);        <span class="comment">// Prefetch to GPU device.</span></span><br><span class="line">cudaMemPrefetchAsync(pointerToSomeUMData, size, cudaCpuDeviceId); <span class="comment">// Prefetch to host. `cudaCpuDeviceId`</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="流异步和性能分析"><a href="#流异步和性能分析" class="headerlink" title="流异步和性能分析"></a>流异步和性能分析</h1><p>Nsight Systems 可视化的性能分析工具,其可以直接打开nsys生成的qdrep文件</p>
+<p>Concurrent CUDA Streams 并发流;流是一系列顺序执行的命令,kernel的执行,和许多内存迁移都是发生在流内,不指定的情况下使用default stream</p>
+<p>关于控制流的几个规则:</p>
+<ul>
+<li>流内的操作是顺序的</li>
+<li>不同流内的操作相互之间不保证有任何顺序,即可认为不相关</li>
+<li>默认流执行前会阻塞直到其他所有流都执行完成,反之亦然,默认流执行的时候其他流也被阻塞</li>
+</ul>
+<p>API:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cudaStream_t stream;       <span class="comment">// CUDA streams are of type `cudaStream_t`.</span></span><br><span class="line">cudaStreamCreate(&amp;stream); <span class="comment">// Note that a pointer must be passed to `cudaCreateStream`.</span></span><br><span class="line"></span><br><span class="line">someKernel&lt;&lt;&lt;number_of_blocks, threads_per_block, <span class="number">0</span>, stream&gt;&gt;&gt;(); <span class="comment">// `stream` is passed as 4th EC argument.</span></span><br><span class="line"></span><br><span class="line">cudaStreamDestroy(stream); <span class="comment">// Note that a value, not a pointer, is passed to `cudaDestroyStream`.</span></span><br></pre></td></tr></table></figure>
+
+<p>第三个参数是每个block允许使用的shared memory的bytes,默认为0</p>
+<p>profile driven and iterative 配置文件驱动和迭代</p>
+<p>当确定数据只在device使用,最好只分配device的内存,减小数据迁移的开销,API:</p>
+<ul>
+<li>cudaMalloc()  only GPU</li>
+<li>cudaMallocHost() only CPU 锁页内存,允许异步拷贝到GPU;过多的锁页内存会影响CPU性能,使用 cudaFreeHost()来释放</li>
+<li>cudaMemcpy() device与host相互拷贝</li>
+</ul>
+<p>Using Streams to Overlap data transfers and code execution</p>
+<p>只要CPU内存是锁页内存,就可以使用cudaMemcpyAsync()来进行异步拷贝,另一个条件就是使用非默认流</p>
+<p>默认情况下GPU函数执行时对CPU函数是异步的,而异步拷贝,不仅对CPU,对GPU的kernel也是异步的,可以达到边计算边拷贝数据的目的,从而掩盖数据传输时间,尽量挖掘GPU计算能力</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">CUDA C/C++总结</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2020-03-01 21:51:37</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/57fa.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/CUDA-C/">#CUDA C</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/f89e.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">C++命令行解析库CLI11介绍</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/823f.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">windows远程桌面连接报错</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">统一内存管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E5%BC%82%E6%AD%A5%E5%92%8C%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">流异步和性能分析</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

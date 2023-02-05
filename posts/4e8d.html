@@ -1,2 +1,695 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>腻子脚本 — HTML5Shiv | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">腻子脚本 — HTML5Shiv</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2017-01-18 13:25:24</span> <span class="mobile">2017-01-18 13:25</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-02 13:32:42</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/JavaScript/">JavaScript</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a class="link" target="_blank" rel="noopener" href="https://github.com/aFarkas/html5shiv">HTML5shiv<i class="fas fa-external-link-alt"></i></a> is a javascript workaround to provide support for the new HTML 5 elements in IE Browsers older than IE 9.</p><ul><li>越来越多的站点开始使用 HTML5 标签。但是目前的情况是还有很多人在使用IE6，IE7，IE8。</li><li>而IE6，IE7，IE8是不能识别 HTML5 标签的。</li><li>这里提供一种让 IE 浏览器支持 HTML5 的方法，那就是使用 HTML5Shiv。</li><li>HTML5Shiv 主要解决 HTML5 提出的新的元素不被IE6-8识别。</li></ul><span id="more"></span><h1 id="为什么要使用-HTML5-的新标签"><a href="#为什么要使用-HTML5-的新标签" class="headerlink" title="为什么要使用 HTML5 的新标签"></a>为什么要使用 HTML5 的新标签</h1><ul><li><code>&lt;header&gt;</code> 定义页面或区段的头部</li><li><code>&lt;footer&gt;</code> 定义页面或区段的尾部</li><li><code>&lt;nav&gt;</code> 定义页面或区段的导航区域</li><li><code>&lt;section&gt;</code> 页面的逻辑区域或内容组合</li><li><code>&lt;article&gt;</code> 定义正文或一段完整的内容</li><li><code>&lt;aside&gt;</code> 定义补充或相关内容</li></ul><p>使用他们能让代码语义化更直观，而且更方便 SEO 优化，但是此 HTML5 新标签在 IE6&#x2F;IE7&#x2F;IE8 上并不能识别，需要 javascript 处理，所以我们就需要使用目前使用最广泛的 html5shiv.js 了，包括 Bootstrap 框架也是使用的这个来兼容低版本 IE 的。</p><h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>　　这些 HTML5 新元素不能被 IE6-8 识别，不能作为父节点包裹子元素，并且不能应用 CSS 样式。让 CSS 样式应用在未知元素上只需执行 <code>document.createElement(elementName)</code> 即可实现。HTML5Shiv 就是根据这个原理创建的。</p><p id="div-border-top-purple">关于 HTML5 不得不提 IE，在苹果、Google、Opera 和 Mozilla 等主流浏览器厂商积极参与新版本 HTML 标准的制定和推广时，微软却对 HTML5 规范不屑一顾。然而微软近期才表态要在 IE 中支持 HTML5,以致到今天为止的 IE8 及以下是无法支持 HTML5 标签的.</p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>HTML5Shiv 的使用非常的简单，考虑到 IE9 是支持 HTML5 的，所以只需要在页面 head 中添加如下代码即可：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if lt IE 9]&gt;</span><br><span class="line">  &lt;script src=&quot;.js/html5shiv.js &quot;&gt;&lt;/script &gt;</span><br><span class="line">&lt;![endif]–-&gt; </span><br></pre></td></tr></table></figure><p>The syntax for the HTML5shiv is :</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">  &lt;script src=&quot;./js/html5shiv.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">  &lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><h2 id="注意事项一"><a href="#注意事项一" class="headerlink" title="注意事项一"></a>注意事项一</h2><p>在引入了 html5shiv.js 以后，还需要在你自己的 css 文件中添加:</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span>,<span class="selector-tag">aside</span>,dialog,<span class="selector-tag">footer</span>,<span class="selector-tag">header</span>,<span class="selector-tag">section</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">nav</span>,<span class="selector-tag">figure</span>,<span class="selector-tag">menu</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>主要是让这些 HTML5 标签成块状,像 div 那样。</p><p>No matter how ways what did you using, you should be initialize the new lable css.</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span>,<span class="selector-tag">aside</span>,dialog,<span class="selector-tag">footer</span>,<span class="selector-tag">header</span>,<span class="selector-tag">section</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">nav</span>,<span class="selector-tag">figure</span>,<span class="selector-tag">menu</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="注意事项二"><a href="#注意事项二" class="headerlink" title="注意事项二"></a>注意事项二</h2><p>　　因为 html5shiv.js 是 JavaScript 文件，如果 IE6&#x2F;7&#x2F;8 禁用脚本的用户,那么就变成了无样式的”白板”网页,我们该怎么解决呢?<br>　　我们可以参照 Facebook 的做法，即引导用户进入带有 noscript 标识的页面，用 xhtml 标签替换 html5 标签，这要比为了保持兼容而写大量 hack 的作法更轻便一些。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lte IE 8]&gt; </span></span><br><span class="line"><span class="comment">&lt;noscript&gt;</span></span><br><span class="line"><span class="comment">&lt;style&gt;</span></span><br><span class="line"><span class="comment">  .html5-wrappers&#123;display:none!important;&#125;</span></span><br><span class="line"><span class="comment">&lt;/style&gt;</span></span><br><span class="line"><span class="comment">&lt;div class=&quot;ie-noscript-warning&quot;&gt;您的浏览器禁用了脚本，请&lt;a href=&quot;#&quot;&gt;查看这里&lt;/a&gt;来启用脚本!或者&lt;a href=&quot;/?noscript=1&quot;&gt;继续访问&lt;/a&gt;.</span></span><br><span class="line"><span class="comment">&lt;/div&gt;</span></span><br><span class="line"><span class="comment">&lt;/noscript&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure><p>这样可以引导用户开启脚本，或者直接跳到 xhtml 标签设计的页面。</p><h2 id="注意事项三"><a href="#注意事项三" class="headerlink" title="注意事项三"></a>注意事项三</h2><ul><li>HTML5shiv is found within the <code>&lt;head&gt;</code> tag.</li><li>HTML5shiv is a javascript file that is referenced in a <code>&lt;script&gt;</code> tag.</li><li>You should usr HTML5shiv when you are using the new HTML5 element such as : <code>&lt;header&gt;</code>,<code>&lt;footer&gt;</code>,<code>&lt;nav&gt;</code>,<code>&lt;aside&gt;</code>,<code>&lt;article&gt;</code></li><li>Download the latest version of HTML5shiv from <a class="link" target="_blank" rel="noopener" href="https://github.com/aFarkas/html5shiv/">github<i class="fas fa-external-link-alt"></i></a> or reference the Open Source Software CDN version at <code>https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js</code> or <code>https://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js</code>.</li><li>You will require the HTML5shiv to provide compatibility for IE Browser older than IE 9.</li></ul><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="HTML-5-Document"><a href="#HTML-5-Document" class="headerlink" title="HTML 5 Document"></a>HTML 5 Document</h3><p>If you created a new web page in HTML5,you would include the HTML5shiv as follows:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">  &lt;script src=&quot;.js/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure><p>In this HTML 5 Document example,we have added HTML5shiv within the</p><head>tag.In this case,the HTML5shiv is a javascript file called <strong>html5shiv.js</strong> found in the .&#x2F;js directory.<p></p><p>If you did not want to download and store the HTML5shiv on your site,you could reference the version found on the Open Source Software CDN site.</p><h3 id="Support-two-CDN-site"><a href="#Support-two-CDN-site" class="headerlink" title="Support two CDN site"></a>Support two CDN site</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML 5 Example by github.com/neveryu<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML 5 Example by github.com/neveryu<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;https://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="注意事项四"><a href="#注意事项四" class="headerlink" title="注意事项四"></a>注意事项四</h2><h3 id="HTML-4-0-1-Transitional-Document"><a href="#HTML-4-0-1-Transitional-Document" class="headerlink" title="HTML 4.0.1 Transitional Document"></a>HTML 4.0.1 Transitional Document</h3><p>HTML5shiv does not apply to HTML 4.0.1 Transitional.</p><h3 id="XHTML-1-0-Transitional-Document"><a href="#XHTML-1-0-Transitional-Document" class="headerlink" title="XHTML 1.0 Transitional Document"></a>XHTML 1.0 Transitional Document</h3><p>HTML5shiv does not apply to XHTML 1.0 Transitional.</p><h3 id="XHTML-1-0-Strict-Document"><a href="#XHTML-1-0-Strict-Document" class="headerlink" title="XHTML 1.0 Strict Document"></a>XHTML 1.0 Strict Document</h3><p>HTML5shiv does not apply to XHTML 1.0 Strict.</p><h3 id="XHTML-1-1-Document"><a href="#XHTML-1-1-Document" class="headerlink" title="XHTML 1.1 Document"></a>XHTML 1.1 Document</h3><p>HTML5shiv does not apply to XHTML 1.1.</p><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>关于低版本浏览器不能识别 HTML5 标签的问题，除了使用 html5shiv.js 之外，还有一种做法就是为网站创建多套模版，通过程序对 User-Agent 的判断给不同的浏览器用户显示不同的页面，比如优酷网就是采用的这种模式。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><a class="link" target="_blank" rel="noopener" href="https://neveryu.github.io/2017/01/18/html5shiv/">HTML5Shiv<i class="fas fa-external-link-alt"></i></a> and <a class="link" target="_blank" rel="noopener" href="https://neveryu.github.io/2017/02/11/respond-js/">Respond.js<i class="fas fa-external-link-alt"></i></a> for IE8 support of HTML5 elements and media queries.</p></head></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">腻子脚本 — HTML5Shiv</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2017-01-18 13:25:24</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/4e8d.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/JavaScript/">#JavaScript</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/8457.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">搜索功能</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/20b0.html"><span class="title flex-center"><span class="post-nav-title-item">回家</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-HTML5-%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用 HTML5 的新标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%B8%80"><span class="nav-number">5.1.</span> <span class="nav-text">注意事项一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%BA%8C"><span class="nav-number">5.2.</span> <span class="nav-text">注意事项二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%B8%89"><span class="nav-number">5.3.</span> <span class="nav-text">注意事项三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">5.4.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-5-Document"><span class="nav-number">5.4.1.</span> <span class="nav-text">HTML 5 Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-two-CDN-site"><span class="nav-number">5.4.2.</span> <span class="nav-text">Support two CDN site</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%9B%9B"><span class="nav-number">5.5.</span> <span class="nav-text">注意事项四</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-4-0-1-Transitional-Document"><span class="nav-number">5.5.1.</span> <span class="nav-text">HTML 4.0.1 Transitional Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML-1-0-Transitional-Document"><span class="nav-number">5.5.2.</span> <span class="nav-text">XHTML 1.0 Transitional Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML-1-0-Strict-Document"><span class="nav-number">5.5.3.</span> <span class="nav-text">XHTML 1.0 Strict Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML-1-1-Document"><span class="nav-number">5.5.4.</span> <span class="nav-text">XHTML 1.1 Document</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tips"><span class="nav-number">6.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            腻子脚本 — HTML5Shiv |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">腻子脚本 — HTML5Shiv</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2017-01-18 13:25:24</span>
+        <span class="mobile">2017-01-18 13:25</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:32:42</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/aFarkas/html5shiv" >HTML5shiv<i class="fas fa-external-link-alt"></i></a> is a javascript workaround to provide support for the new HTML 5 elements in IE Browsers older than IE 9.</p>
+<ul>
+<li>越来越多的站点开始使用 HTML5 标签。但是目前的情况是还有很多人在使用IE6，IE7，IE8。</li>
+<li>而IE6，IE7，IE8是不能识别 HTML5 标签的。</li>
+<li>这里提供一种让 IE 浏览器支持 HTML5 的方法，那就是使用 HTML5Shiv。</li>
+<li>HTML5Shiv 主要解决 HTML5 提出的新的元素不被IE6-8识别。</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="为什么要使用-HTML5-的新标签"><a href="#为什么要使用-HTML5-的新标签" class="headerlink" title="为什么要使用 HTML5 的新标签"></a>为什么要使用 HTML5 的新标签</h1><ul>
+<li><code>&lt;header&gt;</code> 定义页面或区段的头部</li>
+<li><code>&lt;footer&gt;</code> 定义页面或区段的尾部</li>
+<li><code>&lt;nav&gt;</code> 定义页面或区段的导航区域</li>
+<li><code>&lt;section&gt;</code> 页面的逻辑区域或内容组合</li>
+<li><code>&lt;article&gt;</code> 定义正文或一段完整的内容</li>
+<li><code>&lt;aside&gt;</code> 定义补充或相关内容</li>
+</ul>
+<p>使用他们能让代码语义化更直观，而且更方便 SEO 优化，但是此 HTML5 新标签在 IE6&#x2F;IE7&#x2F;IE8 上并不能识别，需要 javascript 处理，所以我们就需要使用目前使用最广泛的 html5shiv.js 了，包括 Bootstrap 框架也是使用的这个来兼容低版本 IE 的。</p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>　　这些 HTML5 新元素不能被 IE6-8 识别，不能作为父节点包裹子元素，并且不能应用 CSS 样式。让 CSS 样式应用在未知元素上只需执行 <code>document.createElement(elementName)</code> 即可实现。HTML5Shiv 就是根据这个原理创建的。</p>
+<p id="div-border-top-purple">关于 HTML5 不得不提 IE，在苹果、Google、Opera 和 Mozilla 等主流浏览器厂商积极参与新版本 HTML 标准的制定和推广时，微软却对 HTML5 规范不屑一顾。然而微软近期才表态要在 IE 中支持 HTML5,以致到今天为止的 IE8 及以下是无法支持 HTML5 标签的.</p>
+
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>HTML5Shiv 的使用非常的简单，考虑到 IE9 是支持 HTML5 的，所以只需要在页面 head 中添加如下代码即可： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if lt IE 9]&gt;</span><br><span class="line">  &lt;script src=&quot;.js/html5shiv.js &quot;&gt;&lt;/script &gt;</span><br><span class="line">&lt;![endif]–-&gt; </span><br></pre></td></tr></table></figure>
+
+<p>The syntax for the HTML5shiv is : </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">  &lt;script src=&quot;./js/html5shiv.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">  &lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><h2 id="注意事项一"><a href="#注意事项一" class="headerlink" title="注意事项一"></a>注意事项一</h2><p>在引入了 html5shiv.js 以后，还需要在你自己的 css 文件中添加:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span>,<span class="selector-tag">aside</span>,dialog,<span class="selector-tag">footer</span>,<span class="selector-tag">header</span>,<span class="selector-tag">section</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">nav</span>,<span class="selector-tag">figure</span>,<span class="selector-tag">menu</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要是让这些 HTML5 标签成块状,像 div 那样。</p>
+<p>No matter how ways what did you using, you should be initialize the new lable css.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span>,<span class="selector-tag">aside</span>,dialog,<span class="selector-tag">footer</span>,<span class="selector-tag">header</span>,<span class="selector-tag">section</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">nav</span>,<span class="selector-tag">figure</span>,<span class="selector-tag">menu</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项二"><a href="#注意事项二" class="headerlink" title="注意事项二"></a>注意事项二</h2><p>　　因为 html5shiv.js 是 JavaScript 文件，如果 IE6&#x2F;7&#x2F;8 禁用脚本的用户,那么就变成了无样式的”白板”网页,我们该怎么解决呢?<br>　　我们可以参照 Facebook 的做法，即引导用户进入带有 noscript 标识的页面，用 xhtml 标签替换 html5 标签，这要比为了保持兼容而写大量 hack 的作法更轻便一些。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lte IE 8]&gt; </span></span><br><span class="line"><span class="comment">&lt;noscript&gt;</span></span><br><span class="line"><span class="comment">&lt;style&gt;</span></span><br><span class="line"><span class="comment">  .html5-wrappers&#123;display:none!important;&#125;</span></span><br><span class="line"><span class="comment">&lt;/style&gt;</span></span><br><span class="line"><span class="comment">&lt;div class=&quot;ie-noscript-warning&quot;&gt;您的浏览器禁用了脚本，请&lt;a href=&quot;#&quot;&gt;查看这里&lt;/a&gt;来启用脚本!或者&lt;a href=&quot;/?noscript=1&quot;&gt;继续访问&lt;/a&gt;.</span></span><br><span class="line"><span class="comment">&lt;/div&gt;</span></span><br><span class="line"><span class="comment">&lt;/noscript&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样可以引导用户开启脚本，或者直接跳到 xhtml 标签设计的页面。</p>
+<h2 id="注意事项三"><a href="#注意事项三" class="headerlink" title="注意事项三"></a>注意事项三</h2><ul>
+<li>HTML5shiv is found within the <code>&lt;head&gt;</code> tag.</li>
+<li>HTML5shiv is a javascript file that is referenced in a <code>&lt;script&gt;</code> tag.</li>
+<li>You should usr HTML5shiv when you are using the new HTML5 element such as : <code>&lt;header&gt;</code>,<code>&lt;footer&gt;</code>,<code>&lt;nav&gt;</code>,<code>&lt;aside&gt;</code>,<code>&lt;article&gt;</code></li>
+<li>Download the latest version of HTML5shiv from <a class="link"   target="_blank" rel="noopener" href="https://github.com/aFarkas/html5shiv/" >github<i class="fas fa-external-link-alt"></i></a> or reference the Open Source Software CDN version at <code>https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js</code> or <code>https://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js</code>.</li>
+<li>You will require the HTML5shiv to provide compatibility for IE Browser older than IE 9.</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="HTML-5-Document"><a href="#HTML-5-Document" class="headerlink" title="HTML 5 Document"></a>HTML 5 Document</h3><p>If you created a new web page in HTML5,you would include the HTML5shiv as follows:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">  &lt;script src=&quot;.js/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>In this HTML 5 Document example,we have added HTML5shiv within the <head> tag.In this case,the HTML5shiv is a javascript file called <strong>html5shiv.js</strong> found in the .&#x2F;js directory.</p>
+<p>If you did not want to download and store the HTML5shiv on your site,you could reference the version found on the Open Source Software CDN site.</p>
+<h3 id="Support-two-CDN-site"><a href="#Support-two-CDN-site" class="headerlink" title="Support two CDN site"></a>Support two CDN site</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML 5 Example by github.com/neveryu<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML 5 Example by github.com/neveryu<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;https://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项四"><a href="#注意事项四" class="headerlink" title="注意事项四"></a>注意事项四</h2><h3 id="HTML-4-0-1-Transitional-Document"><a href="#HTML-4-0-1-Transitional-Document" class="headerlink" title="HTML 4.0.1 Transitional Document"></a>HTML 4.0.1 Transitional Document</h3><p>HTML5shiv does not apply to HTML 4.0.1 Transitional.</p>
+<h3 id="XHTML-1-0-Transitional-Document"><a href="#XHTML-1-0-Transitional-Document" class="headerlink" title="XHTML 1.0 Transitional Document"></a>XHTML 1.0 Transitional Document</h3><p>HTML5shiv does not apply to XHTML 1.0 Transitional.</p>
+<h3 id="XHTML-1-0-Strict-Document"><a href="#XHTML-1-0-Strict-Document" class="headerlink" title="XHTML 1.0 Strict Document"></a>XHTML 1.0 Strict Document</h3><p>HTML5shiv does not apply to XHTML 1.0 Strict.</p>
+<h3 id="XHTML-1-1-Document"><a href="#XHTML-1-1-Document" class="headerlink" title="XHTML 1.1 Document"></a>XHTML 1.1 Document</h3><p>HTML5shiv does not apply to XHTML 1.1.</p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>关于低版本浏览器不能识别 HTML5 标签的问题，除了使用 html5shiv.js 之外，还有一种做法就是为网站创建多套模版，通过程序对 User-Agent 的判断给不同的浏览器用户显示不同的页面，比如优酷网就是采用的这种模式。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><a class="link"   target="_blank" rel="noopener" href="https://neveryu.github.io/2017/01/18/html5shiv/" >HTML5Shiv<i class="fas fa-external-link-alt"></i></a> and <a class="link"   target="_blank" rel="noopener" href="https://neveryu.github.io/2017/02/11/respond-js/" >Respond.js<i class="fas fa-external-link-alt"></i></a> for IE8 support of HTML5 elements and media queries.</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">腻子脚本 — HTML5Shiv</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2017-01-18 13:25:24</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/4e8d.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JavaScript/">#JavaScript</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/8457.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">搜索功能</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/20b0.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">回家</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-HTML5-%E7%9A%84%E6%96%B0%E6%A0%87%E7%AD%BE"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用 HTML5 的新标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%B8%80"><span class="nav-number">5.1.</span> <span class="nav-text">注意事项一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%BA%8C"><span class="nav-number">5.2.</span> <span class="nav-text">注意事项二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E4%B8%89"><span class="nav-number">5.3.</span> <span class="nav-text">注意事项三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">5.4.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-5-Document"><span class="nav-number">5.4.1.</span> <span class="nav-text">HTML 5 Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-two-CDN-site"><span class="nav-number">5.4.2.</span> <span class="nav-text">Support two CDN site</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%9B%9B"><span class="nav-number">5.5.</span> <span class="nav-text">注意事项四</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-4-0-1-Transitional-Document"><span class="nav-number">5.5.1.</span> <span class="nav-text">HTML 4.0.1 Transitional Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML-1-0-Transitional-Document"><span class="nav-number">5.5.2.</span> <span class="nav-text">XHTML 1.0 Transitional Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML-1-0-Strict-Document"><span class="nav-number">5.5.3.</span> <span class="nav-text">XHTML 1.0 Strict Document</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHTML-1-1-Document"><span class="nav-number">5.5.4.</span> <span class="nav-text">XHTML 1.1 Document</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tips"><span class="nav-number">6.</span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

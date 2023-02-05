@@ -1,2 +1,1046 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content is-home"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a class="active" href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a class="active" href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="home-content-container fade-in-down-animation"><ul class="home-article-list"><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/29e4.html">MySQL5.6使用Notifier无法停止或重启服务</a></h3><div class="home-article-content keep-markdown-body"><p>以前用mysql的时候, 一直用的是WAMP集成开发环境, 前两天心血来潮, 打算自己配一下环境。Apache, php都没有什么问题, 很顺利的就装好了。但是到了Mysql这, 出了点小小的问题, 装好之后发现无法通过<code>notifier</code>工具停止服务, 提示<code>the service MySQL56 was not found in the windows services</code>。不甘心的我去windows的services里找了下, 发现明明存在<code>MySQL56</code>的服务。一脸懵逼。。。</p></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:31:46 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/coding/">coding</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/mysql/">mysql</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/29e4.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/14fb.html">快速添加圆角和描边</a></h3><div class="home-article-content keep-markdown-body">前言对于习惯使用Storyboard的人来说，设置圆角、描边是一件比较蛋疼的事，因为苹果没有在xcode的Interface Builder上直接提供修改控件的圆角，边框设置。 我们来说说如何对某个控件进行圆角、描边处理： 初级对于一个初学者来说，如...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:10 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/iOS/">iOS</a>&nbsp;</li><li>| <a href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">开发技巧</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/14fb.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/a13d.html">【CSS 学习笔记】CSS元素和布局</a></h3><div class="home-article-content keep-markdown-body"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文绝大部分摘自 <code>CSS 权威指南 第三版</code></p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul><li><strong>正常流 (Normal Flow)：</strong> 有时会被翻译为 <strong>文档流</strong> 或者 <strong>普通流</strong>，指文档从左至右、从上至下的显示内容，是传统的 HTML 文档布局。如果使元素不在正常流中，可以使用浮动（<code>float</code>）或者定位（<code>absolute</code>, <code>fixed</code>）。</li><li><strong>块级元素 (Block-level)：</strong> 块级元素在<strong>普通流</strong>中会独占一行，即在其框之前和之后生成“换行”，因此处于<strong>普通流</strong>中的块级元素会按照从上到下的顺序垂直（vertically）排列。常见的 block 元素有 <code>div</code>, <code>p</code>, <code>h1-h6</code>, <code>ul</code>, <code>li</code>, <code>canvas</code>, <code>table</code> 等。完整的元素可以参考<a class="link" target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">这里<i class="fas fa-external-link-alt"></i></a>。通过使用 <code>display:block</code>，可以将元素生成块级框。</li><li><strong>内联元素 (Inline)：</strong> 或者称为 <strong>行内元素</strong>。在<strong>普通流</strong>中的内联元素之间不会生成“行分割符”，因此处于<strong>普通流</strong>中的内联元素会首先按照从左至右的顺序水平（horizontally）排列，当父容器水平方向上的剩余宽度不足以放下新的内联元素时，会往下换行，在新行的中继续按照水平顺序排列元素。常见的 inline 元素有：<code>a</code>, <code>img</code>, <code>button</code>, <code>br</code>, <code>input</code>, <code>label</code>, <code>select</code>, <code>textarea</code>。完整的可以参考<a class="link" target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements">这里<i class="fas fa-external-link-alt"></i></a>通过使用 <code>display:inline</code> 可以让元素变成内联元素。</li><li><strong>非替换元素 (non-replaced)：</strong> 如果元素的内容包含在文档中，就成为非替换元素。 例如段落 <code>&lt;p&gt;</code>。</li><li><strong>替换元素 (replaced)：</strong> 可以理解为嵌入元素，相当于一个占位符，解析时会被其他内容替换。例如 <code>&lt;img&gt;</code> 和大部分表单元素 <code>&lt;input type=&quot;radio&quot;&gt;</code>。</li><li><code>em</code>: 1em等于 <code>font-size</code> 的设置值</li></ul></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:39:46 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/CSS/">CSS</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/CSS/">CSS</a>&nbsp;</li><li>| <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/a13d.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/2c96.html">Objective-C：RunLoop</a></h3><div class="home-article-content keep-markdown-body">深入理解RunLoop 本文转自：《深入理解RunLoop》 前言RunLoop 是 iOS 和 OSX 开发中非常基础的一个概念，这篇文章将从 CFRunLoop 的源码入手，介绍 RunLoop 的概念以及底层实现原理。之后会介绍一下在 iOS...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:10 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/iOS/">iOS</a>&nbsp;</li><li>| <a href="/tags/Obj-C/">Obj-C</a>&nbsp;</li><li>| <a href="/tags/RunLoop/">RunLoop</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/2c96.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/2fa5.html">jQuery使用技巧</a></h3><div class="home-article-content keep-markdown-body"><h3 id="禁用页面的右键菜单"><a href="#禁用页面的右键菜单" class="headerlink" title="禁用页面的右键菜单"></a>禁用页面的右键菜单</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line">  $(<span class="variable language_">document</span>).<span class="title function_">bind</span>(<span class="string">&quot;contextmenu&quot;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">  &#125;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="新窗口打开页面"><a href="#新窗口打开页面" class="headerlink" title="新窗口打开页面"></a>新窗口打开页面</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.google.com&quot;</span>&gt;</span>google_新窗口<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.google.com&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;external&quot;</span>&gt;</span>google_新窗口<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;demo1.html&quot;</span>&gt;</span>当前窗口<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  $(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;a[href^=&quot;http://&quot;]&#x27;</span>).<span class="title function_">attr</span>(<span class="string">&quot;target&quot;</span>,<span class="string">&quot;_blank&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="输入框文字获取和失去焦点【推荐】"><a href="#输入框文字获取和失去焦点【推荐】" class="headerlink" title="输入框文字获取和失去焦点【推荐】"></a><font color="#099">输入框文字获取和失去焦点【推荐】</font></h3></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:31:00 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/JavaScript/">JavaScript</a>&nbsp;</li><li>| <a href="/tags/jQuery/">jQuery</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/2fa5.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/50b6.html">django pure pagination文档</a></h3><div class="home-article-content keep-markdown-body">IntroductionThe django app offers advanced pagination features without forcing major code changes within an existing project....</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:33:46 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/django/">django</a>&nbsp;</li><li>&gt; <a href="/categories/django/%E6%85%95%E5%AD%A6%E5%9C%A8%E7%BA%BF%E7%BD%91/">慕学在线网</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/50b6.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/16ad.html">django 实战课程资源下载</a></h3><div class="home-article-content keep-markdown-body">xadmin 点击下载 django simple captcha 文档地址 django pure pagination 下载地址 文档地址</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:33:46 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/django/">django</a>&nbsp;</li><li>&gt; <a href="/categories/django/%E6%85%95%E5%AD%A6%E5%9C%A8%E7%BA%BF%E7%BD%91/">慕学在线网</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/16ad.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/3df2.html">中国国内 JavaScript 圈的现状如何</a></h3><div class="home-article-content keep-markdown-body"><p id="div-border-top-purple"><span style="color:red">探讨核心：</span> 我们不编写代码，我们只是国外优秀框架的搬运工。</p><p><img lazyload alt="image" data-src="/images/javascript-environment-1.jpg"></p><hr></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:36:34 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E7%BB%BC%E5%90%88/">综合</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/JavaScript/">JavaScript</a>&nbsp;</li><li>| <a href="/tags/essay/">essay</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/3df2.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/12a6.html">iOS噪音计</a></h3><div class="home-article-content keep-markdown-body">前言最近在办公室觉得有点吵，然后忽然想做一个噪音计测试一下噪音，在App Store下载了几款测噪音软件，使用原来都大同小异。于是决定自己实现测噪音的原理。 分贝dB首先要测量噪音，必须知道噪音的大小的参考的单位为分贝（dB），分贝的定义如下： 1S...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:09 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/iOS/">iOS</a>&nbsp;</li><li>| <a href="/tags/Demo/">Demo</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/12a6.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/57a9.html">Hexo-NexT搭建个人博客（三）</a></h3><div class="home-article-content keep-markdown-body"><p>　　经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。</p><h2 id="一、菜单栏中标签与侧边栏中标签关联的问题"><a href="#一、菜单栏中标签与侧边栏中标签关联的问题" class="headerlink" title="一、菜单栏中标签与侧边栏中标签关联的问题"></a>一、菜单栏中标签与侧边栏中标签关联的问题</h2><p>　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示<strong>标签</strong>这一项，于是我在 <span id="inline-purple">主题配置文件</span> 中 将 menu 配置项中的<strong>标签</strong>这一个选项给注释掉了，所以它不会在菜单栏中显示，但是不代表没有这个页面，这个页面是存在的，我们只是使其不显示在顶部的菜单栏中而已，我们可以直接输入绝对地址来查看这个页面，例如：<a class="link" target="_blank" rel="noopener" href="https://neveryu.github.io/tags/">https://neveryu.github.io/tags/<i class="fas fa-external-link-alt"></i></a>。但是与此同时，我们发现侧边栏中的<b>标签</b>选项只能显示标签数量，不能点击。</p></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:32:34 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/Hexo/">Hexo</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/Hexo/">Hexo</a>&nbsp;</li><li>| <a href="/tags/Next/">Next</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/57a9.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li></ul><div class="home-paginator"><div class="paginator"><a class="prev btn" href="/page/71/">上一页</a> <a class="next btn" href="/page/73/">下一页</a></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content is-home">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/29e4.html">
+                        MySQL5.6使用Notifier无法停止或重启服务
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <p>以前用mysql的时候, 一直用的是WAMP集成开发环境, 前两天心血来潮, 打算自己配一下环境。Apache, php都没有什么问题, 很顺利的就装好了。但是到了Mysql这, 出了点小小的问题, 装好之后发现无法通过<code>notifier</code>工具停止服务, 提示<code>the service MySQL56 was not found in the windows services</code>。不甘心的我去windows的services里找了下, 发现明明存在<code>MySQL56</code>的服务。一脸懵逼。。。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:31:46 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/coding/">coding</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/mysql/">mysql</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/29e4.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/14fb.html">
+                        快速添加圆角和描边
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        前言对于习惯使用Storyboard的人来说，设置圆角、描边是一件比较蛋疼的事，因为苹果没有在xcode的Interface Builder上直接提供修改控件的圆角，边框设置。
+我们来说说如何对某个控件进行圆角、描边处理：
+初级对于一个初学者来说，如...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:10 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/iOS/">iOS</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">开发技巧</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/14fb.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/a13d.html">
+                        【CSS 学习笔记】CSS元素和布局
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文绝大部分摘自 <code>CSS 权威指南 第三版</code></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li><strong>正常流 (Normal Flow)：</strong> 有时会被翻译为 <strong>文档流</strong> 或者 <strong>普通流</strong>，指文档从左至右、从上至下的显示内容，是传统的 HTML 文档布局。如果使元素不在正常流中，可以使用浮动（<code>float</code>）或者定位（<code>absolute</code>, <code>fixed</code>）。</li>
+<li><strong>块级元素 (Block-level)：</strong> 块级元素在<strong>普通流</strong>中会独占一行，即在其框之前和之后生成“换行”，因此处于<strong>普通流</strong>中的块级元素会按照从上到下的顺序垂直（vertically）排列。常见的 block 元素有 <code>div</code>, <code>p</code>, <code>h1-h6</code>, <code>ul</code>, <code>li</code>, <code>canvas</code>, <code>table</code> 等。完整的元素可以参考<a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements" >这里<i class="fas fa-external-link-alt"></i></a>。通过使用 <code>display:block</code>，可以将元素生成块级框。</li>
+<li><strong>内联元素 (Inline)：</strong> 或者称为 <strong>行内元素</strong>。在<strong>普通流</strong>中的内联元素之间不会生成“行分割符”，因此处于<strong>普通流</strong>中的内联元素会首先按照从左至右的顺序水平（horizontally）排列，当父容器水平方向上的剩余宽度不足以放下新的内联元素时，会往下换行，在新行的中继续按照水平顺序排列元素。常见的 inline 元素有：<code>a</code>, <code>img</code>, <code>button</code>, <code>br</code>, <code>input</code>, <code>label</code>, <code>select</code>, <code>textarea</code>。完整的可以参考<a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements" >这里<i class="fas fa-external-link-alt"></i></a>通过使用 <code>display:inline</code> 可以让元素变成内联元素。</li>
+<li><strong>非替换元素 (non-replaced)：</strong> 如果元素的内容包含在文档中，就成为非替换元素。 例如段落 <code>&lt;p&gt;</code>。</li>
+<li><strong>替换元素 (replaced)：</strong> 可以理解为嵌入元素，相当于一个占位符，解析时会被其他内容替换。例如 <code>&lt;img&gt;</code> 和大部分表单元素 <code>&lt;input type=&quot;radio&quot;&gt;</code>。</li>
+<li><code>em</code>: 1em等于 <code>font-size</code> 的设置值</li>
+</ul>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:39:46 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/CSS/">CSS</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/CSS/">CSS</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/a13d.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/2c96.html">
+                        Objective-C：RunLoop
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        深入理解RunLoop
+本文转自：《深入理解RunLoop》
+
+前言RunLoop 是 iOS 和 OSX 开发中非常基础的一个概念，这篇文章将从 CFRunLoop 的源码入手，介绍 RunLoop 的概念以及底层实现原理。之后会介绍一下在 iOS...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:10 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/iOS/">iOS</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Obj-C/">Obj-C</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/RunLoop/">RunLoop</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/2c96.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/2fa5.html">
+                        jQuery使用技巧
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <h3 id="禁用页面的右键菜单"><a href="#禁用页面的右键菜单" class="headerlink" title="禁用页面的右键菜单"></a>禁用页面的右键菜单</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;  </span><br><span class="line">  $(<span class="variable language_">document</span>).<span class="title function_">bind</span>(<span class="string">&quot;contextmenu&quot;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">  &#125;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="新窗口打开页面"><a href="#新窗口打开页面" class="headerlink" title="新窗口打开页面"></a>新窗口打开页面</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.google.com&quot;</span>&gt;</span>google_新窗口<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.google.com&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;external&quot;</span>&gt;</span>google_新窗口<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;demo1.html&quot;</span>&gt;</span>当前窗口<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  $(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&#x27;a[href^=&quot;http://&quot;]&#x27;</span>).<span class="title function_">attr</span>(<span class="string">&quot;target&quot;</span>,<span class="string">&quot;_blank&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输入框文字获取和失去焦点【推荐】"><a href="#输入框文字获取和失去焦点【推荐】" class="headerlink" title="输入框文字获取和失去焦点【推荐】"></a><font color='#099'>输入框文字获取和失去焦点【推荐】</font></h3>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:31:00 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/jQuery/">jQuery</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/2fa5.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/50b6.html">
+                        django pure pagination文档
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        IntroductionThe django app offers advanced pagination features without forcing major code changes within an existing project....
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:33:46 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/django/">django</a>&nbsp;
+                        </li>
+                    
+                    
+                        <li>
+                            &gt; 
+                            <a href="/categories/django/%E6%85%95%E5%AD%A6%E5%9C%A8%E7%BA%BF%E7%BD%91/">慕学在线网</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/50b6.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/16ad.html">
+                        django 实战课程资源下载
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+xadmin  
+ 点击下载
+
+django simple captcha
+ 文档地址
+
+django pure pagination
+ 下载地址
+ 文档地址
+
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:33:46 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/django/">django</a>&nbsp;
+                        </li>
+                    
+                    
+                        <li>
+                            &gt; 
+                            <a href="/categories/django/%E6%85%95%E5%AD%A6%E5%9C%A8%E7%BA%BF%E7%BD%91/">慕学在线网</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/16ad.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/3df2.html">
+                        中国国内 JavaScript 圈的现状如何
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <p id="div-border-top-purple"><span style="color:red;">探讨核心：</span> 我们不编写代码，我们只是国外优秀框架的搬运工。</p>
+
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/javascript-environment-1.jpg"
+                     
+                ></p>
+<hr>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:36:34 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E7%BB%BC%E5%90%88/">综合</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/essay/">essay</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/3df2.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/12a6.html">
+                        iOS噪音计
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        前言最近在办公室觉得有点吵，然后忽然想做一个噪音计测试一下噪音，在App Store下载了几款测噪音软件，使用原来都大同小异。于是决定自己实现测噪音的原理。
+分贝dB首先要测量噪音，必须知道噪音的大小的参考的单位为分贝（dB），分贝的定义如下：
+1S...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:09 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/iOS/">iOS</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Demo/">Demo</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/12a6.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/57a9.html">
+                        Hexo-NexT搭建个人博客（三）
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <p>　　经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。</p>
+<h2 id="一、菜单栏中标签与侧边栏中标签关联的问题"><a href="#一、菜单栏中标签与侧边栏中标签关联的问题" class="headerlink" title="一、菜单栏中标签与侧边栏中标签关联的问题"></a>一、菜单栏中标签与侧边栏中标签关联的问题</h2><p>　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示<strong>标签</strong>这一项，于是我在 <span id="inline-purple">主题配置文件</span> 中 将 menu 配置项中的<strong>标签</strong>这一个选项给注释掉了，所以它不会在菜单栏中显示，但是不代表没有这个页面，这个页面是存在的，我们只是使其不显示在顶部的菜单栏中而已，我们可以直接输入绝对地址来查看这个页面，例如：<a class="link"   target="_blank" rel="noopener" href="https://neveryu.github.io/tags/" >https://neveryu.github.io/tags/<i class="fas fa-external-link-alt"></i></a>。但是与此同时，我们发现侧边栏中的<b>标签</b>选项只能显示标签数量，不能点击。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:32:34 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/Hexo/">Hexo</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Hexo/">Hexo</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Next/">Next</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/57a9.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    
+        <a class="prev btn"
+           href="/page/71/"
+        >上一页</a>
+    
+
+    
+        <a class="next btn"
+           href="/page/73/"
+        >下一页</a>
+    
+</div>
+
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

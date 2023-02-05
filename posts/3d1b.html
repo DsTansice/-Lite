@@ -1,2 +1,663 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>技巧与工具01:Linux工作环境配置 | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">技巧与工具01:Linux工作环境配置</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2016-10-21 11:19:55</span> <span class="mobile">2016-10-21 11:19</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-02 13:29:02</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/tools/">tools</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/Linux/">Linux</a>&nbsp;</li><li>| <a href="/tags/%E9%85%8D%E7%BD%AE/">配置</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>987 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><p>个人电脑系统是Ubuntu,也因为Linux环境工作效率更高，比较偏爱Linux系统，<br>平时写代码主要使用Vim,故总结出工作环境的简单配置．</p><span id="more"></span><p>本篇所有的配置文件都已上传至github: <a class="link" target="_blank" rel="noopener" href="https://github.com/tigerRose/experience.git">https://github.com/tigerRose/experience.git<i class="fas fa-external-link-alt"></i></a> 可以直接拷贝到个人目录使用.</p><h2 id="x2F-bashrc"><a href="#x2F-bashrc" class="headerlink" title="~&#x2F;.bashrc"></a>~&#x2F;.bashrc</h2><p>这个是Linux最主要的配置文件之一了．</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.bashrc</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$TERM</span>=<span class="string">&quot;xterm-256color&quot;</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    PS1=<span class="string">&#x27;\[\033[01;38;5;61m\]\u@\h\[\033[01;38;5;107m\] \w\n\$\[\033[01;38;5;248m\]&#x27;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">LS_OPTIONS=<span class="string">&#x27;--color&#x27;</span></span><br><span class="line"><span class="built_in">export</span> LS_OPTIONS</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">ls</span>=<span class="string">&quot;ls <span class="variable">$LS_OPTIONS</span>&quot;</span></span><br><span class="line"><span class="built_in">alias</span> l=<span class="string">&quot;ls -lh&quot;</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">&quot;ls -l&quot;</span></span><br><span class="line"><span class="built_in">alias</span> la=<span class="string">&#x27;ls -alh&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c7=<span class="string">&#x27;chmod 777&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c5=<span class="string">&#x27;chmod 755&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c4=<span class="string">&#x27;chmod 644&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c0=<span class="string">&#x27;chmod 700&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c0f=<span class="string">&#x27;chmod 600&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dh=<span class="string">&#x27;du -h&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> eb=<span class="string">&#x27;vi ~/.bashrc&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> ep=<span class="string">&#x27;vi ~/.bash_profile&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> sb=<span class="string">&#x27;source ~/.bashrc &#x27;</span></span><br><span class="line"><span class="built_in">alias</span> h=<span class="string">&#x27;head&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> k9=<span class="string">&#x27;kill -9&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> les=<span class="string">&quot;less -RS&quot;</span></span><br><span class="line"><span class="built_in">alias</span> le=<span class="string">&#x27;les&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">ln</span>=<span class="string">&#x27;ln -s&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> wl=<span class="string">&quot;wc -l&quot;</span></span><br><span class="line"><span class="built_in">alias</span> a=<span class="string">&quot;cd .. &amp;&amp; l&quot;</span></span><br><span class="line"><span class="built_in">alias</span> b=<span class="string">&#x27;cd - &amp;&amp; l&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> pp=<span class="string">&quot;pu <span class="variable">$USER</span>&quot;</span></span><br><span class="line"><span class="built_in">alias</span> i=<span class="string">&#x27;dirs -c &amp;&amp; pushd .&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> o=<span class="string">&#x27;dirs -c&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> p=<span class="string">&#x27;pushd&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> rd=<span class="string">&quot;rm -rf&quot;</span></span><br><span class="line"><span class="built_in">alias</span> t=<span class="string">&quot;tail&quot;</span></span><br><span class="line"><span class="built_in">alias</span> vi=<span class="string">&quot;/usr/bin/vim&quot;</span></span><br><span class="line"><span class="built_in">alias</span> py=<span class="string">&quot;python&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>~&#x2F;.bashrc主要是配置终端显示以及设置一些常用命令的重命名，减少频繁使用<br>的命令的按键次数，也可以指定所使用的程序，如<code>alias python=&quot;C:\python27\python.exe&quot;</code><br>这个就是我在windows系统下使用cygwin环境，调用windows安装的python的方法．<br>另外可以在这里加一些环境变量，如<code>export PYTHONPATH=&quot;xxx&quot;$PYTHONPATH</code></p><h2 id="x2F-git-completion-bash"><a href="#x2F-git-completion-bash" class="headerlink" title="~&#x2F;.git-completion.bash"></a>~&#x2F;.git-completion.bash</h2><p>这个文件在网上可以下载，主要功能如名称所示，git的命令行补全，如输入:<br><code>git ch&lt;tab&gt;</code> 会出现<code>checkout　cherry　cherry-pick</code>供参考．使用前需要将如下<br>几行代码添加到~&#x2F;.bashrc</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.git-completion.bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set git auto completion</span></span><br><span class="line"><span class="keyword">if</span> [ -f ~/.git-completion.bash ]; <span class="keyword">then</span></span><br><span class="line">    . ~/.git-completion.bash</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>然后输入命令source ~&#x2F;.bashrc即可生效</p><h2 id="x2F-gitconfig"><a href="#x2F-gitconfig" class="headerlink" title="~&#x2F;.gitconfig"></a>~&#x2F;.gitconfig</h2><p>此文件是git的简单配置，如用户名和邮箱</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.gitconfig</span></span><br><span class="line"></span><br><span class="line">[user]</span><br><span class="line">	email = fuxiang_zhao@163.com</span><br><span class="line">	name = tigerRose</span><br><span class="line">[push]</span><br><span class="line">	default = matching</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="x2F-keymaprc"><a href="#x2F-keymaprc" class="headerlink" title="~&#x2F;.keymaprc"></a>~&#x2F;.keymaprc</h2><p>这个是我自己定义的，用于交换键盘的按键，比如你某个键坏掉了，可以用一个平时不<br>常用的键来交换，土豪可以无视，直接买新的．我使用按键交换主要是因为习惯用Vim,<br>而又常用Esc,不常用Caps Lock,因此交换按键，减少手指运动量.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.keymaprc</span></span><br><span class="line"></span><br><span class="line">remove Lock = Caps_Lock</span><br><span class="line">keysym Caps_Lock = Escape</span><br><span class="line">keysym Escape = Caps_Lock NoSymbol Caps_Lock</span><br></pre></td></tr></table></figure><p><a class="link" target="_blank" rel="noopener" href="http://tigerrose.me/2016/03/27/linux%E6%9B%B4%E6%94%B9%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84/">linux更改键盘映射<i class="fas fa-external-link-alt"></i></a>这个专门讲Linux环境改按键</p><h2 id="x2F-vimrc"><a href="#x2F-vimrc" class="headerlink" title="~&#x2F;.vimrc"></a>~&#x2F;.vimrc</h2><p>此文件是Vim的配置，个人比较喜欢的风格</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;~/.vimrc</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set nocompatible    &quot;</span>Use Vim settings, rather <span class="keyword">then</span> Vi settings (much better!).</span><br><span class="line">syntax on           <span class="string">&quot;show syntax</span></span><br><span class="line"><span class="string">set nu              &quot;</span>show line number</span><br><span class="line"><span class="built_in">set</span> tabstop=4       <span class="string">&quot;&lt;tab&gt; width</span></span><br><span class="line"><span class="string">filetype plugin indent on</span></span><br><span class="line"><span class="string">set autoindent      &quot;</span><span class="built_in">set</span> automatic indent</span><br><span class="line"><span class="built_in">set</span> smartindent cinwords=<span class="keyword">if</span>,<span class="keyword">elif</span>,<span class="keyword">else</span>,<span class="keyword">for</span>,<span class="keyword">while</span>,try,except,finally,def,class</span><br><span class="line"><span class="built_in">set</span> softtabstop=4   </span><br><span class="line"><span class="built_in">set</span> expandtab       </span><br><span class="line"><span class="built_in">set</span> ruler</span><br><span class="line"><span class="built_in">set</span> shiftwidth=4    <span class="string">&quot;autoindent width</span></span><br><span class="line"><span class="string">set cindent         &quot;</span>C style indent</span><br><span class="line"><span class="built_in">set</span> sm              <span class="string">&quot;show matched bracket</span></span><br><span class="line"><span class="string">set smarttab</span></span><br><span class="line"><span class="string">set fileformats=unix</span></span><br><span class="line"><span class="string">set backspace=indent,eol,start</span></span><br><span class="line"><span class="string">set incsearch</span></span><br><span class="line"><span class="string">set fencs=utf-8,ucs-bom,euc-jp,gb18030,gbk,gb2312,cp936 &quot;</span><span class="built_in">set</span> coding</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> t_Co=256 <span class="string">&quot;Use 256 color</span></span><br><span class="line"><span class="string">colorscheme lucius &quot;</span><span class="built_in">set</span> ColorScheme</span><br><span class="line"><span class="built_in">set</span> viminfo=<span class="string">&#x27;1000,&lt;800</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;return the position last edit</span></span><br><span class="line"><span class="string">au BufReadPost * if line(&quot;&#x27;</span>\&quot;<span class="string">&quot;) &gt; 0|if line(&quot;</span><span class="string">&#x27;\&quot;&quot;) &lt;= line(&quot;$&quot;)|exe(&quot;norm &#x27;</span>\&quot;<span class="string">&quot;)|else|exe &quot;</span>norm $<span class="string">&quot;|endif|endif</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set hlsearch</span></span><br></pre></td></tr></table></figure><p>配色方案放在~&#x2F;.vim&#x2F;colors 目录</p><h2 id="windows环境cygwin环境安装"><a href="#windows环境cygwin环境安装" class="headerlink" title="windows环境cygwin环境安装"></a>windows环境cygwin环境安装</h2><p>cygwin是windows下使用linux环境的不二之选，安装也很简单，如果联网环境，可以勾选<br>自己想要的库和软件包;使用时候如果发现有软件没有安装，需要重新安装一遍，不过<br>已安装的不会再次下载．<br>不联网的环境，可以先找个联网的机器下载需要的安装目录，然后选择从本地来源安装即可．<br>cygwin.rar是我自己使用的一个安装包，包含了vim编辑器，gcc编译器以及python大多数库.</p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">技巧与工具01:Linux工作环境配置</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2016-10-21 11:19:55</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/3d1b.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/Linux/">#Linux</a>&nbsp;</li><li class="tag-item"><a href="/tags/%E9%85%8D%E7%BD%AE/">#配置</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/28d4.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">ubuntu下安装pillow失败</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/8688.html"><span class="title flex-center"><span class="post-nav-title-item">笑话人生，才刚刚开始</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-bashrc"><span class="nav-number">1.</span> <span class="nav-text">~&#x2F;.bashrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-git-completion-bash"><span class="nav-number">2.</span> <span class="nav-text">~&#x2F;.git-completion.bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-gitconfig"><span class="nav-number">3.</span> <span class="nav-text">~&#x2F;.gitconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-keymaprc"><span class="nav-number">4.</span> <span class="nav-text">~&#x2F;.keymaprc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-vimrc"><span class="nav-number">5.</span> <span class="nav-text">~&#x2F;.vimrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E7%8E%AF%E5%A2%83cygwin%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="nav-number">6.</span> <span class="nav-text">windows环境cygwin环境安装</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            技巧与工具01:Linux工作环境配置 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">技巧与工具01:Linux工作环境配置</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2016-10-21 11:19:55</span>
+        <span class="mobile">2016-10-21 11:19</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:29:02</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/tools/">tools</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E9%85%8D%E7%BD%AE/">配置</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>987 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>个人电脑系统是Ubuntu,也因为Linux环境工作效率更高，比较偏爱Linux系统，<br>平时写代码主要使用Vim,故总结出工作环境的简单配置．</p>
+<span id="more"></span>
+
+<p>本篇所有的配置文件都已上传至github: <a class="link"   target="_blank" rel="noopener" href="https://github.com/tigerRose/experience.git" >https://github.com/tigerRose/experience.git<i class="fas fa-external-link-alt"></i></a> 可以直接拷贝到个人目录使用.</p>
+<h2 id="x2F-bashrc"><a href="#x2F-bashrc" class="headerlink" title="~&#x2F;.bashrc"></a>~&#x2F;.bashrc</h2><p>这个是Linux最主要的配置文件之一了．</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.bashrc</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$TERM</span>=<span class="string">&quot;xterm-256color&quot;</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    PS1=<span class="string">&#x27;\[\033[01;38;5;61m\]\u@\h\[\033[01;38;5;107m\] \w\n\$\[\033[01;38;5;248m\]&#x27;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">LS_OPTIONS=<span class="string">&#x27;--color&#x27;</span></span><br><span class="line"><span class="built_in">export</span> LS_OPTIONS</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">ls</span>=<span class="string">&quot;ls <span class="variable">$LS_OPTIONS</span>&quot;</span></span><br><span class="line"><span class="built_in">alias</span> l=<span class="string">&quot;ls -lh&quot;</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">&quot;ls -l&quot;</span></span><br><span class="line"><span class="built_in">alias</span> la=<span class="string">&#x27;ls -alh&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c7=<span class="string">&#x27;chmod 777&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c5=<span class="string">&#x27;chmod 755&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c4=<span class="string">&#x27;chmod 644&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c0=<span class="string">&#x27;chmod 700&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> c0f=<span class="string">&#x27;chmod 600&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dh=<span class="string">&#x27;du -h&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> eb=<span class="string">&#x27;vi ~/.bashrc&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> ep=<span class="string">&#x27;vi ~/.bash_profile&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> sb=<span class="string">&#x27;source ~/.bashrc &#x27;</span></span><br><span class="line"><span class="built_in">alias</span> h=<span class="string">&#x27;head&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> k9=<span class="string">&#x27;kill -9&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> les=<span class="string">&quot;less -RS&quot;</span></span><br><span class="line"><span class="built_in">alias</span> le=<span class="string">&#x27;les&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">ln</span>=<span class="string">&#x27;ln -s&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> wl=<span class="string">&quot;wc -l&quot;</span></span><br><span class="line"><span class="built_in">alias</span> a=<span class="string">&quot;cd .. &amp;&amp; l&quot;</span></span><br><span class="line"><span class="built_in">alias</span> b=<span class="string">&#x27;cd - &amp;&amp; l&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> pp=<span class="string">&quot;pu <span class="variable">$USER</span>&quot;</span></span><br><span class="line"><span class="built_in">alias</span> i=<span class="string">&#x27;dirs -c &amp;&amp; pushd .&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> o=<span class="string">&#x27;dirs -c&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> p=<span class="string">&#x27;pushd&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> rd=<span class="string">&quot;rm -rf&quot;</span></span><br><span class="line"><span class="built_in">alias</span> t=<span class="string">&quot;tail&quot;</span></span><br><span class="line"><span class="built_in">alias</span> vi=<span class="string">&quot;/usr/bin/vim&quot;</span></span><br><span class="line"><span class="built_in">alias</span> py=<span class="string">&quot;python&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>~&#x2F;.bashrc主要是配置终端显示以及设置一些常用命令的重命名，减少频繁使用<br>的命令的按键次数，也可以指定所使用的程序，如<code>alias python=&quot;C:\python27\python.exe&quot;</code><br>这个就是我在windows系统下使用cygwin环境，调用windows安装的python的方法．<br>另外可以在这里加一些环境变量，如<code>export PYTHONPATH=&quot;xxx&quot;$PYTHONPATH</code></p>
+<h2 id="x2F-git-completion-bash"><a href="#x2F-git-completion-bash" class="headerlink" title="~&#x2F;.git-completion.bash"></a>~&#x2F;.git-completion.bash</h2><p>这个文件在网上可以下载，主要功能如名称所示，git的命令行补全，如输入:<br><code>git ch&lt;tab&gt;</code> 会出现<code>checkout　cherry　cherry-pick</code>供参考．使用前需要将如下<br>几行代码添加到~&#x2F;.bashrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.git-completion.bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set git auto completion</span></span><br><span class="line"><span class="keyword">if</span> [ -f ~/.git-completion.bash ]; <span class="keyword">then</span></span><br><span class="line">    . ~/.git-completion.bash</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后输入命令source ~&#x2F;.bashrc即可生效</p>
+<h2 id="x2F-gitconfig"><a href="#x2F-gitconfig" class="headerlink" title="~&#x2F;.gitconfig"></a>~&#x2F;.gitconfig</h2><p>此文件是git的简单配置，如用户名和邮箱</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.gitconfig</span></span><br><span class="line"></span><br><span class="line">[user]</span><br><span class="line">	email = fuxiang_zhao@163.com</span><br><span class="line">	name = tigerRose</span><br><span class="line">[push]</span><br><span class="line">	default = matching</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="x2F-keymaprc"><a href="#x2F-keymaprc" class="headerlink" title="~&#x2F;.keymaprc"></a>~&#x2F;.keymaprc</h2><p>这个是我自己定义的，用于交换键盘的按键，比如你某个键坏掉了，可以用一个平时不<br>常用的键来交换，土豪可以无视，直接买新的．我使用按键交换主要是因为习惯用Vim,<br>而又常用Esc,不常用Caps Lock,因此交换按键，减少手指运动量.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.keymaprc</span></span><br><span class="line"></span><br><span class="line">remove Lock = Caps_Lock</span><br><span class="line">keysym Caps_Lock = Escape</span><br><span class="line">keysym Escape = Caps_Lock NoSymbol Caps_Lock</span><br></pre></td></tr></table></figure>
+<p><a class="link"   target="_blank" rel="noopener" href="http://tigerrose.me/2016/03/27/linux%E6%9B%B4%E6%94%B9%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84/" >linux更改键盘映射<i class="fas fa-external-link-alt"></i></a>这个专门讲Linux环境改按键</p>
+<h2 id="x2F-vimrc"><a href="#x2F-vimrc" class="headerlink" title="~&#x2F;.vimrc"></a>~&#x2F;.vimrc</h2><p>此文件是Vim的配置，个人比较喜欢的风格</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;~/.vimrc</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set nocompatible    &quot;</span>Use Vim settings, rather <span class="keyword">then</span> Vi settings (much better!).</span><br><span class="line">syntax on           <span class="string">&quot;show syntax</span></span><br><span class="line"><span class="string">set nu              &quot;</span>show line number</span><br><span class="line"><span class="built_in">set</span> tabstop=4       <span class="string">&quot;&lt;tab&gt; width</span></span><br><span class="line"><span class="string">filetype plugin indent on</span></span><br><span class="line"><span class="string">set autoindent      &quot;</span><span class="built_in">set</span> automatic indent</span><br><span class="line"><span class="built_in">set</span> smartindent cinwords=<span class="keyword">if</span>,<span class="keyword">elif</span>,<span class="keyword">else</span>,<span class="keyword">for</span>,<span class="keyword">while</span>,try,except,finally,def,class</span><br><span class="line"><span class="built_in">set</span> softtabstop=4   </span><br><span class="line"><span class="built_in">set</span> expandtab       </span><br><span class="line"><span class="built_in">set</span> ruler</span><br><span class="line"><span class="built_in">set</span> shiftwidth=4    <span class="string">&quot;autoindent width</span></span><br><span class="line"><span class="string">set cindent         &quot;</span>C style indent</span><br><span class="line"><span class="built_in">set</span> sm              <span class="string">&quot;show matched bracket</span></span><br><span class="line"><span class="string">set smarttab</span></span><br><span class="line"><span class="string">set fileformats=unix</span></span><br><span class="line"><span class="string">set backspace=indent,eol,start</span></span><br><span class="line"><span class="string">set incsearch</span></span><br><span class="line"><span class="string">set fencs=utf-8,ucs-bom,euc-jp,gb18030,gbk,gb2312,cp936 &quot;</span><span class="built_in">set</span> coding</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> t_Co=256 <span class="string">&quot;Use 256 color</span></span><br><span class="line"><span class="string">colorscheme lucius &quot;</span><span class="built_in">set</span> ColorScheme</span><br><span class="line"><span class="built_in">set</span> viminfo=<span class="string">&#x27;1000,&lt;800</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;return the position last edit</span></span><br><span class="line"><span class="string">au BufReadPost * if line(&quot;&#x27;</span>\&quot;<span class="string">&quot;) &gt; 0|if line(&quot;</span><span class="string">&#x27;\&quot;&quot;) &lt;= line(&quot;$&quot;)|exe(&quot;norm &#x27;</span>\&quot;<span class="string">&quot;)|else|exe &quot;</span>norm $<span class="string">&quot;|endif|endif</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set hlsearch</span></span><br></pre></td></tr></table></figure>
+<p>配色方案放在~&#x2F;.vim&#x2F;colors 目录</p>
+<h2 id="windows环境cygwin环境安装"><a href="#windows环境cygwin环境安装" class="headerlink" title="windows环境cygwin环境安装"></a>windows环境cygwin环境安装</h2><p>cygwin是windows下使用linux环境的不二之选，安装也很简单，如果联网环境，可以勾选<br>自己想要的库和软件包;使用时候如果发现有软件没有安装，需要重新安装一遍，不过<br>已安装的不会再次下载．<br>不联网的环境，可以先找个联网的机器下载需要的安装目录，然后选择从本地来源安装即可．<br>cygwin.rar是我自己使用的一个安装包，包含了vim编辑器，gcc编译器以及python大多数库.</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">技巧与工具01:Linux工作环境配置</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2016-10-21 11:19:55</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/3d1b.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Linux/">#Linux</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E9%85%8D%E7%BD%AE/">#配置</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/28d4.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">ubuntu下安装pillow失败</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/8688.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">笑话人生，才刚刚开始</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-bashrc"><span class="nav-number">1.</span> <span class="nav-text">~&#x2F;.bashrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-git-completion-bash"><span class="nav-number">2.</span> <span class="nav-text">~&#x2F;.git-completion.bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-gitconfig"><span class="nav-number">3.</span> <span class="nav-text">~&#x2F;.gitconfig</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-keymaprc"><span class="nav-number">4.</span> <span class="nav-text">~&#x2F;.keymaprc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x2F-vimrc"><span class="nav-number">5.</span> <span class="nav-text">~&#x2F;.vimrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E7%8E%AF%E5%A2%83cygwin%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="nav-number">6.</span> <span class="nav-text">windows环境cygwin环境安装</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

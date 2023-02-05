@@ -1,2 +1,697 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>【OpenMP学习笔记】更多指令和子句介绍 | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">【OpenMP学习笔记】更多指令和子句介绍</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2016-02-26 17:44:15</span> <span class="mobile">2016-02-26 17:44</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-02 13:39:51</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/OpenMP/">OpenMP</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;</li><li>| <a href="/tags/OpenMP/">OpenMP</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><h3 id="flush"><a href="#flush" class="headerlink" title="flush"></a>flush</h3><p>flush指令主要用于处理内存一致性问题. 每个处理器(processor)都有自己的本地(local)存储单元:寄存器和缓存, 当一个线程更新了共享变量之后, 新的值会首先存储到寄存器中, 然后更新到本地缓存中. 这些更新并非立刻就可以被其他线程得知, 因此在其它处理器中运行的线程不能访问这些存储单元. 如果一个线程不知道这些更新而使用共享变量的旧值就行运算, 就可能会得到错误的结果.<br>通过使用flush指令, 可以保证线程读取到的共享变量的最新值. 下面是语法形式:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp flush[(list)]</span></span><br></pre></td></tr></table></figure><span id="more"></span><p>list指定需要flush的共享变量, 如果不指定list, 将flush作用于所有的共享变量. 在下面的几个位置已经隐式的添加了不指定list的flush指令.</p><ul><li>所有隐式和显式的路障(barrier)</li><li>Entry to and exit from critical regions</li><li>Entry to and exit from lock routines</li></ul><h3 id="threadprivate"><a href="#threadprivate" class="headerlink" title="threadprivate"></a>threadprivate</h3><p>threadprivate作用于全局变量, 用来指定该全局变量被各个线程各自复制一份私有的拷贝, 即各个线程具有__各自私有__、<strong>线程范围__内的__全局对象</strong>, 语法形式如下:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(list)</span></span><br></pre></td></tr></table></figure><p>其与private不同的时, threadprivate变量是存储在heap或者<a class="link" target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Thread-local_storage">Thread local storage<i class="fas fa-external-link-alt"></i></a>当中, 可以跨并行域访问, 而private绝大多数情况是存储在stack中, 只在当前并行域中访问, 下面是一个使用示例:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> counter;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(counter)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test_threadprivate</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel </span></span><br><span class="line">    &#123;</span><br><span class="line">        counter = omp_get_thread_num();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;1: thread %d : counter is %d\n&quot;</span>, omp_get_thread_num(), counter);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel </span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;2: thread %d : counter is %d\n&quot;</span>, omp_get_thread_num(), counter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>下面是输出结果</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1: thread 3 : counter is 3</span><br><span class="line">1: thread 0 : counter is 0</span><br><span class="line">1: thread 2 : counter is 2</span><br><span class="line">1: thread 1 : counter is 1</span><br><span class="line"></span><br><span class="line">2: thread 2 : counter is 2</span><br><span class="line">2: thread 0 : counter is 0</span><br><span class="line">2: thread 3 : counter is 3</span><br><span class="line">2: thread 1 : counter is 1</span><br></pre></td></tr></table></figure><p>从输出结果我们可以看到, 在第二个并行域中, counter保存了在第一个并行域中的值. 如果要使两个并行域之间可以共享threadprivate变量的值, 需要满足以下几个条件:</p><ul><li>任意一个并行域都不能嵌套在其他并行域中(Neither parallel region is nested inside another explicit parallel region.)</li><li>执行两个并行域的线程数量要相同(The number of threads used to execute both parallel regions is the same.)</li><li>执行两个并行域时的线程亲和度策略要相同( The thread affinity policies used to execute both parallel regions are the same.)</li><li>在进入并行域之前dyn-var变量的值必须为false(0). (The value of the dyn-var internal control variable in the enclosing task region is false at entry to both parallel regions.)</li></ul><h2 id="子句"><a href="#子句" class="headerlink" title="子句"></a>子句</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>用来控制并行域是串行执行还是并行执行, 只能作用于paralle指令, 下面是其语法形式:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel <span class="keyword">if</span>(scalar-logical-expression)</span></span><br></pre></td></tr></table></figure><p>如果if的判断条件为true, 则并行执行, 否则串行执行, 下面是一个使用示例</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">test_if</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">1</span>, tid;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;n = 1\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel <span class="keyword">if</span>(n&gt;5) default(none) \</span></span><br><span class="line"><span class="meta">    private(tid) shared(n)</span></span><br><span class="line">    &#123;</span><br><span class="line">        tid = omp_get_thread_num();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;thread %d is running\n&quot;</span>, tid);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    n = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;n = 10\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel <span class="keyword">if</span>(n&gt;5) default(none) \</span></span><br><span class="line"><span class="meta">    private(tid) shared(n)</span></span><br><span class="line">    &#123;</span><br><span class="line">        tid = omp_get_thread_num();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;thread %d is running\n&quot;</span>, tid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输出结果如下</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = 1</span><br><span class="line">thread 0 is running</span><br><span class="line"></span><br><span class="line">n = 10</span><br><span class="line">thread 0 is running</span><br><span class="line">thread 2 is running</span><br><span class="line">thread 3 is running</span><br><span class="line">thread 1 is running</span><br></pre></td></tr></table></figure><h3 id="reduction"><a href="#reduction" class="headerlink" title="reduction"></a>reduction</h3><p>如果利用循环, 将某项计算的所有结果进行求和(或者减、乘等其他操作)得出一个数值, 这在并行计算中十分常见, 通常将其称为规约. OpenMP提供了reduction子句由于规约操作, 其语法形式为</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduction(operator:<span class="built_in">list</span>)</span><br></pre></td></tr></table></figure><p>下面是一个使用实例:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">test_reduction</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> sum, i;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">100</span>;</span><br><span class="line">    <span class="type">int</span> a[n];</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        a[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel for default(none) \</span></span><br><span class="line"><span class="meta">    private(i) shared(a,n) reduction(+:sum)</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        sum += a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sum is %d\n&quot;</span>, sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使用规约子句之后, 无需再对sum进行保护, 下面是reduction支持的操作符以及变量的初值<br><img lazyload alt="image" data-src="/images/openmp/reduction.png"><br>在使用乘法时发现其初始值同样为0, 可能和具体的实现有关.</p><h3 id="copyin"><a href="#copyin" class="headerlink" title="copyin"></a>copyin</h3><p>将主线程中threadprivate变量的值复制到执行并行域的各个线程的threadprivate变量中, 作为各线程中threadprivate变量的初始值. 作用于parallel指令, 下面是一个使用示例:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> counter = <span class="number">10</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(counter)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test_copyin</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;counter is %d\n&quot;</span>, counter);</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel copyin(counter) </span></span><br><span class="line">    &#123;</span><br><span class="line">        counter = omp_get_thread_num() + counter + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; thread %d : counter is %d\n&quot;</span>, omp_get_thread_num(), counter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;counter is %d\n&quot;</span>, counter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>下面是输出结果:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">counter is 10</span><br><span class="line">thread 0 : counter is 11</span><br><span class="line">thread 2 : counter is 13</span><br><span class="line">thread 3 : counter is 14</span><br><span class="line">thread 1 : counter is 12</span><br><span class="line">counter is 11</span><br></pre></td></tr></table></figure><h3 id="copyprivate"><a href="#copyprivate" class="headerlink" title="copyprivate"></a>copyprivate</h3><p>将一个线程私有变量的值广播到执行同一并行域的其他线程. 只能作用于single指令, 下面是一个使用示例:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> counter = <span class="number">10</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(counter)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test_copyprivate</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel private(i)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">#<span class="keyword">pragma</span> omp single copyprivate(i, counter) </span></span><br><span class="line">        &#123;</span><br><span class="line">            i = <span class="number">50</span>;</span><br><span class="line">            counter = <span class="number">100</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;thread %d execute single\n&quot;</span>, omp_get_thread_num());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;thread %d: i is %d and counter is %d\n&quot;</span>,omp_get_thread_num(), i, counter);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>下面是程序运行结果:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thread 3 execute single</span><br><span class="line">thread 2: i is 50 and counter is 100</span><br><span class="line">thread 3: i is 50 and counter is 100</span><br><span class="line">thread 0: i is 50 and counter is 100</span><br><span class="line">thread 1: i is 50 and counter is 100</span><br></pre></td></tr></table></figure><p>下面是将copyprivate(i, counter)去掉的运行结果</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thread 0 execute single</span><br><span class="line">thread 2: i is 0 and counter is 10</span><br><span class="line">thread 0: i is 50 and counter is 100</span><br><span class="line">thread 3: i is 0 and counter is 10</span><br><span class="line">thread 1: i is 32750 and counter is 10</span><br></pre></td></tr></table></figure></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">【OpenMP学习笔记】更多指令和子句介绍</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2016-02-26 17:44:15</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/11af.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;</li><li class="tag-item"><a href="/tags/OpenMP/">#OpenMP</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/e8a4.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">2016年寒假总结</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/b032.html"><span class="title flex-center"><span class="post-nav-title-item">【OpenMP学习笔记】与运行环境交互</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flush"><span class="nav-number">1.1.</span> <span class="nav-text">flush</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#threadprivate"><span class="nav-number">1.2.</span> <span class="nav-text">threadprivate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">子句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if"><span class="nav-number">2.1.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduction"><span class="nav-number">2.2.</span> <span class="nav-text">reduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyin"><span class="nav-number">2.3.</span> <span class="nav-text">copyin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyprivate"><span class="nav-number">2.4.</span> <span class="nav-text">copyprivate</span></a></li></ol></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+            【OpenMP学习笔记】更多指令和子句介绍 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">【OpenMP学习笔记】更多指令和子句介绍</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2016-02-26 17:44:15</span>
+        <span class="mobile">2016-02-26 17:44</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-02 13:39:51</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/OpenMP/">OpenMP</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/OpenMP/">OpenMP</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><h3 id="flush"><a href="#flush" class="headerlink" title="flush"></a>flush</h3><p>flush指令主要用于处理内存一致性问题. 每个处理器(processor)都有自己的本地(local)存储单元:寄存器和缓存, 当一个线程更新了共享变量之后, 新的值会首先存储到寄存器中, 然后更新到本地缓存中. 这些更新并非立刻就可以被其他线程得知, 因此在其它处理器中运行的线程不能访问这些存储单元. 如果一个线程不知道这些更新而使用共享变量的旧值就行运算, 就可能会得到错误的结果.<br>通过使用flush指令, 可以保证线程读取到的共享变量的最新值. 下面是语法形式:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp flush[(list)]</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>list指定需要flush的共享变量, 如果不指定list, 将flush作用于所有的共享变量. 在下面的几个位置已经隐式的添加了不指定list的flush指令.</p>
+<ul>
+<li>所有隐式和显式的路障(barrier)</li>
+<li>Entry to and exit from critical regions</li>
+<li>Entry to and exit from lock routines</li>
+</ul>
+<h3 id="threadprivate"><a href="#threadprivate" class="headerlink" title="threadprivate"></a>threadprivate</h3><p>threadprivate作用于全局变量, 用来指定该全局变量被各个线程各自复制一份私有的拷贝, 即各个线程具有__各自私有__、<strong>线程范围__内的__全局对象</strong>, 语法形式如下:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(list)</span></span><br></pre></td></tr></table></figure>
+<p>其与private不同的时, threadprivate变量是存储在heap或者<a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Thread-local_storage" >Thread local storage<i class="fas fa-external-link-alt"></i></a>当中, 可以跨并行域访问, 而private绝大多数情况是存储在stack中, 只在当前并行域中访问, 下面是一个使用示例:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> counter;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(counter)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test_threadprivate</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel </span></span><br><span class="line">    &#123;</span><br><span class="line">        counter = omp_get_thread_num();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;1: thread %d : counter is %d\n&quot;</span>, omp_get_thread_num(), counter);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel </span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;2: thread %d : counter is %d\n&quot;</span>, omp_get_thread_num(), counter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是输出结果</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1: thread 3 : counter is 3</span><br><span class="line">1: thread 0 : counter is 0</span><br><span class="line">1: thread 2 : counter is 2</span><br><span class="line">1: thread 1 : counter is 1</span><br><span class="line"></span><br><span class="line">2: thread 2 : counter is 2</span><br><span class="line">2: thread 0 : counter is 0</span><br><span class="line">2: thread 3 : counter is 3</span><br><span class="line">2: thread 1 : counter is 1</span><br></pre></td></tr></table></figure>
+<p>从输出结果我们可以看到, 在第二个并行域中, counter保存了在第一个并行域中的值. 如果要使两个并行域之间可以共享threadprivate变量的值, 需要满足以下几个条件:</p>
+<ul>
+<li>任意一个并行域都不能嵌套在其他并行域中(Neither parallel region is nested inside another explicit parallel region.)</li>
+<li>执行两个并行域的线程数量要相同(The number of threads used to execute both parallel regions is the same.)</li>
+<li>执行两个并行域时的线程亲和度策略要相同( The thread affinity policies used to execute both parallel regions are the same.)</li>
+<li>在进入并行域之前dyn-var变量的值必须为false(0). (The value of the dyn-var internal control variable in the enclosing task region is false at entry to both parallel regions.)</li>
+</ul>
+<h2 id="子句"><a href="#子句" class="headerlink" title="子句"></a>子句</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>用来控制并行域是串行执行还是并行执行, 只能作用于paralle指令, 下面是其语法形式:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel <span class="keyword">if</span>(scalar-logical-expression)</span></span><br></pre></td></tr></table></figure>
+<p>如果if的判断条件为true, 则并行执行, 否则串行执行, 下面是一个使用示例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">test_if</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">1</span>, tid;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;n = 1\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel <span class="keyword">if</span>(n&gt;5) default(none) \</span></span><br><span class="line"><span class="meta">    private(tid) shared(n)</span></span><br><span class="line">    &#123;</span><br><span class="line">        tid = omp_get_thread_num();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;thread %d is running\n&quot;</span>, tid);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    n = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;n = 10\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel <span class="keyword">if</span>(n&gt;5) default(none) \</span></span><br><span class="line"><span class="meta">    private(tid) shared(n)</span></span><br><span class="line">    &#123;</span><br><span class="line">        tid = omp_get_thread_num();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;thread %d is running\n&quot;</span>, tid);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = 1</span><br><span class="line">thread 0 is running</span><br><span class="line"></span><br><span class="line">n = 10</span><br><span class="line">thread 0 is running</span><br><span class="line">thread 2 is running</span><br><span class="line">thread 3 is running</span><br><span class="line">thread 1 is running</span><br></pre></td></tr></table></figure>
+<h3 id="reduction"><a href="#reduction" class="headerlink" title="reduction"></a>reduction</h3><p>如果利用循环, 将某项计算的所有结果进行求和(或者减、乘等其他操作)得出一个数值, 这在并行计算中十分常见, 通常将其称为规约. OpenMP提供了reduction子句由于规约操作, 其语法形式为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduction(operator:<span class="built_in">list</span>)</span><br></pre></td></tr></table></figure>
+<p>下面是一个使用实例:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">test_reduction</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> sum, i;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">100</span>;</span><br><span class="line">    <span class="type">int</span> a[n];</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        a[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel for default(none) \</span></span><br><span class="line"><span class="meta">    private(i) shared(a,n) reduction(+:sum)</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        sum += a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;sum is %d\n&quot;</span>, sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用规约子句之后, 无需再对sum进行保护, 下面是reduction支持的操作符以及变量的初值<br><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/openmp/reduction.png"
+                     
+                ><br>在使用乘法时发现其初始值同样为0, 可能和具体的实现有关. </p>
+<h3 id="copyin"><a href="#copyin" class="headerlink" title="copyin"></a>copyin</h3><p>将主线程中threadprivate变量的值复制到执行并行域的各个线程的threadprivate变量中, 作为各线程中threadprivate变量的初始值. 作用于parallel指令, 下面是一个使用示例:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> counter = <span class="number">10</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(counter)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test_copyin</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;counter is %d\n&quot;</span>, counter);</span><br><span class="line">    <span class="meta">#<span class="keyword">pragma</span> omp parallel copyin(counter) </span></span><br><span class="line">    &#123;</span><br><span class="line">        counter = omp_get_thread_num() + counter + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; thread %d : counter is %d\n&quot;</span>, omp_get_thread_num(), counter);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;counter is %d\n&quot;</span>, counter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是输出结果:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">counter is 10</span><br><span class="line">thread 0 : counter is 11</span><br><span class="line">thread 2 : counter is 13</span><br><span class="line">thread 3 : counter is 14</span><br><span class="line">thread 1 : counter is 12</span><br><span class="line">counter is 11</span><br></pre></td></tr></table></figure>
+
+<h3 id="copyprivate"><a href="#copyprivate" class="headerlink" title="copyprivate"></a>copyprivate</h3><p>将一个线程私有变量的值广播到执行同一并行域的其他线程. 只能作用于single指令, 下面是一个使用示例:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> counter = <span class="number">10</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp threadprivate(counter)</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">test_copyprivate</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> omp parallel private(i)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">#<span class="keyword">pragma</span> omp single copyprivate(i, counter) </span></span><br><span class="line">        &#123;</span><br><span class="line">            i = <span class="number">50</span>;</span><br><span class="line">            counter = <span class="number">100</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;thread %d execute single\n&quot;</span>, omp_get_thread_num());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;thread %d: i is %d and counter is %d\n&quot;</span>,omp_get_thread_num(), i, counter);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是程序运行结果:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thread 3 execute single</span><br><span class="line">thread 2: i is 50 and counter is 100</span><br><span class="line">thread 3: i is 50 and counter is 100</span><br><span class="line">thread 0: i is 50 and counter is 100</span><br><span class="line">thread 1: i is 50 and counter is 100</span><br></pre></td></tr></table></figure>
+<p>下面是将copyprivate(i, counter)去掉的运行结果</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">thread 0 execute single</span><br><span class="line">thread 2: i is 0 and counter is 10</span><br><span class="line">thread 0: i is 50 and counter is 100</span><br><span class="line">thread 3: i is 0 and counter is 10</span><br><span class="line">thread 1: i is 32750 and counter is 10</span><br></pre></td></tr></table></figure>
+
+
+
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">【OpenMP学习笔记】更多指令和子句介绍</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2016-02-26 17:44:15</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/11af.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/OpenMP/">#OpenMP</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/e8a4.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">2016年寒假总结</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/b032.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">【OpenMP学习笔记】与运行环境交互</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flush"><span class="nav-number">1.1.</span> <span class="nav-text">flush</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#threadprivate"><span class="nav-number">1.2.</span> <span class="nav-text">threadprivate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">子句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if"><span class="nav-number">2.1.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduction"><span class="nav-number">2.2.</span> <span class="nav-text">reduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyin"><span class="nav-number">2.3.</span> <span class="nav-text">copyin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyprivate"><span class="nav-number">2.4.</span> <span class="nav-text">copyprivate</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

@@ -891,11 +891,11 @@
   </entry>
   
   <entry>
-    <title>香香-生化形态来了</title>
-    <link href="https://0skyu.cn/posts/8fee.html"/>
-    <id>https://0skyu.cn/posts/8fee.html</id>
+    <title>香香-潜伏者形态来了</title>
+    <link href="https://0skyu.cn/posts/1719.html"/>
+    <id>https://0skyu.cn/posts/1719.html</id>
     <published>2021-04-06T16:00:00.000Z</published>
-    <updated>2023-02-02T05:41:10.000Z</updated>
+    <updated>2023-02-02T05:41:09.000Z</updated>
     
     
       
@@ -915,11 +915,11 @@
   </entry>
   
   <entry>
-    <title>香香-潜伏者形态来了</title>
-    <link href="https://0skyu.cn/posts/1719.html"/>
-    <id>https://0skyu.cn/posts/1719.html</id>
+    <title>香香-生化形态来了</title>
+    <link href="https://0skyu.cn/posts/8fee.html"/>
+    <id>https://0skyu.cn/posts/8fee.html</id>
     <published>2021-04-06T16:00:00.000Z</published>
-    <updated>2023-02-02T05:41:09.000Z</updated>
+    <updated>2023-02-02T05:41:10.000Z</updated>
     
     
       
@@ -1281,23 +1281,6 @@
   </entry>
   
   <entry>
-    <title>使用 VBA 将 Excel 数据导入到 Word 表格中</title>
-    <link href="https://0skyu.cn/posts/c23d.html"/>
-    <id>https://0skyu.cn/posts/c23d.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:39:56.000Z</updated>
-    
-    
-    <summary type="html">将 Excel 里的数据使用 VBA 导入 Word 表格中。</summary>
-    
-    
-    
-    <category term="Excel" scheme="https://0skyu.cn/categories/Excel/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>用 VBA 将多个 Excel 文件里的数据汇总到一个 Excel 表</title>
     <link href="https://0skyu.cn/posts/9aae.html"/>
     <id>https://0skyu.cn/posts/9aae.html</id>
@@ -1327,6 +1310,23 @@
     
     
     <category term="Algorithm" scheme="https://0skyu.cn/categories/Algorithm/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用 VBA 将 Excel 数据导入到 Word 表格中</title>
+    <link href="https://0skyu.cn/posts/c23d.html"/>
+    <id>https://0skyu.cn/posts/c23d.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:39:56.000Z</updated>
+    
+    
+    <summary type="html">将 Excel 里的数据使用 VBA 导入 Word 表格中。</summary>
+    
+    
+    
+    <category term="Excel" scheme="https://0skyu.cn/categories/Excel/"/>
     
     
   </entry>
@@ -1451,18 +1451,18 @@
   </entry>
   
   <entry>
-    <title>Python 核心编程中文第二版课后练习 3.8 答案</title>
-    <link href="https://0skyu.cn/posts/108d.html"/>
-    <id>https://0skyu.cn/posts/108d.html</id>
+    <title>VBA 在 Excel 中的常用操作</title>
+    <link href="https://0skyu.cn/posts/acef.html"/>
+    <id>https://0skyu.cn/posts/acef.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:40:05.000Z</updated>
     
     
-    <summary type="html">自学 Python 核心编程过程中对课后习题的答案记录。</summary>
+    <summary type="html">使用 VBA 操作 Excel 表格的一些常用用法的笔记。</summary>
     
     
     
-    <category term="Python" scheme="https://0skyu.cn/categories/Python/"/>
+    <category term="Excel" scheme="https://0skyu.cn/categories/Excel/"/>
     
     
   </entry>
@@ -1485,18 +1485,18 @@
   </entry>
   
   <entry>
-    <title>VBA 在 Excel 中的常用操作</title>
-    <link href="https://0skyu.cn/posts/acef.html"/>
-    <id>https://0skyu.cn/posts/acef.html</id>
+    <title>Python 核心编程中文第二版课后练习 3.8 答案</title>
+    <link href="https://0skyu.cn/posts/108d.html"/>
+    <id>https://0skyu.cn/posts/108d.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:40:05.000Z</updated>
     
     
-    <summary type="html">使用 VBA 操作 Excel 表格的一些常用用法的笔记。</summary>
+    <summary type="html">自学 Python 核心编程过程中对课后习题的答案记录。</summary>
     
     
     
-    <category term="Excel" scheme="https://0skyu.cn/categories/Excel/"/>
+    <category term="Python" scheme="https://0skyu.cn/categories/Python/"/>
     
     
   </entry>
@@ -1570,14 +1570,14 @@
   </entry>
   
   <entry>
-    <title>有 static 变量的 namespace 被多个 cpp 包含</title>
-    <link href="https://0skyu.cn/posts/c9c6.html"/>
-    <id>https://0skyu.cn/posts/c9c6.html</id>
+    <title>文件被多个中间文件输出目录相同的工程包含</title>
+    <link href="https://0skyu.cn/posts/94ea.html"/>
+    <id>https://0skyu.cn/posts/94ea.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:40:10.000Z</updated>
     
     
-    <summary type="html">如果一个头文件里定义的 namespace 里有 static 变量，而这个头文件被多个 cpp 文件包含，会导致什么问题呢？</summary>
+    <summary type="html">当一个文件被多个工程包含，并且这几个工程的中间文件输出目录相同时会出现问题。</summary>
     
     
     
@@ -1587,14 +1587,14 @@
   </entry>
   
   <entry>
-    <title>文件被多个中间文件输出目录相同的工程包含</title>
-    <link href="https://0skyu.cn/posts/94ea.html"/>
-    <id>https://0skyu.cn/posts/94ea.html</id>
+    <title>有 static 变量的 namespace 被多个 cpp 包含</title>
+    <link href="https://0skyu.cn/posts/c9c6.html"/>
+    <id>https://0skyu.cn/posts/c9c6.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:40:10.000Z</updated>
     
     
-    <summary type="html">当一个文件被多个工程包含，并且这几个工程的中间文件输出目录相同时会出现问题。</summary>
+    <summary type="html">如果一个头文件里定义的 namespace 里有 static 变量，而这个头文件被多个 cpp 文件包含，会导致什么问题呢？</summary>
     
     
     
@@ -1706,23 +1706,6 @@
   </entry>
   
   <entry>
-    <title>设计模式学习之单件模式</title>
-    <link href="https://0skyu.cn/posts/1131.html"/>
-    <id>https://0skyu.cn/posts/1131.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:13.000Z</updated>
-    
-    
-    <summary type="html">学习《Head First 设计模式》第五部分《单件模式》的笔记。</summary>
-    
-    
-    
-    <category term="DesignPattern" scheme="https://0skyu.cn/categories/DesignPattern/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>对象内存结构及虚函数表分析</title>
     <link href="https://0skyu.cn/posts/111.html"/>
     <id>https://0skyu.cn/posts/111.html</id>
@@ -1740,18 +1723,18 @@
   </entry>
   
   <entry>
-    <title>ANSI Common Lisp 第二章习题解答</title>
-    <link href="https://0skyu.cn/posts/5fe9.html"/>
-    <id>https://0skyu.cn/posts/5fe9.html</id>
+    <title>设计模式学习之单件模式</title>
+    <link href="https://0skyu.cn/posts/1131.html"/>
+    <id>https://0skyu.cn/posts/1131.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:40:13.000Z</updated>
     
     
-    <summary type="html">学习 ANSI Common Lisp 第二章欢迎来到 Lisp 的笔记。</summary>
+    <summary type="html">学习《Head First 设计模式》第五部分《单件模式》的笔记。</summary>
     
     
     
-    <category term="Lisp" scheme="https://0skyu.cn/categories/Lisp/"/>
+    <category term="DesignPattern" scheme="https://0skyu.cn/categories/DesignPattern/"/>
     
     
   </entry>
@@ -1769,6 +1752,23 @@
     
     
     <category term="COM" scheme="https://0skyu.cn/categories/COM/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ANSI Common Lisp 第二章习题解答</title>
+    <link href="https://0skyu.cn/posts/5fe9.html"/>
+    <id>https://0skyu.cn/posts/5fe9.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:13.000Z</updated>
+    
+    
+    <summary type="html">学习 ANSI Common Lisp 第二章欢迎来到 Lisp 的笔记。</summary>
+    
+    
+    
+    <category term="Lisp" scheme="https://0skyu.cn/categories/Lisp/"/>
     
     
   </entry>
@@ -1842,23 +1842,6 @@
   </entry>
   
   <entry>
-    <title>摄影教训总结</title>
-    <link href="https://0skyu.cn/posts/21f5.html"/>
-    <id>https://0skyu.cn/posts/21f5.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:15.000Z</updated>
-    
-    
-    <summary type="html">历次出游摄影的一些失败的点。</summary>
-    
-    
-    
-    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>TaobaoProtectSE.dll 注入引起的死锁分析</title>
     <link href="https://0skyu.cn/posts/a3cd.html"/>
     <id>https://0skyu.cn/posts/a3cd.html</id>
@@ -1871,6 +1854,23 @@
     
     
     <category term="WinDbg" scheme="https://0skyu.cn/categories/WinDbg/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>摄影教训总结</title>
+    <link href="https://0skyu.cn/posts/21f5.html"/>
+    <id>https://0skyu.cn/posts/21f5.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:15.000Z</updated>
+    
+    
+    <summary type="html">历次出游摄影的一些失败的点。</summary>
+    
+    
+    
+    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
     
     
   </entry>
@@ -2029,23 +2029,6 @@
   </entry>
   
   <entry>
-    <title>使用 gVim 的 Python 自动补全时遇到的问题</title>
-    <link href="https://0skyu.cn/posts/8b97.html"/>
-    <id>https://0skyu.cn/posts/8b97.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:18.000Z</updated>
-    
-    
-    <summary type="html">使用 gVim 的 Python 自动补全时遇到了错误提示。</summary>
-    
-    
-    
-    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>好习惯 one by one 之一</title>
     <link href="https://0skyu.cn/posts/17c9.html"/>
     <id>https://0skyu.cn/posts/17c9.html</id>
@@ -2058,6 +2041,23 @@
     
     
     <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用 gVim 的 Python 自动补全时遇到的问题</title>
+    <link href="https://0skyu.cn/posts/8b97.html"/>
+    <id>https://0skyu.cn/posts/8b97.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:18.000Z</updated>
+    
+    
+    <summary type="html">使用 gVim 的 Python 自动补全时遇到了错误提示。</summary>
+    
+    
+    
+    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
     
     
   </entry>
@@ -2080,23 +2080,6 @@
   </entry>
   
   <entry>
-    <title>一个 printf 引发的基础复习</title>
-    <link href="https://0skyu.cn/posts/e6be.html"/>
-    <id>https://0skyu.cn/posts/e6be.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:19.000Z</updated>
-    
-    
-    <summary type="html">通过汇编和图画，深入解析函数调用及 printf 相关的机制。</summary>
-    
-    
-    
-    <category term="CPlusPlus" scheme="https://0skyu.cn/categories/CPlusPlus/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>生活这件小事，烦请费思量</title>
     <link href="https://0skyu.cn/posts/bb14.html"/>
     <id>https://0skyu.cn/posts/bb14.html</id>
@@ -2109,6 +2092,23 @@
     
     
     <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一个 printf 引发的基础复习</title>
+    <link href="https://0skyu.cn/posts/e6be.html"/>
+    <id>https://0skyu.cn/posts/e6be.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:19.000Z</updated>
+    
+    
+    <summary type="html">通过汇编和图画，深入解析函数调用及 printf 相关的机制。</summary>
+    
+    
+    
+    <category term="CPlusPlus" scheme="https://0skyu.cn/categories/CPlusPlus/"/>
     
     
   </entry>
@@ -2148,23 +2148,6 @@
   </entry>
   
   <entry>
-    <title>Windows 实现单实例进程的两种方法</title>
-    <link href="https://0skyu.cn/posts/d591.html"/>
-    <id>https://0skyu.cn/posts/d591.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:21.000Z</updated>
-    
-    
-    <summary type="html">Windows 实现单实例进程的两种方法：共享静态数据和 Mutex。</summary>
-    
-    
-    
-    <category term="Windows" scheme="https://0skyu.cn/categories/Windows/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Java 日期类常用写法小结</title>
     <link href="https://0skyu.cn/posts/10d6.html"/>
     <id>https://0skyu.cn/posts/10d6.html</id>
@@ -2177,6 +2160,23 @@
     
     
     <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 实现单实例进程的两种方法</title>
+    <link href="https://0skyu.cn/posts/d591.html"/>
+    <id>https://0skyu.cn/posts/d591.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:21.000Z</updated>
+    
+    
+    <summary type="html">Windows 实现单实例进程的两种方法：共享静态数据和 Mutex。</summary>
+    
+    
+    
+    <category term="Windows" scheme="https://0skyu.cn/categories/Windows/"/>
     
     
   </entry>
@@ -2216,23 +2216,6 @@
   </entry>
   
   <entry>
-    <title>Java 中的比较运算符</title>
-    <link href="https://0skyu.cn/posts/318.html"/>
-    <id>https://0skyu.cn/posts/318.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:24.000Z</updated>
-    
-    
-    <summary type="html">Java 中的比较运算符里有没有什么陷阱呢？</summary>
-    
-    
-    
-    <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Android Studio 遇到问题集锦</title>
     <link href="https://0skyu.cn/posts/d175.html"/>
     <id>https://0skyu.cn/posts/d175.html</id>
@@ -2245,6 +2228,23 @@
     
     
     <category term="Android" scheme="https://0skyu.cn/categories/Android/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java 中的比较运算符</title>
+    <link href="https://0skyu.cn/posts/318.html"/>
+    <id>https://0skyu.cn/posts/318.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:24.000Z</updated>
+    
+    
+    <summary type="html">Java 中的比较运算符里有没有什么陷阱呢？</summary>
+    
+    
+    
+    <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
     
     
   </entry>
@@ -2267,23 +2267,6 @@
   </entry>
   
   <entry>
-    <title>领导与员工的艺术</title>
-    <link href="https://0skyu.cn/posts/e632.html"/>
-    <id>https://0skyu.cn/posts/e632.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:25.000Z</updated>
-    
-    
-    <summary type="html">工作不是简单的完成任务，如何成为一名合格的员工，一名优秀的领导，里面大有学问。</summary>
-    
-    
-    
-    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>TortoiseSVN 从 GitHub 更新时发生异常</title>
     <link href="https://0skyu.cn/posts/db73.html"/>
     <id>https://0skyu.cn/posts/db73.html</id>
@@ -2296,6 +2279,23 @@
     
     
     <category term="SVN" scheme="https://0skyu.cn/categories/SVN/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>领导与员工的艺术</title>
+    <link href="https://0skyu.cn/posts/e632.html"/>
+    <id>https://0skyu.cn/posts/e632.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:25.000Z</updated>
+    
+    
+    <summary type="html">工作不是简单的完成任务，如何成为一名合格的员工，一名优秀的领导，里面大有学问。</summary>
+    
+    
+    
+    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
     
     
   </entry>
@@ -2386,23 +2386,6 @@
   </entry>
   
   <entry>
-    <title>你忙得踏实吗？</title>
-    <link href="https://0skyu.cn/posts/c02b.html"/>
-    <id>https://0skyu.cn/posts/c02b.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:29.000Z</updated>
-    
-    
-    <summary type="html">忙分为「不知所谓的忙」和「有目的性高效踏实的忙」，如何忙得踏实？</summary>
-    
-    
-    
-    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>爱你就像爱生命</title>
     <link href="https://0skyu.cn/posts/b50e.html"/>
     <id>https://0skyu.cn/posts/b50e.html</id>
@@ -2420,35 +2403,18 @@
   </entry>
   
   <entry>
-    <title>断网之后</title>
-    <link href="https://0skyu.cn/posts/9c07.html"/>
-    <id>https://0skyu.cn/posts/9c07.html</id>
+    <title>你忙得踏实吗？</title>
+    <link href="https://0skyu.cn/posts/c02b.html"/>
+    <id>https://0skyu.cn/posts/c02b.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:31.000Z</updated>
+    <updated>2023-02-02T05:40:29.000Z</updated>
     
     
-    <summary type="html">Internet 极大地方便了我们的生活，也极大地吞噬了我们的生活。</summary>
+    <summary type="html">忙分为「不知所谓的忙」和「有目的性高效踏实的忙」，如何忙得踏实？</summary>
     
     
     
     <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac 遇到问题集锦</title>
-    <link href="https://0skyu.cn/posts/cac9.html"/>
-    <id>https://0skyu.cn/posts/cac9.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:30.000Z</updated>
-    
-    
-    <summary type="html">使用 MacBook Pro 的过程中遇到的一些问题，附上解决方案。</summary>
-    
-    
-    
-    <category term="Mac" scheme="https://0skyu.cn/categories/Mac/"/>
     
     
   </entry>
@@ -2488,18 +2454,35 @@
   </entry>
   
   <entry>
-    <title>GFM 与 Redcarpet 的不同点</title>
-    <link href="https://0skyu.cn/posts/435.html"/>
-    <id>https://0skyu.cn/posts/435.html</id>
+    <title>Mac 遇到问题集锦</title>
+    <link href="https://0skyu.cn/posts/cac9.html"/>
+    <id>https://0skyu.cn/posts/cac9.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:30.000Z</updated>
+    
+    
+    <summary type="html">使用 MacBook Pro 的过程中遇到的一些问题，附上解决方案。</summary>
+    
+    
+    
+    <category term="Mac" scheme="https://0skyu.cn/categories/Mac/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>断网之后</title>
+    <link href="https://0skyu.cn/posts/9c07.html"/>
+    <id>https://0skyu.cn/posts/9c07.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:40:31.000Z</updated>
     
     
-    <summary type="html">GFM 与 Redcarpet 有些许不同，在 GitHub Repository 与 GitHub Pages 里写作时应该注意这些区别，避免解析出来不是自己想要的效果。</summary>
+    <summary type="html">Internet 极大地方便了我们的生活，也极大地吞噬了我们的生活。</summary>
     
     
     
-    <category term="Markdown" scheme="https://0skyu.cn/categories/Markdown/"/>
+    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
     
     
   </entry>
@@ -2522,18 +2505,18 @@
   </entry>
   
   <entry>
-    <title>为 Markdown 生成 TOC 的 Vim 插件</title>
-    <link href="https://0skyu.cn/posts/3c46.html"/>
-    <id>https://0skyu.cn/posts/3c46.html</id>
+    <title>GFM 与 Redcarpet 的不同点</title>
+    <link href="https://0skyu.cn/posts/435.html"/>
+    <id>https://0skyu.cn/posts/435.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:32.000Z</updated>
+    <updated>2023-02-02T05:40:31.000Z</updated>
     
     
-    <summary type="html">为 Markdown 自动生成 Table of Contents 的 Vim 插件</summary>
+    <summary type="html">GFM 与 Redcarpet 有些许不同，在 GitHub Repository 与 GitHub Pages 里写作时应该注意这些区别，避免解析出来不是自己想要的效果。</summary>
     
     
     
-    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
+    <category term="Markdown" scheme="https://0skyu.cn/categories/Markdown/"/>
     
     
   </entry>
@@ -2556,40 +2539,6 @@
   </entry>
   
   <entry>
-    <title>将 GitHub Pages 从 Redcarpet 切换到 kramdown</title>
-    <link href="https://0skyu.cn/posts/5396.html"/>
-    <id>https://0skyu.cn/posts/5396.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:34.000Z</updated>
-    
-    
-    <summary type="html">从 Redcarpet 切换到 kramdown 会遇到一些问题，这里记录了它们的解决办法。</summary>
-    
-    
-    
-    <category term="Markdown" scheme="https://0skyu.cn/categories/Markdown/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Android 系统缓存扫描与清理方法分析</title>
-    <link href="https://0skyu.cn/posts/bb90.html"/>
-    <id>https://0skyu.cn/posts/bb90.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:33.000Z</updated>
-    
-    
-    <summary type="html">Android 系统缓存从原理探索到实现。</summary>
-    
-    
-    
-    <category term="Android" scheme="https://0skyu.cn/categories/Android/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Build Zeal for Mac OS X</title>
     <link href="https://0skyu.cn/posts/6bbe.html"/>
     <id>https://0skyu.cn/posts/6bbe.html</id>
@@ -2607,18 +2556,18 @@
   </entry>
   
   <entry>
-    <title>不藏拙的人生</title>
-    <link href="https://0skyu.cn/posts/15b3.html"/>
-    <id>https://0skyu.cn/posts/15b3.html</id>
+    <title>将 GitHub Pages 从 Redcarpet 切换到 kramdown</title>
+    <link href="https://0skyu.cn/posts/5396.html"/>
+    <id>https://0skyu.cn/posts/5396.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:40:35.000Z</updated>
+    <updated>2023-02-02T05:40:34.000Z</updated>
     
     
-    <summary type="html">真傻还是假聪明，这是个问题。</summary>
+    <summary type="html">从 Redcarpet 切换到 kramdown 会遇到一些问题，这里记录了它们的解决办法。</summary>
     
     
     
-    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
+    <category term="Markdown" scheme="https://0skyu.cn/categories/Markdown/"/>
     
     
   </entry>
@@ -2641,6 +2590,40 @@
   </entry>
   
   <entry>
+    <title>Android 系统缓存扫描与清理方法分析</title>
+    <link href="https://0skyu.cn/posts/bb90.html"/>
+    <id>https://0skyu.cn/posts/bb90.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:33.000Z</updated>
+    
+    
+    <summary type="html">Android 系统缓存从原理探索到实现。</summary>
+    
+    
+    
+    <category term="Android" scheme="https://0skyu.cn/categories/Android/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>不藏拙的人生</title>
+    <link href="https://0skyu.cn/posts/15b3.html"/>
+    <id>https://0skyu.cn/posts/15b3.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:40:35.000Z</updated>
+    
+    
+    <summary type="html">真傻还是假聪明，这是个问题。</summary>
+    
+    
+    
+    <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>如何有效使用 GitHub</title>
     <link href="https://0skyu.cn/posts/19fd.html"/>
     <id>https://0skyu.cn/posts/19fd.html</id>
@@ -2658,18 +2641,18 @@
   </entry>
   
   <entry>
-    <title>配置 Node.js 开发环境——使用 Atom</title>
-    <link href="https://0skyu.cn/posts/d611.html"/>
-    <id>https://0skyu.cn/posts/d611.html</id>
+    <title>为 Markdown 生成 TOC 的 Vim 插件</title>
+    <link href="https://0skyu.cn/posts/3c46.html"/>
+    <id>https://0skyu.cn/posts/3c46.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:00.000Z</updated>
+    <updated>2023-02-02T05:40:32.000Z</updated>
     
     
-    <summary type="html">如何将 Atom 配置成为好用的 Node.js 开发环境。</summary>
+    <summary type="html">为 Markdown 自动生成 Table of Contents 的 Vim 插件</summary>
     
     
     
-    <category term="Node.js" scheme="https://0skyu.cn/categories/Node-js/"/>
+    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
     
     
   </entry>
@@ -2692,6 +2675,23 @@
   </entry>
   
   <entry>
+    <title>配置 Node.js 开发环境——使用 Atom</title>
+    <link href="https://0skyu.cn/posts/d611.html"/>
+    <id>https://0skyu.cn/posts/d611.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:00.000Z</updated>
+    
+    
+    <summary type="html">如何将 Atom 配置成为好用的 Node.js 开发环境。</summary>
+    
+    
+    
+    <category term="Node.js" scheme="https://0skyu.cn/categories/Node-js/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>为绑定域名的 GitHub Pages 启用 HTTPS</title>
     <link href="https://0skyu.cn/posts/a54d.html"/>
     <id>https://0skyu.cn/posts/a54d.html</id>
@@ -2705,32 +2705,6 @@
     
     <category term="GitHub" scheme="https://0skyu.cn/categories/GitHub/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript 语言精粹笔记1-语法、对象、函数</title>
-    <link href="https://0skyu.cn/posts/56ec.html"/>
-    <id>https://0skyu.cn/posts/56ec.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:02.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;content&lt;br&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://0skyu.cn/categories/JavaScript/"/>
-    
-    
-    <category term="对象 函数 this 闭包 面向对象 作用域" scheme="https://0skyu.cn/tags/%E5%AF%B9%E8%B1%A1-%E5%87%BD%E6%95%B0-this-%E9%97%AD%E5%8C%85-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
     
   </entry>
   
@@ -2787,6 +2761,49 @@
   </entry>
   
   <entry>
+    <title>JavaScript 语言精粹笔记1-语法、对象、函数</title>
+    <link href="https://0skyu.cn/posts/56ec.html"/>
+    <id>https://0skyu.cn/posts/56ec.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:02.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;content&lt;br&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://0skyu.cn/categories/JavaScript/"/>
+    
+    
+    <category term="对象 函数 this 闭包 面向对象 作用域" scheme="https://0skyu.cn/tags/%E5%AF%B9%E8%B1%A1-%E5%87%BD%E6%95%B0-this-%E9%97%AD%E5%8C%85-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简化 kramdown 列表嵌套内容缩进的 Vim 插件</title>
+    <link href="https://0skyu.cn/posts/23dc.html"/>
+    <id>https://0skyu.cn/posts/23dc.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:04.000Z</updated>
+    
+    
+    <summary type="html">kramdown 的列表嵌套内容缩进不是使用 Tab，而是有更「严格」更「奇葩」的规定，这个插件就是来拯救为此苦恼的 Vimer。</summary>
+    
+    
+    
+    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>如何使用 babel</title>
     <link href="https://0skyu.cn/posts/f544.html"/>
     <id>https://0skyu.cn/posts/f544.html</id>
@@ -2813,18 +2830,18 @@
   </entry>
   
   <entry>
-    <title>简化 kramdown 列表嵌套内容缩进的 Vim 插件</title>
-    <link href="https://0skyu.cn/posts/23dc.html"/>
-    <id>https://0skyu.cn/posts/23dc.html</id>
+    <title>Kloudsec 挂了，GitHub Pages 去 HTTPS 化</title>
+    <link href="https://0skyu.cn/posts/74e9.html"/>
+    <id>https://0skyu.cn/posts/74e9.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:04.000Z</updated>
     
     
-    <summary type="html">kramdown 的列表嵌套内容缩进不是使用 Tab，而是有更「严格」更「奇葩」的规定，这个插件就是来拯救为此苦恼的 Vimer。</summary>
+    <summary type="html">收到 Kloudsec 将停止服务的消息，决定将 GitHub Pages 去 HTTPS 化。</summary>
     
     
     
-    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
+    <category term="GitHub" scheme="https://0skyu.cn/categories/GitHub/"/>
     
     
   </entry>
@@ -2852,23 +2869,6 @@
     
     
     <category term="Git GitHub 分支" scheme="https://0skyu.cn/tags/Git-GitHub-%E5%88%86%E6%94%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kloudsec 挂了，GitHub Pages 去 HTTPS 化</title>
-    <link href="https://0skyu.cn/posts/74e9.html"/>
-    <id>https://0skyu.cn/posts/74e9.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:04.000Z</updated>
-    
-    
-    <summary type="html">收到 Kloudsec 将停止服务的消息，决定将 GitHub Pages 去 HTTPS 化。</summary>
-    
-    
-    
-    <category term="GitHub" scheme="https://0skyu.cn/categories/GitHub/"/>
-    
     
   </entry>
   
@@ -2967,32 +2967,6 @@
   </entry>
   
   <entry>
-    <title>使用 JavaScript 创建并下载文件</title>
-    <link href="https://0skyu.cn/posts/463c.html"/>
-    <id>https://0skyu.cn/posts/463c.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;content&lt;br&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://0skyu.cn/categories/JavaScript/"/>
-    
-    
-    <category term="文件 下载 JavaScript" scheme="https://0skyu.cn/tags/%E6%96%87%E4%BB%B6-%E4%B8%8B%E8%BD%BD-JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>前端如何写一个精确的倒计时</title>
     <link href="https://0skyu.cn/posts/32dd.html"/>
     <id>https://0skyu.cn/posts/32dd.html</id>
@@ -3019,19 +2993,28 @@
   </entry>
   
   <entry>
-    <title>搭建大型源码阅读环境——使用 OpenGrok</title>
-    <link href="https://0skyu.cn/posts/2a96.html"/>
-    <id>https://0skyu.cn/posts/2a96.html</id>
+    <title>使用 JavaScript 创建并下载文件</title>
+    <link href="https://0skyu.cn/posts/463c.html"/>
+    <id>https://0skyu.cn/posts/463c.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:11.000Z</updated>
+    <updated>2023-02-02T05:37:09.000Z</updated>
     
     
-    <summary type="html">RTFSC 是程序员打怪升级路上避不开的功课，那营造一个舒适的环境来提升上课的体验就很有必要了。</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;content&lt;br&gt;</summary>
+        
+      
     
     
     
-    <category term="Tools" scheme="https://0skyu.cn/categories/Tools/"/>
+    <category term="JavaScript" scheme="https://0skyu.cn/categories/JavaScript/"/>
     
+    
+    <category term="文件 下载 JavaScript" scheme="https://0skyu.cn/tags/%E6%96%87%E4%BB%B6-%E4%B8%8B%E8%BD%BD-JavaScript/"/>
     
   </entry>
   
@@ -3059,6 +3042,23 @@
     <category term="Obj-C" scheme="https://0skyu.cn/tags/Obj-C/"/>
     
     <category term="Runtime" scheme="https://0skyu.cn/tags/Runtime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建大型源码阅读环境——使用 OpenGrok</title>
+    <link href="https://0skyu.cn/posts/2a96.html"/>
+    <id>https://0skyu.cn/posts/2a96.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:11.000Z</updated>
+    
+    
+    <summary type="html">RTFSC 是程序员打怪升级路上避不开的功课，那营造一个舒适的环境来提升上课的体验就很有必要了。</summary>
+    
+    
+    
+    <category term="Tools" scheme="https://0skyu.cn/categories/Tools/"/>
+    
     
   </entry>
   
@@ -3114,23 +3114,6 @@
   </entry>
   
   <entry>
-    <title>从一个 NullPointerException 探究 Java 的自动装箱拆箱机制</title>
-    <link href="https://0skyu.cn/posts/c4c0.html"/>
-    <id>https://0skyu.cn/posts/c4c0.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:24.000Z</updated>
-    
-    
-    <summary type="html">因为遇到一个 NullPointerException，弄清了 Java 的自动装箱拆箱的原理。</summary>
-    
-    
-    
-    <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>关于 Markdown 的一些奇技淫巧</title>
     <link href="https://0skyu.cn/posts/2286.html"/>
     <id>https://0skyu.cn/posts/2286.html</id>
@@ -3143,6 +3126,23 @@
     
     
     <category term="Markdown" scheme="https://0skyu.cn/categories/Markdown/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从一个 NullPointerException 探究 Java 的自动装箱拆箱机制</title>
+    <link href="https://0skyu.cn/posts/c4c0.html"/>
+    <id>https://0skyu.cn/posts/c4c0.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:24.000Z</updated>
+    
+    
+    <summary type="html">因为遇到一个 NullPointerException，弄清了 Java 的自动装箱拆箱的原理。</summary>
+    
+    
+    
+    <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
     
     
   </entry>
@@ -3271,7 +3271,7 @@
     <link href="https://0skyu.cn/posts/0.html"/>
     <id>https://0skyu.cn/posts/0.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:28.000Z</updated>
+    <updated>2023-02-02T05:37:29.000Z</updated>
     
     
       
@@ -3292,7 +3292,7 @@
     <link href="https://0skyu.cn/posts/0.html"/>
     <id>https://0skyu.cn/posts/0.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:29.000Z</updated>
+    <updated>2023-02-02T05:37:28.000Z</updated>
     
     
       
@@ -3560,36 +3560,6 @@
   </entry>
   
   <entry>
-    <title>「SF-LC」4 Poly</title>
-    <link href="https://0skyu.cn/posts/a0c4.html"/>
-    <id>https://0skyu.cn/posts/a0c4.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:38.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;The</summary>
-        
-      
-    
-    
-    
-    
-    <category term="LF (逻辑基础)" scheme="https://0skyu.cn/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>「SF-LC」3 List</title>
     <link href="https://0skyu.cn/posts/73eb.html"/>
     <id>https://0skyu.cn/posts/73eb.html</id>
@@ -3648,18 +3618,19 @@
   </entry>
   
   <entry>
-    <title>「SF-LC」6 Logic</title>
-    <link href="https://0skyu.cn/posts/ba6f.html"/>
-    <id>https://0skyu.cn/posts/ba6f.html</id>
+    <title>「SF-LC」4 Poly</title>
+    <link href="https://0skyu.cn/posts/a0c4.html"/>
+    <id>https://0skyu.cn/posts/a0c4.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:39.000Z</updated>
+    <updated>2023-02-02T05:37:38.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;We have</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;The</summary>
         
       
     
@@ -3677,9 +3648,9 @@
   </entry>
   
   <entry>
-    <title>「SF-LC」7 Ind Prop</title>
-    <link href="https://0skyu.cn/posts/f19c.html"/>
-    <id>https://0skyu.cn/posts/f19c.html</id>
+    <title>「SF-LC」6 Logic</title>
+    <link href="https://0skyu.cn/posts/ba6f.html"/>
+    <id>https://0skyu.cn/posts/ba6f.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:39.000Z</updated>
     
@@ -3688,7 +3659,7 @@
       
         
         
-    <summary type="html">&lt;h2</summary>
+    <summary type="html">&lt;p&gt;We have</summary>
         
       
     
@@ -3719,6 +3690,35 @@
         
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;usef</summary>
+        
+      
+    
+    
+    
+    
+    <category term="LF (逻辑基础)" scheme="https://0skyu.cn/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SF-LC」7 Ind Prop</title>
+    <link href="https://0skyu.cn/posts/f19c.html"/>
+    <id>https://0skyu.cn/posts/f19c.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:39.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
         
       
     
@@ -3796,6 +3796,36 @@
   </entry>
   
   <entry>
+    <title>「SF-LC」13 ImpParser</title>
+    <link href="https://0skyu.cn/posts/dddf.html"/>
+    <id>https://0skyu.cn/posts/dddf.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:41.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;the</summary>
+        
+      
+    
+    
+    
+    
+    <category term="LF (逻辑基础)" scheme="https://0skyu.cn/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>「SF-LC」10 IndPrinciples</title>
     <link href="https://0skyu.cn/posts/992d.html"/>
     <id>https://0skyu.cn/posts/992d.html</id>
@@ -3837,36 +3867,6 @@
         
         
     <summary type="html">&lt;figure</summary>
-        
-      
-    
-    
-    
-    
-    <category term="LF (逻辑基础)" scheme="https://0skyu.cn/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「SF-LC」13 ImpParser</title>
-    <link href="https://0skyu.cn/posts/dddf.html"/>
-    <id>https://0skyu.cn/posts/dddf.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:41.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;the</summary>
         
       
     
@@ -4018,36 +4018,6 @@
   </entry>
   
   <entry>
-    <title>「SF-PLF」4 HoareAsLogic</title>
-    <link href="https://0skyu.cn/posts/b5d9.html"/>
-    <id>https://0skyu.cn/posts/b5d9.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:43.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;TBD&lt;/p&gt;
-</summary>
-        
-      
-    
-    
-    
-    
-    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>「SF-PLF」2 Hoare</title>
     <link href="https://0skyu.cn/posts/ff73.html"/>
     <id>https://0skyu.cn/posts/ff73.html</id>
@@ -4081,6 +4051,36 @@
     <title>「SF-PLF」3 Hoare2</title>
     <link href="https://0skyu.cn/posts/fcfe.html"/>
     <id>https://0skyu.cn/posts/fcfe.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:43.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;TBD&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SF-PLF」4 HoareAsLogic</title>
+    <link href="https://0skyu.cn/posts/b5d9.html"/>
+    <id>https://0skyu.cn/posts/b5d9.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:43.000Z</updated>
     
@@ -4187,9 +4187,9 @@
   </entry>
   
   <entry>
-    <title>「SF-PLF」8 StlcProp</title>
-    <link href="https://0skyu.cn/posts/6805.html"/>
-    <id>https://0skyu.cn/posts/6805.html</id>
+    <title>「SF-PLF」7 Stlc</title>
+    <link href="https://0skyu.cn/posts/5883.html"/>
+    <id>https://0skyu.cn/posts/5883.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:44.000Z</updated>
     
@@ -4198,7 +4198,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;基本的定理依赖关系</summary>
+    <summary type="html">&lt;p&gt;this</summary>
         
       
     
@@ -4245,9 +4245,9 @@
   </entry>
   
   <entry>
-    <title>「SF-PLF」7 Stlc</title>
-    <link href="https://0skyu.cn/posts/5883.html"/>
-    <id>https://0skyu.cn/posts/5883.html</id>
+    <title>「SF-PLF」8 StlcProp</title>
+    <link href="https://0skyu.cn/posts/6805.html"/>
+    <id>https://0skyu.cn/posts/6805.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:44.000Z</updated>
     
@@ -4256,37 +4256,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;this</summary>
-        
-      
-    
-    
-    
-    
-    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「SF-PLF」9 MoreStlc</title>
-    <link href="https://0skyu.cn/posts/ea55.html"/>
-    <id>https://0skyu.cn/posts/ea55.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:45.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;make</summary>
+    <summary type="html">&lt;p&gt;基本的定理依赖关系</summary>
         
       
     
@@ -4317,6 +4287,36 @@
         
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;The</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SF-PLF」9 MoreStlc</title>
+    <link href="https://0skyu.cn/posts/ea55.html"/>
+    <id>https://0skyu.cn/posts/ea55.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:45.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;make</summary>
         
       
     
@@ -4393,35 +4393,6 @@
   </entry>
   
   <entry>
-    <title>「SF-PLF」14 RecordSub</title>
-    <link href="https://0skyu.cn/posts/e58e.html"/>
-    <id>https://0skyu.cn/posts/e58e.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure</summary>
-        
-      
-    
-    
-    
-    
-    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>「SF-PLF」15 Norm</title>
     <link href="https://0skyu.cn/posts/ca49.html"/>
     <id>https://0skyu.cn/posts/ca49.html</id>
@@ -4452,11 +4423,99 @@
   </entry>
   
   <entry>
+    <title>「SF-PLF」14 RecordSub</title>
+    <link href="https://0skyu.cn/posts/e58e.html"/>
+    <id>https://0skyu.cn/posts/e58e.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:46.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>「SF-PLF」16 LibTactics</title>
     <link href="https://0skyu.cn/posts/a8de.html"/>
     <id>https://0skyu.cn/posts/a8de.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:47.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;TBD&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SF-PLF」17 UseTactics</title>
+    <link href="https://0skyu.cn/posts/5700.html"/>
+    <id>https://0skyu.cn/posts/5700.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:47.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「SF-PLF」19 PE</title>
+    <link href="https://0skyu.cn/posts/5a19.html"/>
+    <id>https://0skyu.cn/posts/5a19.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:48.000Z</updated>
     
     
       
@@ -4511,35 +4570,6 @@
   </entry>
   
   <entry>
-    <title>「SF-PLF」17 UseTactics</title>
-    <link href="https://0skyu.cn/posts/5700.html"/>
-    <id>https://0skyu.cn/posts/5700.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:47.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure</summary>
-        
-      
-    
-    
-    
-    
-    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
     <title>记一个折磨了我一天半的 Bug</title>
     <link href="https://0skyu.cn/posts/59d0.html"/>
     <id>https://0skyu.cn/posts/59d0.html</id>
@@ -4552,58 +4582,6 @@
     
     
     <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>「SF-PLF」19 PE</title>
-    <link href="https://0skyu.cn/posts/5a19.html"/>
-    <id>https://0skyu.cn/posts/5a19.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:48.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;TBD&lt;/p&gt;
-</summary>
-        
-      
-    
-    
-    
-    
-    <category term="SF (软件基础)" scheme="https://0skyu.cn/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="Coq" scheme="https://0skyu.cn/tags/Coq/"/>
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="PLF (编程语言基础)" scheme="https://0skyu.cn/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://0skyu.cn/posts/0.html"/>
-    <id>https://0skyu.cn/posts/0.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:49.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;原文链接</summary>
-        
-      
-    
-    
     
     
   </entry>
@@ -4635,27 +4613,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://0skyu.cn/posts/0.html"/>
-    <id>https://0skyu.cn/posts/0.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:50.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;趋势报告框架&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Peter John Landin</title>
     <link href="https://0skyu.cn/posts/9990.html"/>
     <id>https://0skyu.cn/posts/9990.html</id>
@@ -4681,6 +4638,49 @@
   </entry>
   
   <entry>
+    <title></title>
+    <link href="https://0skyu.cn/posts/0.html"/>
+    <id>https://0skyu.cn/posts/0.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:50.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;趋势报告框架&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://0skyu.cn/posts/0.html"/>
+    <id>https://0skyu.cn/posts/0.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:49.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;原文链接</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>让 Tapd 的源码关联功能支持 Gitee 平台</title>
     <link href="https://0skyu.cn/posts/bf04.html"/>
     <id>https://0skyu.cn/posts/bf04.html</id>
@@ -4698,23 +4698,6 @@
   </entry>
   
   <entry>
-    <title>记一个 Base64 有关的 Bug</title>
-    <link href="https://0skyu.cn/posts/c609.html"/>
-    <id>https://0skyu.cn/posts/c609.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:53.000Z</updated>
-    
-    
-    <summary type="html">编码与解码使用 Base64 的不同实现有可能导致问题。</summary>
-    
-    
-    
-    <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>GitHub 用户专属福利，实际到账 3K+，Namebase Airdrop</title>
     <link href="https://0skyu.cn/posts/184d.html"/>
     <id>https://0skyu.cn/posts/184d.html</id>
@@ -4727,6 +4710,23 @@
     
     
     <category term="GitHub" scheme="https://0skyu.cn/categories/GitHub/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>记一个 Base64 有关的 Bug</title>
+    <link href="https://0skyu.cn/posts/c609.html"/>
+    <id>https://0skyu.cn/posts/c609.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:53.000Z</updated>
+    
+    
+    <summary type="html">编码与解码使用 Base64 的不同实现有可能导致问题。</summary>
+    
+    
+    
+    <category term="Java" scheme="https://0skyu.cn/categories/Java/"/>
     
     
   </entry>
@@ -4809,6 +4809,23 @@
   </entry>
   
   <entry>
+    <title>用 Vim 编辑 Markdown 时直接粘贴图片</title>
+    <link href="https://0skyu.cn/posts/f79d.html"/>
+    <id>https://0skyu.cn/posts/f79d.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:37:56.000Z</updated>
+    
+    
+    <summary type="html">在使用 Vim 编辑 Markdown 时，粘贴图片很不方便，用插件 md-img-paste.vim 解决这个痛点。</summary>
+    
+    
+    
+    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>My Programming Languages Spectrum</title>
     <link href="https://0skyu.cn/posts/4702.html"/>
     <id>https://0skyu.cn/posts/4702.html</id>
@@ -4826,23 +4843,6 @@
       
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>用 Vim 编辑 Markdown 时直接粘贴图片</title>
-    <link href="https://0skyu.cn/posts/f79d.html"/>
-    <id>https://0skyu.cn/posts/f79d.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:56.000Z</updated>
-    
-    
-    <summary type="html">在使用 Vim 编辑 Markdown 时，粘贴图片很不方便，用插件 md-img-paste.vim 解决这个痛点。</summary>
-    
-    
-    
-    <category term="Vim" scheme="https://0skyu.cn/categories/Vim/"/>
     
     
   </entry>
@@ -4895,9 +4895,9 @@
   </entry>
   
   <entry>
-    <title>React Hooks 系列之4 useReducer</title>
-    <link href="https://0skyu.cn/posts/904f.html"/>
-    <id>https://0skyu.cn/posts/904f.html</id>
+    <title>React Hooks 系列之3 useContext</title>
+    <link href="https://0skyu.cn/posts/5e4b.html"/>
+    <id>https://0skyu.cn/posts/5e4b.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:57.000Z</updated>
     
@@ -4921,9 +4921,9 @@
   </entry>
   
   <entry>
-    <title>React Hooks 系列之3 useContext</title>
-    <link href="https://0skyu.cn/posts/5e4b.html"/>
-    <id>https://0skyu.cn/posts/5e4b.html</id>
+    <title>React Hooks 系列之4 useReducer</title>
+    <link href="https://0skyu.cn/posts/904f.html"/>
+    <id>https://0skyu.cn/posts/904f.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:57.000Z</updated>
     
@@ -4964,9 +4964,9 @@
   </entry>
   
   <entry>
-    <title>React Hooks 系列之5 useCallback</title>
-    <link href="https://0skyu.cn/posts/7d47.html"/>
-    <id>https://0skyu.cn/posts/7d47.html</id>
+    <title>React Hooks 系列之6 useMemo</title>
+    <link href="https://0skyu.cn/posts/a342.html"/>
+    <id>https://0skyu.cn/posts/a342.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:58.000Z</updated>
     
@@ -4990,9 +4990,9 @@
   </entry>
   
   <entry>
-    <title>React Hooks 系列之6 useMemo</title>
-    <link href="https://0skyu.cn/posts/a342.html"/>
-    <id>https://0skyu.cn/posts/a342.html</id>
+    <title>React Hooks 系列之5 useCallback</title>
+    <link href="https://0skyu.cn/posts/7d47.html"/>
+    <id>https://0skyu.cn/posts/7d47.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2023-02-02T05:37:58.000Z</updated>
     
@@ -5067,64 +5067,6 @@
   </entry>
   
   <entry>
-    <title>Data Representation - Integer</title>
-    <link href="https://0skyu.cn/posts/b79.html"/>
-    <id>https://0skyu.cn/posts/b79.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:38:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Integers, or</summary>
-        
-      
-    
-    
-    
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="基础" scheme="https://0skyu.cn/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="C" scheme="https://0skyu.cn/tags/C/"/>
-    
-    <category term="C++" scheme="https://0skyu.cn/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Data Representation - Floating Point Numbers</title>
-    <link href="https://0skyu.cn/posts/5157.html"/>
-    <id>https://0skyu.cn/posts/5157.html</id>
-    <published>2021-03-27T16:00:00.000Z</published>
-    <updated>2023-02-02T05:38:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;In the last</summary>
-        
-      
-    
-    
-    
-    
-    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="基础" scheme="https://0skyu.cn/tags/%E5%9F%BA%E7%A1%80/"/>
-    
-    <category term="C" scheme="https://0skyu.cn/tags/C/"/>
-    
-    <category term="C++" scheme="https://0skyu.cn/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Data Representation - TODO</title>
     <link href="https://0skyu.cn/posts/8038.html"/>
     <id>https://0skyu.cn/posts/8038.html</id>
@@ -5168,6 +5110,64 @@
     
     <category term="Blog" scheme="https://0skyu.cn/categories/Blog/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Data Representation - Floating Point Numbers</title>
+    <link href="https://0skyu.cn/posts/5157.html"/>
+    <id>https://0skyu.cn/posts/5157.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:38:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;In the last</summary>
+        
+      
+    
+    
+    
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://0skyu.cn/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="C" scheme="https://0skyu.cn/tags/C/"/>
+    
+    <category term="C++" scheme="https://0skyu.cn/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Data Representation - Integer</title>
+    <link href="https://0skyu.cn/posts/b79.html"/>
+    <id>https://0skyu.cn/posts/b79.html</id>
+    <published>2021-03-27T16:00:00.000Z</published>
+    <updated>2023-02-02T05:38:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Integers, or</summary>
+        
+      
+    
+    
+    
+    
+    <category term="笔记" scheme="https://0skyu.cn/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="基础" scheme="https://0skyu.cn/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="C" scheme="https://0skyu.cn/tags/C/"/>
+    
+    <category term="C++" scheme="https://0skyu.cn/tags/C/"/>
     
   </entry>
   
@@ -5553,7 +5553,7 @@
 
 &lt;p&gt;&lt;strong&gt;PS：加学长微信，可以给你24小时的热心答疑服务！(oﾟvﾟ)ノ&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&quot;招聘招聘&quot;&gt;&lt;a href=&quot;#招聘招聘&quot; class=&quot;headerlink&quot; title=&quot;招聘招聘&quot;&gt;&lt;/a&gt;招聘招聘&lt;/h1&gt;&lt;p&gt;2022届蚂蚁集团-支付宝事业线-区域中台技术部招聘实习生啦（内推），如果有意愿来支付宝的，给自己一次机会简历速度砸过来吧，我帮助大家内推。&lt;strong&gt;后续可转正！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;招聘对象：&lt;/strong&gt; 2021.11 - 2022.10毕业的应届毕业生。&lt;br&gt;&lt;strong&gt;招聘流程：&lt;/strong&gt; 简历投递-&amp;gt;在线笔试及测评-&amp;gt;面试-&amp;gt;发放实习offer-&amp;gt;实习入职&lt;br&gt;&lt;strong&gt;岗位类型：&lt;/strong&gt; Java研发、数据研发、产品经理，欢迎加入钉钉群交流：31091227&lt;br&gt;&lt;strong&gt;工作地点：&lt;/strong&gt; 杭州、上海、成都&lt;br&gt;&lt;strong&gt;简历请发送到邮箱：&lt;/strong&gt; &lt;a class=&quot;link&quot;   href=&quot;mailto:&amp;#x63;&amp;#104;&amp;#x65;&amp;#x6e;&amp;#121;&amp;#x75;&amp;#x6e;&amp;#x6c;&amp;#x6f;&amp;#110;&amp;#x67;&amp;#x2e;&amp;#x63;&amp;#x79;&amp;#x6c;&amp;#x40;&amp;#x61;&amp;#110;&amp;#116;&amp;#103;&amp;#x72;&amp;#x6f;&amp;#x75;&amp;#112;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&quot; &gt;&amp;#x63;&amp;#104;&amp;#x65;&amp;#x6e;&amp;#121;&amp;#x75;&amp;#x6e;&amp;#x6c;&amp;#x6f;&amp;#110;&amp;#x67;&amp;#x2e;&amp;#x63;&amp;#x79;&amp;#x6c;&amp;#x40;&amp;#x61;&amp;#110;&amp;#116;&amp;#103;&amp;#x72;&amp;#x6f;&amp;#x75;&amp;#112;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;&lt;strong&gt;注意简历命名格式：&lt;/strong&gt; 姓名 + 学校 + 手机号 + 邮箱&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;招聘对象：&lt;/strong&gt; 2021.11 - 2022.10毕业的应届毕业生。&lt;br&gt;&lt;strong&gt;招聘流程：&lt;/strong&gt; 简历投递-&amp;gt;在线笔试及测评-&amp;gt;面试-&amp;gt;发放实习offer-&amp;gt;实习入职&lt;br&gt;&lt;strong&gt;岗位类型：&lt;/strong&gt; Java研发、数据研发、产品经理，欢迎加入钉钉群交流：31091227&lt;br&gt;&lt;strong&gt;工作地点：&lt;/strong&gt; 杭州、上海、成都&lt;br&gt;&lt;strong&gt;简历请发送到邮箱：&lt;/strong&gt; &lt;a class=&quot;link&quot;   href=&quot;mailto:&amp;#99;&amp;#x68;&amp;#101;&amp;#110;&amp;#x79;&amp;#x75;&amp;#110;&amp;#108;&amp;#111;&amp;#110;&amp;#103;&amp;#x2e;&amp;#x63;&amp;#x79;&amp;#108;&amp;#64;&amp;#x61;&amp;#110;&amp;#116;&amp;#103;&amp;#x72;&amp;#111;&amp;#x75;&amp;#x70;&amp;#x2e;&amp;#99;&amp;#111;&amp;#109;&quot; &gt;&amp;#99;&amp;#x68;&amp;#101;&amp;#110;&amp;#x79;&amp;#x75;&amp;#110;&amp;#108;&amp;#111;&amp;#110;&amp;#103;&amp;#x2e;&amp;#x63;&amp;#x79;&amp;#108;&amp;#64;&amp;#x61;&amp;#110;&amp;#116;&amp;#103;&amp;#x72;&amp;#111;&amp;#x75;&amp;#x70;&amp;#x2e;&amp;#99;&amp;#111;&amp;#109;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;&lt;strong&gt;注意简历命名格式：&lt;/strong&gt; 姓名 + 学校 + 手机号 + 邮箱&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;附：&lt;/strong&gt; 投递简历后学长将把关简历，提供修改建议，并提供实习问题咨询及职业指导，简历快快砸过来～&lt;/p&gt;</summary>
     
     
@@ -5679,9 +5679,9 @@
     
     <category term="音乐" scheme="https://0skyu.cn/tags/%E9%9F%B3%E4%B9%90/"/>
     
-    <category term="零域" scheme="https://0skyu.cn/tags/%E9%9B%B6%E5%9F%9F/"/>
-    
     <category term="开始" scheme="https://0skyu.cn/tags/%E5%BC%80%E5%A7%8B/"/>
+    
+    <category term="零域" scheme="https://0skyu.cn/tags/%E9%9B%B6%E5%9F%9F/"/>
     
     <category term="零式的天空" scheme="https://0skyu.cn/tags/%E9%9B%B6%E5%BC%8F%E7%9A%84%E5%A4%A9%E7%A9%BA/"/>
     
@@ -10075,6 +10075,34 @@
   </entry>
   
   <entry>
+    <title>博客搭建(Hexo+replica主题) 之 hexo _config.yml 详解</title>
+    <link href="https://0skyu.cn/posts/hexo_config.html"/>
+    <id>https://0skyu.cn/posts/hexo_config.html</id>
+    <published>2019-09-23T15:40:03.000Z</published>
+    <updated>2019-09-23T15:40:03.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;_config.yml&lt;/p&gt;
+&lt;</summary>
+        
+      
+    
+    
+    
+    <category term="博客搭建(Hexo+replica主题)" scheme="https://0skyu.cn/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo-replica%E4%B8%BB%E9%A2%98/"/>
+    
+    
+    <category term="hexo" scheme="https://0skyu.cn/tags/hexo/"/>
+    
+    <category term="seo" scheme="https://0skyu.cn/tags/seo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>博客搭建(Hexo+replica主题) 总览 | github page&amp;coding部署 travis-ci 持续集成 seo 评论 搜索 统计 广告 Url优化</title>
     <link href="https://0skyu.cn/posts/hexo.html"/>
     <id>https://0skyu.cn/posts/hexo.html</id>
@@ -10116,34 +10144,6 @@
     <category term="FlagCounter" scheme="https://0skyu.cn/tags/FlagCounter/"/>
     
     <category term="Google-AdScene" scheme="https://0skyu.cn/tags/Google-AdScene/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客搭建(Hexo+replica主题) 之 hexo _config.yml 详解</title>
-    <link href="https://0skyu.cn/posts/hexo_config.html"/>
-    <id>https://0skyu.cn/posts/hexo_config.html</id>
-    <published>2019-09-23T15:40:03.000Z</published>
-    <updated>2019-09-23T15:40:03.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;_config.yml&lt;/p&gt;
-&lt;</summary>
-        
-      
-    
-    
-    
-    <category term="博客搭建(Hexo+replica主题)" scheme="https://0skyu.cn/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-Hexo-replica%E4%B8%BB%E9%A2%98/"/>
-    
-    
-    <category term="hexo" scheme="https://0skyu.cn/tags/hexo/"/>
-    
-    <category term="seo" scheme="https://0skyu.cn/tags/seo/"/>
     
   </entry>
   
@@ -13120,9 +13120,9 @@
     <category term="归档记录" scheme="https://0skyu.cn/categories/%E5%BD%92%E6%A1%A3%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="浪" scheme="https://0skyu.cn/tags/%E6%B5%AA/"/>
-    
     <category term="日常" scheme="https://0skyu.cn/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="浪" scheme="https://0skyu.cn/tags/%E6%B5%AA/"/>
     
     <category term="摄影" scheme="https://0skyu.cn/tags/%E6%91%84%E5%BD%B1/"/>
     
@@ -13394,9 +13394,9 @@
     <category term="归档记录" scheme="https://0skyu.cn/categories/%E5%BD%92%E6%A1%A3%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="浪" scheme="https://0skyu.cn/tags/%E6%B5%AA/"/>
-    
     <category term="日常" scheme="https://0skyu.cn/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="浪" scheme="https://0skyu.cn/tags/%E6%B5%AA/"/>
     
     <category term="摄影" scheme="https://0skyu.cn/tags/%E6%91%84%E5%BD%B1/"/>
     
@@ -15371,9 +15371,9 @@
     <category term="UWP客户端" scheme="https://0skyu.cn/categories/UWP%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
     
     
-    <category term="UWP客户端" scheme="https://0skyu.cn/tags/UWP%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
-    
     <category term="测试" scheme="https://0skyu.cn/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="UWP客户端" scheme="https://0skyu.cn/tags/UWP%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
     
     <category term="客户端" scheme="https://0skyu.cn/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/"/>
     
@@ -15626,11 +15626,11 @@
   </entry>
   
   <entry>
-    <title>「体能训练理论」之动力链</title>
-    <link href="https://0skyu.cn/posts/354d.html"/>
-    <id>https://0skyu.cn/posts/354d.html</id>
+    <title>「体能训练理论」之金字塔</title>
+    <link href="https://0skyu.cn/posts/4413.html"/>
+    <id>https://0skyu.cn/posts/4413.html</id>
     <published>2017-07-09T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:22.000Z</updated>
+    <updated>2023-02-02T05:37:23.000Z</updated>
     
     
       
@@ -15651,11 +15651,11 @@
   </entry>
   
   <entry>
-    <title>「体能训练理论」之金字塔</title>
-    <link href="https://0skyu.cn/posts/4413.html"/>
-    <id>https://0skyu.cn/posts/4413.html</id>
+    <title>「体能训练理论」之动力链</title>
+    <link href="https://0skyu.cn/posts/354d.html"/>
+    <id>https://0skyu.cn/posts/354d.html</id>
     <published>2017-07-09T16:00:00.000Z</published>
-    <updated>2023-02-02T05:37:23.000Z</updated>
+    <updated>2023-02-02T05:37:22.000Z</updated>
     
     
       
@@ -16363,9 +16363,9 @@
     
     <category term="iOS" scheme="https://0skyu.cn/tags/iOS/"/>
     
-    <category term="shell" scheme="https://0skyu.cn/tags/shell/"/>
-    
     <category term="ruby" scheme="https://0skyu.cn/tags/ruby/"/>
+    
+    <category term="shell" scheme="https://0skyu.cn/tags/shell/"/>
     
     <category term="RVM" scheme="https://0skyu.cn/tags/RVM/"/>
     
@@ -16436,9 +16436,9 @@
     
     <category term="Xcode" scheme="https://0skyu.cn/tags/Xcode/"/>
     
-    <category term="shell" scheme="https://0skyu.cn/tags/shell/"/>
-    
     <category term="ruby" scheme="https://0skyu.cn/tags/ruby/"/>
+    
+    <category term="shell" scheme="https://0skyu.cn/tags/shell/"/>
     
   </entry>
   
@@ -16513,9 +16513,9 @@
     
     <category term="Xcode" scheme="https://0skyu.cn/tags/Xcode/"/>
     
-    <category term="ruby" scheme="https://0skyu.cn/tags/ruby/"/>
-    
     <category term="Cocopods" scheme="https://0skyu.cn/tags/Cocopods/"/>
+    
+    <category term="ruby" scheme="https://0skyu.cn/tags/ruby/"/>
     
   </entry>
   
@@ -23556,9 +23556,9 @@
   </entry>
   
   <entry>
-    <title>ubuntu sources update error</title>
-    <link href="https://0skyu.cn/posts/d12f.html"/>
-    <id>https://0skyu.cn/posts/d12f.html</id>
+    <title>ubuntu sources list</title>
+    <link href="https://0skyu.cn/posts/c638.html"/>
+    <id>https://0skyu.cn/posts/c638.html</id>
     <published>2013-04-14T16:00:00.000Z</published>
     <updated>2023-02-02T05:30:52.000Z</updated>
     
@@ -23567,7 +23567,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;今天在执行 apt-get</summary>
+    <summary type="html">&lt;p&gt;当前我的 ubuntu</summary>
         
       
     
@@ -23581,9 +23581,9 @@
   </entry>
   
   <entry>
-    <title>ubuntu sources list</title>
-    <link href="https://0skyu.cn/posts/c638.html"/>
-    <id>https://0skyu.cn/posts/c638.html</id>
+    <title>ubuntu sources update error</title>
+    <link href="https://0skyu.cn/posts/d12f.html"/>
+    <id>https://0skyu.cn/posts/d12f.html</id>
     <published>2013-04-14T16:00:00.000Z</published>
     <updated>2023-02-02T05:30:52.000Z</updated>
     
@@ -23592,7 +23592,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;当前我的 ubuntu</summary>
+    <summary type="html">&lt;p&gt;今天在执行 apt-get</summary>
         
       
     
@@ -24180,14 +24180,14 @@
   </entry>
   
   <entry>
-    <title>简单就好</title>
-    <link href="https://0skyu.cn/posts/5666.html"/>
-    <id>https://0skyu.cn/posts/5666.html</id>
+    <title>天使折翼了</title>
+    <link href="https://0skyu.cn/posts/e4d2.html"/>
+    <id>https://0skyu.cn/posts/e4d2.html</id>
     <published>2012-03-01T06:52:00.000Z</published>
     <updated>2023-02-02T05:40:04.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;练习曲，作于永州，2012-03-01 14:52 笔&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;练习。。《天使，折翼了》，作于永州，2012-03-01 14:52 笔&lt;/p&gt;</summary>
     
     
     
@@ -24197,14 +24197,14 @@
   </entry>
   
   <entry>
-    <title>天使折翼了</title>
-    <link href="https://0skyu.cn/posts/e4d2.html"/>
-    <id>https://0skyu.cn/posts/e4d2.html</id>
+    <title>简单就好</title>
+    <link href="https://0skyu.cn/posts/5666.html"/>
+    <id>https://0skyu.cn/posts/5666.html</id>
     <published>2012-03-01T06:52:00.000Z</published>
     <updated>2023-02-02T05:40:04.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;练习。。《天使，折翼了》，作于永州，2012-03-01 14:52 笔&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;练习曲，作于永州，2012-03-01 14:52 笔&lt;/p&gt;</summary>
     
     
     
@@ -24712,6 +24712,23 @@
   </entry>
   
   <entry>
+    <title>蹉跎</title>
+    <link href="https://0skyu.cn/posts/fd7.html"/>
+    <id>https://0skyu.cn/posts/fd7.html</id>
+    <published>2011-08-02T16:00:00.000Z</published>
+    <updated>2023-02-02T05:39:56.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;蹉跎，作于广州&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="诗词作品" scheme="https://0skyu.cn/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>下锅</title>
     <link href="https://0skyu.cn/posts/8ce2.html"/>
     <id>https://0skyu.cn/posts/8ce2.html</id>
@@ -24737,23 +24754,6 @@
     
     
     <summary type="html">&lt;p&gt;江畔，作于广州&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="诗词作品" scheme="https://0skyu.cn/categories/%E8%AF%97%E8%AF%8D%E4%BD%9C%E5%93%81/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>蹉跎</title>
-    <link href="https://0skyu.cn/posts/fd7.html"/>
-    <id>https://0skyu.cn/posts/fd7.html</id>
-    <published>2011-08-02T16:00:00.000Z</published>
-    <updated>2023-02-02T05:39:56.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;蹉跎，作于广州&lt;/p&gt;</summary>
     
     
     
@@ -25745,6 +25745,31 @@
   </entry>
   
   <entry>
+    <title>php bmp格式图片转换成jpg格式程序</title>
+    <link href="https://0skyu.cn/posts/75a3.html"/>
+    <id>https://0skyu.cn/posts/75a3.html</id>
+    <published>2011-02-17T16:00:00.000Z</published>
+    <updated>2023-02-02T05:31:25.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div</summary>
+        
+      
+    
+    
+    
+    <category term="web" scheme="https://0skyu.cn/categories/web/"/>
+    
+    
+    <category term="bmp" scheme="https://0skyu.cn/tags/bmp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>php 超大文件下载类 支持2g以上文件 支持断点续传</title>
     <link href="https://0skyu.cn/posts/9b81.html"/>
     <id>https://0skyu.cn/posts/9b81.html</id>
@@ -25767,31 +25792,6 @@
     
     
     <category term="file" scheme="https://0skyu.cn/tags/file/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php bmp格式图片转换成jpg格式程序</title>
-    <link href="https://0skyu.cn/posts/75a3.html"/>
-    <id>https://0skyu.cn/posts/75a3.html</id>
-    <published>2011-02-17T16:00:00.000Z</published>
-    <updated>2023-02-02T05:31:25.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div</summary>
-        
-      
-    
-    
-    
-    <category term="web" scheme="https://0skyu.cn/categories/web/"/>
-    
-    
-    <category term="bmp" scheme="https://0skyu.cn/tags/bmp/"/>
     
   </entry>
   

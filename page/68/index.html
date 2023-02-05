@@ -1,2 +1,1053 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content is-home"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a class="active" href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a class="active" href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="home-content-container fade-in-down-animation"><ul class="home-article-list"><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/d706.html">CocoaPods公有仓库的创建</a></h3><div class="home-article-content keep-markdown-body">本文发布于 BY Blog、简书 转载请保留链接 前言作为iOS开发者，CocoaPods的使用为我们开发带来了极大的便利。 我们先来看看CocoaPods本地目录中有什么 $ cd ~/.cocoapods/repos/master 或者显示...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:17 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/iOS/">iOS</a>&nbsp;</li><li>| <a href="/tags/Git/">Git</a>&nbsp;</li><li>| <a href="/tags/CocoaPods/">CocoaPods</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/d706.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/f8e4.html">CommonJS 详细介绍</a></h3><div class="home-article-content keep-markdown-body"><h2 id="CommonJS-规范与实现"><a href="#CommonJS-规范与实现" class="headerlink" title="CommonJS 规范与实现"></a>CommonJS 规范与实现</h2><p>正如当年为了统一 JavaScript 语言标准，人们制定了 ECMAScript 规范一样，如今为了统一 JavaScript 在浏览器之外的实现，CommonJS 诞生了。CommonJS 试图定义一套普通应用程序使用的 API，从而填补 JavaScript 标准库过于简单的不足。CommonJS 的终极目标是制定一个像 C++ 标准库一样的规范，使得基于 CommonJS API 的应用程序可以在不同的环境下运行，就像用 C++ 编写的应用程序可以使用不同的编译器和运行时函数库一样。为了保持中立，CommonJS 不参与标准库实现，其实现交给像 Node.js 之类的项目来完成。下图是 CommonJS 的各种实现。</p></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:36:35 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/JavaScript/">JavaScript</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/f8e4.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/688f.html">文件目录树状(tree)显示</a></h3><div class="home-article-content keep-markdown-body">使用 tree 在终端显示树状文件结构 安装 tree使用 brew 进行安装 $ brew install tree 使用 直接使用 tree 命令，会在当前文件目录下，递归输出所有文件层级 $ tree 限制层级 $ tree...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:18 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">开发技巧</a>&nbsp;</li><li>| <a href="/tags/Mac/">Mac</a>&nbsp;</li><li>| <a href="/tags/%E6%95%88%E7%8E%87/">效率</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/688f.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/44f6.html">Swift 代理模式</a></h3><div class="home-article-content keep-markdown-body">Xcode 8.2 | Swift 3.0 在iOS开发中，无论是 Objective-C 还是 Swift ，Delegate 有着具足轻重的位置，如TabelViewDelegate 与 TableViewDataSource。 Swift ...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:17 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/iOS/">iOS</a>&nbsp;</li><li>| <a href="/tags/Swift/">Swift</a>&nbsp;</li><li>| <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/44f6.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/cb04.html">Xcode 控制台输出中文</a></h3><div class="home-article-content keep-markdown-body">重写 NSArray、NSSet、NSDictionary 的输出方法，在Xcode实现中文（Unicode）字符在控制台的输出 原理 Xcode 控制台中在输出 NSArray、NSSet、NSDictionary 时，其中的中文字符会变成Un...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:16 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/iOS/">iOS</a>&nbsp;</li><li>| <a href="/tags/Xcode/">Xcode</a>&nbsp;</li><li>| <a href="/tags/macOS/">macOS</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/cb04.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/f2af.html">论假百度钓鱼网站的实现过程</a></h3><div class="home-article-content keep-markdown-body"><p>近日在UC头条上看到一则新闻【 <a class="link" target="_blank" rel="noopener" href="http://s4.uczzd.cn/webapp/webview/article/news.html?app=uc-iflow&aid=11171023406464140368&cid=100&zzd_from=uc-iflow&uc_param_str=dndseiwifrvesvntgipf&rd_type=share&pagetype=share&btifl=100&sdkdeep=2&sdksid=0c5f4a3f-05fc-3b4b-31c0-d46547976a9c">网友反映可能上了“假百度” 官方通报: 百度搜索移动端被劫持<i class="fas fa-external-link-alt"></i></a> 】</p><p>今天来讨论一些假百度的实现过程，防止大家以后上当受骗。未看新闻的童鞋先去补补课。下面是概览图。</p></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:16 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/">钓鱼网站</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/f2af.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/a1dd.html">局部安装webpack提示拒绝安装本身的依赖</a></h3><div class="home-article-content keep-markdown-body">学习webpack的时候，局部安装webpack出现以下错误： 123456npm ERR！ Windows_NT 6.1.7601 npm ERR ! args &quot;F:\Nodejs\node.exe&quot; &quot;F:\Nod...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:16 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/webpack/">webpack</a>&nbsp;</li><li>| <a href="/tags/npm/">npm</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/a1dd.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/5ecf.html">如何解决内存泄漏引发的血案</a></h3><div class="home-article-content keep-markdown-body"><p>之前做了一个谷歌浏览器的插件开发，它会打开一个链接，然后收集数据并上传。依次循环，但是跑的时间久了，内存就变得很高，然后浏览器就会变卡，慢慢的影响这个插件的运行，最后浏览器也会崩溃。</p><h1 id="什么是内存泄漏"><a href="#什么是内存泄漏" class="headerlink" title="什么是内存泄漏"></a>什么是内存泄漏</h1><p>内存泄露是指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束。在 C++ 中，因为是手动管理内存，内存泄露是经常出现的事情。而现在流行的 C# 和 Java 等语言采用了自动垃圾回收方法管理内存，正常使用的情况下几乎不会发生内存泄露。浏览器中也是采用自动垃圾回收方法管理内存，但由于浏览器垃圾回收方法有 bug，会产生内存泄露。</p></div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:32:55 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E7%BB%BC%E5%90%88/">综合</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/JavaScript/">JavaScript</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/5ecf.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/6432.html">使用marked解析markdown为html</a></h3><div class="home-article-content keep-markdown-body">前段时间玩了会儿hexo，发现用markdown写博客真的很爽，语法也十分的简介。 于是打算将博客的富文本编辑器换成markdown。 我这里是使用的marked Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:15 GMT+0800">2023-02-02 </span></span><span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;</li></ul></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/marked/">marked</a>&nbsp;</li><li>| <a href="/tags/markdown/">markdown</a>&nbsp;</li><li>| <a href="/tags/html/">html</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/6432.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li><li class="home-article-item"><h3 class="home-article-title"><a href="/posts/af3d.html">Mac 文件的隐藏与显示</a></h3><div class="home-article-content keep-markdown-body">让 Finder 显示隐藏文件和文件夹 基本显示$ defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder 隐藏$ defaults wr...</div><div class="home-article-meta-info-container"><div class="home-article-meta-info"><span><i class="fas fa-history"></i>&nbsp; <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:15 GMT+0800">2023-02-02 </span></span><span class="home-article-tag"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/Mac/">Mac</a>&nbsp;</li><li>| <a href="/tags/%E7%BB%88%E7%AB%AF/">终端</a>&nbsp;</li></ul></span></div><a class="read-more" href="/posts/af3d.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a></div></li></ul><div class="home-paginator"><div class="paginator"><a class="prev btn" href="/page/67/">上一页</a> <a class="next btn" href="/page/69/">下一页</a></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div></div></footer></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    
+    <title>
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content is-home">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/d706.html">
+                        CocoaPods公有仓库的创建
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+本文发布于 BY Blog、简书 转载请保留链接
+
+前言作为iOS开发者，CocoaPods的使用为我们开发带来了极大的便利。
+我们先来看看CocoaPods本地目录中有什么
+$ cd ~/.cocoapods/repos/master
+
+或者显示...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:17 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/iOS/">iOS</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Git/">Git</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/CocoaPods/">CocoaPods</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/d706.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/f8e4.html">
+                        CommonJS 详细介绍
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <h2 id="CommonJS-规范与实现"><a href="#CommonJS-规范与实现" class="headerlink" title="CommonJS 规范与实现"></a>CommonJS 规范与实现</h2><p>正如当年为了统一 JavaScript 语言标准，人们制定了 ECMAScript 规范一样，如今为了统一 JavaScript 在浏览器之外的实现，CommonJS 诞生了。CommonJS 试图定义一套普通应用程序使用的 API，从而填补 JavaScript 标准库过于简单的不足。CommonJS 的终极目标是制定一个像 C++ 标准库一样的规范，使得基于 CommonJS API 的应用程序可以在不同的环境下运行，就像用 C++ 编写的应用程序可以使用不同的编译器和运行时函数库一样。为了保持中立，CommonJS 不参与标准库实现，其实现交给像 Node.js 之类的项目来完成。下图是 CommonJS 的各种实现。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:36:35 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/f8e4.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/688f.html">
+                        文件目录树状(tree)显示
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+使用 tree 在终端显示树状文件结构
+
+
+安装 tree使用 brew 进行安装
+$ brew install tree
+
+使用
+直接使用 tree 命令，会在当前文件目录下，递归输出所有文件层级
+  $ tree
+
+
+限制层级
+  $ tree...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:18 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">开发技巧</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Mac/">Mac</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E6%95%88%E7%8E%87/">效率</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/688f.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/44f6.html">
+                        Swift 代理模式
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+Xcode 8.2 | Swift 3.0
+
+在iOS开发中，无论是 Objective-C 还是 Swift ，Delegate 有着具足轻重的位置，如TabelViewDelegate 与 TableViewDataSource。
+Swift ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:17 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/iOS/">iOS</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Swift/">Swift</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/44f6.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/cb04.html">
+                        Xcode 控制台输出中文
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+重写 NSArray、NSSet、NSDictionary 的输出方法，在Xcode实现中文（Unicode）字符在控制台的输出
+
+原理 Xcode 控制台中在输出 NSArray、NSSet、NSDictionary 时，其中的中文字符会变成Un...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:16 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/iOS/">iOS</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/Xcode/">Xcode</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/macOS/">macOS</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/cb04.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/f2af.html">
+                        论假百度钓鱼网站的实现过程
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <p>近日在UC头条上看到一则新闻【 <a class="link"   target="_blank" rel="noopener" href="http://s4.uczzd.cn/webapp/webview/article/news.html?app=uc-iflow&aid=11171023406464140368&cid=100&zzd_from=uc-iflow&uc_param_str=dndseiwifrvesvntgipf&rd_type=share&pagetype=share&btifl=100&sdkdeep=2&sdksid=0c5f4a3f-05fc-3b4b-31c0-d46547976a9c" >网友反映可能上了“假百度” 官方通报: 百度搜索移动端被劫持<i class="fas fa-external-link-alt"></i></a> 】</p>
+<p>今天来讨论一些假百度的实现过程，防止大家以后上当受骗。未看新闻的童鞋先去补补课。下面是概览图。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:16 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/">钓鱼网站</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/f2af.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/a1dd.html">
+                        局部安装webpack提示拒绝安装本身的依赖
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        学习webpack的时候，局部安装webpack出现以下错误：
+123456npm ERR！ Windows_NT 6.1.7601 npm ERR ! args &quot;F:\Nodejs\node.exe&quot; &quot;F:\Nod...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:16 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/webpack/">webpack</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/npm/">npm</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/a1dd.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/5ecf.html">
+                        如何解决内存泄漏引发的血案
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        <p>之前做了一个谷歌浏览器的插件开发，它会打开一个链接，然后收集数据并上传。依次循环，但是跑的时间久了，内存就变得很高，然后浏览器就会变卡，慢慢的影响这个插件的运行，最后浏览器也会崩溃。</p>
+<h1 id="什么是内存泄漏"><a href="#什么是内存泄漏" class="headerlink" title="什么是内存泄漏"></a>什么是内存泄漏</h1><p>内存泄露是指一块被分配的内存既不能使用，又不能回收，直到浏览器进程结束。在 C++ 中，因为是手动管理内存，内存泄露是经常出现的事情。而现在流行的 C# 和 Java 等语言采用了自动垃圾回收方法管理内存，正常使用的情况下几乎不会发生内存泄露。浏览器中也是采用自动垃圾回收方法管理内存，但由于浏览器垃圾回收方法有 bug，会产生内存泄露。</p>
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:32:55 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E7%BB%BC%E5%90%88/">综合</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/5ecf.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/6432.html">
+                        使用marked解析markdown为html
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        前段时间玩了会儿hexo，发现用markdown写博客真的很爽，语法也十分的简介。
+于是打算将博客的富文本编辑器换成markdown。
+我这里是使用的marked
+
+Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:15 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/marked/">marked</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/markdown/">markdown</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/html/">html</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/6432.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/af3d.html">
+                        Mac 文件的隐藏与显示
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+让 Finder 显示隐藏文件和文件夹
+
+基本显示$ defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder
+
+隐藏$ defaults wr...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Thu Feb 02 2023 13:37:15 GMT+0800">
+                2023-02-02
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Mac/">Mac</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/%E7%BB%88%E7%AB%AF/">终端</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/posts/af3d.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    
+        <a class="prev btn"
+           href="/page/67/"
+        >上一页</a>
+    
+
+    
+        <a class="next btn"
+           href="/page/69/"
+        >下一页</a>
+    
+</div>
+
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
