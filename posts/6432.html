@@ -1,2 +1,739 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>使用marked解析markdown为html | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">使用marked解析markdown为html</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2017-02-27 17:25:15</span> <span class="mobile">2017-02-27 17:25</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/marked/">marked</a>&nbsp;</li><li>| <a href="/tags/markdown/">markdown</a>&nbsp;</li><li>| <a href="/tags/html/">html</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>937 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><p>前段时间玩了会儿hexo，发现用markdown写博客真的很爽，语法也十分的简介。</p><p>于是打算将博客的富文本编辑器换成markdown。</p><p>我这里是使用的marked</p><blockquote><p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p></blockquote><hr><blockquote><p>marked 是一个 JavaScript 编写的全功能 Markdown 解析和编译器。<br>marked 的目的是快速的编译超大块的Markdown文本而不必担心结果会出乎意料或者花费很长时间。<br>marked 最初是为 Node.JS编写，现在已完全兼容客户端浏览器。<br>新版本号称速度比C语言写的Markdown转换工具Discount 还要快。</p></blockquote><h3 id="1-安装marked"><a href="#1-安装marked" class="headerlink" title="1.安装marked"></a>1.安装marked</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install marked --save</span><br></pre></td></tr></table></figure><h3 id="2-引用"><a href="#2-引用" class="headerlink" title="2.引用"></a>2.引用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> marked = <span class="built_in">require</span>(<span class="string">&#x27;marked&#x27;</span>)</span><br></pre></td></tr></table></figure><h3 id="3-转换为html"><a href="#3-转换为html" class="headerlink" title="3.转换为html"></a>3.转换为html</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="title function_">marked</span>(<span class="string">&#x27;### hello markdown&#x27;</span>) <span class="comment">// &lt;h3&gt;hello markdown&lt;/h3&gt;</span></span><br></pre></td></tr></table></figure><h3 id="一些参数说明"><a href="#一些参数说明" class="headerlink" title="一些参数说明"></a>一些参数说明</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> marked = <span class="built_in">require</span>(<span class="string">&#x27;marked&#x27;</span>);</span><br><span class="line"></span><br><span class="line">marked.<span class="title function_">setOptions</span>(&#123;</span><br><span class="line">	<span class="attr">renderer</span>: <span class="keyword">new</span> marked.<span class="title class_">Renderer</span>(),</span><br><span class="line">	<span class="attr">gfm</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">tables</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">breaks</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="attr">pedantic</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="attr">sanitize</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">smartLists</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">smartypants</span>: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">marked</span>(<span class="string">&#x27;I am using __markdown__.&#x27;</span>));</span><br></pre></td></tr></table></figure><ul><li>-o, –output [output]: 指定输出文件，默认为当前控制台</li><li>-i, –input [input]: 指定输入文件或最后一个参数，默认为当前控制台输入</li><li>-t, –tokens: 输出token流代替HTML</li><li>–pedantic: 只解析符合markdown.pl定义的，不修正markdown的错误</li><li>–gfm: 启动Github样式的Markdown</li><li>–breaks: 支持Github换行符，必须打开gfm选项</li><li>–tables: 支持Github表格，必须打开gfm选项</li><li>–sanitize: 原始输出，忽略HTML标签</li><li>–smart-lists: 优化列表输出</li><li>–lang-prefix [prefix]: 设置前置样式</li><li>–no-etc: 选择的反正标识</li><li>–silent: 不输出错误信息</li><li>-h, –help: 帮助信息</li></ul><h3 id="4-marked防注入"><a href="#4-marked防注入" class="headerlink" title="4.marked防注入"></a>4.marked防注入</h3><p>如下MD被编译为HTML时，会执行script里的代码，弹出xss攻击</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="title function_">marked</span>(<span class="string">&#x27;&lt;script&gt;alert(&quot;xss攻击&quot;)&lt;/script&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure><p>设置<em>sanitize</em>为ture，即可过滤到script标签</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">marked.<span class="title function_">setOptions</span>(&#123; <span class="attr">sanitize</span>: <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure><h3 id="5-自定义渲染"><a href="#5-自定义渲染" class="headerlink" title="5.自定义渲染"></a>5.自定义渲染</h3><p>自定义渲染选项允许你以自定义的方式渲染内容，并把之前的规则设置覆盖掉。</p><p>块级标签支持以下渲染：</p><ul><li>code(string code, string language)</li><li>blockquote(string quote)</li><li>html(string html)</li><li>heading(string text, number level)</li><li>hr()</li><li>list(string body, boolean ordered)</li><li>listitem(string text)</li><li>paragraph(string text)</li><li>table(string header, string body)</li><li>tablerow(string content)</li><li>tablecell(string content, object flags)</li></ul><p>行级标签支持以下渲染：</p><ul><li>strong(string text)</li><li>em(string text)</li><li>codespan(string code)</li><li>br()</li><li>del(string text)</li><li>link(string href, string title, string text)</li><li>image(string href, string title, string text)</li></ul><h4 id="举一个栗子🌰："><a href="#举一个栗子🌰：" class="headerlink" title="举一个栗子🌰："></a>举一个栗子🌰：</h4><p>默认的渲染a标签为当前窗口打开，如果我想让它新窗口打开，可以如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var md = &#x27;[http://baidu.com](baidu.com &quot;百度&quot;)&#x27;</span><br><span class="line"></span><br><span class="line">// 默认的渲染结果</span><br><span class="line">var a = marked(a)</span><br><span class="line">// 得到的a为&lt;a href=&quot;http://baidu.com&quot; title=&quot;百度&quot;&gt;baidu.com&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">// 添加自定义渲染</span><br><span class="line">var rendererMD = new marked.Renderer()</span><br><span class="line"></span><br><span class="line">rendererMD.link = function (href, title, text) &#123;</span><br><span class="line">    return `&lt;a href=&quot;$&#123;href&#125;&quot; title=&quot;$&#123;title || text&#125;&quot; target=&quot;_blank&quot;&gt;$&#123;text&#125;&lt;/a&gt;`</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">marked.setOptions(&#123; renderer: rendererMD &#125;)</span><br><span class="line"></span><br><span class="line">var _blankA = marked(a)</span><br><span class="line">// 得到的_blankA为&lt;a href=&quot;http://baidu.com&quot; title=&quot;百度&quot; target=&quot;_blank&quot;&gt;baidu.com&lt;/a&gt;</span><br></pre></td></tr></table></figure><p>不声明renderer时，默认为<em>new Renderer()</em></p><h3 id="6-语法高亮"><a href="#6-语法高亮" class="headerlink" title="6.语法高亮"></a>6.语法高亮</h3><p>需要安装<em>highlight.js</em></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install highlight.js --save</span><br></pre></td></tr></table></figure><p>设置语法高亮(为了正常显示，页面需要引入highlight.js的css)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const highlight = require(&#x27;highlight.js&#x27;)</span><br><span class="line"></span><br><span class="line">marked.setOptions(&#123;</span><br><span class="line">    highlight: function(code) &#123;</span><br><span class="line">        return highlight.highlightAuto(code).value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>以上！！！</p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">使用marked解析markdown为html</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2017-02-27 17:25:15</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/6432.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/marked/">#marked</a>&nbsp;</li><li class="tag-item"><a href="/tags/markdown/">#markdown</a>&nbsp;</li><li class="tag-item"><a href="/tags/html/">#html</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/5ecf.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">如何解决内存泄漏引发的血案</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/af3d.html"><span class="title flex-center"><span class="post-nav-title-item">Mac 文件的隐藏与显示</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85marked"><span class="nav-number">1.</span> <span class="nav-text">1.安装marked</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BC%95%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">2.引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BD%AC%E6%8D%A2%E4%B8%BAhtml"><span class="nav-number">3.</span> <span class="nav-text">3.转换为html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">4.</span> <span class="nav-text">一些参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-marked%E9%98%B2%E6%B3%A8%E5%85%A5"><span class="nav-number">5.</span> <span class="nav-text">4.marked防注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93"><span class="nav-number">6.</span> <span class="nav-text">5.自定义渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BE%E4%B8%80%E4%B8%AA%E6%A0%97%E5%AD%90%F0%9F%8C%B0%EF%BC%9A"><span class="nav-number">6.1.</span> <span class="nav-text">举一个栗子🌰：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE"><span class="nav-number">7.</span> <span class="nav-text">6.语法高亮</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            使用marked解析markdown为html |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">使用marked解析markdown为html</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2017-02-27 17:25:15</span>
+        <span class="mobile">2017-02-27 17:25</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/marked/">marked</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/markdown/">markdown</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/html/">html</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>937 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>前段时间玩了会儿hexo，发现用markdown写博客真的很爽，语法也十分的简介。</p>
+<p>于是打算将博客的富文本编辑器换成markdown。</p>
+<p>我这里是使用的marked</p>
+<blockquote>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>marked 是一个 JavaScript 编写的全功能 Markdown 解析和编译器。<br>marked 的目的是快速的编译超大块的Markdown文本而不必担心结果会出乎意料或者花费很长时间。<br>marked 最初是为 Node.JS编写，现在已完全兼容客户端浏览器。<br>新版本号称速度比C语言写的Markdown转换工具Discount 还要快。</p>
+</blockquote>
+<h3 id="1-安装marked"><a href="#1-安装marked" class="headerlink" title="1.安装marked"></a>1.安装marked</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install marked --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-引用"><a href="#2-引用" class="headerlink" title="2.引用"></a>2.引用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> marked = <span class="built_in">require</span>(<span class="string">&#x27;marked&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-转换为html"><a href="#3-转换为html" class="headerlink" title="3.转换为html"></a>3.转换为html</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="title function_">marked</span>(<span class="string">&#x27;### hello markdown&#x27;</span>) <span class="comment">// &lt;h3&gt;hello markdown&lt;/h3&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一些参数说明"><a href="#一些参数说明" class="headerlink" title="一些参数说明"></a>一些参数说明</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> marked = <span class="built_in">require</span>(<span class="string">&#x27;marked&#x27;</span>);</span><br><span class="line"></span><br><span class="line">marked.<span class="title function_">setOptions</span>(&#123;</span><br><span class="line">	<span class="attr">renderer</span>: <span class="keyword">new</span> marked.<span class="title class_">Renderer</span>(),</span><br><span class="line">	<span class="attr">gfm</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">tables</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">breaks</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="attr">pedantic</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="attr">sanitize</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">smartLists</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">smartypants</span>: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">marked</span>(<span class="string">&#x27;I am using __markdown__.&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-o, –output [output]: 指定输出文件，默认为当前控制台</li>
+<li>-i, –input [input]: 指定输入文件或最后一个参数，默认为当前控制台输入</li>
+<li>-t, –tokens: 输出token流代替HTML</li>
+<li>–pedantic: 只解析符合markdown.pl定义的，不修正markdown的错误</li>
+<li>–gfm: 启动Github样式的Markdown</li>
+<li>–breaks: 支持Github换行符，必须打开gfm选项</li>
+<li>–tables: 支持Github表格，必须打开gfm选项</li>
+<li>–sanitize: 原始输出，忽略HTML标签</li>
+<li>–smart-lists: 优化列表输出</li>
+<li>–lang-prefix [prefix]: 设置前置样式</li>
+<li>–no-etc: 选择的反正标识</li>
+<li>–silent: 不输出错误信息</li>
+<li>-h, –help: 帮助信息</li>
+</ul>
+<h3 id="4-marked防注入"><a href="#4-marked防注入" class="headerlink" title="4.marked防注入"></a>4.marked防注入</h3><p>如下MD被编译为HTML时，会执行script里的代码，弹出xss攻击</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="title function_">marked</span>(<span class="string">&#x27;&lt;script&gt;alert(&quot;xss攻击&quot;)&lt;/script&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>设置<em>sanitize</em>为ture，即可过滤到script标签</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">marked.<span class="title function_">setOptions</span>(&#123; <span class="attr">sanitize</span>: <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-自定义渲染"><a href="#5-自定义渲染" class="headerlink" title="5.自定义渲染"></a>5.自定义渲染</h3><p>自定义渲染选项允许你以自定义的方式渲染内容，并把之前的规则设置覆盖掉。</p>
+<p>块级标签支持以下渲染：</p>
+<ul>
+<li>code(string code, string language)</li>
+<li>blockquote(string quote)</li>
+<li>html(string html)</li>
+<li>heading(string text, number level)</li>
+<li>hr()</li>
+<li>list(string body, boolean ordered)</li>
+<li>listitem(string text)</li>
+<li>paragraph(string text)</li>
+<li>table(string header, string body)</li>
+<li>tablerow(string content)</li>
+<li>tablecell(string content, object flags)</li>
+</ul>
+<p>行级标签支持以下渲染：</p>
+<ul>
+<li>strong(string text)</li>
+<li>em(string text)</li>
+<li>codespan(string code)</li>
+<li>br()</li>
+<li>del(string text)</li>
+<li>link(string href, string title, string text)</li>
+<li>image(string href, string title, string text)</li>
+</ul>
+<h4 id="举一个栗子🌰："><a href="#举一个栗子🌰：" class="headerlink" title="举一个栗子🌰："></a>举一个栗子🌰：</h4><p>默认的渲染a标签为当前窗口打开，如果我想让它新窗口打开，可以如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var md = &#x27;[http://baidu.com](baidu.com &quot;百度&quot;)&#x27;</span><br><span class="line"></span><br><span class="line">// 默认的渲染结果</span><br><span class="line">var a = marked(a)</span><br><span class="line">// 得到的a为&lt;a href=&quot;http://baidu.com&quot; title=&quot;百度&quot;&gt;baidu.com&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">// 添加自定义渲染</span><br><span class="line">var rendererMD = new marked.Renderer()</span><br><span class="line"></span><br><span class="line">rendererMD.link = function (href, title, text) &#123;</span><br><span class="line">    return `&lt;a href=&quot;$&#123;href&#125;&quot; title=&quot;$&#123;title || text&#125;&quot; target=&quot;_blank&quot;&gt;$&#123;text&#125;&lt;/a&gt;`</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">marked.setOptions(&#123; renderer: rendererMD &#125;)</span><br><span class="line"></span><br><span class="line">var _blankA = marked(a)</span><br><span class="line">// 得到的_blankA为&lt;a href=&quot;http://baidu.com&quot; title=&quot;百度&quot; target=&quot;_blank&quot;&gt;baidu.com&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>不声明renderer时，默认为<em>new Renderer()</em></p>
+<h3 id="6-语法高亮"><a href="#6-语法高亮" class="headerlink" title="6.语法高亮"></a>6.语法高亮</h3><p>需要安装<em>highlight.js</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install highlight.js --save</span><br></pre></td></tr></table></figure>
+
+<p>设置语法高亮(为了正常显示，页面需要引入highlight.js的css)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const highlight = require(&#x27;highlight.js&#x27;)</span><br><span class="line"></span><br><span class="line">marked.setOptions(&#123;</span><br><span class="line">    highlight: function(code) &#123;</span><br><span class="line">        return highlight.highlightAuto(code).value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>以上！！！</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">使用marked解析markdown为html</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2017-02-27 17:25:15</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/6432.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/marked/">#marked</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/markdown/">#markdown</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/html/">#html</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/5ecf.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">如何解决内存泄漏引发的血案</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/8093.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">使用 .gitignore 忽略 Git 仓库中的文件</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85marked"><span class="nav-number">1.</span> <span class="nav-text">1.安装marked</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BC%95%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">2.引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BD%AC%E6%8D%A2%E4%B8%BAhtml"><span class="nav-number">3.</span> <span class="nav-text">3.转换为html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">4.</span> <span class="nav-text">一些参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-marked%E9%98%B2%E6%B3%A8%E5%85%A5"><span class="nav-number">5.</span> <span class="nav-text">4.marked防注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93"><span class="nav-number">6.</span> <span class="nav-text">5.自定义渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BE%E4%B8%80%E4%B8%AA%E6%A0%97%E5%AD%90%F0%9F%8C%B0%EF%BC%9A"><span class="nav-number">6.1.</span> <span class="nav-text">举一个栗子🌰：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE"><span class="nav-number">7.</span> <span class="nav-text">6.语法高亮</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

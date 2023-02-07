@@ -1,2 +1,699 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>「SF-LC」16 Auto | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">「SF-LC」16 Auto</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2021-03-28 00:00:00</span> <span class="mobile">2021-03-28 00:00</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">LF (逻辑基础)</a>&nbsp;</li><li>| <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">SF (软件基础)</a>&nbsp;</li><li>| <a href="/tags/Coq/">Coq</a>&nbsp;</li><li>| <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>751 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><ul><li><code>auto</code> - proof search</li><li><code>Ltac</code> - automated forward reasoning (hypothesis matching machinery)</li><li><code>eauto</code>, <code>eapply</code> - deferred instantiation of existentials</li></ul><h2 id="Ltac-macro"><a href="#Ltac-macro" class="headerlink" title="Ltac macro"></a><code>Ltac</code> macro</h2><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> inv H := <span class="built_in">inversion</span> H; <span class="built_in">subst</span>; <span class="built_in">clear</span> H.</span><br><span class="line"></span><br><span class="line"><span class="comment">(** later in the proof... **)</span></span><br><span class="line">inv H5.</span><br></pre></td></tr></table></figure><h2 id="The-auto-Tactic"><a href="#The-auto-Tactic" class="headerlink" title="The auto Tactic"></a>The <code>auto</code> Tactic</h2><blockquote><p><code>auto</code> can free us by <em>searching</em> for a sequence of applications that will prove the goal:</p></blockquote><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">intros</span> P Q R H1 H2 H3.</span><br><span class="line"><span class="built_in">apply</span> H2. <span class="built_in">apply</span> H1. <span class="built_in">assumption</span>.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">(** can be replaced by... **)</span></span><br><span class="line"><span class="built_in">auto</span>.</span><br></pre></td></tr></table></figure><p><code>auto</code> solves goals that are solvable by <em>any combination</em> of</p><ul><li><code>intros</code></li><li><code>apply</code> (of hypotheses from the <em>local</em> context, by default)</li></ul><blockquote><p>使用 auto 一定是“安全”的，它不会失败，也不会改变当前证明的状态： auto 要么完全解决它，要么什么也不做。</p></blockquote><blockquote><p>Proof search could, in principle, take an arbitrarily long time,<br>so there are limits to how far auto will search by default. (i.e. <code>5</code>)</p></blockquote><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Example</span> auto_example_3 : ∀(P Q R S T U: <span class="keyword">Prop</span>),</span><br><span class="line">  (P → Q) →</span><br><span class="line">  (Q → R) →</span><br><span class="line">  (R → S) →</span><br><span class="line">  (S → T) →</span><br><span class="line">  (T → U) →</span><br><span class="line">  P →</span><br><span class="line">  U.</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="comment">(* 当 auto 无法解决此目标时，它就什么也不做 *)</span></span><br><span class="line">  <span class="built_in">auto</span>.</span><br><span class="line">  <span class="comment">(* 可选的参数用来控制它的搜索深度（默认为 5）, 6 就刚好能解决了！ *)</span></span><br><span class="line">  <span class="built_in">auto</span> <span class="number">6.</span></span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure><h3 id="Hint-Database-提示数据库"><a href="#Hint-Database-提示数据库" class="headerlink" title="Hint Database 提示数据库"></a>Hint Database 提示数据库</h3><blockquote><p><code>auto</code> auto considers a <strong>hint database</strong> of other lemmas and constructors.<br>common lemmas about <em>equality</em> and <em>logical operators</em> are installed by default.</p></blockquote><blockquote><p>just for the purposes of one application of <code>auto</code><br>我们可以为某次 <code>auto</code> 的调用扩展提示数据库，<code>auto using ...</code></p></blockquote><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Example</span> auto_example_6 : ∀n m p : nat,</span><br><span class="line">  (n ≤ p → (n ≤ m ∧ m ≤ n)) →</span><br><span class="line">  n ≤ p →</span><br><span class="line">  n = m.</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="built_in">intros</span>.</span><br><span class="line">  <span class="built_in">auto</span> <span class="built_in">using</span> le_antisym.</span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure><h3 id="Global-Hint-Database-添加到全局提示数据库"><a href="#Global-Hint-Database-添加到全局提示数据库" class="headerlink" title="Global Hint Database 添加到全局提示数据库"></a>Global Hint Database 添加到全局提示数据库</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Hint</span> <span class="keyword">Resolve</span> T.          </span><br><span class="line"></span><br><span class="line"><span class="keyword">Hint</span> <span class="keyword">Constructors</span> c.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Hint</span> <span class="keyword">Unfold</span> d.</span><br></pre></td></tr></table></figure><h3 id="Proof-with-auto"><a href="#Proof-with-auto" class="headerlink" title="Proof with auto."></a><code>Proof with auto.</code></h3><p>Under <code>Proof with t</code>, <code>t1...</code> &#x3D;&#x3D; <code>t1; t</code>.</p><h2 id="Searching-For-Hypotheses"><a href="#Searching-For-Hypotheses" class="headerlink" title="Searching For Hypotheses"></a>Searching For Hypotheses</h2><p>对于很常见的一种矛盾情形：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">H1: beval st b = false</span><br><span class="line">H2: beval st b = true</span><br></pre></td></tr></table></figure><p><code>contradiction</code> 并不能解决，必须 <code>rewrite H1 in H2; inversion H2</code>.</p><ol><li>宏：</li></ol><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> rwinv H1 H2 := <span class="built_in">rewrite</span> H1 <span class="built_in">in</span> H2; inv H2.</span><br><span class="line"></span><br><span class="line"><span class="comment">(** later in the proof... **)</span></span><br><span class="line">rwinv H H2.</span><br></pre></td></tr></table></figure><ol start="2"><li><code>match goal</code> 调用宏</li></ol><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> find_rwinv :=</span><br><span class="line">  <span class="keyword">match</span> goal <span class="built_in">with</span></span><br><span class="line">    H1: ?E = true,</span><br><span class="line">    H2: ?E = false</span><br><span class="line">    ⊢ <span class="keyword">_</span> ⇒ rwinv H1 H2</span><br><span class="line">  <span class="keyword">end</span>.</span><br><span class="line">  </span><br><span class="line"><span class="comment">(** later in the proof... **)</span></span><br><span class="line"><span class="built_in">induction</span> E1; <span class="built_in">intros</span> st2 E2; inv E2; <span class="built_in">try</span> find_rwinv; <span class="built_in">auto</span>. <span class="comment">(** 直接解决所有矛盾 case **)</span></span><br><span class="line">- <span class="comment">(* E_Seq *)</span></span><br><span class="line">  <span class="built_in">rewrite</span> (IHE1_1 st&#x27;<span class="number">0</span> H1) <span class="built_in">in</span> *. <span class="built_in">auto</span>.</span><br><span class="line">- <span class="comment">(* E_WhileTrue *)</span></span><br><span class="line">  + <span class="comment">(* b 求值为 true *)</span></span><br><span class="line">    <span class="built_in">rewrite</span> (IHE1_1 st&#x27;<span class="number">0</span> H3) <span class="built_in">in</span> *. <span class="built_in">auto</span>. <span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure><p>可以看到最后只剩这种改写形式…我们也把他们自动化了：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> find_eqn :=</span><br><span class="line">  <span class="keyword">match</span> goal <span class="built_in">with</span></span><br><span class="line">    H1: ∀x, ?P x → ?L = ?R,</span><br><span class="line">    H2: ?P ?X</span><br><span class="line">    ⊢ <span class="keyword">_</span> ⇒ <span class="built_in">rewrite</span> (H1 X H2) <span class="built_in">in</span> *</span><br><span class="line">  <span class="keyword">end</span>.</span><br></pre></td></tr></table></figure><p>配合上 <code>repeat</code>…我们可以 keep doing useful rewrites until only trivial ones are left.<br>最终效果：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Theorem</span> ceval_deterministic&#x27;&#x27;&#x27;&#x27;&#x27;: ∀c st st1 st2,</span><br><span class="line">    st =[ c ]⇒ st1 →</span><br><span class="line">    st =[ c ]⇒ st2 →</span><br><span class="line">    st1 = st2.</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="built_in">intros</span> c st st1 st2 E1 E2.</span><br><span class="line">  <span class="built_in">generalize</span> <span class="built_in">dependent</span> st2;</span><br><span class="line">  <span class="built_in">induction</span> E1; <span class="built_in">intros</span> st2 E2; inv E2; </span><br><span class="line">    <span class="built_in">try</span> find_rwinv;</span><br><span class="line">    <span class="built_in">repeat</span> find_eqn; <span class="built_in">auto</span>.</span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure><p>即使我们给 IMP 加上一个 <code>CRepeat</code>（其实就是 <code>DO c WHILE b</code>)，<br>会发现颠倒一下自动化的顺序就能 work 了</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">induction</span> E1; <span class="built_in">intros</span> st2 E2; inv E2; </span><br><span class="line">  <span class="built_in">repeat</span> find_eqn; </span><br><span class="line">  <span class="built_in">try</span> find_rwinv; <span class="built_in">auto</span>.</span><br></pre></td></tr></table></figure><p>当然，这种「超级自动化」(hyper-automation) 并不总是现实，也不好调试…</p><h3 id="The-eapply-and-eauto-variants"><a href="#The-eapply-and-eauto-variants" class="headerlink" title="The eapply and eauto variants"></a>The <code>eapply</code> and <code>eauto</code> variants</h3><blockquote><p>推迟量词的实例化</p></blockquote><p>比如对于</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Example</span> ceval_example1:</span><br><span class="line">  empty_st =[</span><br><span class="line">    X ::= <span class="number">2</span>;;</span><br><span class="line">    TEST X ≤ <span class="number">1</span></span><br><span class="line">      THEN Y ::= <span class="number">3</span></span><br><span class="line">      ELSE Z ::= <span class="number">4</span></span><br><span class="line">    FI</span><br><span class="line">  ]⇒ (Z !-&gt; <span class="number">4</span> ; X !-&gt; <span class="number">2</span>).</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="comment">(* 我们补充了中间状态 st&#x27;... *)</span></span><br><span class="line">  <span class="built_in">apply</span> E_Seq <span class="built_in">with</span> (X !-&gt; <span class="number">2</span>).</span><br><span class="line">  - <span class="built_in">apply</span> E_Ass. <span class="built_in">reflexivity</span>.</span><br><span class="line">  - <span class="built_in">apply</span> E_IfFalse. <span class="built_in">reflexivity</span>. <span class="built_in">apply</span> E_Ass. <span class="built_in">reflexivity</span>.</span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure><p>没有 <code>with</code> 就会 <code>Error: Unable to find an instance for the variable st&#39;</code></p><p>但其实 <code>st&#39;</code> 的取值在后面的步骤是很明显（很好 infer&#x2F;unify）的，所以 <code>eapply</code> works.</p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">「SF-LC」16 Auto</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/fd2b.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">#LF (逻辑基础)</a>&nbsp;</li><li class="tag-item"><a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">#SF (软件基础)</a>&nbsp;</li><li class="tag-item"><a href="/tags/Coq/">#Coq</a>&nbsp;</li><li class="tag-item"><a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>&nbsp;</li></ul></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ltac-macro"><span class="nav-number">1.</span> <span class="nav-text">Ltac macro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-auto-Tactic"><span class="nav-number">2.</span> <span class="nav-text">The auto Tactic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hint-Database-%E6%8F%90%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">Hint Database 提示数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-Hint-Database-%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%85%A8%E5%B1%80%E6%8F%90%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.2.</span> <span class="nav-text">Global Hint Database 添加到全局提示数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-with-auto"><span class="nav-number">2.3.</span> <span class="nav-text">Proof with auto.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Searching-For-Hypotheses"><span class="nav-number">3.</span> <span class="nav-text">Searching For Hypotheses</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-eapply-and-eauto-variants"><span class="nav-number">3.1.</span> <span class="nav-text">The eapply and eauto variants</span></a></li></ol></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            「SF-LC」16 Auto |
+        
+        零域
+    </title><meta name="robots" content="noindex">
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">「SF-LC」16 Auto</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2021-03-28 00:00:00</span>
+        <span class="mobile">2021-03-28 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">LF (逻辑基础)</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">SF (软件基础)</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Coq/">Coq</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>751 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <ul>
+<li><code>auto</code> - proof search</li>
+<li><code>Ltac</code> - automated forward reasoning (hypothesis matching machinery)</li>
+<li><code>eauto</code>, <code>eapply</code> - deferred instantiation of existentials</li>
+</ul>
+<h2 id="Ltac-macro"><a href="#Ltac-macro" class="headerlink" title="Ltac macro"></a><code>Ltac</code> macro</h2><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> inv H := <span class="built_in">inversion</span> H; <span class="built_in">subst</span>; <span class="built_in">clear</span> H.</span><br><span class="line"></span><br><span class="line"><span class="comment">(** later in the proof... **)</span></span><br><span class="line">inv H5.</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="The-auto-Tactic"><a href="#The-auto-Tactic" class="headerlink" title="The auto Tactic"></a>The <code>auto</code> Tactic</h2><blockquote>
+<p><code>auto</code> can free us by <em>searching</em> for a sequence of applications that will prove the goal:</p>
+</blockquote>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">intros</span> P Q R H1 H2 H3.</span><br><span class="line"><span class="built_in">apply</span> H2. <span class="built_in">apply</span> H1. <span class="built_in">assumption</span>.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">(** can be replaced by... **)</span></span><br><span class="line"><span class="built_in">auto</span>.</span><br></pre></td></tr></table></figure>
+
+<p><code>auto</code> solves goals that are solvable by <em>any combination</em> of </p>
+<ul>
+<li><code>intros</code></li>
+<li><code>apply</code> (of hypotheses from the <em>local</em> context, by default)</li>
+</ul>
+<blockquote>
+<p>使用 auto 一定是“安全”的，它不会失败，也不会改变当前证明的状态： auto 要么完全解决它，要么什么也不做。</p>
+</blockquote>
+<blockquote>
+<p>Proof search could, in principle, take an arbitrarily long time,<br>so there are limits to how far auto will search by default.  (i.e. <code>5</code>)</p>
+</blockquote>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Example</span> auto_example_3 : ∀(P Q R S T U: <span class="keyword">Prop</span>),</span><br><span class="line">  (P → Q) →</span><br><span class="line">  (Q → R) →</span><br><span class="line">  (R → S) →</span><br><span class="line">  (S → T) →</span><br><span class="line">  (T → U) →</span><br><span class="line">  P →</span><br><span class="line">  U.</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="comment">(* 当 auto 无法解决此目标时，它就什么也不做 *)</span></span><br><span class="line">  <span class="built_in">auto</span>.</span><br><span class="line">  <span class="comment">(* 可选的参数用来控制它的搜索深度（默认为 5）, 6 就刚好能解决了！ *)</span></span><br><span class="line">  <span class="built_in">auto</span> <span class="number">6.</span></span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Hint-Database-提示数据库"><a href="#Hint-Database-提示数据库" class="headerlink" title="Hint Database 提示数据库"></a>Hint Database 提示数据库</h3><blockquote>
+<p><code>auto</code> auto considers a <strong>hint database</strong> of other lemmas and constructors.<br>common lemmas about <em>equality</em> and <em>logical operators</em> are installed by default.</p>
+</blockquote>
+<blockquote>
+<p>just for the purposes of one application of <code>auto</code><br>我们可以为某次 <code>auto</code> 的调用扩展提示数据库，<code>auto using ...</code> </p>
+</blockquote>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Example</span> auto_example_6 : ∀n m p : nat,</span><br><span class="line">  (n ≤ p → (n ≤ m ∧ m ≤ n)) →</span><br><span class="line">  n ≤ p →</span><br><span class="line">  n = m.</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="built_in">intros</span>.</span><br><span class="line">  <span class="built_in">auto</span> <span class="built_in">using</span> le_antisym.</span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Global-Hint-Database-添加到全局提示数据库"><a href="#Global-Hint-Database-添加到全局提示数据库" class="headerlink" title="Global Hint Database 添加到全局提示数据库"></a>Global Hint Database 添加到全局提示数据库</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Hint</span> <span class="keyword">Resolve</span> T.          </span><br><span class="line"></span><br><span class="line"><span class="keyword">Hint</span> <span class="keyword">Constructors</span> c.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Hint</span> <span class="keyword">Unfold</span> d.</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Proof-with-auto"><a href="#Proof-with-auto" class="headerlink" title="Proof with auto."></a><code>Proof with auto.</code></h3><p>Under <code>Proof with t</code>, <code>t1...</code> &#x3D;&#x3D; <code>t1; t</code>.</p>
+<h2 id="Searching-For-Hypotheses"><a href="#Searching-For-Hypotheses" class="headerlink" title="Searching For Hypotheses"></a>Searching For Hypotheses</h2><p>对于很常见的一种矛盾情形：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">H1: beval st b = false</span><br><span class="line">H2: beval st b = true</span><br></pre></td></tr></table></figure>
+
+<p><code>contradiction</code> 并不能解决，必须 <code>rewrite H1 in H2; inversion H2</code>.</p>
+<ol>
+<li>宏：</li>
+</ol>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> rwinv H1 H2 := <span class="built_in">rewrite</span> H1 <span class="built_in">in</span> H2; inv H2.</span><br><span class="line"></span><br><span class="line"><span class="comment">(** later in the proof... **)</span></span><br><span class="line">rwinv H H2.</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>match goal</code> 调用宏</li>
+</ol>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> find_rwinv :=</span><br><span class="line">  <span class="keyword">match</span> goal <span class="built_in">with</span></span><br><span class="line">    H1: ?E = true,</span><br><span class="line">    H2: ?E = false</span><br><span class="line">    ⊢ <span class="keyword">_</span> ⇒ rwinv H1 H2</span><br><span class="line">  <span class="keyword">end</span>.</span><br><span class="line">  </span><br><span class="line"><span class="comment">(** later in the proof... **)</span></span><br><span class="line"><span class="built_in">induction</span> E1; <span class="built_in">intros</span> st2 E2; inv E2; <span class="built_in">try</span> find_rwinv; <span class="built_in">auto</span>. <span class="comment">(** 直接解决所有矛盾 case **)</span></span><br><span class="line">- <span class="comment">(* E_Seq *)</span></span><br><span class="line">  <span class="built_in">rewrite</span> (IHE1_1 st&#x27;<span class="number">0</span> H1) <span class="built_in">in</span> *. <span class="built_in">auto</span>.</span><br><span class="line">- <span class="comment">(* E_WhileTrue *)</span></span><br><span class="line">  + <span class="comment">(* b 求值为 true *)</span></span><br><span class="line">    <span class="built_in">rewrite</span> (IHE1_1 st&#x27;<span class="number">0</span> H3) <span class="built_in">in</span> *. <span class="built_in">auto</span>. <span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure>
+
+<p>可以看到最后只剩这种改写形式…我们也把他们自动化了：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Ltac</span> find_eqn :=</span><br><span class="line">  <span class="keyword">match</span> goal <span class="built_in">with</span></span><br><span class="line">    H1: ∀x, ?P x → ?L = ?R,</span><br><span class="line">    H2: ?P ?X</span><br><span class="line">    ⊢ <span class="keyword">_</span> ⇒ <span class="built_in">rewrite</span> (H1 X H2) <span class="built_in">in</span> *</span><br><span class="line">  <span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
+
+<p>配合上 <code>repeat</code>…我们可以 keep doing useful rewrites until only trivial ones are left.<br>最终效果：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Theorem</span> ceval_deterministic&#x27;&#x27;&#x27;&#x27;&#x27;: ∀c st st1 st2,</span><br><span class="line">    st =[ c ]⇒ st1 →</span><br><span class="line">    st =[ c ]⇒ st2 →</span><br><span class="line">    st1 = st2.</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="built_in">intros</span> c st st1 st2 E1 E2.</span><br><span class="line">  <span class="built_in">generalize</span> <span class="built_in">dependent</span> st2;</span><br><span class="line">  <span class="built_in">induction</span> E1; <span class="built_in">intros</span> st2 E2; inv E2; </span><br><span class="line">    <span class="built_in">try</span> find_rwinv;</span><br><span class="line">    <span class="built_in">repeat</span> find_eqn; <span class="built_in">auto</span>.</span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure>
+
+<p>即使我们给 IMP 加上一个 <code>CRepeat</code>（其实就是 <code>DO c WHILE b</code>)，<br>会发现颠倒一下自动化的顺序就能 work 了</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">induction</span> E1; <span class="built_in">intros</span> st2 E2; inv E2; </span><br><span class="line">  <span class="built_in">repeat</span> find_eqn; </span><br><span class="line">  <span class="built_in">try</span> find_rwinv; <span class="built_in">auto</span>.</span><br></pre></td></tr></table></figure>
+
+<p>当然，这种「超级自动化」(hyper-automation) 并不总是现实，也不好调试…</p>
+<h3 id="The-eapply-and-eauto-variants"><a href="#The-eapply-and-eauto-variants" class="headerlink" title="The eapply and eauto variants"></a>The <code>eapply</code> and <code>eauto</code> variants</h3><blockquote>
+<p>推迟量词的实例化</p>
+</blockquote>
+<p>比如对于</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Example</span> ceval_example1:</span><br><span class="line">  empty_st =[</span><br><span class="line">    X ::= <span class="number">2</span>;;</span><br><span class="line">    TEST X ≤ <span class="number">1</span></span><br><span class="line">      THEN Y ::= <span class="number">3</span></span><br><span class="line">      ELSE Z ::= <span class="number">4</span></span><br><span class="line">    FI</span><br><span class="line">  ]⇒ (Z !-&gt; <span class="number">4</span> ; X !-&gt; <span class="number">2</span>).</span><br><span class="line"><span class="keyword">Proof</span>.</span><br><span class="line">  <span class="comment">(* 我们补充了中间状态 st&#x27;... *)</span></span><br><span class="line">  <span class="built_in">apply</span> E_Seq <span class="built_in">with</span> (X !-&gt; <span class="number">2</span>).</span><br><span class="line">  - <span class="built_in">apply</span> E_Ass. <span class="built_in">reflexivity</span>.</span><br><span class="line">  - <span class="built_in">apply</span> E_IfFalse. <span class="built_in">reflexivity</span>. <span class="built_in">apply</span> E_Ass. <span class="built_in">reflexivity</span>.</span><br><span class="line"><span class="keyword">Qed</span>.</span><br></pre></td></tr></table></figure>
+
+<p>没有 <code>with</code> 就会 <code>Error: Unable to find an instance for the variable st&#39;</code></p>
+<p>但其实 <code>st&#39;</code> 的取值在后面的步骤是很明显（很好 infer&#x2F;unify）的，所以 <code>eapply</code> works.</p>
+<!-- flag of hidden posts -->
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">「SF-LC」16 Auto</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/fd2b.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">#LF (逻辑基础)</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">#SF (软件基础)</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Coq/">#Coq</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ltac-macro"><span class="nav-number">1.</span> <span class="nav-text">Ltac macro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-auto-Tactic"><span class="nav-number">2.</span> <span class="nav-text">The auto Tactic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hint-Database-%E6%8F%90%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">Hint Database 提示数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-Hint-Database-%E6%B7%BB%E5%8A%A0%E5%88%B0%E5%85%A8%E5%B1%80%E6%8F%90%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.2.</span> <span class="nav-text">Global Hint Database 添加到全局提示数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-with-auto"><span class="nav-number">2.3.</span> <span class="nav-text">Proof with auto.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Searching-For-Hypotheses"><span class="nav-number">3.</span> <span class="nav-text">Searching For Hypotheses</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-eapply-and-eauto-variants"><span class="nav-number">3.1.</span> <span class="nav-text">The eapply and eauto variants</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

@@ -1,2 +1,759 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>UWP小书 - 样式的作用域以及资源 | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">UWP小书 - 样式的作用域以及资源</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2019-06-01 10:19:00</span> <span class="mobile">2019-06-01 10:19</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/UWP/">UWP</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/uwp/">uwp</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>2.4k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><p>:::tip<br>本章涉及知识点：</p><ul><li>样式的作用域</li><li>资源是什么</li><li>主题的切换<br>:::</li></ul><p>视频地址：<a class="link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/av54257809/">BiliBili<i class="fas fa-external-link-alt"></i></a></p><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上节课，我们讲述了基础的样式修改，以及公共样式的建立。</p><p>在上节课里，我要求大家将建立的Style放在<code>&lt;Page.Resources&gt;</code>标签中，为什么要放在这个标签里，我并未详加阐述。本节课，我们就要从这里入手，带你了解样式的作用域。</p><span id="more"></span><h2 id="样式的作用域"><a href="#样式的作用域" class="headerlink" title="样式的作用域"></a>样式的作用域</h2><p>样式，说穿了就是部分属性的集合。这个集合我们称之为样式。</p><p>写在控件内的，比如在<code>&lt;Button&gt;</code>标签内写<code>FontFamily</code>属性，这种即为行内样式。它只更改所属控件的样式。我们说它的作用域仅限于所属控件本身。</p><p>而如我们上节课做的，将样式抽离出来，放在<code>&lt;Page.Resources&gt;</code>中，所有引用该样式的控件都能应用样式。我们说它的作用域限于当前页面内的所有引用控件。</p><p>引用控件好说，为什么作用域仅限于当前页面呢？</p><p>注意我们放样式的地方：</p><p><code>Page.Resources</code></p><p>页面的资源。</p><p>这里你就应该明白了。将样式作为资源放到当前页面的资源列表中，可不就是只有当前页面才能引用吗？</p><p>当你新建了B页面，再想引用A页面定义的资源，那就引用不到了。</p><p>这就出现问题了。</p><p>如果我有一个按钮的样式，这个样式我打算应用到所有按钮上，是跨页面的。难道我每新建一个页面就要再写一次按钮样式吗？</p><p>不必。</p><p>那怎么办？</p><p><strong>扩大作用域</strong>。</p><p>应用是一个框，框里面有许多的页面，按照功能进行切换。那么页面的上一个层级是什么？</p><p>应用。</p><p>换句话说，我们只要将样式定义在应用这个层级上，那么凡是该应用下的页面都可以获取到，这一点是毫无疑问的。</p><p>问题是，怎么定义在应用层级上呢？</p><hr><p>新建应用的时候，VS提供了两个xaml文件，一个叫做MainPage.xaml，另一个叫App.xaml。MainPage是我们的主页，而App则代表了我们的应用。</p><p>让我们打开App.xaml。</p><p>现在的App.xaml中除了命名空间别无一物。不要紧，就像我们在Page中做的那样，先新建一个Resources标签，然后将我们Page中的Style移过来即可：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Style</span> <span class="attr">x:Key</span>=<span class="string">&quot;BasicButton&quot;</span> <span class="attr">TargetType</span>=<span class="string">&quot;Button&quot;</span>&gt;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">&quot;FontSize&quot;</span> <span class="attr">Value</span>=<span class="string">&quot;15&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="comment">&lt;!-- 输入其它样式属性 --&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">Style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Application.Resources</span>&gt;</span></span><br></pre></td></tr></table></figure><p>现在试一试，不管在哪个页面，所有的Button控件现在都可以引用这个样式了。</p><p>这就是我们所谈的作用域。</p><p>我们可以发现，样式的作用域很简单，层级也很少。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">控件 -- 页面 -- 应用</span><br></pre></td></tr></table></figure><p>就这么简单。</p><h2 id="谈谈资源"><a href="#谈谈资源" class="headerlink" title="谈谈资源"></a>谈谈资源</h2><p>不知你是否有留意，我们存放样式的标签为何叫Resources。</p><p>Resources是什么？是资源。</p><p>那么什么是资源呢？</p><p>大而化之，资源表示应用内的一切可引用的数据，比如图片、数据模板、样式文件、字体、颜色等等。</p><p>这些资源不是都放在Resources标签内的。比如Assets文件夹，这个文件夹存在的目的是为了放静态文件资源，比如图片，新建应用时，应用的Logo就放在这个文件夹里面。再比如我们常常看到一个应用，支持多语言，这些文本，也是资源，并不放在Resources标签中，这个我们后面也会讲到。</p><p>那么放在Resources标签里的有什么呢？</p><p>常见的，比如我们的样式，还有DataTemplate，我们称其为数据模板，这个后面会讲到。还有ControlTemplate，控件的模板，这个我们下节课会说明。</p><p>总的来说，资源是多种多样的。而且资源有一个特点，那就是事先就会被定义。</p><p>也就是说，在你引用这个资源之前，这个资源必须存在。</p><p>所以我们会用<code>StaticResource</code>作为关键词去引用我们定义好的资源。</p><p>但如果你之前有过预习，会发现除了<code>StaticResource</code>之外，还有一种资源的引用方式，叫做<code>ThemeResource</code>，这又是什么呢？</p><h2 id="主题资源"><a href="#主题资源" class="headerlink" title="主题资源"></a>主题资源</h2><p>谈到<code>ThemeResource</code>，就不得不提一下UWP的主题系统了。</p><p>从Windows 10的主题设置就可以看出来，Win10主要有两种主题，<code>Light</code>和<code>Dark</code>。除此之外还有一种高对比度主题，这里我们略过不表。</p><p>我们可以通俗地说一个是白昼主题，一个是黑夜主题。这里的主题不光会影响到系统，也会影响UWP应用。</p><p>不客气地说，作为一个UWP应用，适配这两种主题不是一个可选项，而是必选项。</p><p>为什么这么说？我们来看一个例子：</p><p>我显式设置MainPage的<code>Background</code>为白色，新建了一个TextBlock，只设置内容，不设置颜色，则其颜色为默认。</p><p><img lazyload alt="image" data-src="https://storage.live.com/items/51816931BAB0F7A8!13348?authkey=AO7QXpgYo7-5DUU" alt="1c1eeef3-9359-4c4b-bcdf-44131a5aa75f.png"></p><p>在Light主题下，没问题，工作得很正常。</p><p><img lazyload alt="image" data-src="https://storage.live.com/items/51816931BAB0F7A8!13349?authkey=AO7QXpgYo7-5DUU" alt="f13e7d64-2736-4be1-8ec1-343b690db7a8.png"></p><p>但是在Dark主题下，凉凉了，什么都看不见了。</p><p>是TextBlock消失了吗？</p><p>不是。</p><p>是TextBlock的前景色变成白色了，也就相当于隐形了。</p><p>为什么TextBlock的颜色会改变呢？</p><p>因为默认情况下，TextBlock的前景色是使用<code>ThemeResource</code>作为关键词的。</p><p>这个时候，ThemeResource的作用也就呼之欲出了。<strong>那就是根据主题的不同，切换不同的资源</strong>。</p><h2 id="如何建立主题资源"><a href="#如何建立主题资源" class="headerlink" title="如何建立主题资源"></a>如何建立主题资源</h2><p>前面我们说过，做一个UWP应用，就必须要对两种主题进行适配。那么我们如何建立两种主题所需要的资源呢？</p><p>这里我们就来简单地做一个按钮。这个按钮有一个特点，在Light主题中，它是红色的，在Dark主题中，是蓝色的。</p><p>如何做？</p><p>打开App.xaml，将之前写的Style代码删除，替换为下面的代码：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ResourceDictionary.ThemeDictionaries</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">x:Key</span>=<span class="string">&quot;Light&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">SolidColorBrush</span> <span class="attr">x:Key</span>=<span class="string">&quot;ButtonBackground&quot;</span> <span class="attr">Color</span>=<span class="string">&quot;Red&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">x:Key</span>=<span class="string">&quot;Dark&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">SolidColorBrush</span> <span class="attr">x:Key</span>=<span class="string">&quot;ButtonBackground&quot;</span> <span class="attr">Color</span>=<span class="string">&quot;Blue&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ResourceDictionary.ThemeDictionaries</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Application.Resources</span>&gt;</span></span><br></pre></td></tr></table></figure><p>我们来解释一下这段代码。</p><p>在Resource标签中，我们首先建立一个资源字典 <em>(Resource Dictionary)</em> 。Resource标签像个书架，那这个资源字典就是一本书。</p><p>在资源字典里面新建一个附属标签，叫主题字典 <em>(Theme Dictionaries)</em> 。这个主题字典就是我们需要的东西，这里存放和主题相关的资源。</p><p>有了容器还不够，我们还需要分类，我要标明哪些资源是Light主题的，哪些是Dark主题的。</p><p>于是我们又建立了两个资源字典，分别给了一个键，标识其是Light还是Dark。</p><p>到了这一步，我们已经完成了准备工作，建了两个容器，分别是Light和Dark，软件会识别主题名字，并针对性地应用资源。</p><p>这就意味着一件事，资源必须同名。</p><p>我们最终在控件里引用的时候，只是引用一个名字，那就要求这个名字在Light中有，在Dark中也有，所以，资源必须同名。</p><p>我们新建了两个纯色颜色笔刷的资源。这个颜色笔刷你可能是第一次接触到，不要慌，后面我们还会讲，毕竟颜色在设计里是占了很大比重的。</p><p>这里我们把它当作一个普通的样式来看待，命名，设置颜色，很简单，不要纠结。</p><p>至此，我们就完成了针对不同主题的资源定制。</p><p>回到我们的MainPage.xaml。</p><p>定义一个<code>&lt;Button&gt;</code>如下：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span> <span class="attr">Background</span>=<span class="string">&quot;&#123;ThemeResource ButtonBackground&#125;&quot;</span> <span class="attr">Content</span>=<span class="string">&quot;Click Me&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>注意这里的Background我们使用了<code>ThemeResource</code>进行定义，想要让资源随主题而变化，则必须使用<code>ThemeResource</code></p><p>现在。运行应用，在设置里切换主题看看吧，一切工作正常？恭喜你，完成了本节课的全部内容。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这节课，讲了一些资源定制的事情。包括作用域以及主题资源。</p><p>值得一提的是，在课程教授中，我们直接将样式写在了标签里面。看到这句话你可能不太明白，样式不写在标签里面还能写在哪？</p><p>在实际的应用开发中，我们会创建很多的资源。这些资源如果全部写在App.xaml标签中，那么整个App.xaml会非常的臃肿。这个时候，我们往往是通过创建资源字典文件的方式，将这些资源放在不同的文件之中，然后在App.xaml里通过路径去对其进行引用。</p><p>但原理不变。</p><p>如何创建资源字典文件，如何通过路径去引用。这里面也有门道，但你可以自己去查资料。这里暂且不表。</p><h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ol><li>StaicResource只引用一种资源，ThemeResource则可以对主题资源进行选择。那么在ThemeResource中定义的资源可以被StaticResource引用吗？如果可以，那么引用的是哪个资源？主题变化时，资源会有什么变化？</li><li>原本没有定义为主题资源的资源（比如上节课我们建立的Style），却被ThemeResource引用，会是什么结果？</li></ol><p>轉載來自 <a class="link" target="_blank" rel="noopener" href="https://blog.richasy.cn/">https://blog.richasy.cn/<i class="fas fa-external-link-alt"></i></a></p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">UWP小书 - 样式的作用域以及资源</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2019-06-01 10:19:00</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/9e40.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/uwp/">#uwp</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/b748.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">怀味泰州老街</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/6d43.html"><span class="title flex-center"><span class="post-nav-title-item">分享免费下载论文的网站</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.</span> <span class="nav-text">样式的作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E8%B5%84%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">谈谈资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%B5%84%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">主题资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E4%B8%BB%E9%A2%98%E8%B5%84%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">如何建立主题资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">思考</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            UWP小书 - 样式的作用域以及资源 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">UWP小书 - 样式的作用域以及资源</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2019-06-01 10:19:00</span>
+        <span class="mobile">2019-06-01 10:19</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/UWP/">UWP</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/uwp/">uwp</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>:::tip<br>本章涉及知识点：</p>
+<ul>
+<li>样式的作用域</li>
+<li>资源是什么</li>
+<li>主题的切换<br>:::</li>
+</ul>
+<p>视频地址：<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/av54257809/" >BiliBili<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上节课，我们讲述了基础的样式修改，以及公共样式的建立。</p>
+<p>在上节课里，我要求大家将建立的Style放在<code>&lt;Page.Resources&gt;</code>标签中，为什么要放在这个标签里，我并未详加阐述。本节课，我们就要从这里入手，带你了解样式的作用域。</p>
+<span id="more"></span>
+
+<h2 id="样式的作用域"><a href="#样式的作用域" class="headerlink" title="样式的作用域"></a>样式的作用域</h2><p>样式，说穿了就是部分属性的集合。这个集合我们称之为样式。</p>
+<p>写在控件内的，比如在<code>&lt;Button&gt;</code>标签内写<code>FontFamily</code>属性，这种即为行内样式。它只更改所属控件的样式。我们说它的作用域仅限于所属控件本身。</p>
+<p>而如我们上节课做的，将样式抽离出来，放在<code>&lt;Page.Resources&gt;</code>中，所有引用该样式的控件都能应用样式。我们说它的作用域限于当前页面内的所有引用控件。</p>
+<p>引用控件好说，为什么作用域仅限于当前页面呢？</p>
+<p>注意我们放样式的地方：</p>
+<p><code>Page.Resources</code></p>
+<p>页面的资源。</p>
+<p>这里你就应该明白了。将样式作为资源放到当前页面的资源列表中，可不就是只有当前页面才能引用吗？</p>
+<p>当你新建了B页面，再想引用A页面定义的资源，那就引用不到了。</p>
+<p>这就出现问题了。</p>
+<p>如果我有一个按钮的样式，这个样式我打算应用到所有按钮上，是跨页面的。难道我每新建一个页面就要再写一次按钮样式吗？</p>
+<p>不必。</p>
+<p>那怎么办？</p>
+<p><strong>扩大作用域</strong>。</p>
+<p>应用是一个框，框里面有许多的页面，按照功能进行切换。那么页面的上一个层级是什么？</p>
+<p>应用。</p>
+<p>换句话说，我们只要将样式定义在应用这个层级上，那么凡是该应用下的页面都可以获取到，这一点是毫无疑问的。</p>
+<p>问题是，怎么定义在应用层级上呢？</p>
+<hr>
+<p>新建应用的时候，VS提供了两个xaml文件，一个叫做MainPage.xaml，另一个叫App.xaml。MainPage是我们的主页，而App则代表了我们的应用。</p>
+<p>让我们打开App.xaml。</p>
+<p>现在的App.xaml中除了命名空间别无一物。不要紧，就像我们在Page中做的那样，先新建一个Resources标签，然后将我们Page中的Style移过来即可：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Style</span> <span class="attr">x:Key</span>=<span class="string">&quot;BasicButton&quot;</span> <span class="attr">TargetType</span>=<span class="string">&quot;Button&quot;</span>&gt;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">&quot;FontSize&quot;</span> <span class="attr">Value</span>=<span class="string">&quot;15&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="comment">&lt;!-- 输入其它样式属性 --&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">Style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Application.Resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>现在试一试，不管在哪个页面，所有的Button控件现在都可以引用这个样式了。</p>
+<p>这就是我们所谈的作用域。</p>
+<p>我们可以发现，样式的作用域很简单，层级也很少。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">控件 -- 页面 -- 应用</span><br></pre></td></tr></table></figure>
+
+<p>就这么简单。</p>
+<h2 id="谈谈资源"><a href="#谈谈资源" class="headerlink" title="谈谈资源"></a>谈谈资源</h2><p>不知你是否有留意，我们存放样式的标签为何叫Resources。</p>
+<p>Resources是什么？是资源。</p>
+<p>那么什么是资源呢？</p>
+<p>大而化之，资源表示应用内的一切可引用的数据，比如图片、数据模板、样式文件、字体、颜色等等。</p>
+<p>这些资源不是都放在Resources标签内的。比如Assets文件夹，这个文件夹存在的目的是为了放静态文件资源，比如图片，新建应用时，应用的Logo就放在这个文件夹里面。再比如我们常常看到一个应用，支持多语言，这些文本，也是资源，并不放在Resources标签中，这个我们后面也会讲到。</p>
+<p>那么放在Resources标签里的有什么呢？</p>
+<p>常见的，比如我们的样式，还有DataTemplate，我们称其为数据模板，这个后面会讲到。还有ControlTemplate，控件的模板，这个我们下节课会说明。</p>
+<p>总的来说，资源是多种多样的。而且资源有一个特点，那就是事先就会被定义。</p>
+<p>也就是说，在你引用这个资源之前，这个资源必须存在。</p>
+<p>所以我们会用<code>StaticResource</code>作为关键词去引用我们定义好的资源。</p>
+<p>但如果你之前有过预习，会发现除了<code>StaticResource</code>之外，还有一种资源的引用方式，叫做<code>ThemeResource</code>，这又是什么呢？</p>
+<h2 id="主题资源"><a href="#主题资源" class="headerlink" title="主题资源"></a>主题资源</h2><p>谈到<code>ThemeResource</code>，就不得不提一下UWP的主题系统了。</p>
+<p>从Windows 10的主题设置就可以看出来，Win10主要有两种主题，<code>Light</code>和<code>Dark</code>。除此之外还有一种高对比度主题，这里我们略过不表。</p>
+<p>我们可以通俗地说一个是白昼主题，一个是黑夜主题。这里的主题不光会影响到系统，也会影响UWP应用。</p>
+<p>不客气地说，作为一个UWP应用，适配这两种主题不是一个可选项，而是必选项。</p>
+<p>为什么这么说？我们来看一个例子：</p>
+<p>我显式设置MainPage的<code>Background</code>为白色，新建了一个TextBlock，只设置内容，不设置颜色，则其颜色为默认。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://storage.live.com/items/51816931BAB0F7A8!13348?authkey=AO7QXpgYo7-5DUU"
+                      alt="1c1eeef3-9359-4c4b-bcdf-44131a5aa75f.png"
+                ></p>
+<p>在Light主题下，没问题，工作得很正常。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://storage.live.com/items/51816931BAB0F7A8!13349?authkey=AO7QXpgYo7-5DUU"
+                      alt="f13e7d64-2736-4be1-8ec1-343b690db7a8.png"
+                ></p>
+<p>但是在Dark主题下，凉凉了，什么都看不见了。</p>
+<p>是TextBlock消失了吗？</p>
+<p>不是。</p>
+<p>是TextBlock的前景色变成白色了，也就相当于隐形了。</p>
+<p>为什么TextBlock的颜色会改变呢？</p>
+<p>因为默认情况下，TextBlock的前景色是使用<code>ThemeResource</code>作为关键词的。</p>
+<p>这个时候，ThemeResource的作用也就呼之欲出了。<strong>那就是根据主题的不同，切换不同的资源</strong>。</p>
+<h2 id="如何建立主题资源"><a href="#如何建立主题资源" class="headerlink" title="如何建立主题资源"></a>如何建立主题资源</h2><p>前面我们说过，做一个UWP应用，就必须要对两种主题进行适配。那么我们如何建立两种主题所需要的资源呢？</p>
+<p>这里我们就来简单地做一个按钮。这个按钮有一个特点，在Light主题中，它是红色的，在Dark主题中，是蓝色的。</p>
+<p>如何做？</p>
+<p>打开App.xaml，将之前写的Style代码删除，替换为下面的代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Application.Resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ResourceDictionary.ThemeDictionaries</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">x:Key</span>=<span class="string">&quot;Light&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">SolidColorBrush</span> <span class="attr">x:Key</span>=<span class="string">&quot;ButtonBackground&quot;</span> <span class="attr">Color</span>=<span class="string">&quot;Red&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">x:Key</span>=<span class="string">&quot;Dark&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">SolidColorBrush</span> <span class="attr">x:Key</span>=<span class="string">&quot;ButtonBackground&quot;</span> <span class="attr">Color</span>=<span class="string">&quot;Blue&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ResourceDictionary.ThemeDictionaries</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ResourceDictionary</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Application.Resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们来解释一下这段代码。</p>
+<p>在Resource标签中，我们首先建立一个资源字典 <em>(Resource Dictionary)</em> 。Resource标签像个书架，那这个资源字典就是一本书。</p>
+<p>在资源字典里面新建一个附属标签，叫主题字典 <em>(Theme Dictionaries)</em> 。这个主题字典就是我们需要的东西，这里存放和主题相关的资源。</p>
+<p>有了容器还不够，我们还需要分类，我要标明哪些资源是Light主题的，哪些是Dark主题的。</p>
+<p>于是我们又建立了两个资源字典，分别给了一个键，标识其是Light还是Dark。</p>
+<p>到了这一步，我们已经完成了准备工作，建了两个容器，分别是Light和Dark，软件会识别主题名字，并针对性地应用资源。</p>
+<p>这就意味着一件事，资源必须同名。</p>
+<p>我们最终在控件里引用的时候，只是引用一个名字，那就要求这个名字在Light中有，在Dark中也有，所以，资源必须同名。</p>
+<p>我们新建了两个纯色颜色笔刷的资源。这个颜色笔刷你可能是第一次接触到，不要慌，后面我们还会讲，毕竟颜色在设计里是占了很大比重的。</p>
+<p>这里我们把它当作一个普通的样式来看待，命名，设置颜色，很简单，不要纠结。</p>
+<p>至此，我们就完成了针对不同主题的资源定制。</p>
+<p>回到我们的MainPage.xaml。</p>
+<p>定义一个<code>&lt;Button&gt;</code>如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span> <span class="attr">Background</span>=<span class="string">&quot;&#123;ThemeResource ButtonBackground&#125;&quot;</span> <span class="attr">Content</span>=<span class="string">&quot;Click Me&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意这里的Background我们使用了<code>ThemeResource</code>进行定义，想要让资源随主题而变化，则必须使用<code>ThemeResource</code></p>
+<p>现在。运行应用，在设置里切换主题看看吧，一切工作正常？恭喜你，完成了本节课的全部内容。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这节课，讲了一些资源定制的事情。包括作用域以及主题资源。</p>
+<p>值得一提的是，在课程教授中，我们直接将样式写在了标签里面。看到这句话你可能不太明白，样式不写在标签里面还能写在哪？</p>
+<p>在实际的应用开发中，我们会创建很多的资源。这些资源如果全部写在App.xaml标签中，那么整个App.xaml会非常的臃肿。这个时候，我们往往是通过创建资源字典文件的方式，将这些资源放在不同的文件之中，然后在App.xaml里通过路径去对其进行引用。</p>
+<p>但原理不变。</p>
+<p>如何创建资源字典文件，如何通过路径去引用。这里面也有门道，但你可以自己去查资料。这里暂且不表。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ol>
+<li>StaicResource只引用一种资源，ThemeResource则可以对主题资源进行选择。那么在ThemeResource中定义的资源可以被StaticResource引用吗？如果可以，那么引用的是哪个资源？主题变化时，资源会有什么变化？</li>
+<li>原本没有定义为主题资源的资源（比如上节课我们建立的Style），却被ThemeResource引用，会是什么结果？</li>
+</ol>
+<p>轉載來自 <a class="link"   target="_blank" rel="noopener" href="https://blog.richasy.cn/" >https://blog.richasy.cn/<i class="fas fa-external-link-alt"></i></a></p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">UWP小书 - 样式的作用域以及资源</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2019-06-01 10:19:00</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/9e40.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/uwp/">#uwp</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/b748.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">怀味泰州老街</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/6d43.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">分享免费下载论文的网站</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">2.</span> <span class="nav-text">样式的作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E8%B5%84%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">谈谈资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%B5%84%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">主题资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E4%B8%BB%E9%A2%98%E8%B5%84%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">如何建立主题资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">思考</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

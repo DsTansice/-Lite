@@ -1,1 +1,1 @@
-var foreignTips=function(){function o(o){o.country.iso_code&&(o.country.iso_code.toLowerCase(),btf.snackbarShow("If you use Chinese network access, you will not be able to access articles and pictures."))}function n(o){}return function(){geoip2.country(o,n)}}();foreignTips();
+var foreignTips=function(){var o=function(o){if(o.country.iso_code){o.country.iso_code.toLowerCase();"cn"&&btf.snackbarShow("If you use Chinese network access, you will not be able to access articles and pictures.")}},n=function(o){};return function(){geoip2.country(o,n)}}();foreignTips();

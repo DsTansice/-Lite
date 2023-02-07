@@ -1,2 +1,834 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>【Django】Django ORM 学习笔记 | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">【Django】Django ORM 学习笔记</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2017-06-24 09:43:35</span> <span class="mobile">2017-06-24 09:43</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/Python/">Python</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;</li><li>| <a href="/tags/Django-ORM/">Django ORM</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>4.5k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>20 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ORM，即Object-Relational Mapping（对象关系映射），它的作用是在关系型数据库和业务实体对象之间作一个映射，这样，我们在具体的操作业务对象的时候，就不需要再去和复杂的SQL语句打交道，只需简单的操作对象的属性和方法。下面是一个示例。通过使用 ORM，我们只需要操作 Author 和 Blog 对象，而不用操作相关的数据库表。这里主要介绍一下 Django ORM 的相关使用。</p><span id="more"></span><p><img lazyload alt="image" data-src="/images/orm/orm-demo.png"></p><h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><p>使用 ORM 最大的优点就是快速开发，让我们将更多的精力放在业务上而不是数据库上，下面是 ORM 的几个优点</p><ul><li>隐藏了数据访问细节，使通用数据库交互变得简单易行。同时 ORM 避免了不规范、冗余、风格不统一的 SQL 语句，可以避免很多人为的 bug，方便编码风格的统一和后期维护。</li><li>将数据库表和对象模型关联，我们只需针对相关的对象模型进行编码，无须考虑对象模型和数据库表之间的转化，大大提高了程序的开发效率。</li><li>方便数据库的迁移。当需要迁移到新的数据库时，不需要修改对象模型，只需要修改数据库的配置。</li></ul><p>ORM 的最令人诟病的地方就是性能问题，不过现在已经提高了很多，下面是 ORM 的几个缺点</p><ul><li>性能问题<ul><li>自动化进行数据库关系的映射需要消耗系统资源</li><li>程序员编码</li><li>在处理多表联查、where 条件复杂的查询时，ORM 可能会生成的效率低下的 SQL</li><li>通过 Lazy load 和 Cache 很大程度上改善了性能问题</li></ul></li><li>SQL 调优，SQL 语句是由 ORM 框架自动生成，虽然减少了 SQL 语句错误的发生，但是也给 SQL 调优带来了困难。</li><li>越是功能强大的 ORM 越消耗内存，因为一个 ORM Object 会带有很多成员变量和成员函数。</li><li>对象和关系之间并不是完美映射</li></ul><p>一般来说 ORM 足以满足我们的需求，如果对性能要求特别高或者查询十分复杂，可以考虑使用原生 SQL 和 ORM 共用的方式</p><h1 id="Django-ORM"><a href="#Django-ORM" class="headerlink" title="Django ORM"></a>Django ORM</h1><p>在 Django 框架中集成了 ORM 模块，我们来看下具体的使用，部分内容会给出基于 MySQL 的 SQL 语句。</p><h2 id="Manager"><a href="#Manager" class="headerlink" title="Manager"></a>Manager</h2><p>在创建完 Model 对象之后，Django 会自动为其关联一个 Manager 对象，该对象是 Model 进行数据库操作的接口。默认的 Manager 对象名称为 objects，下面是使用 Manager 进行增删改查的一个示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">save_blog</span>():</span><br><span class="line">    <span class="comment"># 使用 get 检索数据时，如果数据不存在，会报 DoesNotExist 错误</span></span><br><span class="line">    <span class="comment"># 可以使用 Blog.objects.all().filter(id=1).first() 方法</span></span><br><span class="line">    author = Author.objects.get(<span class="built_in">id</span>=<span class="number">1</span>)</span><br><span class="line">    blog = Blog(title=<span class="string">&#x27;blog2&#x27;</span>, content=<span class="string">&#x27;blog2&#x27;</span>, author=author)</span><br><span class="line">    blog.save()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_blog</span>():</span><br><span class="line">    blog = Blog.objects.<span class="built_in">all</span>().get(<span class="built_in">id</span>=<span class="number">2</span>)</span><br><span class="line">    blog.title = <span class="string">&#x27;change_title&#x27;</span></span><br><span class="line">    blog.save()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_blog</span>():</span><br><span class="line">    blog = Blog.objects.<span class="built_in">all</span>().<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">2</span>).first()</span><br><span class="line">    <span class="keyword">if</span> blog <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        blog.delete()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_blog</span>():</span><br><span class="line">    blogs = Blog.objects.<span class="built_in">all</span>()</span><br><span class="line">    <span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">        <span class="built_in">print</span> blog</span><br></pre></td></tr></table></figure><p>我们可以自定义 Manager 的名称，如下所示：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>(models.Model):</span><br><span class="line">    <span class="comment">#...</span></span><br><span class="line">    people = models.Manager()</span><br><span class="line"></span><br><span class="line">Person.people.<span class="built_in">all</span>()</span><br></pre></td></tr></table></figure><p>同时我们也可以定义自己的 Manager，为 Manager 加上一些额外的功能，下面的示例会为 Author 添加上所写 Blog 数量信息：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AuthorManager</span>(models.Manager):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">with_blog_counts</span>(<span class="params">self, **kwargs</span>):</span><br><span class="line">        <span class="keyword">from</span> django.db <span class="keyword">import</span> connection</span><br><span class="line">        cursor = connection.cursor()</span><br><span class="line">        condition = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> kwargs.has_key(<span class="string">&#x27;id&#x27;</span>):</span><br><span class="line">            condition = <span class="string">&#x27;a.id = %s and &#x27;</span> % kwargs[<span class="string">&#x27;id&#x27;</span>]</span><br><span class="line">        query = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">            SELECT a.id, a.name, COUNT(b.id)</span></span><br><span class="line"><span class="string">            FROM orm_author a LEFT JOIN orm_blog b</span></span><br><span class="line"><span class="string">            ON a.id = b.author_id</span></span><br><span class="line"><span class="string">            WHERE %s TRUE</span></span><br><span class="line"><span class="string">            GROUP BY a.id</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span> % condition</span><br><span class="line"></span><br><span class="line">        cursor.execute(query)</span><br><span class="line">        result_list = []</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> cursor.fetchall():</span><br><span class="line">            author = self.model(<span class="built_in">id</span>=row[<span class="number">0</span>], name=row[<span class="number">1</span>])</span><br><span class="line">            author.blog_count = row[<span class="number">2</span>]</span><br><span class="line">            result_list.append(author)</span><br><span class="line">        <span class="keyword">return</span> result_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Author</span>(models.Model):</span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    objects = AuthorManager()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">authors = Author.objects.with_blog_counts(<span class="built_in">id</span>=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> author <span class="keyword">in</span> authors:</span><br><span class="line">        <span class="built_in">print</span> author.name, author.blog_count</span><br></pre></td></tr></table></figure><p>另外我们也可以为 Model 指定多个 Manager</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Author</span>(models.Model):</span><br><span class="line">    manager = models.Manager()</span><br><span class="line">    manager2 = AuthorManager()</span><br></pre></td></tr></table></figure><h2 id="QuerySet"><a href="#QuerySet" class="headerlink" title="QuerySet"></a>QuerySet</h2><p>从数据库中查询出来的结果一般是一个集合，这个集合称为 QuerySet。QuerySet 有两种来源：通过 Manager 的方法获取、通过 QuerySet 自身的方法获得。Manager 的查询方法和 QuerySet 的方法大部分同名、同意（Manager的就是基于 QuerySet 的实现的），例如 filter, exclude等，但两者也有不同的方法，例如 Manager 的 create、get_or_create，QuerySet 的 delete 等。</p><h3 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h3><p>下面是 QuerySet (也是 Manager的)的几个基本的查询方法</p><ul><li>all() - 获得数据库中所有实例的一个 QuerySet<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.<span class="built_in">all</span>()</span><br><span class="line"><span class="comment"># 对应SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog`()</span></span><br></pre></td></tr></table></figure></li><li>filter(**kwargs) - 返回满足查询条件的 QuerySet<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.<span class="built_in">filter</span>(title=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line"><span class="comment"># 对应 SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`, `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`title` = &#x27;blog2&#x27;</span></span><br></pre></td></tr></table></figure></li><li>exclude(**kwargs) - 获得不满足查询条件的 QuerySet<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.exclude(title=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line"><span class="comment"># 对应 SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE NOT (`orm_blog`.`title` = &#x27;blog2&#x27;)</span></span><br></pre></td></tr></table></figure></li><li>get(**kwargs) — 从数据库中获得一个匹配的结果（一个实例），如果没有匹配结果或者匹配结果大于一个都会报错</li></ul><h3 id="字段查询"><a href="#字段查询" class="headerlink" title="字段查询"></a>字段查询</h3><p>在前面的 filter、exclude 和 get 方法中，我们需要传入参数作为选择条件: <code>title=&#39;blog2&#39;</code>，这个就是字段查询。字段查询的格式如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">field__lookuptype=value <span class="comment"># 中间是两个下划线</span></span><br></pre></td></tr></table></figure><p>lookuptype 的类型有下面几种</p><ul><li>exact 精确匹配，默认的 lookup type。上面的 <code>title=&#39;blog2&#39;</code> 就相当于 <code>title__exact=&#39;blog2&#39;</code></li><li>gt : 大于</li><li>gte : 大于等于</li><li>lt : 小于</li><li>lte :小于等于</li><li>in : in</li><li>contains : 包含，区分大小写 - <code>a LIKE BINARY &#39;%b%&#39;</code></li><li>icontains : 包含，不区分大小写 - <code>a LIKE &#39;%b%&#39;</code></li><li>iexact : 大小写不敏感的精确匹配 - <code>a LIKE &#39;b&#39;</code></li><li>startswith : 匹配开头，区分大小写 - <code>a LIKE BINARY &#39;b%&#39;</code></li><li>istartswith : 匹配开头，不区分大小写 - <code>a LIKE &#39;b%&#39;</code></li><li>endswith : 匹配结尾，区分大小写 - <code>a LIKE BINARY &#39;%b&#39;</code></li><li>iendswith : 匹配结尾，不区分大小写 - <code>a LIKE &#39;%b&#39;</code></li></ul><p>我们还可以进行关联查询，下面的例子是查询所有 author name 为 zjk 的 blog，</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(author__name=<span class="string">&#x27;zjk&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`, `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` INNER JOIN `orm_author` ON (`orm_blog`.`author_id` = `orm_author`.`id`)</span></span><br><span class="line"><span class="comment"># WHERE `orm_author`.`name` = &#x27;zjk&#x27;</span></span><br></pre></td></tr></table></figure><h3 id="限制-QuerySet"><a href="#限制-QuerySet" class="headerlink" title="限制 QuerySet"></a>限制 QuerySet</h3><p>有时候我们并不需要获取查询集的全部数据，而只需要一个子集，一个常见的场景就是进行分页查询。使用 Python 的切片语法可以限制 QuerySet 的实例数量，ORM 会将翻译成 SQL 的 LIMIT 和 OFFSET 子句，下面是几个例子：</p><ul><li>放回 QuerySet 的前 5 个元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()[:<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL：</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 5</span></span><br></pre></td></tr></table></figure></li><li>返回 QuerySet 的第 6-10 个元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()[<span class="number">5</span>:<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 5 OFFSET 5</span></span><br></pre></td></tr></table></figure></li><li>使用切片的 step 参数，下面代码返回第 1、3、5、7、9 个元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()[:<span class="number">10</span>:<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 10</span></span><br></pre></td></tr></table></figure></li><li>如果只要访问一个元素，可以直接用索引来访问：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blog = Blog.objects.<span class="built_in">all</span>()[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 1 OFFSET 2</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="Lazy-load"><a href="#Lazy-load" class="headerlink" title="Lazy load"></a>Lazy load</h3><p>QuerySet 是惰性加载的，创建查询集不会访问数据库，只有查询集需要求值时，才会真正运行这个查询。在下面的例子中只有执行 <code>print q</code> 才会真正的去查询数据库。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">q = Blog.objects.<span class="built_in">filter</span>(title=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line">q = q.<span class="built_in">filter</span>(content=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line">q = q.exclude(<span class="built_in">id</span>=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 执行下面的语句才会真正访问数据库</span></span><br><span class="line"><span class="built_in">print</span> q</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content` FROM `orm_blog`</span></span><br><span class="line"><span class="comment"># WHERE (`orm_blog`.`title` = &#x27;blog2&#x27; AND `orm_blog`.`content` = &#x27;blog2&#x27; AND NOT (`orm_blog`.`id` = 3)) LIMIT 21</span></span><br></pre></td></tr></table></figure><p>关联对象也是惰性加载，只有用到了关联对象的值才会访问数据库</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">blog = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">3</span>).first()</span><br><span class="line"><span class="built_in">print</span> blog.title</span><br><span class="line"><span class="comment"># 只有执行下面的语句才会访问数据库获取 author 的值，也就是执行第二条 SQL</span></span><br><span class="line"><span class="built_in">print</span> blog.author.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`id` = 3 ORDER BY `orm_blog`.`id` ASC LIMIT 1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author` WHERE `orm_author`.`id` = 1</span></span><br></pre></td></tr></table></figure><p>一般来说只要用到了 QuerySet 以及里面对象的信息，就会访问数据库。下面是文档中给出的几种会对查询集求值的情况：</p><ul><li>迭代：在首次迭代查询集时会执行数据库查询</li><li>切片(限制查询集)：对查询集执行切片操作时，指定 step 参数</li><li>序列化／缓存</li><li>repr：对查询集调用 repr 函数</li><li>len：对查询集调用 len 函数</li><li>list: 对查询集调用 list() 方法强制求值</li><li>bool:测试一个查询集的布尔值，例如使用bool(), or, and 或者 if 语句都将导致查询集的求值</li></ul><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>每个 QuerySet 都包含一个缓存来最小化对数据库的访问，下面是一个示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面代码会访问两次数据库</span></span><br><span class="line"><span class="built_in">print</span> [blog.title <span class="keyword">for</span> blog <span class="keyword">in</span> Blog.objects.<span class="built_in">all</span>()]</span><br><span class="line"><span class="built_in">print</span> [blog.content <span class="keyword">for</span> blog <span class="keyword">in</span> Blog.objects.<span class="built_in">all</span>()]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面代码只会访问一次数据库</span></span><br><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()</span><br><span class="line"><span class="built_in">print</span> [blog.title <span class="keyword">for</span> blog <span class="keyword">in</span> blogs]</span><br><span class="line"><span class="built_in">print</span> [blog.content <span class="keyword">for</span> blog <span class="keyword">in</span> blogs]</span><br></pre></td></tr></table></figure><p>在一个新的 QuerySet 中，缓存为空。当首次对 QuerySet 的所有实例进行求值时，会将查询结果保存到 QuerySet 的缓冲中。当再访问该 QuerySet 时，会直接从缓冲中取数据。下面是一个示意图：</p><p><img lazyload alt="image" data-src="/images/orm/orm-cache.png"></p><p>如果只对 QuerySet 的部分实例（query_set[5], query_set[0:10]）进行求值，首先会到 QuerySet 的缓冲中查找是否已经缓存了这些实例，如果有就使用缓存值，如果没有就查询数据库，但是<strong>不会将查询结果保存到缓冲中</strong>。如下图所示：</p><p><img lazyload alt="image" data-src="/images/orm/orm-demo2.png"></p><p>如果 QuerySet 数量很大不希望被缓存，遍历时使用 iterator 方法:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs.iterator():</span><br><span class="line">    <span class="built_in">print</span> blog.title</span><br></pre></td></tr></table></figure><h3 id="关联查询"><a href="#关联查询" class="headerlink" title="关联查询"></a>关联查询</h3><p>在讲关联查询之前，首先看一下下面的一个示例。我们前面提到，关联实例是惰性加载的，因此对于下面的代码，每次 for 循环都要访问一次数据库，会严重影响性能。因此我们需要一次将 blog 以及 author 的信息全部取出来，这就是我们马上要讲的关联查询。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> Blog.objects.<span class="built_in">all</span>():</span><br><span class="line">    <span class="built_in">print</span> blog.title, blog.author.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content` FROM `orm_blog`</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author` WHERE `orm_author`.`id` = 1</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author` WHERE `orm_author`.`id` = 1.</span></span><br><span class="line"><span class="comment"># . . . . . .</span></span><br></pre></td></tr></table></figure><p>关联查询就是在查询当前实例的同时，把其关联的实例数据也一块取出来。在下图中 orm_blog 通过一个外键和 orm_author 关联。关联大体上可以分为两种：</p><ul><li>只有一个关联实例： 外键关联中包含外键的表、OneToOneField，例如下图中的 orm_blog 只与一个 orm_author 的实例关联</li><li>有多个关联实例：外键关联中不含外键的表、ManyToManyField，例如下图中的 orm_author 就与多个 orm_blog 实例关联</li></ul><p>因此 Django ORM 中的关联查询也分两中 select_related(单关联实例) 和 prefetch_related(多关联实例)<br><img lazyload alt="image" data-src="/images/orm/relation.png"></p><h4 id="select-related"><a href="#select-related" class="headerlink" title="select_related"></a>select_related</h4><p>select_related 用来处理单关联实例的情况，适用于 ForeignKey 和 OneToOneField。在查询时，会对关联的表进行 join 操作，取出全部的信息，下面是一个示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">blog = Blog.objects.select_related().<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">3</span>).first()</span><br><span class="line"><span class="built_in">print</span> blog.<span class="built_in">id</span>, blog.author.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`,  `orm_author`.`id`,  `orm_author`.`name`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` INNER JOIN `orm_author` ON (`orm_blog`.`author_id` = `orm_author`.`id`)</span></span><br><span class="line"><span class="comment"># WHERE `orm_blog`.`id` = 3 ORDER BY `orm_blog`.`id` ASC LIMIT 1</span></span><br></pre></td></tr></table></figure><p>下面是一个示意图：</p><p><img lazyload alt="image" data-src="/images/orm/select.png"></p><p>select_related 会沿着外键递归查询，例如上图中取表 1 的实例时，会沿着外键将表 3 的数据一块取出来。我们可以传入 depth 参数来指定递归的深度。</p><p>如果需要清除 QuerySet 上以前的 select_related 添加的关联字段，可以传入 None 做参数</p><h4 id="prefetch-related"><a href="#prefetch-related" class="headerlink" title="prefetch_related"></a>prefetch_related</h4><p>prefetch_related 主要适用于 OneTwoMany 和 ManyToManyField。和 select_related 类似，prefetch_related 在查询时会同时取出关联实例的值。与 select_related 不同的是 prefetch_related 不使用 JOIN 方式来查询数据库，而是分别查每个表，最后使用 Python 来实现 JOIN 操作。下面是一个示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">author = Author.objects.prefetch_related(<span class="string">&#x27;blog_set&#x27;</span>).<span class="built_in">filter</span>(name=<span class="string">&#x27;zjk&#x27;</span>).first()</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> author.blog_set.<span class="built_in">all</span>():</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author`</span></span><br><span class="line"><span class="comment"># WHERE `orm_author`.`name` = &#x27;zjk&#x27; ORDER BY `orm_author`.`id` ASC LIMIT 1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`author_id` IN (1)</span></span><br></pre></td></tr></table></figure><p>下面是一个示意图：</p><p><img lazyload alt="image" data-src="/images/orm/prefetch.png"></p><p>如果查询出关联对象的 QuerySet 之后，再对该 QuerySet 执行查询条件，会使该 QuerySet 失效（也就是需要再次访问数据库）。如果在查询关联对象时需要使用查询条件，可以使用 Prefetch 对象，下面是一个示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Prefetch</span><br><span class="line"></span><br><span class="line">authors = Author.objects.prefetch_related(Prefetch(</span><br><span class="line">    <span class="string">&#x27;blog_set&#x27;</span>, queryset=Blog.objects.<span class="built_in">filter</span>(title=<span class="string">&#x27;blog2&#x27;</span>), to_attr=<span class="string">&#x27;blogs&#x27;</span></span><br><span class="line">))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> author <span class="keyword">in</span> authors:</span><br><span class="line">    <span class="built_in">print</span> author.blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author`</span></span><br><span class="line"><span class="comment">#     </span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE (`orm_blog`.`title` = &#x27;blog2&#x27; AND `orm_blog`.`author_id` IN (1,  2))</span></span><br></pre></td></tr></table></figure><h3 id="Q-查询"><a href="#Q-查询" class="headerlink" title="Q 查询"></a>Q 查询</h3><p>在前面所讲的 filter 和 exclude 方法，对于传入的查询条件都是执行的 AND 操作，如果我们需要对查询条件执行 OR 操作，例如查询 blog 表中 title&#x3D;‘blog1’ 或者 title&#x3D;‘blog2’ 的实例，就需要用到 Q 查询。Q 查询支持使用 |、&amp;、~ 操作符，分别对象查询条件的 OR、AND 和 NOT 操作。下面是一个示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Q</span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(Q(<span class="built_in">id</span>=<span class="number">10</span>) | Q(title=<span class="string">&#x27;blog2&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE (`orm_blog`.`id` = 10 OR `orm_blog`.`title` = ‘blog2&#x27;)</span></span><br></pre></td></tr></table></figure><h3 id="F-查询"><a href="#F-查询" class="headerlink" title="F 查询"></a>F 查询</h3><p>F 查询主要用来处理表中字段之间的比较，例如查询 blog 表中 title&#x3D;conent 的记录。同时 F 查询还支持计算（加减乘除）。下面是一个示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> F</span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(title=F(<span class="string">&#x27;content&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`title` = (`orm_blog`.`content`)</span></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(title=F(<span class="string">&#x27;content&#x27;</span>)+<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL：</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`title` = ((`orm_blog`.`content` + 2))</span></span><br></pre></td></tr></table></figure><h3 id="values-和-values-list"><a href="#values-和-values-list" class="headerlink" title="values 和 values_list"></a>values 和 values_list</h3><p>有些时候我们不需要获取实例中所有的数据，而只需要获得几个字段的数据即可，使用 values 和 values_list 可以指定检索的字段。values 会返回一个 dict 数组，而 values_list 会返回 list 数组。下面是一个例子：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>).values(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;QuerySet [&#123;u&#x27;title&#x27;: u’blog2&#x27;&#125;]&gt;</span></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>).values_list(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;QuerySet [(u’blog2&#x27;,)]&gt;</span></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>).values_list(<span class="string">&#x27;title&#x27;</span>, flat=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span> blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;QuerySet [u’blog2&#x27;]&gt;</span></span><br></pre></td></tr></table></figure><h3 id="aggregate-和-annotate"><a href="#aggregate-和-annotate" class="headerlink" title="aggregate 和 annotate"></a>aggregate 和 annotate</h3><p>通过 aggregate 和 annotate 可以使用 SQL 的聚合函数，例如 SUM、COUNT、MIN 等。aggregate: 针对所有记录调用聚合函数，返回一个 dict 对象，下面是使用示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Min</span><br><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Sum</span><br><span class="line"></span><br><span class="line">result = Blog.objects.aggregate(Min(<span class="string">&#x27;id&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;u&#x27;id__min&#x27;: 3L&#125;</span></span><br><span class="line"><span class="comment"># SELECT MIN(`orm_blog`.`id`) AS `id__min` FROM `orm_blog`</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义属性名</span></span><br><span class="line">result = Blog.objects.aggregate(total=Sum(<span class="string">&#x27;id&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;&#x27;total&#x27;: Decimal(‘657&#x27;)&#125;</span></span><br><span class="line"><span class="comment"># SELECT SUM(`orm_blog`.`id`) AS `total` FROM `orm_blog</span></span><br></pre></td></tr></table></figure><p>annotate 先使用 groupby 分组，然后对于每组再调用聚合函数，返回 QuerySet 对象。 annotate 默认按照 id 进行分组，如果需要按其他字段分组，要结合 values ／values_list 方法。下面是使用示例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#认按照 id 进行分组</span></span><br><span class="line">blogs = Blog.objects.annotate(Count(<span class="string">&#x27;title&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog.title__count</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`,  </span></span><br><span class="line"><span class="comment"># COUNT(`orm_blog`.`title`) AS `title__count` FROM `orm_blog` GROUP BY `orm_blog`.`id` ORDER BY NULL</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 values 方法，会按照 values 中传入的属性分组</span></span><br><span class="line">blogs = Blog.objects.values(<span class="string">&#x27;title&#x27;</span>).annotate(Count(<span class="string">&#x27;title&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">   <span class="built_in">print</span> blog[<span class="string">&#x27;title__count&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`title`,  COUNT(`orm_blog`.`title`) AS `title__count` FROM `orm_blog`</span></span><br><span class="line"><span class="comment"># GROUP BY `orm_blog`.`title` ORDER BY NULL</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.values(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;content&#x27;</span>).annotate(Count(<span class="string">&#x27;title&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">   <span class="built_in">print</span> blog[<span class="string">&#x27;title__count&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`title`,  `orm_blog`.`content`,  COUNT(`orm_blog`.`title`) AS `title__count`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` GROUP BY `orm_blog`.`title`,  `orm_blog`.`content` ORDER BY NULL</span></span><br></pre></td></tr></table></figure><p>下图是 aggregate 和 annotate 的比较：</p><p><img lazyload alt="image" data-src="/images/orm/agg.png"></p><h3 id="extra"><a href="#extra" class="headerlink" title="extra"></a>extra</h3><p>如何一些查询比较复杂可以考虑使用 extra 方法。extra 能在 ORM 生成的 SQL 子句中注入 SQL 代码，语法格式如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 至少保证一个参数不为空</span></span><br><span class="line">extra(select=<span class="literal">None</span>, where=<span class="literal">None</span>, params=<span class="literal">None</span>, tables=<span class="literal">None</span>, order_by=<span class="literal">None</span>, select_params=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure><ul><li>select：在 select 子句中插入 SQL 代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(select=&#123;</span><br><span class="line">    <span class="string">&#x27;is_one&#x27;</span>: ‘<span class="built_in">id</span>=<span class="number">5</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string"># SELECT (id=5) AS `is_one`,  `orm_blog`.`id`. . . . .</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">authors = Author.objects.extra(</span></span><br><span class="line"><span class="string">    select=&#123;</span></span><br><span class="line"><span class="string">        &#x27;</span>blog_count<span class="string">&#x27; : &#x27;</span>select count(*) <span class="keyword">from</span> orm_blog where orm_blog.author_id = orm_author.<span class="built_in">id</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"># SELECT (select count(*) from orm_blog where orm_blog.author_id = orm_author.id) AS `blog_count` . . .</span></span><br></pre></td></tr></table></figure></li><li>select_params: 设置 select 参数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    select=&#123;</span><br><span class="line">        <span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;%s&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    select_params=(‘<span class="built_in">id</span>=<span class="number">1</span><span class="string">&#x27;,)</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"># SELECT (&#x27;</span><span class="built_in">id</span>=<span class="number">1</span><span class="string">&#x27;) AS `a` . . . . .</span></span><br></pre></td></tr></table></figure></li><li>where: 在 where 子句中插入 SQL 代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    where=[<span class="string">&#x27;id=4 or id=5&#x27;</span>]</span><br><span class="line">)</span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` WHERE (id=4 or id=5)</span></span><br></pre></td></tr></table></figure></li><li>params: 为 where 设置参数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    where=[<span class="string">&#x27;id=%s&#x27;</span>],</span><br><span class="line">    params=(<span class="number">1</span>,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` WHERE (id=1)</span></span><br></pre></td></tr></table></figure></li><li>tables: 在 FROM 子句中插入 table 名称<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    tables=[<span class="string">&#x27;orm_author&#x27;</span>, <span class="string">&#x27;auth_group&#x27;</span>]</span><br><span class="line">)</span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` ,  `orm_author` ,  `auth_group`</span></span><br></pre></td></tr></table></figure></li><li>order_by：在 order_by 子句中插入排序字段<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># - 表示倒序</span></span><br><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    order_by=[<span class="string">&#x27;-id&#x27;</span>, <span class="string">&#x27;title&#x27;</span>]</span><br><span class="line">)</span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` ORDER BY `orm_blog`.`id` DESC,  `orm_blog`.`title` ASC</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="原始-SQL-查询"><a href="#原始-SQL-查询" class="headerlink" title="原始 SQL 查询"></a>原始 SQL 查询</h3><p>使用 Manager 的 raw 方法可以用于原始的 SQL 查询，并返回 Model 的实例：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.raw(<span class="string">&#x27;select * from orm_blog&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog.<span class="built_in">id</span> , blog.title</span><br></pre></td></tr></table></figure><p>如果 SQL 中没有获取某个字段，那么会惰性加载该字段</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 没有取 title，在后面使用时会访问数据库</span></span><br><span class="line">blogs = Blog.objects.raw(<span class="string">&#x27;select id from orm_blog&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog.<span class="built_in">id</span></span><br><span class="line">    <span class="built_in">print</span> blog.title</span><br><span class="line"></span><br><span class="line"><span class="comment"># select id from orm_blog</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`title` FROM `orm_blog` WHERE `orm_blog`.`id` = 3</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`title` FROM `orm_blog` WHERE `orm_blog`.`id` = 4</span></span><br><span class="line"><span class="comment">#. . . .</span></span><br></pre></td></tr></table></figure><h3 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h3><ul><li>如果只需要判断实例是否存在，使用 exists 更高效<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>)</span><br><span class="line"><span class="keyword">if</span> blogs.exists():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;record exist’</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># SELECT (1) AS `a` FROM `orm_blog` WHERE `orm_blog`.`id` = 5 LIMIT 1</span></span><br></pre></td></tr></table></figure></li><li>如果只需要得到实例的数量，使用 count 函数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span> blogs.count()</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT COUNT(*) AS `__count` FROM `orm_blog` WHERE `orm_blog`.`id` = 5</span></span><br></pre></td></tr></table></figure></li></ul></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">【Django】Django ORM 学习笔记</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2017-06-24 09:43:35</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/ff0b.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;</li><li class="tag-item"><a href="/tags/Django-ORM/">#Django ORM</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/6b7f.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">技巧与工具04-python控制鼠标自动化点击脚本</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/cae6.html"><span class="title flex-center"><span class="post-nav-title-item">iOS 接入 Strava 分享模块（上篇：FitSDK）</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Django-ORM"><span class="nav-number">3.</span> <span class="nav-text">Django ORM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Manager"><span class="nav-number">3.1.</span> <span class="nav-text">Manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QuerySet"><span class="nav-number">3.2.</span> <span class="nav-text">QuerySet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.1.</span> <span class="nav-text">基本查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.2.</span> <span class="nav-text">字段查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E5%88%B6-QuerySet"><span class="nav-number">3.2.3.</span> <span class="nav-text">限制 QuerySet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lazy-load"><span class="nav-number">3.2.4.</span> <span class="nav-text">Lazy load</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98"><span class="nav-number">3.2.5.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.6.</span> <span class="nav-text">关联查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#select-related"><span class="nav-number">3.2.6.1.</span> <span class="nav-text">select_related</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prefetch-related"><span class="nav-number">3.2.6.2.</span> <span class="nav-text">prefetch_related</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.7.</span> <span class="nav-text">Q 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F-%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.8.</span> <span class="nav-text">F 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#values-%E5%92%8C-values-list"><span class="nav-number">3.2.9.</span> <span class="nav-text">values 和 values_list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aggregate-%E5%92%8C-annotate"><span class="nav-number">3.2.10.</span> <span class="nav-text">aggregate 和 annotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extra"><span class="nav-number">3.2.11.</span> <span class="nav-text">extra</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B-SQL-%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.12.</span> <span class="nav-text">原始 SQL 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BC%98%E5%8C%96"><span class="nav-number">3.2.13.</span> <span class="nav-text">一些优化</span></a></li></ol></li></ol></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            【Django】Django ORM 学习笔记 |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">【Django】Django ORM 学习笔记</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2017-06-24 09:43:35</span>
+        <span class="mobile">2017-06-24 09:43</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Python/">Python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Django-ORM/">Django ORM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>20 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>ORM，即Object-Relational Mapping（对象关系映射），它的作用是在关系型数据库和业务实体对象之间作一个映射，这样，我们在具体的操作业务对象的时候，就不需要再去和复杂的SQL语句打交道，只需简单的操作对象的属性和方法。下面是一个示例。通过使用 ORM，我们只需要操作 Author 和 Blog 对象，而不用操作相关的数据库表。这里主要介绍一下 Django ORM 的相关使用。</p>
+<span id="more"></span>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/orm/orm-demo.png"
+                     
+                ></p>
+<h1 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h1><p>使用 ORM 最大的优点就是快速开发，让我们将更多的精力放在业务上而不是数据库上，下面是 ORM 的几个优点</p>
+<ul>
+<li>隐藏了数据访问细节，使通用数据库交互变得简单易行。同时 ORM 避免了不规范、冗余、风格不统一的 SQL 语句，可以避免很多人为的 bug，方便编码风格的统一和后期维护。</li>
+<li>将数据库表和对象模型关联，我们只需针对相关的对象模型进行编码，无须考虑对象模型和数据库表之间的转化，大大提高了程序的开发效率。</li>
+<li>方便数据库的迁移。当需要迁移到新的数据库时，不需要修改对象模型，只需要修改数据库的配置。</li>
+</ul>
+<p>ORM 的最令人诟病的地方就是性能问题，不过现在已经提高了很多，下面是 ORM 的几个缺点</p>
+<ul>
+<li>性能问题<ul>
+<li>自动化进行数据库关系的映射需要消耗系统资源</li>
+<li>程序员编码</li>
+<li>在处理多表联查、where 条件复杂的查询时，ORM 可能会生成的效率低下的 SQL</li>
+<li>通过 Lazy load 和 Cache 很大程度上改善了性能问题</li>
+</ul>
+</li>
+<li>SQL 调优，SQL 语句是由 ORM 框架自动生成，虽然减少了 SQL 语句错误的发生，但是也给 SQL 调优带来了困难。</li>
+<li>越是功能强大的 ORM 越消耗内存，因为一个 ORM Object 会带有很多成员变量和成员函数。</li>
+<li>对象和关系之间并不是完美映射</li>
+</ul>
+<p>一般来说 ORM 足以满足我们的需求，如果对性能要求特别高或者查询十分复杂，可以考虑使用原生 SQL 和 ORM 共用的方式</p>
+<h1 id="Django-ORM"><a href="#Django-ORM" class="headerlink" title="Django ORM"></a>Django ORM</h1><p>在 Django 框架中集成了 ORM 模块，我们来看下具体的使用，部分内容会给出基于 MySQL 的 SQL 语句。</p>
+<h2 id="Manager"><a href="#Manager" class="headerlink" title="Manager"></a>Manager</h2><p>在创建完 Model 对象之后，Django 会自动为其关联一个 Manager 对象，该对象是 Model 进行数据库操作的接口。默认的 Manager 对象名称为 objects，下面是使用 Manager 进行增删改查的一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">save_blog</span>():</span><br><span class="line">    <span class="comment"># 使用 get 检索数据时，如果数据不存在，会报 DoesNotExist 错误</span></span><br><span class="line">    <span class="comment"># 可以使用 Blog.objects.all().filter(id=1).first() 方法</span></span><br><span class="line">    author = Author.objects.get(<span class="built_in">id</span>=<span class="number">1</span>)</span><br><span class="line">    blog = Blog(title=<span class="string">&#x27;blog2&#x27;</span>, content=<span class="string">&#x27;blog2&#x27;</span>, author=author)</span><br><span class="line">    blog.save()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_blog</span>():</span><br><span class="line">    blog = Blog.objects.<span class="built_in">all</span>().get(<span class="built_in">id</span>=<span class="number">2</span>)</span><br><span class="line">    blog.title = <span class="string">&#x27;change_title&#x27;</span></span><br><span class="line">    blog.save()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete_blog</span>():</span><br><span class="line">    blog = Blog.objects.<span class="built_in">all</span>().<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">2</span>).first()</span><br><span class="line">    <span class="keyword">if</span> blog <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        blog.delete()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_blog</span>():</span><br><span class="line">    blogs = Blog.objects.<span class="built_in">all</span>()</span><br><span class="line">    <span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">        <span class="built_in">print</span> blog</span><br></pre></td></tr></table></figure>
+<p>我们可以自定义 Manager 的名称，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>(models.Model):</span><br><span class="line">    <span class="comment">#...</span></span><br><span class="line">    people = models.Manager()</span><br><span class="line"></span><br><span class="line">Person.people.<span class="built_in">all</span>()</span><br></pre></td></tr></table></figure>
+<p>同时我们也可以定义自己的 Manager，为 Manager 加上一些额外的功能，下面的示例会为 Author 添加上所写 Blog 数量信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AuthorManager</span>(models.Manager):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">with_blog_counts</span>(<span class="params">self, **kwargs</span>):</span><br><span class="line">        <span class="keyword">from</span> django.db <span class="keyword">import</span> connection</span><br><span class="line">        cursor = connection.cursor()</span><br><span class="line">        condition = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> kwargs.has_key(<span class="string">&#x27;id&#x27;</span>):</span><br><span class="line">            condition = <span class="string">&#x27;a.id = %s and &#x27;</span> % kwargs[<span class="string">&#x27;id&#x27;</span>]</span><br><span class="line">        query = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">            SELECT a.id, a.name, COUNT(b.id)</span></span><br><span class="line"><span class="string">            FROM orm_author a LEFT JOIN orm_blog b</span></span><br><span class="line"><span class="string">            ON a.id = b.author_id</span></span><br><span class="line"><span class="string">            WHERE %s TRUE</span></span><br><span class="line"><span class="string">            GROUP BY a.id</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span> % condition</span><br><span class="line"></span><br><span class="line">        cursor.execute(query)</span><br><span class="line">        result_list = []</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> cursor.fetchall():</span><br><span class="line">            author = self.model(<span class="built_in">id</span>=row[<span class="number">0</span>], name=row[<span class="number">1</span>])</span><br><span class="line">            author.blog_count = row[<span class="number">2</span>]</span><br><span class="line">            result_list.append(author)</span><br><span class="line">        <span class="keyword">return</span> result_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Author</span>(models.Model):</span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    objects = AuthorManager()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">authors = Author.objects.with_blog_counts(<span class="built_in">id</span>=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> author <span class="keyword">in</span> authors:</span><br><span class="line">        <span class="built_in">print</span> author.name, author.blog_count</span><br></pre></td></tr></table></figure>
+<p>另外我们也可以为 Model 指定多个 Manager</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Author</span>(models.Model):</span><br><span class="line">    manager = models.Manager()</span><br><span class="line">    manager2 = AuthorManager()</span><br></pre></td></tr></table></figure>
+<h2 id="QuerySet"><a href="#QuerySet" class="headerlink" title="QuerySet"></a>QuerySet</h2><p>从数据库中查询出来的结果一般是一个集合，这个集合称为 QuerySet。QuerySet 有两种来源：通过 Manager 的方法获取、通过 QuerySet 自身的方法获得。Manager 的查询方法和 QuerySet 的方法大部分同名、同意（Manager的就是基于 QuerySet 的实现的），例如 filter, exclude等，但两者也有不同的方法，例如 Manager 的 create、get_or_create，QuerySet 的 delete 等。</p>
+<h3 id="基本查询"><a href="#基本查询" class="headerlink" title="基本查询"></a>基本查询</h3><p>下面是 QuerySet (也是 Manager的)的几个基本的查询方法</p>
+<ul>
+<li>all() - 获得数据库中所有实例的一个 QuerySet<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.<span class="built_in">all</span>()</span><br><span class="line"><span class="comment"># 对应SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog`()</span></span><br></pre></td></tr></table></figure></li>
+<li>filter(**kwargs) - 返回满足查询条件的 QuerySet<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.<span class="built_in">filter</span>(title=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line"><span class="comment"># 对应 SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`, `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`title` = &#x27;blog2&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>exclude(**kwargs) - 获得不满足查询条件的 QuerySet<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.exclude(title=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line"><span class="comment"># 对应 SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE NOT (`orm_blog`.`title` = &#x27;blog2&#x27;)</span></span><br></pre></td></tr></table></figure></li>
+<li>get(**kwargs) — 从数据库中获得一个匹配的结果（一个实例），如果没有匹配结果或者匹配结果大于一个都会报错</li>
+</ul>
+<h3 id="字段查询"><a href="#字段查询" class="headerlink" title="字段查询"></a>字段查询</h3><p>在前面的 filter、exclude 和 get 方法中，我们需要传入参数作为选择条件: <code>title=&#39;blog2&#39;</code>，这个就是字段查询。字段查询的格式如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">field__lookuptype=value <span class="comment"># 中间是两个下划线</span></span><br></pre></td></tr></table></figure>
+<p>lookuptype 的类型有下面几种</p>
+<ul>
+<li>exact 精确匹配，默认的 lookup type。上面的 <code>title=&#39;blog2&#39;</code> 就相当于 <code>title__exact=&#39;blog2&#39;</code></li>
+<li>gt : 大于</li>
+<li>gte : 大于等于</li>
+<li>lt : 小于</li>
+<li>lte :小于等于</li>
+<li>in : in</li>
+<li>contains : 包含，区分大小写 - <code>a LIKE BINARY &#39;%b%&#39;</code></li>
+<li>icontains : 包含，不区分大小写 - <code>a LIKE &#39;%b%&#39;</code></li>
+<li>iexact : 大小写不敏感的精确匹配 - <code>a LIKE &#39;b&#39;</code></li>
+<li>startswith : 匹配开头，区分大小写 - <code>a LIKE BINARY &#39;b%&#39;</code></li>
+<li>istartswith : 匹配开头，不区分大小写 - <code>a LIKE &#39;b%&#39;</code></li>
+<li>endswith : 匹配结尾，区分大小写 - <code>a LIKE BINARY &#39;%b&#39;</code></li>
+<li>iendswith : 匹配结尾，不区分大小写 - <code>a LIKE &#39;%b&#39;</code></li>
+</ul>
+<p>我们还可以进行关联查询，下面的例子是查询所有 author name 为 zjk 的 blog，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(author__name=<span class="string">&#x27;zjk&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`, `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` INNER JOIN `orm_author` ON (`orm_blog`.`author_id` = `orm_author`.`id`)</span></span><br><span class="line"><span class="comment"># WHERE `orm_author`.`name` = &#x27;zjk&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="限制-QuerySet"><a href="#限制-QuerySet" class="headerlink" title="限制 QuerySet"></a>限制 QuerySet</h3><p>有时候我们并不需要获取查询集的全部数据，而只需要一个子集，一个常见的场景就是进行分页查询。使用 Python 的切片语法可以限制 QuerySet 的实例数量，ORM 会将翻译成 SQL 的 LIMIT 和 OFFSET 子句，下面是几个例子：</p>
+<ul>
+<li>放回 QuerySet 的前 5 个元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()[:<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL：</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 5</span></span><br></pre></td></tr></table></figure></li>
+<li>返回 QuerySet 的第 6-10 个元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()[<span class="number">5</span>:<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 5 OFFSET 5</span></span><br></pre></td></tr></table></figure></li>
+<li>使用切片的 step 参数，下面代码返回第 1、3、5、7、9 个元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()[:<span class="number">10</span>:<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 10</span></span><br></pre></td></tr></table></figure></li>
+<li>如果只要访问一个元素，可以直接用索引来访问：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blog = Blog.objects.<span class="built_in">all</span>()[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` LIMIT 1 OFFSET 2</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Lazy-load"><a href="#Lazy-load" class="headerlink" title="Lazy load"></a>Lazy load</h3><p>QuerySet 是惰性加载的，创建查询集不会访问数据库，只有查询集需要求值时，才会真正运行这个查询。在下面的例子中只有执行 <code>print q</code> 才会真正的去查询数据库。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">q = Blog.objects.<span class="built_in">filter</span>(title=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line">q = q.<span class="built_in">filter</span>(content=<span class="string">&#x27;blog2&#x27;</span>)</span><br><span class="line">q = q.exclude(<span class="built_in">id</span>=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 执行下面的语句才会真正访问数据库</span></span><br><span class="line"><span class="built_in">print</span> q</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content` FROM `orm_blog`</span></span><br><span class="line"><span class="comment"># WHERE (`orm_blog`.`title` = &#x27;blog2&#x27; AND `orm_blog`.`content` = &#x27;blog2&#x27; AND NOT (`orm_blog`.`id` = 3)) LIMIT 21</span></span><br></pre></td></tr></table></figure>
+<p>关联对象也是惰性加载，只有用到了关联对象的值才会访问数据库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">blog = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">3</span>).first()</span><br><span class="line"><span class="built_in">print</span> blog.title</span><br><span class="line"><span class="comment"># 只有执行下面的语句才会访问数据库获取 author 的值，也就是执行第二条 SQL</span></span><br><span class="line"><span class="built_in">print</span> blog.author.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`id` = 3 ORDER BY `orm_blog`.`id` ASC LIMIT 1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author` WHERE `orm_author`.`id` = 1</span></span><br></pre></td></tr></table></figure>
+<p>一般来说只要用到了 QuerySet 以及里面对象的信息，就会访问数据库。下面是文档中给出的几种会对查询集求值的情况：</p>
+<ul>
+<li>迭代：在首次迭代查询集时会执行数据库查询</li>
+<li>切片(限制查询集)：对查询集执行切片操作时，指定 step 参数</li>
+<li>序列化／缓存</li>
+<li>repr：对查询集调用 repr 函数</li>
+<li>len：对查询集调用 len 函数</li>
+<li>list: 对查询集调用 list() 方法强制求值</li>
+<li>bool:测试一个查询集的布尔值，例如使用bool(), or, and 或者 if 语句都将导致查询集的求值</li>
+</ul>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>每个 QuerySet 都包含一个缓存来最小化对数据库的访问，下面是一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面代码会访问两次数据库</span></span><br><span class="line"><span class="built_in">print</span> [blog.title <span class="keyword">for</span> blog <span class="keyword">in</span> Blog.objects.<span class="built_in">all</span>()]</span><br><span class="line"><span class="built_in">print</span> [blog.content <span class="keyword">for</span> blog <span class="keyword">in</span> Blog.objects.<span class="built_in">all</span>()]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面代码只会访问一次数据库</span></span><br><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()</span><br><span class="line"><span class="built_in">print</span> [blog.title <span class="keyword">for</span> blog <span class="keyword">in</span> blogs]</span><br><span class="line"><span class="built_in">print</span> [blog.content <span class="keyword">for</span> blog <span class="keyword">in</span> blogs]</span><br></pre></td></tr></table></figure>
+<p>在一个新的 QuerySet 中，缓存为空。当首次对 QuerySet 的所有实例进行求值时，会将查询结果保存到 QuerySet 的缓冲中。当再访问该 QuerySet 时，会直接从缓冲中取数据。下面是一个示意图：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/orm/orm-cache.png"
+                     
+                ></p>
+<p>如果只对 QuerySet 的部分实例（query_set[5], query_set[0:10]）进行求值，首先会到 QuerySet 的缓冲中查找是否已经缓存了这些实例，如果有就使用缓存值，如果没有就查询数据库，但是<strong>不会将查询结果保存到缓冲中</strong>。如下图所示：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/orm/orm-demo2.png"
+                     
+                ></p>
+<p>如果 QuerySet 数量很大不希望被缓存，遍历时使用 iterator 方法:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">all</span>()</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs.iterator():</span><br><span class="line">    <span class="built_in">print</span> blog.title</span><br></pre></td></tr></table></figure>
+
+<h3 id="关联查询"><a href="#关联查询" class="headerlink" title="关联查询"></a>关联查询</h3><p>在讲关联查询之前，首先看一下下面的一个示例。我们前面提到，关联实例是惰性加载的，因此对于下面的代码，每次 for 循环都要访问一次数据库，会严重影响性能。因此我们需要一次将 blog 以及 author 的信息全部取出来，这就是我们马上要讲的关联查询。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> Blog.objects.<span class="built_in">all</span>():</span><br><span class="line">    <span class="built_in">print</span> blog.title, blog.author.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content` FROM `orm_blog`</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author` WHERE `orm_author`.`id` = 1</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author` WHERE `orm_author`.`id` = 1.</span></span><br><span class="line"><span class="comment"># . . . . . .</span></span><br></pre></td></tr></table></figure>
+<p>关联查询就是在查询当前实例的同时，把其关联的实例数据也一块取出来。在下图中 orm_blog 通过一个外键和 orm_author 关联。关联大体上可以分为两种：</p>
+<ul>
+<li>只有一个关联实例： 外键关联中包含外键的表、OneToOneField，例如下图中的 orm_blog 只与一个 orm_author 的实例关联</li>
+<li>有多个关联实例：外键关联中不含外键的表、ManyToManyField，例如下图中的 orm_author 就与多个 orm_blog 实例关联</li>
+</ul>
+<p>因此 Django ORM 中的关联查询也分两中 select_related(单关联实例) 和 prefetch_related(多关联实例)<br><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/orm/relation.png"
+                     
+                ></p>
+<h4 id="select-related"><a href="#select-related" class="headerlink" title="select_related"></a>select_related</h4><p>select_related 用来处理单关联实例的情况，适用于 ForeignKey 和 OneToOneField。在查询时，会对关联的表进行 join 操作，取出全部的信息，下面是一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">blog = Blog.objects.select_related().<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">3</span>).first()</span><br><span class="line"><span class="built_in">print</span> blog.<span class="built_in">id</span>, blog.author.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`,  `orm_author`.`id`,  `orm_author`.`name`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` INNER JOIN `orm_author` ON (`orm_blog`.`author_id` = `orm_author`.`id`)</span></span><br><span class="line"><span class="comment"># WHERE `orm_blog`.`id` = 3 ORDER BY `orm_blog`.`id` ASC LIMIT 1</span></span><br></pre></td></tr></table></figure>
+<p>下面是一个示意图：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/orm/select.png"
+                     
+                ></p>
+<p>select_related 会沿着外键递归查询，例如上图中取表 1 的实例时，会沿着外键将表 3 的数据一块取出来。我们可以传入 depth 参数来指定递归的深度。</p>
+<p>如果需要清除 QuerySet 上以前的 select_related 添加的关联字段，可以传入 None 做参数</p>
+<h4 id="prefetch-related"><a href="#prefetch-related" class="headerlink" title="prefetch_related"></a>prefetch_related</h4><p>prefetch_related 主要适用于 OneTwoMany 和 ManyToManyField。和 select_related 类似，prefetch_related 在查询时会同时取出关联实例的值。与 select_related 不同的是 prefetch_related 不使用 JOIN 方式来查询数据库，而是分别查每个表，最后使用 Python 来实现 JOIN 操作。下面是一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">author = Author.objects.prefetch_related(<span class="string">&#x27;blog_set&#x27;</span>).<span class="built_in">filter</span>(name=<span class="string">&#x27;zjk&#x27;</span>).first()</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> author.blog_set.<span class="built_in">all</span>():</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author`</span></span><br><span class="line"><span class="comment"># WHERE `orm_author`.`name` = &#x27;zjk&#x27; ORDER BY `orm_author`.`id` ASC LIMIT 1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`author_id` IN (1)</span></span><br></pre></td></tr></table></figure>
+<p>下面是一个示意图：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/orm/prefetch.png"
+                     
+                ></p>
+<p>如果查询出关联对象的 QuerySet 之后，再对该 QuerySet 执行查询条件，会使该 QuerySet 失效（也就是需要再次访问数据库）。如果在查询关联对象时需要使用查询条件，可以使用 Prefetch 对象，下面是一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Prefetch</span><br><span class="line"></span><br><span class="line">authors = Author.objects.prefetch_related(Prefetch(</span><br><span class="line">    <span class="string">&#x27;blog_set&#x27;</span>, queryset=Blog.objects.<span class="built_in">filter</span>(title=<span class="string">&#x27;blog2&#x27;</span>), to_attr=<span class="string">&#x27;blogs&#x27;</span></span><br><span class="line">))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> author <span class="keyword">in</span> authors:</span><br><span class="line">    <span class="built_in">print</span> author.blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_author`.`id`,  `orm_author`.`name` FROM `orm_author`</span></span><br><span class="line"><span class="comment">#     </span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE (`orm_blog`.`title` = &#x27;blog2&#x27; AND `orm_blog`.`author_id` IN (1,  2))</span></span><br></pre></td></tr></table></figure>
+<h3 id="Q-查询"><a href="#Q-查询" class="headerlink" title="Q 查询"></a>Q 查询</h3><p>在前面所讲的 filter 和 exclude 方法，对于传入的查询条件都是执行的 AND 操作，如果我们需要对查询条件执行 OR 操作，例如查询 blog 表中 title&#x3D;‘blog1’ 或者 title&#x3D;‘blog2’ 的实例，就需要用到 Q 查询。Q 查询支持使用 |、&amp;、~ 操作符，分别对象查询条件的 OR、AND 和 NOT 操作。下面是一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Q</span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(Q(<span class="built_in">id</span>=<span class="number">10</span>) | Q(title=<span class="string">&#x27;blog2&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE (`orm_blog`.`id` = 10 OR `orm_blog`.`title` = ‘blog2&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="F-查询"><a href="#F-查询" class="headerlink" title="F 查询"></a>F 查询</h3><p>F 查询主要用来处理表中字段之间的比较，例如查询 blog 表中 title&#x3D;conent 的记录。同时 F 查询还支持计算（加减乘除）。下面是一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> F</span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(title=F(<span class="string">&#x27;content&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL:</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`title` = (`orm_blog`.`content`)</span></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(title=F(<span class="string">&#x27;content&#x27;</span>)+<span class="number">2</span>)</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># SQL：</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` WHERE `orm_blog`.`title` = ((`orm_blog`.`content` + 2))</span></span><br></pre></td></tr></table></figure>
+<h3 id="values-和-values-list"><a href="#values-和-values-list" class="headerlink" title="values 和 values_list"></a>values 和 values_list</h3><p>有些时候我们不需要获取实例中所有的数据，而只需要获得几个字段的数据即可，使用 values 和 values_list 可以指定检索的字段。values 会返回一个 dict 数组，而 values_list 会返回 list 数组。下面是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>).values(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;QuerySet [&#123;u&#x27;title&#x27;: u’blog2&#x27;&#125;]&gt;</span></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>).values_list(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;QuerySet [(u’blog2&#x27;,)]&gt;</span></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>).values_list(<span class="string">&#x27;title&#x27;</span>, flat=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span> blogs</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;QuerySet [u’blog2&#x27;]&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="aggregate-和-annotate"><a href="#aggregate-和-annotate" class="headerlink" title="aggregate 和 annotate"></a>aggregate 和 annotate</h3><p>通过 aggregate 和 annotate 可以使用 SQL 的聚合函数，例如 SUM、COUNT、MIN 等。aggregate: 针对所有记录调用聚合函数，返回一个 dict 对象，下面是使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Min</span><br><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Sum</span><br><span class="line"></span><br><span class="line">result = Blog.objects.aggregate(Min(<span class="string">&#x27;id&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;u&#x27;id__min&#x27;: 3L&#125;</span></span><br><span class="line"><span class="comment"># SELECT MIN(`orm_blog`.`id`) AS `id__min` FROM `orm_blog`</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义属性名</span></span><br><span class="line">result = Blog.objects.aggregate(total=Sum(<span class="string">&#x27;id&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># &#123;&#x27;total&#x27;: Decimal(‘657&#x27;)&#125;</span></span><br><span class="line"><span class="comment"># SELECT SUM(`orm_blog`.`id`) AS `total` FROM `orm_blog</span></span><br></pre></td></tr></table></figure>
+<p>annotate 先使用 groupby 分组，然后对于每组再调用聚合函数，返回 QuerySet 对象。 annotate 默认按照 id 进行分组，如果需要按其他字段分组，要结合 values ／values_list 方法。下面是使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#认按照 id 进行分组</span></span><br><span class="line">blogs = Blog.objects.annotate(Count(<span class="string">&#x27;title&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog.title__count</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`author_id`,  `orm_blog`.`title`,  `orm_blog`.`content`,  </span></span><br><span class="line"><span class="comment"># COUNT(`orm_blog`.`title`) AS `title__count` FROM `orm_blog` GROUP BY `orm_blog`.`id` ORDER BY NULL</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 values 方法，会按照 values 中传入的属性分组</span></span><br><span class="line">blogs = Blog.objects.values(<span class="string">&#x27;title&#x27;</span>).annotate(Count(<span class="string">&#x27;title&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">   <span class="built_in">print</span> blog[<span class="string">&#x27;title__count&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`title`,  COUNT(`orm_blog`.`title`) AS `title__count` FROM `orm_blog`</span></span><br><span class="line"><span class="comment"># GROUP BY `orm_blog`.`title` ORDER BY NULL</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">blogs = Blog.objects.values(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;content&#x27;</span>).annotate(Count(<span class="string">&#x27;title&#x27;</span>))</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">   <span class="built_in">print</span> blog[<span class="string">&#x27;title__count&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`title`,  `orm_blog`.`content`,  COUNT(`orm_blog`.`title`) AS `title__count`</span></span><br><span class="line"><span class="comment"># FROM `orm_blog` GROUP BY `orm_blog`.`title`,  `orm_blog`.`content` ORDER BY NULL</span></span><br></pre></td></tr></table></figure>
+<p>下图是 aggregate 和 annotate 的比较：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/orm/agg.png"
+                     
+                ></p>
+<h3 id="extra"><a href="#extra" class="headerlink" title="extra"></a>extra</h3><p>如何一些查询比较复杂可以考虑使用 extra 方法。extra 能在 ORM 生成的 SQL 子句中注入 SQL 代码，语法格式如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 至少保证一个参数不为空</span></span><br><span class="line">extra(select=<span class="literal">None</span>, where=<span class="literal">None</span>, params=<span class="literal">None</span>, tables=<span class="literal">None</span>, order_by=<span class="literal">None</span>, select_params=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>select：在 select 子句中插入 SQL 代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(select=&#123;</span><br><span class="line">    <span class="string">&#x27;is_one&#x27;</span>: ‘<span class="built_in">id</span>=<span class="number">5</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string"># SELECT (id=5) AS `is_one`,  `orm_blog`.`id`. . . . .</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">authors = Author.objects.extra(</span></span><br><span class="line"><span class="string">    select=&#123;</span></span><br><span class="line"><span class="string">        &#x27;</span>blog_count<span class="string">&#x27; : &#x27;</span>select count(*) <span class="keyword">from</span> orm_blog where orm_blog.author_id = orm_author.<span class="built_in">id</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"># SELECT (select count(*) from orm_blog where orm_blog.author_id = orm_author.id) AS `blog_count` . . .</span></span><br></pre></td></tr></table></figure></li>
+<li>select_params: 设置 select 参数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    select=&#123;</span><br><span class="line">        <span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;%s&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    select_params=(‘<span class="built_in">id</span>=<span class="number">1</span><span class="string">&#x27;,)</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"># SELECT (&#x27;</span><span class="built_in">id</span>=<span class="number">1</span><span class="string">&#x27;) AS `a` . . . . .</span></span><br></pre></td></tr></table></figure></li>
+<li>where: 在 where 子句中插入 SQL 代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    where=[<span class="string">&#x27;id=4 or id=5&#x27;</span>]</span><br><span class="line">)</span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` WHERE (id=4 or id=5)</span></span><br></pre></td></tr></table></figure></li>
+<li>params: 为 where 设置参数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    where=[<span class="string">&#x27;id=%s&#x27;</span>],</span><br><span class="line">    params=(<span class="number">1</span>,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` WHERE (id=1)</span></span><br></pre></td></tr></table></figure></li>
+<li>tables: 在 FROM 子句中插入 table 名称<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    tables=[<span class="string">&#x27;orm_author&#x27;</span>, <span class="string">&#x27;auth_group&#x27;</span>]</span><br><span class="line">)</span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` ,  `orm_author` ,  `auth_group`</span></span><br></pre></td></tr></table></figure></li>
+<li>order_by：在 order_by 子句中插入排序字段<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># - 表示倒序</span></span><br><span class="line">blogs = Blog.objects.extra(</span><br><span class="line">    order_by=[<span class="string">&#x27;-id&#x27;</span>, <span class="string">&#x27;title&#x27;</span>]</span><br><span class="line">)</span><br><span class="line"><span class="comment"># SELECT . . . . . . FROM `orm_blog` ORDER BY `orm_blog`.`id` DESC,  `orm_blog`.`title` ASC</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="原始-SQL-查询"><a href="#原始-SQL-查询" class="headerlink" title="原始 SQL 查询"></a>原始 SQL 查询</h3><p>使用 Manager 的 raw 方法可以用于原始的 SQL 查询，并返回 Model 的实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.raw(<span class="string">&#x27;select * from orm_blog&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog.<span class="built_in">id</span> , blog.title</span><br></pre></td></tr></table></figure>
+<p>如果 SQL 中没有获取某个字段，那么会惰性加载该字段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 没有取 title，在后面使用时会访问数据库</span></span><br><span class="line">blogs = Blog.objects.raw(<span class="string">&#x27;select id from orm_blog&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> blog <span class="keyword">in</span> blogs:</span><br><span class="line">    <span class="built_in">print</span> blog.<span class="built_in">id</span></span><br><span class="line">    <span class="built_in">print</span> blog.title</span><br><span class="line"></span><br><span class="line"><span class="comment"># select id from orm_blog</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`title` FROM `orm_blog` WHERE `orm_blog`.`id` = 3</span></span><br><span class="line"><span class="comment"># SELECT `orm_blog`.`id`,  `orm_blog`.`title` FROM `orm_blog` WHERE `orm_blog`.`id` = 4</span></span><br><span class="line"><span class="comment">#. . . .</span></span><br></pre></td></tr></table></figure>
+<h3 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h3><ul>
+<li>如果只需要判断实例是否存在，使用 exists 更高效<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>)</span><br><span class="line"><span class="keyword">if</span> blogs.exists():</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;record exist’</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># SELECT (1) AS `a` FROM `orm_blog` WHERE `orm_blog`.`id` = 5 LIMIT 1</span></span><br></pre></td></tr></table></figure></li>
+<li>如果只需要得到实例的数量，使用 count 函数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">blogs = Blog.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span> blogs.count()</span><br><span class="line"></span><br><span class="line"><span class="comment"># SELECT COUNT(*) AS `__count` FROM `orm_blog` WHERE `orm_blog`.`id` = 5</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">【Django】Django ORM 学习笔记</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2017-06-24 09:43:35</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/ff0b.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Django-ORM/">#Django ORM</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/6b7f.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">技巧与工具04-python控制鼠标自动化点击脚本</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/cae6.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">iOS 接入 Strava 分享模块（上篇：FitSDK）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Django-ORM"><span class="nav-number">3.</span> <span class="nav-text">Django ORM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Manager"><span class="nav-number">3.1.</span> <span class="nav-text">Manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QuerySet"><span class="nav-number">3.2.</span> <span class="nav-text">QuerySet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.1.</span> <span class="nav-text">基本查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.2.</span> <span class="nav-text">字段查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E5%88%B6-QuerySet"><span class="nav-number">3.2.3.</span> <span class="nav-text">限制 QuerySet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lazy-load"><span class="nav-number">3.2.4.</span> <span class="nav-text">Lazy load</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98"><span class="nav-number">3.2.5.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.6.</span> <span class="nav-text">关联查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#select-related"><span class="nav-number">3.2.6.1.</span> <span class="nav-text">select_related</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prefetch-related"><span class="nav-number">3.2.6.2.</span> <span class="nav-text">prefetch_related</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.7.</span> <span class="nav-text">Q 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#F-%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.8.</span> <span class="nav-text">F 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#values-%E5%92%8C-values-list"><span class="nav-number">3.2.9.</span> <span class="nav-text">values 和 values_list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aggregate-%E5%92%8C-annotate"><span class="nav-number">3.2.10.</span> <span class="nav-text">aggregate 和 annotate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extra"><span class="nav-number">3.2.11.</span> <span class="nav-text">extra</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B-SQL-%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.2.12.</span> <span class="nav-text">原始 SQL 查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BC%98%E5%8C%96"><span class="nav-number">3.2.13.</span> <span class="nav-text">一些优化</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

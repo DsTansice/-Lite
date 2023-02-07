@@ -1,2 +1,699 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>Hexo-NexT搭建个人博客（二） | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">Hexo-NexT搭建个人博客（二）</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2016-09-30 22:18:22</span> <span class="mobile">2016-09-30 22:18</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/Hexo/">Hexo</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/Hexo/">Hexo</a>&nbsp;</li><li>| <a href="/tags/Next/">Next</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>1.6k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><p>本篇文章将介绍基于NexT主题下的一些扩展功能的实现。<br>首先，我们需要明白：</p><p id="div-border-left-yellow">在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。 我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p><h4 id="1-设置侧栏的位置"><a href="#1-设置侧栏的位置" class="headerlink" title="1.设置侧栏的位置"></a>1.设置侧栏的位置</h4><p>修改 <span id="inline-purple">主题配置文件</span> 中 <code>sidebar.position</code> 的值，支持的选项有：<strong>left</strong> <strong>right</strong><br>目前仅 Pisces Scheme 支持 position 配置，也就是说NexT主题的侧栏位置是不能设置的，设置了也没用，反正都在右边。</p><span id="more"></span><h4 id="2-关于添加居中模块"><a href="#2-关于添加居中模块" class="headerlink" title="2. 关于添加居中模块"></a>2. 关于添加居中模块</h4><blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>代码如下：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>优秀的人，不是不合群，而是他们合群的人里面没有你<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure><h4 id="3-添加High一下"><a href="#3-添加High一下" class="headerlink" title="3. 添加High一下"></a>3. 添加High一下</h4><p>打开博客根目录 <code>\themes\next\layout\_partials\header.swig</code> ，在<br><code>&lt;ul&gt; ... /ul&gt;</code> 标签之间加入以下代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt; <span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">title</span>=<span class="string">&quot;把这个链接拖到你的Chrome收藏夹工具栏中&quot;</span> <span class="attr">href</span>=<span class="string">&#x27;javascript:(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function c() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.createElement(&quot;link&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;type&quot;, &quot;text/css&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;href&quot;, f);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;class&quot;, l);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        document.body.appendChild(e)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function h() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.getElementsByClassName(l);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        for (var t = 0; t &lt; e.length; t++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            document.body.removeChild(e[t])</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function p() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.createElement(&quot;div&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;class&quot;, a);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        document.body.appendChild(e);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        setTimeout(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            document.body.removeChild(e)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;, 100)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function d(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            height : e.offsetHeight,</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            width : e.offsetWidth</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function v(i) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var s = d(i);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return s.height &gt; e &amp;&amp; s.height &lt; n &amp;&amp; s.width &gt; t &amp;&amp; s.width &lt; r</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function m(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var t = e;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var n = 0;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        while (!!t) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            n += t.offsetTop;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            t = t.offsetParent</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return n</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function g() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.documentElement;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (!!window.innerWidth) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            return window.innerHeight</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125; else if (e &amp;&amp; !isNaN(e.clientHeight)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            return e.clientHeight</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return 0</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function y() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (window.pageYOffset) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            return window.pageYOffset</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function E(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var t = m(e);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return t &gt;= w &amp;&amp; t &lt;= b + w</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function S() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.createElement(&quot;audio&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;class&quot;, l);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.src = i;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.loop = false;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.addEventListener(&quot;canplay&quot;, function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            setTimeout(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                x(k)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            &#125;, 500);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            setTimeout(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                N();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                p();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                for (var e = 0; e &lt; O.length; e++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                    T(O[e])</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            &#125;, 15500)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;, true);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.addEventListener(&quot;ended&quot;, function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            N();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            h()</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;, true);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.innerHTML = &quot; &lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt; &lt;p&gt;&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        document.body.appendChild(e);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.play()</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function x(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.className += &quot; &quot; + s + &quot; &quot; + o</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function T(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.className += &quot; &quot; + s + &quot; &quot; + u[Math.floor(Math.random() * u.length)]</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function N() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.getElementsByClassName(s);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var t = new RegExp(&quot;\\b&quot; + s + &quot;\\b&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        for (var n = 0; n &lt; e.length; ) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            e[n].className = e[n].className.replace(t, &quot;&quot;)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var e = 30;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var t = 30;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var n = 350;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var r = 350;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var i = &quot;//7xuupy.com1.z0.glb.clouddn.com/tongxingSibel%20-%20Im%20Sorry.mp3&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var s = &quot;mw-harlem_shake_me&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var o = &quot;im_first&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var u = [&quot;im_drunk&quot;, &quot;im_baked&quot;, &quot;im_trippin&quot;, &quot;im_blown&quot;];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var a = &quot;mw-strobe_light&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var f = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var l = &quot;mw_added_css&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var b = g();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var w = y();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var C = document.getElementsByTagName(&quot;*&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var k = null;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    for (var L = 0; L &lt; C.length; L++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var A = C[L];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (v(A)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            if (E(A)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                k = A;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                break</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    if (A === null) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    c();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    S();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var O = [];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    for (var L = 0; L &lt; C.length; L++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var A = C[L];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (v(A)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            O.push(A)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;)()    &#x27;</span>&gt;</span>High一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br></pre></td></tr></table></figure><h4 id="4-添加最近访客"><a href="#4-添加最近访客" class="headerlink" title="4. 添加最近访客"></a>4. 添加最近访客</h4><p>在需要添加最近访客的网页对应的 markdown 文件中添加如下代码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最近访客</span><br><span class="line">&lt;div class=&quot;ds-recent-visitors&quot; data-num-items=&quot;39&quot; data-avatar-size=&quot;40&quot; id=&quot;ds-recent-visitors&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure><h4 id="5-鼠标点击小红心的设置"><a href="#5-鼠标点击小红心的设置" class="headerlink" title="5. 鼠标点击小红心的设置"></a>5. 鼠标点击小红心的设置</h4><ol><li>将 <a class="link" target="_blank" rel="noopener" href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js">love.js<i class="fas fa-external-link-alt"></i></a> 文件添加到 \themes\next\source\js\src 文件目录下。</li><li>找到 <code>\themes\next\layout\_layout.swing</code> 文件，** 在文件的后面，<code>&lt;/body&gt;</code> 标签之前 ** 添加以下代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 页面点击小红心 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/src/love.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ol><h4 id="6-背景的设置"><a href="#6-背景的设置" class="headerlink" title="6. 背景的设置"></a>6. 背景的设置</h4><ol><li>将 <a class="link" target="_blank" rel="noopener" href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/particle.js">particle.js<i class="fas fa-external-link-alt"></i></a> 文件添加到 \themes\next\source\js\src 文件目录下。</li><li>找到 <code>\themes\next\layout\_layout.swing</code> 文件，** 在文件的后面，<code>&lt;/body&gt;</code>标签之前 ** 添加以下代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 背景动画 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/src/particle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ol><h4 id="7-修改文章内链接文本样式"><a href="#7-修改文章内链接文本样式" class="headerlink" title="7.修改文章内链接文本样式"></a>7.修改文章内链接文本样式</h4><p>将链接文本设置为蓝色，鼠标划过时文字颜色加深，并显示下划线。<br>找到文件 <code>themes\next\source\css\_custom\custom.styl</code> ，添加如下 css 样式：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#0477ab</span>;</span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="8-多说评论不稳定，加载速度慢怎么办？"><a href="#8-多说评论不稳定，加载速度慢怎么办？" class="headerlink" title="8. 多说评论不稳定，加载速度慢怎么办？"></a>8. 多说评论不稳定，加载速度慢怎么办？</h4><p>把多说评论依赖的 embed.js 放置底部，这里需要修改的文件是 duoshuo.swig。<br>将</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(document.getElementsByTagName(&#x27;head&#x27;)[0]</span><br></pre></td></tr></table></figure><p>修改成下面的代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(document.getElementById(&#x27;footer&#x27;)</span><br></pre></td></tr></table></figure><h4 id="9-给-Github-添加-README"><a href="#9-给-Github-添加-README" class="headerlink" title="9. 给 Github 添加 README"></a>9. 给 Github 添加 README</h4><p>默认情况下，Github中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。<br>正确的解决方法其实很简单：<br>** 把 README.md 文件的后缀名改成 “MDOWN” 然后扔到<code>blog/source</code>文件夹下即可，这样 hexo 不会解析，Github 也会将其作为 MD 文件解析。 **</p><h4 id="10-给-Blog-添加-LICENSE"><a href="#10-给-Blog-添加-LICENSE" class="headerlink" title="10. 给 Blog 添加 LICENSE"></a>10. 给 Blog 添加 LICENSE</h4><p>在 <span id="inline-purple">主题配置文件</span> 中的 160 行左右：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Creative Commons 4.0 International License.</span><br><span class="line"># http://creativecommons.org/</span><br><span class="line"># Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span><br><span class="line">creative_commons: by-nc-sa</span><br><span class="line">#creative_commons:</span><br></pre></td></tr></table></figure><p>将其中第 4 行的注释放开，然后选择你想使用的 LICENSE 即可，可选项参照第 3 行。</p><h5 style="color:#f63"><i>最后要说的是：</i></h5><p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 star</i></p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">Hexo-NexT搭建个人博客（二）</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2016-09-30 22:18:22</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/5bd0.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/Hexo/">#Hexo</a>&nbsp;</li><li class="tag-item"><a href="/tags/Next/">#Next</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/a8af.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">Git学习总结</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/7769.html"><span class="title flex-center"><span class="post-nav-title-item">集中式和分布式版本控制学习整理</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%AE%BE%E7%BD%AE%E4%BE%A7%E6%A0%8F%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">1.设置侧栏的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%85%B3%E4%BA%8E%E6%B7%BB%E5%8A%A0%E5%B1%85%E4%B8%AD%E6%A8%A1%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">2. 关于添加居中模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0High%E4%B8%80%E4%B8%8B"><span class="nav-number">3.</span> <span class="nav-text">3. 添加High一下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%B7%BB%E5%8A%A0%E6%9C%80%E8%BF%91%E8%AE%BF%E5%AE%A2"><span class="nav-number">4.</span> <span class="nav-text">4. 添加最近访客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E5%B0%8F%E7%BA%A2%E5%BF%83%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">5. 鼠标点击小红心的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E8%83%8C%E6%99%AF%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">6. 背景的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%86%85%E9%93%BE%E6%8E%A5%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">7.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%A4%9A%E8%AF%B4%E8%AF%84%E8%AE%BA%E4%B8%8D%E7%A8%B3%E5%AE%9A%EF%BC%8C%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">8. 多说评论不稳定，加载速度慢怎么办？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E7%BB%99-Github-%E6%B7%BB%E5%8A%A0-README"><span class="nav-number">9.</span> <span class="nav-text">9. 给 Github 添加 README</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E7%BB%99-Blog-%E6%B7%BB%E5%8A%A0-LICENSE"><span class="nav-number">10.</span> <span class="nav-text">10. 给 Blog 添加 LICENSE</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">10.1.</span> <span class="nav-text">最后要说的是：</span></a></li></ol></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            Hexo-NexT搭建个人博客（二） |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Hexo-NexT搭建个人博客（二）</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2016-09-30 22:18:22</span>
+        <span class="mobile">2016-09-30 22:18</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Hexo/">Hexo</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Hexo/">Hexo</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Next/">Next</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>本篇文章将介绍基于NexT主题下的一些扩展功能的实现。<br>首先，我们需要明白：</p>
+<p id="div-border-left-yellow">在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。
+  我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p>
+
+<h4 id="1-设置侧栏的位置"><a href="#1-设置侧栏的位置" class="headerlink" title="1.设置侧栏的位置"></a>1.设置侧栏的位置</h4><p>修改 <span id="inline-purple">主题配置文件</span> 中 <code>sidebar.position</code> 的值，支持的选项有：<strong>left</strong> <strong>right</strong><br>目前仅 Pisces Scheme 支持 position 配置，也就是说NexT主题的侧栏位置是不能设置的，设置了也没用，反正都在右边。</p>
+<span id="more"></span>
+
+<h4 id="2-关于添加居中模块"><a href="#2-关于添加居中模块" class="headerlink" title="2. 关于添加居中模块"></a>2. 关于添加居中模块</h4><blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
+代码如下：
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;blockquote-center&quot;</span>&gt;</span>优秀的人，不是不合群，而是他们合群的人里面没有你<span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-添加High一下"><a href="#3-添加High一下" class="headerlink" title="3. 添加High一下"></a>3. 添加High一下</h4><p>打开博客根目录 <code>\themes\next\layout\_partials\header.swig</code> ，在<br><code>&lt;ul&gt; ... /ul&gt;</code> 标签之间加入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt; <span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">title</span>=<span class="string">&quot;把这个链接拖到你的Chrome收藏夹工具栏中&quot;</span> <span class="attr">href</span>=<span class="string">&#x27;javascript:(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function c() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.createElement(&quot;link&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;type&quot;, &quot;text/css&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;href&quot;, f);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;class&quot;, l);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        document.body.appendChild(e)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function h() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.getElementsByClassName(l);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        for (var t = 0; t &lt; e.length; t++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            document.body.removeChild(e[t])</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function p() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.createElement(&quot;div&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;class&quot;, a);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        document.body.appendChild(e);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        setTimeout(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            document.body.removeChild(e)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;, 100)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function d(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            height : e.offsetHeight,</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            width : e.offsetWidth</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function v(i) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var s = d(i);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return s.height &gt; e &amp;&amp; s.height &lt; n &amp;&amp; s.width &gt; t &amp;&amp; s.width &lt; r</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function m(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var t = e;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var n = 0;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        while (!!t) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            n += t.offsetTop;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            t = t.offsetParent</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return n</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function g() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.documentElement;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (!!window.innerWidth) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            return window.innerHeight</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125; else if (e &amp;&amp; !isNaN(e.clientHeight)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            return e.clientHeight</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return 0</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function y() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (window.pageYOffset) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            return window.pageYOffset</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function E(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var t = m(e);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return t &gt;= w &amp;&amp; t &lt;= b + w</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function S() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.createElement(&quot;audio&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.setAttribute(&quot;class&quot;, l);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.src = i;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.loop = false;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.addEventListener(&quot;canplay&quot;, function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            setTimeout(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                x(k)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            &#125;, 500);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            setTimeout(function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                N();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                p();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                for (var e = 0; e &lt; O.length; e++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                    T(O[e])</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            &#125;, 15500)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;, true);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.addEventListener(&quot;ended&quot;, function() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            N();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            h()</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;, true);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.innerHTML = &quot; &lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt; &lt;p&gt;&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        document.body.appendChild(e);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.play()</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function x(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.className += &quot; &quot; + s + &quot; &quot; + o</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function T(e) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        e.className += &quot; &quot; + s + &quot; &quot; + u[Math.floor(Math.random() * u.length)]</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    function N() &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var e = document.getElementsByClassName(s);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var t = new RegExp(&quot;\\b&quot; + s + &quot;\\b&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        for (var n = 0; n &lt; e.length; ) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            e[n].className = e[n].className.replace(t, &quot;&quot;)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml"></span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var e = 30;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var t = 30;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var n = 350;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var r = 350;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var i = &quot;//7xuupy.com1.z0.glb.clouddn.com/tongxingSibel%20-%20Im%20Sorry.mp3&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var s = &quot;mw-harlem_shake_me&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var o = &quot;im_first&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var u = [&quot;im_drunk&quot;, &quot;im_baked&quot;, &quot;im_trippin&quot;, &quot;im_blown&quot;];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var a = &quot;mw-strobe_light&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var f = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var l = &quot;mw_added_css&quot;;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var b = g();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var w = y();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var C = document.getElementsByTagName(&quot;*&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var k = null;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    for (var L = 0; L &lt; C.length; L++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var A = C[L];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (v(A)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            if (E(A)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                k = A;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">                break</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    if (A === null) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        return</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    c();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    S();</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    var O = [];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    for (var L = 0; L &lt; C.length; L++) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        var A = C[L];</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        if (v(A)) &#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">            O.push(A)</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;)()    &#x27;</span>&gt;</span>High一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-添加最近访客"><a href="#4-添加最近访客" class="headerlink" title="4. 添加最近访客"></a>4. 添加最近访客</h4><p>在需要添加最近访客的网页对应的 markdown 文件中添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最近访客</span><br><span class="line">&lt;div class=&quot;ds-recent-visitors&quot; data-num-items=&quot;39&quot; data-avatar-size=&quot;40&quot; id=&quot;ds-recent-visitors&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="5-鼠标点击小红心的设置"><a href="#5-鼠标点击小红心的设置" class="headerlink" title="5. 鼠标点击小红心的设置"></a>5. 鼠标点击小红心的设置</h4><ol>
+<li>将 <a class="link"   target="_blank" rel="noopener" href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js" >love.js<i class="fas fa-external-link-alt"></i></a> 文件添加到 \themes\next\source\js\src 文件目录下。</li>
+<li>找到 <code>\themes\next\layout\_layout.swing</code> 文件，** 在文件的后面，<code>&lt;/body&gt;</code> 标签之前 ** 添加以下代码：  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 页面点击小红心 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/src/love.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="6-背景的设置"><a href="#6-背景的设置" class="headerlink" title="6. 背景的设置"></a>6. 背景的设置</h4><ol>
+<li>将 <a class="link"   target="_blank" rel="noopener" href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/particle.js" >particle.js<i class="fas fa-external-link-alt"></i></a> 文件添加到 \themes\next\source\js\src 文件目录下。</li>
+<li>找到 <code>\themes\next\layout\_layout.swing</code> 文件，** 在文件的后面，<code>&lt;/body&gt;</code>标签之前 ** 添加以下代码：  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 背景动画 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/src/particle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="7-修改文章内链接文本样式"><a href="#7-修改文章内链接文本样式" class="headerlink" title="7.修改文章内链接文本样式"></a>7.修改文章内链接文本样式</h4><p>将链接文本设置为蓝色，鼠标划过时文字颜色加深，并显示下划线。<br>找到文件 <code>themes\next\source\css\_custom\custom.styl</code> ，添加如下 css 样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">p</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#0477ab</span>;</span><br><span class="line">    <span class="attribute">text-decoration</span>: underline;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-多说评论不稳定，加载速度慢怎么办？"><a href="#8-多说评论不稳定，加载速度慢怎么办？" class="headerlink" title="8. 多说评论不稳定，加载速度慢怎么办？"></a>8. 多说评论不稳定，加载速度慢怎么办？</h4><p>把多说评论依赖的 embed.js 放置底部，这里需要修改的文件是 duoshuo.swig。<br>将</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(document.getElementsByTagName(&#x27;head&#x27;)[0]</span><br></pre></td></tr></table></figure>
+<p>修改成下面的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(document.getElementById(&#x27;footer&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="9-给-Github-添加-README"><a href="#9-给-Github-添加-README" class="headerlink" title="9. 给 Github 添加 README"></a>9. 给 Github 添加 README</h4><p>默认情况下，Github中每一个项目，我们希望有一份 README.md 的文件来作为项目的说明，但是我们在项目根目录下的 blog\source 目录下创建一份 README.md 文件，写好说明介绍，部署的时候，这个 README.md 会被 hexo 解析掉，而不会被解析到 Github 中去的。<br>正确的解决方法其实很简单：<br>** 把 README.md 文件的后缀名改成 “MDOWN” 然后扔到<code>blog/source</code>文件夹下即可，这样 hexo 不会解析，Github 也会将其作为 MD 文件解析。 **</p>
+<h4 id="10-给-Blog-添加-LICENSE"><a href="#10-给-Blog-添加-LICENSE" class="headerlink" title="10. 给 Blog 添加 LICENSE"></a>10. 给 Blog 添加 LICENSE</h4><p>在 <span id="inline-purple">主题配置文件</span> 中的 160 行左右：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Creative Commons 4.0 International License.</span><br><span class="line"># http://creativecommons.org/</span><br><span class="line"># Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span><br><span class="line">creative_commons: by-nc-sa</span><br><span class="line">#creative_commons:</span><br></pre></td></tr></table></figure>
+<p>将其中第 4 行的注释放开，然后选择你想使用的 LICENSE 即可，可选项参照第 3 行。</p>
+<h5 style="color:#f63;"><i>最后要说的是：</i></h5>
+<p id="div-border-top-green"><i>[博客源码](https://github.com/Neveryu/Neveryu.github.io) ， 欢迎 star
+</i></p>
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Hexo-NexT搭建个人博客（二）</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2016-09-30 22:18:22</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/5bd0.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Hexo/">#Hexo</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Next/">#Next</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/a8af.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Git学习总结</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/7769.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">集中式和分布式版本控制学习整理</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%AE%BE%E7%BD%AE%E4%BE%A7%E6%A0%8F%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">1.设置侧栏的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%85%B3%E4%BA%8E%E6%B7%BB%E5%8A%A0%E5%B1%85%E4%B8%AD%E6%A8%A1%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">2. 关于添加居中模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0High%E4%B8%80%E4%B8%8B"><span class="nav-number">3.</span> <span class="nav-text">3. 添加High一下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%B7%BB%E5%8A%A0%E6%9C%80%E8%BF%91%E8%AE%BF%E5%AE%A2"><span class="nav-number">4.</span> <span class="nav-text">4. 添加最近访客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E5%B0%8F%E7%BA%A2%E5%BF%83%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">5. 鼠标点击小红心的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E8%83%8C%E6%99%AF%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">6. 背景的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E5%86%85%E9%93%BE%E6%8E%A5%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">7.修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E5%A4%9A%E8%AF%B4%E8%AF%84%E8%AE%BA%E4%B8%8D%E7%A8%B3%E5%AE%9A%EF%BC%8C%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">8. 多说评论不稳定，加载速度慢怎么办？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E7%BB%99-Github-%E6%B7%BB%E5%8A%A0-README"><span class="nav-number">9.</span> <span class="nav-text">9. 给 Github 添加 README</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E7%BB%99-Blog-%E6%B7%BB%E5%8A%A0-LICENSE"><span class="nav-number">10.</span> <span class="nav-text">10. 给 Blog 添加 LICENSE</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">10.1.</span> <span class="nav-text">最后要说的是：</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

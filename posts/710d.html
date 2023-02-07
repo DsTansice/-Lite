@@ -1,2 +1,693 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>「SF-PLF」11. TypeChecking | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">「SF-PLF」11. TypeChecking</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2021-03-28 00:00:00</span> <span class="mobile">2021-03-28 00:00</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">SF (软件基础)</a>&nbsp;</li><li>| <a href="/tags/Coq/">Coq</a>&nbsp;</li><li>| <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;</li><li>| <a href="/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">PLF (编程语言基础)</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><blockquote><p>The <code>has_type</code> relation is good but doesn’t give us a <em>executable algorithm</em> – 不是一个算法<br>but it’s <em>syntax directed</em>, just one typing rule for one term (unique typing) – translate into function!</p></blockquote><h2 id="Comparing-Types"><a href="#Comparing-Types" class="headerlink" title="Comparing Types"></a>Comparing Types</h2><p>首先我们需要 check equality for types.<br>这里非常简单，如果是 SystemF 会麻烦很多，对 <code>∀</code> 要做 local nameless 或者 alpha renaming:</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> eqb_ty (T1 T2:ty) : bool :=</span><br><span class="line">  <span class="keyword">match</span> T1,T2 <span class="built_in">with</span></span><br><span class="line">  | <span class="type">Bool</span>, Bool ⇒</span><br><span class="line">      true</span><br><span class="line">  | <span class="type">Arrow</span> T11 T12, Arrow T21 T22 ⇒</span><br><span class="line">      andb (eqb_ty T11 T21) (eqb_ty T12 T22)</span><br><span class="line">  | <span class="type">_</span>,<span class="keyword">_</span> ⇒</span><br><span class="line">      false</span><br><span class="line">  <span class="keyword">end</span>.</span><br></pre></td></tr></table></figure><p>然后我们需要一个 refl 和一个 reflection，准确得说：「define equality by computation」，反方向用 refl 即可易证</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Lemma</span> eqb_ty_refl : ∀T1,</span><br><span class="line">  eqb_ty T1 T1 = true.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Lemma</span> eqb_ty__eq : ∀T1 T2,</span><br><span class="line">  eqb_ty T1 T2 = true → T1 = T2.</span><br></pre></td></tr></table></figure><h2 id="The-Typechecker"><a href="#The-Typechecker" class="headerlink" title="The Typechecker"></a>The Typechecker</h2><p>直接 syntax directed，不过麻烦的是需要 pattern matching <code>option</code>…</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> type_check (Gamma : context) (t : tm) : option ty :=</span><br><span class="line">  <span class="keyword">match</span> t <span class="built_in">with</span></span><br><span class="line">  | <span class="type">var</span> x =&gt;</span><br><span class="line">      Gamma x</span><br><span class="line">  | <span class="type">abs</span> x T11 t12 =&gt;</span><br><span class="line">      <span class="keyword">match</span> type_check (update Gamma x T11) t12 <span class="built_in">with</span>     <span class="comment">(** &lt;-- 对应 t12 的 rule **)</span></span><br><span class="line">      | <span class="type">Some</span> T12 =&gt; Some (Arrow T11 T12)                 </span><br><span class="line">      | <span class="type">_</span> =&gt; None</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">  | <span class="type">app</span> t1 t2 =&gt;</span><br><span class="line">      <span class="keyword">match</span> type_check Gamma t1, type_check Gamma t2 <span class="built_in">with</span></span><br><span class="line">      | <span class="type">Some</span> (Arrow T11 T12),Some T2 =&gt;</span><br><span class="line">          <span class="keyword">if</span> eqb_ty T11 T2 <span class="keyword">then</span> Some T12 <span class="keyword">else</span> None       <span class="comment">(** eqb_ty 见下文 **)</span></span><br><span class="line">      | <span class="type">_</span>,<span class="keyword">_</span> =&gt; None</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">  ...</span><br></pre></td></tr></table></figure><p>在课堂时提到关于 <code>eqb_ty</code> 的一个细节（我以前也经常犯，在 ML&#x2F;Haskell 中……）：<br>我们能不能在 pattern matching 里支持「用同一个 binding 来 imply 说他们两需要 be equal」？</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(** instead of this **)</span></span><br><span class="line">| <span class="type">Some</span> (Arrow T11 T12),Some T2 =&gt; <span class="keyword">if</span> eqb_ty T11 T2 <span class="keyword">then</span> ...</span><br><span class="line"></span><br><span class="line"><span class="comment">(** can we do this? **)</span></span><br><span class="line">| <span class="type">Some</span> (Arrow T   T&#x27; ),Some T  =&gt; ...</span><br></pre></td></tr></table></figure><blockquote><p>the answer is <strong>NO</strong> because this demands a <em>decidable equality</em>.<br>我好奇的是，用 typeclass 是不是就可以 bake in 这个功能了？尤其是在 Coq function 还是 total 的情况下</p></blockquote><h2 id="Digression-Improving-the-Notation"><a href="#Digression-Improving-the-Notation" class="headerlink" title="Digression: Improving the Notation"></a>Digression: Improving the Notation</h2><p>这里我们可以自己定义一个 Haskell <code>do</code> notation 风格的 <em>monadic</em> notation:</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Notation</span> <span class="string">&quot; x &lt;- e1 ;; e2&quot;</span> := (<span class="keyword">match</span> e1 <span class="built_in">with</span></span><br><span class="line">                              | <span class="type">Some</span> x ⇒ e2</span><br><span class="line">                              | <span class="type">None</span> ⇒ None</span><br><span class="line">                              <span class="keyword">end</span>)</span><br><span class="line">         (<span class="built_in">right</span> associativity, <span class="built_in">at</span> level <span class="number">60</span>).</span><br><span class="line"></span><br><span class="line"><span class="keyword">Notation</span> <span class="string">&quot; &#x27;return&#x27; e &quot;</span></span><br><span class="line">  := (Some e) (<span class="built_in">at</span> level <span class="number">60</span>).</span><br><span class="line"></span><br><span class="line"><span class="keyword">Notation</span> <span class="string">&quot; &#x27;fail&#x27; &quot;</span></span><br><span class="line">  := None.</span><br></pre></td></tr></table></figure><p>好看一些吧反正：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> type_check (Gamma : context) (t : tm) : option ty :=</span><br><span class="line">  <span class="keyword">match</span> t <span class="built_in">with</span></span><br><span class="line">  | <span class="type">var</span> x ⇒</span><br><span class="line">      Gamma x </span><br><span class="line">  | <span class="type">abs</span> x T11 t12 ⇒</span><br><span class="line">      T12 &lt;- type_check (update Gamma x T11) t12 ;;</span><br><span class="line">      <span class="keyword">return</span> (Arrow T11 T12)</span><br><span class="line">  | <span class="type">app</span> t1 t2 ⇒</span><br><span class="line">      T1 &lt;- type_check Gamma t1 ;;</span><br><span class="line">      T2 &lt;- type_check Gamma t2 ;;</span><br><span class="line">      <span class="keyword">match</span> T1 <span class="built_in">with</span> </span><br><span class="line">      | <span class="type">Arrow</span> T11 T12 ⇒ <span class="keyword">if</span> eqb_ty T11 T2 <span class="keyword">then</span> <span class="keyword">return</span> T12 <span class="keyword">else</span> <span class="built_in">fail</span></span><br><span class="line">      | <span class="type">_</span> ⇒ <span class="built_in">fail</span></span><br><span class="line">      <span class="keyword">end</span></span><br></pre></td></tr></table></figure><h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>最后我们需要验证一下算法的正确性：<br>这里的 soundness 和 completess 都是围绕 “typechecking function ~ typing relation inference rule” 这组关系来说的：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Theorem</span> type_checking_sound : ∀Gamma t T,</span><br><span class="line">  type_check Gamma t = Some T → has_type Gamma t T.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Theorem</span> type_checking_complete : ∀Gamma t T,</span><br><span class="line">  has_type Gamma t T → type_check Gamma t = Some T.</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h2><p>给 <code>MoreStlc.v</code> 里的 StlcE 写 typechecker, 然后 prove soundness &#x2F; completeness （过程中用了非常 mega 的 tactics）</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(** 还不能这么写 **)</span></span><br><span class="line">| <span class="type">fst</span> p =&gt;</span><br><span class="line">    (Prod T1 T2) &lt;- type_check Gamma p ;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">(** 要这样……感觉是 notation 的缘故？并且要提供 fallback case 才能通过 exhaustive check 是真的 **)</span></span><br><span class="line">| <span class="type">fst</span> p =&gt;</span><br><span class="line">    Tp &lt;- type_check Gamma p ;;</span><br><span class="line">    <span class="keyword">match</span> Tp <span class="built_in">with</span></span><br><span class="line">    | <span class="type">(Prod</span> T1 T2) =&gt; T1</span><br><span class="line">    | <span class="type">_</span> =&gt; <span class="built_in">fail</span></span><br><span class="line">    <span class="keyword">end</span>.</span><br></pre></td></tr></table></figure><h2 id="Extra-Exercise-Prof-Mtf"><a href="#Extra-Exercise-Prof-Mtf" class="headerlink" title="Extra Exercise (Prof.Mtf)"></a>Extra Exercise (Prof.Mtf)</h2><blockquote><p>I believe this part of exercise was added by Prof. Fluet (not found in SF website version)</p></blockquote><p>给 <code>MoreStlc.v</code> 的 operational semantics 写 Interpreter (<code>stepf</code>), 然后 prove soundness &#x2F; completeness…</p><h3 id="step-vs-stepf"><a href="#step-vs-stepf" class="headerlink" title="step vs. stepf"></a><code>step</code> vs. <code>stepf</code></h3><p>首先我们定义了 <code>value</code> 关系的函数版本 <code>valuef</code>，<br>然后我们定义 <code>step</code> 关系的函数版本 <code>stepf</code>:</p><p>以 pure STLC 为例：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> step : tm -&gt; tm -&gt; <span class="keyword">Prop</span> :=</span><br><span class="line">  | <span class="type">ST_AppAbs</span> : <span class="keyword">forall</span> x T11 t12 v2,</span><br><span class="line">         value v2 -&gt;</span><br><span class="line">         (app (abs x T11 t12) v2) --&gt; [x:=v2]t12</span><br><span class="line">  | <span class="type">ST_App1</span> : <span class="keyword">forall</span> t1 t1&#x27; t2,</span><br><span class="line">         t1 --&gt; t1&#x27; -&gt;</span><br><span class="line">         (app t1 t2) --&gt; (app t1&#x27; t2)</span><br><span class="line">  | <span class="type">ST_App2</span> : <span class="keyword">forall</span> v1 t2 t2&#x27;,</span><br><span class="line">         value v1 -&gt;</span><br><span class="line">         t2 --&gt; t2&#x27; -&gt;</span><br><span class="line">         (app v1 t2) --&gt; (app v1 t2&#x27;)</span><br></pre></td></tr></table></figure><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> stepf (t : tm) : option tm :=</span><br><span class="line">  <span class="keyword">match</span> t <span class="built_in">with</span></span><br><span class="line">  | <span class="type">var</span> x        =&gt; None <span class="comment">(* We only define step for closed terms *)</span></span><br><span class="line">  | <span class="type">abs</span> x1 T1 t2 =&gt; None <span class="comment">(* Abstraction is a value *)</span></span><br><span class="line">  | <span class="type">app</span> t1 t2    =&gt;</span><br><span class="line">    <span class="keyword">match</span> stepf t1, stepf t2, t1 <span class="built_in">with</span></span><br><span class="line">    | <span class="type">Some</span> t1&#x27;, <span class="keyword">_</span>       , <span class="keyword">_</span>           =&gt;                     Some (app t1&#x27; t2)</span><br><span class="line">    | <span class="type">None</span>    , Some t2&#x27;, <span class="keyword">_</span>           =&gt; <span class="built_in">assert</span> (valuef t1) (Some (app t1 t2&#x27;)) <span class="comment">(* otherwise [t1]      is a normal form *)</span></span><br><span class="line">    | <span class="type">None</span>    , None    , abs x T t11 =&gt; <span class="built_in">assert</span> (valuef t2) (Some ([x:=t2]t11)) <span class="comment">(* otherwise [t1], [t2] are normal forms *)</span></span><br><span class="line">    | <span class="type">_</span>       , <span class="keyword">_</span>       , <span class="keyword">_</span>           =&gt;                     None</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Definition</span> <span class="built_in">assert</span> (b : bool) (a : option tm) : option tm := <span class="keyword">if</span> b <span class="keyword">then</span> a <span class="keyword">else</span> None.</span><br></pre></td></tr></table></figure><ol><li><p>对于关系，一直就是 implicitly applied 的，在可用时即使用。<br>对于函数，我们需要手动指定 match 的顺序</p></li><li><p><code>stepf t1 =&gt; None</code> 只代表这是一个 <code>normal form</code>，但不一定就是 <code>value</code>，还有可能是 stuck 了，所以我们需要额外的 <code>assert</code>ion. (失败时返回异常)<br><strong>dynamics</strong> 本身与 <strong>statics</strong> 是正交的，在 <code>typecheck</code> 之后我们可以有 <code>progress</code>，但是现在还没有</p></li></ol><h3 id="Soundness"><a href="#Soundness" class="headerlink" title="Soundness"></a>Soundness</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Theorem</span> sound_stepf : <span class="keyword">forall</span> t t&#x27;,</span><br><span class="line">    stepf t = Some t&#x27;  -&gt;  t --&gt; t&#x27;.</span><br></pre></td></tr></table></figure><p>证明用了一个 given 的非常夸张的 automation…</p><p>不过帮助我找到了 <code>stepf</code> 和 <code>step</code> 的多处 inconsistency:</p><ul><li>3 次做 <code>subst</code> 时依赖的 <code>valuef</code> 不能省</li><li><code>valuef pair</code> 该怎么写才合适？<br>最后把 <code>step</code> 中的 <code>value p -&gt;</code> 改成了 <code>value v1 -&gt; value v2 -&gt;</code>，<br>因为 <code>valuef (pair v1 v2)</code> 出来的 <code>valuef v1 &amp;&amp; valuef v2</code> 比较麻烦。<br>但底线是：<strong>两者必须 consistent！</strong> 这时就能感受到 Formal Methods 的严谨了。</li></ul><h3 id="Completeness"><a href="#Completeness" class="headerlink" title="Completeness"></a>Completeness</h3><p>发现了 pair 实现漏了 2 个 case……然后才发现了 <code>Soundness</code> 自动化中的 <code>valuef pair</code> 问题</p><h2 id="Extra-Mentioned"><a href="#Extra-Mentioned" class="headerlink" title="Extra (Mentioned)"></a>Extra (Mentioned)</h2><hr><p><a class="link" target="_blank" rel="noopener" href="https://lispcast.com/church-vs-curry-types/">Church Style vs. Curry Style<i class="fas fa-external-link-alt"></i></a><br><a class="link" target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Rice%27s_theorem">Rice’s Theorem<i class="fas fa-external-link-alt"></i></a></p><p>CakeML</p><ul><li>prove correctness of ML lang compiler</li><li>latest paper on verifying GC</li></ul></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">「SF-PLF」11. TypeChecking</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/710d.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">#SF (软件基础)</a>&nbsp;</li><li class="tag-item"><a href="/tags/Coq/">#Coq</a>&nbsp;</li><li class="tag-item"><a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>&nbsp;</li><li class="tag-item"><a href="/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">#PLF (编程语言基础)</a>&nbsp;</li></ul></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparing-Types"><span class="nav-number">1.</span> <span class="nav-text">Comparing Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Typechecker"><span class="nav-number">2.</span> <span class="nav-text">The Typechecker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Digression-Improving-the-Notation"><span class="nav-number">3.</span> <span class="nav-text">Digression: Improving the Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties"><span class="nav-number">4.</span> <span class="nav-text">Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise"><span class="nav-number">5.</span> <span class="nav-text">Exercise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extra-Exercise-Prof-Mtf"><span class="nav-number">6.</span> <span class="nav-text">Extra Exercise (Prof.Mtf)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step-vs-stepf"><span class="nav-number">6.1.</span> <span class="nav-text">step vs. stepf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Soundness"><span class="nav-number">6.2.</span> <span class="nav-text">Soundness</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Completeness"><span class="nav-number">6.3.</span> <span class="nav-text">Completeness</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extra-Mentioned"><span class="nav-number">7.</span> <span class="nav-text">Extra (Mentioned)</span></a></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            「SF-PLF」11. TypeChecking |
+        
+        零域
+    </title><meta name="robots" content="noindex">
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">「SF-PLF」11. TypeChecking</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2021-03-28 00:00:00</span>
+        <span class="mobile">2021-03-28 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">SF (软件基础)</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Coq/">Coq</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">PLF (编程语言基础)</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <blockquote>
+<p>The <code>has_type</code> relation is good but doesn’t give us a <em>executable algorithm</em> – 不是一个算法<br>but it’s <em>syntax directed</em>, just one typing rule for one term (unique typing) – translate into function!</p>
+</blockquote>
+<h2 id="Comparing-Types"><a href="#Comparing-Types" class="headerlink" title="Comparing Types"></a>Comparing Types</h2><p>首先我们需要 check equality for types.<br>这里非常简单，如果是 SystemF 会麻烦很多，对 <code>∀</code> 要做 local nameless 或者 alpha renaming:</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> eqb_ty (T1 T2:ty) : bool :=</span><br><span class="line">  <span class="keyword">match</span> T1,T2 <span class="built_in">with</span></span><br><span class="line">  | <span class="type">Bool</span>, Bool ⇒</span><br><span class="line">      true</span><br><span class="line">  | <span class="type">Arrow</span> T11 T12, Arrow T21 T22 ⇒</span><br><span class="line">      andb (eqb_ty T11 T21) (eqb_ty T12 T22)</span><br><span class="line">  | <span class="type">_</span>,<span class="keyword">_</span> ⇒</span><br><span class="line">      false</span><br><span class="line">  <span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
+
+<p>然后我们需要一个 refl 和一个 reflection，准确得说：「define equality by computation」，反方向用 refl 即可易证</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Lemma</span> eqb_ty_refl : ∀T1,</span><br><span class="line">  eqb_ty T1 T1 = true.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Lemma</span> eqb_ty__eq : ∀T1 T2,</span><br><span class="line">  eqb_ty T1 T2 = true → T1 = T2.</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="The-Typechecker"><a href="#The-Typechecker" class="headerlink" title="The Typechecker"></a>The Typechecker</h2><p>直接 syntax directed，不过麻烦的是需要 pattern matching <code>option</code>…</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> type_check (Gamma : context) (t : tm) : option ty :=</span><br><span class="line">  <span class="keyword">match</span> t <span class="built_in">with</span></span><br><span class="line">  | <span class="type">var</span> x =&gt;</span><br><span class="line">      Gamma x</span><br><span class="line">  | <span class="type">abs</span> x T11 t12 =&gt;</span><br><span class="line">      <span class="keyword">match</span> type_check (update Gamma x T11) t12 <span class="built_in">with</span>     <span class="comment">(** &lt;-- 对应 t12 的 rule **)</span></span><br><span class="line">      | <span class="type">Some</span> T12 =&gt; Some (Arrow T11 T12)                 </span><br><span class="line">      | <span class="type">_</span> =&gt; None</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">  | <span class="type">app</span> t1 t2 =&gt;</span><br><span class="line">      <span class="keyword">match</span> type_check Gamma t1, type_check Gamma t2 <span class="built_in">with</span></span><br><span class="line">      | <span class="type">Some</span> (Arrow T11 T12),Some T2 =&gt;</span><br><span class="line">          <span class="keyword">if</span> eqb_ty T11 T2 <span class="keyword">then</span> Some T12 <span class="keyword">else</span> None       <span class="comment">(** eqb_ty 见下文 **)</span></span><br><span class="line">      | <span class="type">_</span>,<span class="keyword">_</span> =&gt; None</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+
+<p>在课堂时提到关于 <code>eqb_ty</code> 的一个细节（我以前也经常犯，在 ML&#x2F;Haskell 中……）：<br>我们能不能在 pattern matching 里支持「用同一个 binding 来 imply 说他们两需要 be equal」？</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(** instead of this **)</span></span><br><span class="line">| <span class="type">Some</span> (Arrow T11 T12),Some T2 =&gt; <span class="keyword">if</span> eqb_ty T11 T2 <span class="keyword">then</span> ...</span><br><span class="line"></span><br><span class="line"><span class="comment">(** can we do this? **)</span></span><br><span class="line">| <span class="type">Some</span> (Arrow T   T&#x27; ),Some T  =&gt; ...</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>the answer is <strong>NO</strong> because this demands a <em>decidable equality</em>.<br>我好奇的是，用 typeclass 是不是就可以 bake in 这个功能了？尤其是在 Coq function 还是 total 的情况下</p>
+</blockquote>
+<h2 id="Digression-Improving-the-Notation"><a href="#Digression-Improving-the-Notation" class="headerlink" title="Digression: Improving the Notation"></a>Digression: Improving the Notation</h2><p>这里我们可以自己定义一个 Haskell <code>do</code> notation 风格的 <em>monadic</em> notation:</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Notation</span> <span class="string">&quot; x &lt;- e1 ;; e2&quot;</span> := (<span class="keyword">match</span> e1 <span class="built_in">with</span></span><br><span class="line">                              | <span class="type">Some</span> x ⇒ e2</span><br><span class="line">                              | <span class="type">None</span> ⇒ None</span><br><span class="line">                              <span class="keyword">end</span>)</span><br><span class="line">         (<span class="built_in">right</span> associativity, <span class="built_in">at</span> level <span class="number">60</span>).</span><br><span class="line"></span><br><span class="line"><span class="keyword">Notation</span> <span class="string">&quot; &#x27;return&#x27; e &quot;</span></span><br><span class="line">  := (Some e) (<span class="built_in">at</span> level <span class="number">60</span>).</span><br><span class="line"></span><br><span class="line"><span class="keyword">Notation</span> <span class="string">&quot; &#x27;fail&#x27; &quot;</span></span><br><span class="line">  := None.</span><br></pre></td></tr></table></figure>
+
+<p>好看一些吧反正：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> type_check (Gamma : context) (t : tm) : option ty :=</span><br><span class="line">  <span class="keyword">match</span> t <span class="built_in">with</span></span><br><span class="line">  | <span class="type">var</span> x ⇒</span><br><span class="line">      Gamma x </span><br><span class="line">  | <span class="type">abs</span> x T11 t12 ⇒</span><br><span class="line">      T12 &lt;- type_check (update Gamma x T11) t12 ;;</span><br><span class="line">      <span class="keyword">return</span> (Arrow T11 T12)</span><br><span class="line">  | <span class="type">app</span> t1 t2 ⇒</span><br><span class="line">      T1 &lt;- type_check Gamma t1 ;;</span><br><span class="line">      T2 &lt;- type_check Gamma t2 ;;</span><br><span class="line">      <span class="keyword">match</span> T1 <span class="built_in">with</span> </span><br><span class="line">      | <span class="type">Arrow</span> T11 T12 ⇒ <span class="keyword">if</span> eqb_ty T11 T2 <span class="keyword">then</span> <span class="keyword">return</span> T12 <span class="keyword">else</span> <span class="built_in">fail</span></span><br><span class="line">      | <span class="type">_</span> ⇒ <span class="built_in">fail</span></span><br><span class="line">      <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><p>最后我们需要验证一下算法的正确性：<br>这里的 soundness 和 completess 都是围绕 “typechecking function ~ typing relation inference rule” 这组关系来说的：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Theorem</span> type_checking_sound : ∀Gamma t T,</span><br><span class="line">  type_check Gamma t = Some T → has_type Gamma t T.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Theorem</span> type_checking_complete : ∀Gamma t T,</span><br><span class="line">  has_type Gamma t T → type_check Gamma t = Some T.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h2><p>给 <code>MoreStlc.v</code> 里的 StlcE 写 typechecker, 然后 prove soundness &#x2F; completeness （过程中用了非常 mega 的 tactics）</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(** 还不能这么写 **)</span></span><br><span class="line">| <span class="type">fst</span> p =&gt;</span><br><span class="line">    (Prod T1 T2) &lt;- type_check Gamma p ;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">(** 要这样……感觉是 notation 的缘故？并且要提供 fallback case 才能通过 exhaustive check 是真的 **)</span></span><br><span class="line">| <span class="type">fst</span> p =&gt;</span><br><span class="line">    Tp &lt;- type_check Gamma p ;;</span><br><span class="line">    <span class="keyword">match</span> Tp <span class="built_in">with</span></span><br><span class="line">    | <span class="type">(Prod</span> T1 T2) =&gt; T1</span><br><span class="line">    | <span class="type">_</span> =&gt; <span class="built_in">fail</span></span><br><span class="line">    <span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Extra-Exercise-Prof-Mtf"><a href="#Extra-Exercise-Prof-Mtf" class="headerlink" title="Extra Exercise (Prof.Mtf)"></a>Extra Exercise (Prof.Mtf)</h2><blockquote>
+<p>I believe this part of exercise was added by Prof. Fluet (not found in SF website version)</p>
+</blockquote>
+<p>给 <code>MoreStlc.v</code> 的 operational semantics 写 Interpreter (<code>stepf</code>), 然后 prove soundness &#x2F; completeness… </p>
+<h3 id="step-vs-stepf"><a href="#step-vs-stepf" class="headerlink" title="step vs. stepf"></a><code>step</code> vs. <code>stepf</code></h3><p>首先我们定义了 <code>value</code> 关系的函数版本 <code>valuef</code>，<br>然后我们定义 <code>step</code> 关系的函数版本 <code>stepf</code>:</p>
+<p>以 pure STLC 为例：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> step : tm -&gt; tm -&gt; <span class="keyword">Prop</span> :=</span><br><span class="line">  | <span class="type">ST_AppAbs</span> : <span class="keyword">forall</span> x T11 t12 v2,</span><br><span class="line">         value v2 -&gt;</span><br><span class="line">         (app (abs x T11 t12) v2) --&gt; [x:=v2]t12</span><br><span class="line">  | <span class="type">ST_App1</span> : <span class="keyword">forall</span> t1 t1&#x27; t2,</span><br><span class="line">         t1 --&gt; t1&#x27; -&gt;</span><br><span class="line">         (app t1 t2) --&gt; (app t1&#x27; t2)</span><br><span class="line">  | <span class="type">ST_App2</span> : <span class="keyword">forall</span> v1 t2 t2&#x27;,</span><br><span class="line">         value v1 -&gt;</span><br><span class="line">         t2 --&gt; t2&#x27; -&gt;</span><br><span class="line">         (app v1 t2) --&gt; (app v1 t2&#x27;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Fixpoint</span> stepf (t : tm) : option tm :=</span><br><span class="line">  <span class="keyword">match</span> t <span class="built_in">with</span></span><br><span class="line">  | <span class="type">var</span> x        =&gt; None <span class="comment">(* We only define step for closed terms *)</span></span><br><span class="line">  | <span class="type">abs</span> x1 T1 t2 =&gt; None <span class="comment">(* Abstraction is a value *)</span></span><br><span class="line">  | <span class="type">app</span> t1 t2    =&gt;</span><br><span class="line">    <span class="keyword">match</span> stepf t1, stepf t2, t1 <span class="built_in">with</span></span><br><span class="line">    | <span class="type">Some</span> t1&#x27;, <span class="keyword">_</span>       , <span class="keyword">_</span>           =&gt;                     Some (app t1&#x27; t2)</span><br><span class="line">    | <span class="type">None</span>    , Some t2&#x27;, <span class="keyword">_</span>           =&gt; <span class="built_in">assert</span> (valuef t1) (Some (app t1 t2&#x27;)) <span class="comment">(* otherwise [t1]      is a normal form *)</span></span><br><span class="line">    | <span class="type">None</span>    , None    , abs x T t11 =&gt; <span class="built_in">assert</span> (valuef t2) (Some ([x:=t2]t11)) <span class="comment">(* otherwise [t1], [t2] are normal forms *)</span></span><br><span class="line">    | <span class="type">_</span>       , <span class="keyword">_</span>       , <span class="keyword">_</span>           =&gt;                     None</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Definition</span> <span class="built_in">assert</span> (b : bool) (a : option tm) : option tm := <span class="keyword">if</span> b <span class="keyword">then</span> a <span class="keyword">else</span> None.</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>对于关系，一直就是 implicitly applied 的，在可用时即使用。<br>对于函数，我们需要手动指定 match 的顺序</p>
+</li>
+<li><p><code>stepf t1 =&gt; None</code> 只代表这是一个 <code>normal form</code>，但不一定就是 <code>value</code>，还有可能是 stuck 了，所以我们需要额外的 <code>assert</code>ion. (失败时返回异常)<br><strong>dynamics</strong> 本身与 <strong>statics</strong> 是正交的，在 <code>typecheck</code> 之后我们可以有 <code>progress</code>，但是现在还没有</p>
+</li>
+</ol>
+<h3 id="Soundness"><a href="#Soundness" class="headerlink" title="Soundness"></a>Soundness</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Theorem</span> sound_stepf : <span class="keyword">forall</span> t t&#x27;,</span><br><span class="line">    stepf t = Some t&#x27;  -&gt;  t --&gt; t&#x27;.</span><br></pre></td></tr></table></figure>
+
+<p>证明用了一个 given 的非常夸张的 automation…</p>
+<p>不过帮助我找到了 <code>stepf</code> 和 <code>step</code> 的多处 inconsistency: </p>
+<ul>
+<li>3 次做 <code>subst</code> 时依赖的 <code>valuef</code> 不能省</li>
+<li><code>valuef pair</code> 该怎么写才合适？<br>最后把 <code>step</code> 中的 <code>value p -&gt;</code> 改成了 <code>value v1 -&gt; value v2 -&gt;</code>，<br>因为 <code>valuef (pair v1 v2)</code> 出来的 <code>valuef v1 &amp;&amp; valuef v2</code> 比较麻烦。<br>但底线是：<strong>两者必须 consistent！</strong> 这时就能感受到 Formal Methods 的严谨了。</li>
+</ul>
+<h3 id="Completeness"><a href="#Completeness" class="headerlink" title="Completeness"></a>Completeness</h3><p>发现了 pair 实现漏了 2 个 case……然后才发现了 <code>Soundness</code> 自动化中的 <code>valuef pair</code> 问题</p>
+<h2 id="Extra-Mentioned"><a href="#Extra-Mentioned" class="headerlink" title="Extra (Mentioned)"></a>Extra (Mentioned)</h2><hr>
+<p><a class="link"   target="_blank" rel="noopener" href="https://lispcast.com/church-vs-curry-types/" >Church Style vs. Curry Style<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Rice%27s_theorem" >Rice’s Theorem<i class="fas fa-external-link-alt"></i></a></p>
+<p>CakeML </p>
+<ul>
+<li>prove correctness of ML lang compiler</li>
+<li>latest paper on verifying GC</li>
+</ul>
+<!-- flag of hidden posts -->
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">「SF-PLF」11. TypeChecking</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/710d.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">#SF (软件基础)</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Coq/">#Coq</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/PLF-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">#PLF (编程语言基础)</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparing-Types"><span class="nav-number">1.</span> <span class="nav-text">Comparing Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Typechecker"><span class="nav-number">2.</span> <span class="nav-text">The Typechecker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Digression-Improving-the-Notation"><span class="nav-number">3.</span> <span class="nav-text">Digression: Improving the Notation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties"><span class="nav-number">4.</span> <span class="nav-text">Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exercise"><span class="nav-number">5.</span> <span class="nav-text">Exercise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extra-Exercise-Prof-Mtf"><span class="nav-number">6.</span> <span class="nav-text">Extra Exercise (Prof.Mtf)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step-vs-stepf"><span class="nav-number">6.1.</span> <span class="nav-text">step vs. stepf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Soundness"><span class="nav-number">6.2.</span> <span class="nav-text">Soundness</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Completeness"><span class="nav-number">6.3.</span> <span class="nav-text">Completeness</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extra-Mentioned"><span class="nav-number">7.</span> <span class="nav-text">Extra (Mentioned)</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

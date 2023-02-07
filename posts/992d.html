@@ -1,17 +1,359 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享"><meta name="description" content="一个技术控，爱技术，爱分享，爱音乐"><meta name="author" content="Pin Young"><title>「SF-LC」10 IndPrinciples | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">「SF-LC」10 IndPrinciples</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2021-03-28 00:00:00</span> <span class="mobile">2021-03-28 00:00</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-tags article-meta-item"><i class="fas fa-tags"></i>&nbsp;<ul><li><a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">LF (逻辑基础)</a>&nbsp;</li><li>| <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">SF (软件基础)</a>&nbsp;</li><li>| <a href="/tags/Coq/">Coq</a>&nbsp;</li><li>| <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>9 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><blockquote><p>每次我们使用 <code>Inductive</code> 来声明数据类型时，Coq 会自动为这个类型生成 _归纳原理_。<br>Every time we declare a new <code>Inductive</code> datatype, Coq automatically generates an <em>induction principle</em> for this type.</p></blockquote><p>自然数的归纳原理:</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Check</span> nat_ind. :</span><br><span class="line"></span><br><span class="line">∀ P : nat → <span class="keyword">Prop</span>,</span><br><span class="line">  P <span class="number">0</span>  →</span><br><span class="line">  (∀ n : nat, P n -&gt; P (S n)) →</span><br><span class="line">  ∀ n : nat, P n</span><br></pre></td></tr></table></figure><p>written as inference rule:</p><pre><code>                    P 0
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="空中有零，零域，分享快乐，音乐，心得，生活，电影，代码，编程，考试，学业，零式的天空，凌空博客，原零空博客，原Tans博客，现零的小屋官方博客，计算机，音乐，电脑，编程，生活，分享">
+    <meta name="description" content="一个技术控，爱技术，爱分享，爱音乐">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            「SF-LC」10 IndPrinciples |
+        
+        零域
+    </title><meta name="robots" content="noindex">
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">「SF-LC」10 IndPrinciples</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2021-03-28 00:00:00</span>
+        <span class="mobile">2021-03-28 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">LF (逻辑基础)</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">SF (软件基础)</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Coq/">Coq</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>9 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><blockquote>
+<p>每次我们使用 <code>Inductive</code> 来声明数据类型时，Coq 会自动为这个类型生成 _归纳原理_。<br>Every time we declare a new <code>Inductive</code> datatype, Coq automatically generates an <em>induction principle</em> for this type. </p>
+</blockquote>
+<p>自然数的归纳原理:</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Check</span> nat_ind. :</span><br><span class="line"></span><br><span class="line">∀ P : nat → <span class="keyword">Prop</span>,</span><br><span class="line">  P <span class="number">0</span>  →</span><br><span class="line">  (∀ n : nat, P n -&gt; P (S n)) →</span><br><span class="line">  ∀ n : nat, P n</span><br></pre></td></tr></table></figure>
+
+<p>written as inference rule:</p>
+<pre><code>                    P 0
   ∀ n : nat, P n -&gt; P (S n)
   -------------------------
   ∀ n : nat,        P n
-</code></pre><blockquote><p><code>induction</code> tactic is wrapper of <code>apply t_ind</code></p></blockquote><blockquote><p>Coq 为每一个 <code>Inductive</code> 定义的数据类型生成了归纳原理，包括那些非递归的<br>Coq generates induction principles for every datatype defined with <code>Inductive</code>, including those that aren’t recursive.</p></blockquote><blockquote><p>尽管我们不需要使用归纳来证明非递归数据类型的性质<br>Although of course we don’t need induction to prove properties of non-recursive datatypes. (<code>destruct</code> would be sufficient)</p></blockquote><blockquote><p>归纳原理的概念仍然适用于它们： 它是一种证明一个对于这个类型所有值都成立的性质的方法。<br>the idea of an induction principle still makes sense for them: it gives a way to prove that a property holds for all values of the type.</p></blockquote><h3 id="Non-recursive"><a href="#Non-recursive" class="headerlink" title="Non-recursive"></a>Non-recursive</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> yesno : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">yes</span></span><br><span class="line">  | <span class="type">no</span>.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Check</span> yesno_ind. :</span><br><span class="line">yesno_ind : ∀ P : yesno → <span class="keyword">Prop</span>,</span><br><span class="line">  P yes  →</span><br><span class="line">  P no   →</span><br><span class="line">  ∀ y : yesno, P y </span><br></pre></td></tr></table></figure><pre><code>             P yes 
+</code></pre>
+<blockquote>
+<p><code>induction</code> tactic is wrapper of <code>apply t_ind</code></p>
+</blockquote>
+<blockquote>
+<p>Coq 为每一个 <code>Inductive</code> 定义的数据类型生成了归纳原理，包括那些非递归的<br>Coq generates induction principles for every datatype defined with <code>Inductive</code>, including those that aren’t recursive. </p>
+</blockquote>
+<blockquote>
+<p>尽管我们不需要使用归纳来证明非递归数据类型的性质<br>Although of course we don’t need induction to prove properties of non-recursive datatypes. (<code>destruct</code> would be sufficient)</p>
+</blockquote>
+<blockquote>
+<p>归纳原理的概念仍然适用于它们： 它是一种证明一个对于这个类型所有值都成立的性质的方法。<br>the idea of an induction principle still makes sense for them: it gives a way to prove that a property holds for all values of the type.</p>
+</blockquote>
+<h3 id="Non-recursive"><a href="#Non-recursive" class="headerlink" title="Non-recursive"></a>Non-recursive</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> yesno : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">yes</span></span><br><span class="line">  | <span class="type">no</span>.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Check</span> yesno_ind. :</span><br><span class="line">yesno_ind : ∀ P : yesno → <span class="keyword">Prop</span>,</span><br><span class="line">  P yes  →</span><br><span class="line">  P no   →</span><br><span class="line">  ∀ y : yesno, P y </span><br></pre></td></tr></table></figure>
+
+<pre><code>             P yes 
              P no
 ------------------
 ∀ y : yesno, P y 
-</code></pre><h3 id="Structural-Recursive"><a href="#Structural-Recursive" class="headerlink" title="Structural-Recursive"></a>Structural-Recursive</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> natlist : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">nnil</span></span><br><span class="line">  | <span class="type">ncons</span> (n : nat) (l : natlist).</span><br><span class="line"></span><br><span class="line"><span class="keyword">Check</span> natlist_ind. :</span><br><span class="line">natlist_ind : ∀ P : natlist → <span class="keyword">Prop</span>,</span><br><span class="line">  P nnil  →</span><br><span class="line">  (∀ (n : nat) (l : natlist), P l -&gt; P (ncons n l)) →</span><br><span class="line">  ∀ l : natlist, P l </span><br></pre></td></tr></table></figure><pre><code>                                  P nnil 
+</code></pre>
+<h3 id="Structural-Recursive"><a href="#Structural-Recursive" class="headerlink" title="Structural-Recursive"></a>Structural-Recursive</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> natlist : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">nnil</span></span><br><span class="line">  | <span class="type">ncons</span> (n : nat) (l : natlist).</span><br><span class="line"></span><br><span class="line"><span class="keyword">Check</span> natlist_ind. :</span><br><span class="line">natlist_ind : ∀ P : natlist → <span class="keyword">Prop</span>,</span><br><span class="line">  P nnil  →</span><br><span class="line">  (∀ (n : nat) (l : natlist), P l -&gt; P (ncons n l)) →</span><br><span class="line">  ∀ l : natlist, P l </span><br></pre></td></tr></table></figure>
+
+<pre><code>                                  P nnil 
 ∀ (n : nat) (l : natlist), P l -&gt; P (ncons n l)
 -----------------------------------------------
 ∀ l : natlist,                    P l 
-</code></pre><p><code>P</code> only need to fullfill <code>l : the_type</code> but not <code>n:nat</code> since we are proving property of <code>the_type</code>.</p><h3 id="The-Pattern"><a href="#The-Pattern" class="headerlink" title="The Pattern"></a>The Pattern</h3><blockquote><p>These generated principles follow a similar pattern.</p></blockquote><ul><li>induction on each cases</li><li>proof by exhaustiveness?</li></ul><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> t : <span class="keyword">Type</span> := </span><br><span class="line">  | <span class="type">c1</span> (x1 : a1) ... (xn : an)</span><br><span class="line">  ...</span><br><span class="line">  | <span class="type">cn</span> ...</span><br><span class="line"></span><br><span class="line">t_ind : ∀P : t → <span class="keyword">Prop</span>,</span><br><span class="line">              ... <span class="built_in">case</span> <span class="keyword">for</span> c1 ... →</span><br><span class="line">              ... <span class="built_in">case</span> <span class="keyword">for</span> c2 ... → ...</span><br><span class="line">              ... <span class="built_in">case</span> <span class="keyword">for</span> cn ... →</span><br><span class="line">              ∀n : t, P n</span><br></pre></td></tr></table></figure><p>对于 <code>t</code> 的归纳原理是又所有对于 <code>c</code> 的归纳原理所组成的: （即所有 case 成立)</p><p>对于 <code>c</code> 的归纳原理则是</p><blockquote><p>对于所有的类型为 <code>a1...an</code> 的值 <code>x1...xn</code>，如果 <code>P</code> 对每个 归纳的参数（每个具有类型 <code>t</code> 的 <code>xi</code>）都成立，那么 <code>P</code> 对于 <code>c x1 ... xn</code> 成立”</p></blockquote><p>每个具有类型 <code>t</code> 的参数的地方即发生了「递归」与「子结构」，归纳假设 &#x3D; 「对子结构成立」.</p><h2 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism"></a>Polymorphism</h2><p>接下来考虑多态列表：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(* in ADT syntax *)</span></span><br><span class="line"><span class="keyword">Inductive</span> list (X:<span class="keyword">Type</span>) : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">nil</span> </span><br><span class="line">  | <span class="type">cons</span> (x : X) (l&#x27;: list X) </span><br><span class="line"></span><br><span class="line"><span class="comment">(* in GADT syntax *)</span></span><br><span class="line"><span class="keyword">Inductive</span> list (X:<span class="keyword">Type</span>) : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">nil</span> : list X</span><br><span class="line">  | <span class="type">cons</span> : X → list X → list X.</span><br></pre></td></tr></table></figure><blockquote><p>here, the whole def is <em>parameterized</em> on a <code>set X</code>: that is, we are defining a <em>family</em> of inductive types <code>list X</code>, one for each <code>X</code>.</p></blockquote><p>这里，整个定义都是被集合 <code>X</code> <em>参数化_的：<br>也即，我们定义了一个族 <code>list : X -&gt; Type</code>, 对于每个 <code>X</code>，我们都有一个对应的_项</em>: <code>list X</code>, which is a <code>Type</code>, 可写作 <code>list X : Type</code>.</p><blockquote><p><code>list_ind</code> can be thought of as a polymorphic function that,<br>when applied to a type <code>X</code>, gives us back an induction principle specialized to the type <code>list X</code>.</p></blockquote><p>因此，其归纳定理 <code>list_ind</code> 是一个被 <code>X</code> 参数化多态的函数。<br>当应用 <code>X : Type</code> 时，返回一个特化在 <code>list X : Type</code> 上的归纳原理</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list_ind : ∀(X : <span class="keyword">Type</span>) (P : list X → <span class="keyword">Prop</span>),</span><br><span class="line">    P [] →</span><br><span class="line">    (∀(x : X) (l : list X), P l → P (x :: l)) →</span><br><span class="line">    ∀l : list X, P l</span><br></pre></td></tr></table></figure><pre><code>∀(X : Type), &#123;
+</code></pre>
+<p><code>P</code> only need to fullfill <code>l : the_type</code> but not <code>n:nat</code> since we are proving property of <code>the_type</code>.</p>
+<h3 id="The-Pattern"><a href="#The-Pattern" class="headerlink" title="The Pattern"></a>The Pattern</h3><blockquote>
+<p>These generated principles follow a similar pattern. </p>
+</blockquote>
+<ul>
+<li>induction on each cases </li>
+<li>proof by exhaustiveness?</li>
+</ul>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> t : <span class="keyword">Type</span> := </span><br><span class="line">  | <span class="type">c1</span> (x1 : a1) ... (xn : an)</span><br><span class="line">  ...</span><br><span class="line">  | <span class="type">cn</span> ...</span><br><span class="line"></span><br><span class="line">t_ind : ∀P : t → <span class="keyword">Prop</span>,</span><br><span class="line">              ... <span class="built_in">case</span> <span class="keyword">for</span> c1 ... →</span><br><span class="line">              ... <span class="built_in">case</span> <span class="keyword">for</span> c2 ... → ...</span><br><span class="line">              ... <span class="built_in">case</span> <span class="keyword">for</span> cn ... →</span><br><span class="line">              ∀n : t, P n</span><br></pre></td></tr></table></figure>
+
+<p>对于 <code>t</code> 的归纳原理是又所有对于 <code>c</code> 的归纳原理所组成的: （即所有 case 成立)</p>
+<p>对于 <code>c</code> 的归纳原理则是</p>
+<blockquote>
+<p>对于所有的类型为 <code>a1...an</code> 的值 <code>x1...xn</code>，如果 <code>P</code> 对每个 归纳的参数（每个具有类型 <code>t</code> 的 <code>xi</code>）都成立，那么 <code>P</code> 对于 <code>c x1 ... xn</code> 成立”</p>
+</blockquote>
+<p>每个具有类型 <code>t</code> 的参数的地方即发生了「递归」与「子结构」，归纳假设 &#x3D; 「对子结构成立」.</p>
+<h2 id="Polymorphism"><a href="#Polymorphism" class="headerlink" title="Polymorphism"></a>Polymorphism</h2><p>接下来考虑多态列表：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">(* in ADT syntax *)</span></span><br><span class="line"><span class="keyword">Inductive</span> list (X:<span class="keyword">Type</span>) : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">nil</span> </span><br><span class="line">  | <span class="type">cons</span> (x : X) (l&#x27;: list X) </span><br><span class="line"></span><br><span class="line"><span class="comment">(* in GADT syntax *)</span></span><br><span class="line"><span class="keyword">Inductive</span> list (X:<span class="keyword">Type</span>) : <span class="keyword">Type</span> :=</span><br><span class="line">  | <span class="type">nil</span> : list X</span><br><span class="line">  | <span class="type">cons</span> : X → list X → list X.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>here, the whole def is <em>parameterized</em> on a <code>set X</code>: that is, we are defining a <em>family</em> of inductive types <code>list X</code>, one for each <code>X</code>.</p>
+</blockquote>
+<p>这里，整个定义都是被集合 <code>X</code> <em>参数化_的：<br>也即，我们定义了一个族 <code>list : X -&gt; Type</code>, 对于每个 <code>X</code>，我们都有一个对应的_项</em>: <code>list X</code>, which is a <code>Type</code>, 可写作 <code>list X : Type</code>.</p>
+<blockquote>
+<p><code>list_ind</code> can be thought of as a polymorphic function that,<br>when applied to a type <code>X</code>, gives us back an induction principle specialized to the type <code>list X</code>.</p>
+</blockquote>
+<p>因此，其归纳定理 <code>list_ind</code> 是一个被 <code>X</code> 参数化多态的函数。<br>当应用 <code>X : Type</code> 时，返回一个特化在 <code>list X : Type</code> 上的归纳原理</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list_ind : ∀(X : <span class="keyword">Type</span>) (P : list X → <span class="keyword">Prop</span>),</span><br><span class="line">    P [] →</span><br><span class="line">    (∀(x : X) (l : list X), P l → P (x :: l)) →</span><br><span class="line">    ∀l : list X, P l</span><br></pre></td></tr></table></figure>
+
+<pre><code>∀(X : Type), &#123;
 
                            P []                   -- base structure holds
     ∀(x : X) (l : list X), P l → P (x :: l)       -- sub-structure holds -&gt; structure holds
@@ -19,16 +361,417 @@
     ∀l : list X,           P l                    -- all structure holds
 
 &#125;
-</code></pre><h2 id="Induction-Hypotheses-归纳假设"><a href="#Induction-Hypotheses-归纳假设" class="headerlink" title="Induction Hypotheses 归纳假设"></a>Induction Hypotheses 归纳假设</h2><blockquote><p>The induction hypothesis is the <em>premise</em> of this latter implication<br>— the assumption that <code>P</code> holds of <code>n&#39;</code>, which we are allowed to use in proving that <code>P</code> holds for <code>S n&#39;</code>.</p></blockquote><p><em>归纳假设就是 <code>P n&#39; -&gt; P (S n&#39;)</code> 这个蕴含式中的前提部分</em><br>使用 <code>nat_ind</code> 时需要显式得用 <code>intros n IHn</code> 引入，于是就变成了 proof context 中的假设.</p><h2 id="More-on-the-induction-Tactic"><a href="#More-on-the-induction-Tactic" class="headerlink" title="More on the induction Tactic"></a>More on the <code>induction</code> Tactic</h2><h3 id="“Re-generalize”-重新泛化"><a href="#“Re-generalize”-重新泛化" class="headerlink" title="“Re-generalize” 重新泛化"></a>“Re-generalize” 重新泛化</h3><p>Noticed that in proofs using <code>nat_ind</code>, we need to keep <code>n</code> generailzed.<br>if we <code>intros</code> particular <code>n</code> first then <code>apply nat_ind</code>, it won’t works…</p><p>But we could <code>intros n. induction n.</code>, that’s <code>induction</code> tactic internally “re-generalize” the <code>n</code> we perform induction on.</p><h3 id="Automatic-intros-i-e-specialize-variables-before-the-variable-we-induction-on"><a href="#Automatic-intros-i-e-specialize-variables-before-the-variable-we-induction-on" class="headerlink" title="Automatic intros i.e. specialize variables before the variable we induction on"></a>Automatic <code>intros</code> i.e. specialize variables before the variable we induction on</h3><p>A canonical case is <code>induction n</code> vs <code>induction m</code> on theorem <code>plus_comm&#39;&#39; : ∀n m : nat, n + m = m + n.</code>.<br>to keep a var generial…we can either change variable order under <code>∀</code>, or using <code>generalize dependent</code>.</p><h2 id="Induction-Principles-in-Prop"><a href="#Induction-Principles-in-Prop" class="headerlink" title="Induction Principles in Prop"></a>Induction Principles in Prop</h2><h3 id="理解依赖类型的归纳假设-与-Coq-排除证据参数的原因"><a href="#理解依赖类型的归纳假设-与-Coq-排除证据参数的原因" class="headerlink" title="理解依赖类型的归纳假设 与 Coq 排除证据参数的原因"></a>理解依赖类型的归纳假设 与 Coq 排除证据参数的原因</h3><p>除了集合 <code>Set</code>，命题 <code>Prop</code> 也可以是归纳定义与 <code>induction</code> on 得.<br>难点在于：<em>Inductive Prop</em> 通常是 dependent type 的，这里会带来复杂度。</p><p>考虑命题 <code>even</code>:</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> even : nat → <span class="keyword">Prop</span> :=</span><br><span class="line"> | <span class="type">ev_0</span> : even <span class="number">0</span></span><br><span class="line"> | <span class="type">ev_SS</span> : ∀n : nat, even n → even (S (S n)).</span><br></pre></td></tr></table></figure><p>我们可以猜测一个最 general 的归纳假设：</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ev_ind_max : ∀ P : (∀n : nat, even n → <span class="keyword">Prop</span>),</span><br><span class="line">  P O ev_0 →</span><br><span class="line">  (∀(m : nat) (E : even m), P m E → P (S (S m)) (ev_SS m E)) →</span><br><span class="line">  ∀(n : nat) (E : even n), P n E</span><br></pre></td></tr></table></figure><p>即:</p><pre><code>                                   P 0 ev_0                    -- base 
+</code></pre>
+<h2 id="Induction-Hypotheses-归纳假设"><a href="#Induction-Hypotheses-归纳假设" class="headerlink" title="Induction Hypotheses 归纳假设"></a>Induction Hypotheses 归纳假设</h2><blockquote>
+<p> The induction hypothesis is the <em>premise</em> of this latter implication<br>— the assumption that <code>P</code> holds of <code>n&#39;</code>, which we are allowed to use in proving that <code>P</code> holds for <code>S n&#39;</code>.</p>
+</blockquote>
+<p><em>归纳假设就是 <code>P n&#39; -&gt; P (S n&#39;)</code> 这个蕴含式中的前提部分</em><br>使用 <code>nat_ind</code> 时需要显式得用 <code>intros n IHn</code> 引入，于是就变成了 proof context 中的假设.</p>
+<h2 id="More-on-the-induction-Tactic"><a href="#More-on-the-induction-Tactic" class="headerlink" title="More on the induction Tactic"></a>More on the <code>induction</code> Tactic</h2><h3 id="“Re-generalize”-重新泛化"><a href="#“Re-generalize”-重新泛化" class="headerlink" title="“Re-generalize” 重新泛化"></a>“Re-generalize” 重新泛化</h3><p>Noticed that in proofs using <code>nat_ind</code>, we need to keep <code>n</code> generailzed.<br>if we <code>intros</code> particular <code>n</code> first then <code>apply nat_ind</code>, it won’t works…</p>
+<p>But we could <code>intros n. induction n.</code>, that’s <code>induction</code> tactic internally “re-generalize” the <code>n</code> we perform induction on.</p>
+<h3 id="Automatic-intros-i-e-specialize-variables-before-the-variable-we-induction-on"><a href="#Automatic-intros-i-e-specialize-variables-before-the-variable-we-induction-on" class="headerlink" title="Automatic intros i.e. specialize variables before the variable we induction on"></a>Automatic <code>intros</code> i.e. specialize variables before the variable we induction on</h3><p>A canonical case is <code>induction n</code> vs <code>induction m</code> on theorem <code>plus_comm&#39;&#39; : ∀n m : nat, n + m = m + n.</code>.<br>to keep a var generial…we can either change variable order under <code>∀</code>, or using <code>generalize dependent</code>.</p>
+<h2 id="Induction-Principles-in-Prop"><a href="#Induction-Principles-in-Prop" class="headerlink" title="Induction Principles in Prop"></a>Induction Principles in Prop</h2><h3 id="理解依赖类型的归纳假设-与-Coq-排除证据参数的原因"><a href="#理解依赖类型的归纳假设-与-Coq-排除证据参数的原因" class="headerlink" title="理解依赖类型的归纳假设 与 Coq 排除证据参数的原因"></a>理解依赖类型的归纳假设 与 Coq 排除证据参数的原因</h3><p>除了集合 <code>Set</code>，命题 <code>Prop</code> 也可以是归纳定义与 <code>induction</code> on 得.<br>难点在于：<em>Inductive Prop</em> 通常是 dependent type 的，这里会带来复杂度。</p>
+<p>考虑命题 <code>even</code>:</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> even : nat → <span class="keyword">Prop</span> :=</span><br><span class="line"> | <span class="type">ev_0</span> : even <span class="number">0</span></span><br><span class="line"> | <span class="type">ev_SS</span> : ∀n : nat, even n → even (S (S n)).</span><br></pre></td></tr></table></figure>
+
+<p>我们可以猜测一个最 general 的归纳假设：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ev_ind_max : ∀ P : (∀n : nat, even n → <span class="keyword">Prop</span>),</span><br><span class="line">  P O ev_0 →</span><br><span class="line">  (∀(m : nat) (E : even m), P m E → P (S (S m)) (ev_SS m E)) →</span><br><span class="line">  ∀(n : nat) (E : even n), P n E</span><br></pre></td></tr></table></figure>
+
+<p>即:</p>
+<pre><code>                                   P 0 ev_0                    -- base 
   ∀(m : nat) (E : even m), P m E → P (S (S m)) (ev_SS m E)     -- sub structure -&gt; structure
   --------------------------------------------------------
   ∀(n : nat) (E : even n),         P n E                       -- all structure
-</code></pre><p>注意这里:</p><ol><li><code>even</code> is <em>indexed</em> by nat <code>n</code> (对比 <code>list</code> is <em>parametrized</em> by <code>X</code>)</li></ol><ul><li>从族的角度: <code>even : nat -&gt; Prop</code>, a family of <code>Prop</code> indexed by <code>nat</code></li><li>从实体角度: 每个 <code>E : even n</code> 对象都是一个 evidence that <em>particular nat is even</em>.</li></ul><ol start="2"><li>要证的性质 <code>P</code> is parametrized by <code>E : even n</code> 也因此连带着 by <code>n</code>. 也就是 <code>P : (∀n : nat, even n → Prop)</code> (对比 <code>P : list X → Prop</code>)</li></ol><ul><li>所以其实关于 <code>even n</code> 的性质是同时关于数字 <code>n</code> 和证据 <code>even n</code> 这两件事的.</li></ul><p>因此 <code>sub structure -&gt; structure</code> 说得是：</p><blockquote><p>whenever <code>n</code> is an even number and <code>E</code> is an evidence of its evenness, if <code>P</code> holds of <code>n</code> and <code>E</code>, then it also holds of <code>S (S n)</code> and <code>ev_SS n E</code>.<br>对于任意数字 <code>n</code> 与证据 <code>E</code>，如果 <code>P</code> 对 <code>n</code> 和 <code>E</code> 成立，那么它也对 <code>S (S n)</code> 和 <code>ev_SS n E</code> 成立。</p></blockquote><p>然而，当我们 <code>induction (H : even n)</code> 时，我们通常想证的性质并不包括「证据」，而是「满足该性质的这 <code>Type</code> 东西」的性质,<br>比如:</p><ol><li><code>nat</code> 上的一元关系 (性质) 证明 <code>nat</code> 的性质 : <code>ev_even : even n → ∃k, n = double k</code></li><li><code>nat</code> 上的二元关系 证明 <code>nat</code> 上的二元关系 : <code>le_trans : ∀m n o, m ≤ n → n ≤ o → m ≤ o</code></li><li>二元关系 <code>reg_exp × list T</code> 证明 二元关系 <code>reg_exp × T</code>: <code>in_re_match : ∀T (s : list T) (x : T) (re : reg_exp), s =~ re → In x s → In x (re_chars re).</code><br>都是如此，</li></ol><p>因此我们也不希望生成的归纳假设是包括证据的…<br>原来的归纳假设：</p><pre><code>  ∀P : (∀n : nat, even n → Prop),
+</code></pre>
+<p>注意这里:</p>
+<ol>
+<li><code>even</code> is <em>indexed</em> by nat <code>n</code> (对比 <code>list</code> is <em>parametrized</em> by <code>X</code>)</li>
+</ol>
+<ul>
+<li>从族的角度:  <code>even : nat -&gt; Prop</code>, a family of <code>Prop</code> indexed by <code>nat</code></li>
+<li>从实体角度: 每个 <code>E : even n</code> 对象都是一个 evidence that <em>particular nat is even</em>.</li>
+</ul>
+<ol start="2">
+<li>要证的性质 <code>P</code> is parametrized by <code>E : even n</code> 也因此连带着 by <code>n</code>. 也就是 <code>P : (∀n : nat, even n → Prop)</code>  (对比 <code>P : list X → Prop</code>)</li>
+</ol>
+<ul>
+<li>所以其实关于 <code>even n</code> 的性质是同时关于数字 <code>n</code> 和证据 <code>even n</code> 这两件事的.</li>
+</ul>
+<p>因此 <code>sub structure -&gt; structure</code> 说得是：</p>
+<blockquote>
+<p>whenever <code>n</code> is an even number and <code>E</code> is an evidence of its evenness, if <code>P</code> holds of <code>n</code> and <code>E</code>, then it also holds of <code>S (S n)</code> and <code>ev_SS n E</code>.<br>对于任意数字 <code>n</code> 与证据 <code>E</code>，如果 <code>P</code> 对 <code>n</code> 和 <code>E</code> 成立，那么它也对 <code>S (S n)</code> 和 <code>ev_SS n E</code> 成立。</p>
+</blockquote>
+<p>然而，当我们 <code>induction (H : even n)</code> 时，我们通常想证的性质并不包括「证据」，而是「满足该性质的这 <code>Type</code> 东西」的性质,<br>比如:</p>
+<ol>
+<li><code>nat</code> 上的一元关系 (性质)    证明 <code>nat</code> 的性质          :  <code>ev_even : even n → ∃k, n = double k</code></li>
+<li><code>nat</code> 上的二元关系           证明 <code>nat</code> 上的二元关系    :  <code>le_trans : ∀m n o, m ≤ n → n ≤ o → m ≤ o</code> </li>
+<li>二元关系 <code>reg_exp × list T</code> 证明 二元关系 <code>reg_exp × T</code>:  <code>in_re_match : ∀T (s : list T) (x : T) (re : reg_exp), s =~ re → In x s → In x (re_chars re).</code><br>都是如此，</li>
+</ol>
+<p>因此我们也不希望生成的归纳假设是包括证据的…<br>原来的归纳假设：</p>
+<pre><code>  ∀P : (∀n : nat, even n → Prop),
   ... →
   ∀(n : nat) (E : even n), P n E
   
-</code></pre><p>可以被简化为只对 <code>nat</code> 参数化的归纳假设：</p><pre><code>  ∀P : nat → Prop,
+</code></pre>
+<p>可以被简化为只对 <code>nat</code> 参数化的归纳假设：</p>
+<pre><code>  ∀P : nat → Prop,
   ... →
   ∀(n : nat) (E: even n), P n
   
-</code></pre><p>因此 coq 生成的归纳原理也是不包括证据的。注意 <code>P</code> 丢弃了参数 <code>E</code>:</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">even_ind : ∀ P : nat -&gt; <span class="keyword">Prop</span>,</span><br><span class="line">  P <span class="number">0</span> →</span><br><span class="line">  (∀ n : nat, even n -&gt; P n -&gt; P (S (S n))) →</span><br><span class="line">  ∀ n : nat, even n -&gt; P n *)</span><br></pre></td></tr></table></figure><p>用人话说就是：</p><ol><li>P 对 0 成立，</li><li>对任意 n，如果 n 是偶数且 P 对 n 成立，那么 P 对 S (S n) 成立。<br>&#x3D;&gt; P 对所有偶数成立</li></ol><h3 id="“General-Parameter”"><a href="#“General-Parameter”" class="headerlink" title="“General Parameter”"></a>“General Parameter”</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> le : nat → nat → <span class="keyword">Prop</span> :=</span><br><span class="line">  | <span class="type">le_n</span> : ∀ n,               le n n</span><br><span class="line">  | <span class="type">le_S</span> : ∀ n m, (le n m) → (le n (S m)).</span><br></pre></td></tr></table></figure><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> le (n:nat) : nat → <span class="keyword">Prop</span> :=</span><br><span class="line">  | <span class="type">le_n</span>                : le n n</span><br><span class="line">  | <span class="type">le_S</span> m (H : le n m) : le n (S m).</span><br></pre></td></tr></table></figure><p>两者虽然等价，但是共同的 <code>∀ n</code> 可以被提升为 typecon 的参数, i.e. “General Parameter” to the whole definition.</p><p>其生成的归纳假设也会不同: (after renaming)</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">le_ind : ∀ P : nat -&gt; nat -&gt; <span class="keyword">Prop</span>,</span><br><span class="line">  (∀ n : nat, P n n) -&gt;</span><br><span class="line">  (∀ n m : nat, le n m -&gt; P n m -&gt; P n (S m)) -&gt;</span><br><span class="line">  ∀ n m : nat, le n m -&gt; P n m </span><br></pre></td></tr></table></figure><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">le_ind : ∀ (n : nat) (P : nat -&gt; <span class="keyword">Prop</span>),</span><br><span class="line">  P n -&gt;</span><br><span class="line">  (∀ m : nat, n &lt;= m -&gt; P m -&gt; P (S m)) -&gt;</span><br><span class="line">  ∀ m : nat, n &lt;= m -&gt; P m </span><br></pre></td></tr></table></figure><p>The 1st one looks more symmetric but 2nd one is easier (for proving things).</p></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">「SF-LC」10 IndPrinciples</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/992d.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">#LF (逻辑基础)</a>&nbsp;</li><li class="tag-item"><a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">#SF (软件基础)</a>&nbsp;</li><li class="tag-item"><a href="/tags/Coq/">#Coq</a>&nbsp;</li><li class="tag-item"><a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>&nbsp;</li></ul></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic"><span class="nav-number">1.</span> <span class="nav-text">Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-recursive"><span class="nav-number">1.1.</span> <span class="nav-text">Non-recursive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structural-Recursive"><span class="nav-number">1.2.</span> <span class="nav-text">Structural-Recursive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Pattern"><span class="nav-number">1.3.</span> <span class="nav-text">The Pattern</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">2.</span> <span class="nav-text">Polymorphism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Induction-Hypotheses-%E5%BD%92%E7%BA%B3%E5%81%87%E8%AE%BE"><span class="nav-number">3.</span> <span class="nav-text">Induction Hypotheses 归纳假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#More-on-the-induction-Tactic"><span class="nav-number">4.</span> <span class="nav-text">More on the induction Tactic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9CRe-generalize%E2%80%9D-%E9%87%8D%E6%96%B0%E6%B3%9B%E5%8C%96"><span class="nav-number">4.1.</span> <span class="nav-text">“Re-generalize” 重新泛化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automatic-intros-i-e-specialize-variables-before-the-variable-we-induction-on"><span class="nav-number">4.2.</span> <span class="nav-text">Automatic intros i.e. specialize variables before the variable we induction on</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Induction-Principles-in-Prop"><span class="nav-number">5.</span> <span class="nav-text">Induction Principles in Prop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E4%BE%9D%E8%B5%96%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%BD%92%E7%BA%B3%E5%81%87%E8%AE%BE-%E4%B8%8E-Coq-%E6%8E%92%E9%99%A4%E8%AF%81%E6%8D%AE%E5%8F%82%E6%95%B0%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">5.1.</span> <span class="nav-text">理解依赖类型的归纳假设 与 Coq 排除证据参数的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9CGeneral-Parameter%E2%80%9D"><span class="nav-number">5.2.</span> <span class="nav-text">“General Parameter”</span></a></li></ol></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+</code></pre>
+<p>因此 coq 生成的归纳原理也是不包括证据的。注意 <code>P</code> 丢弃了参数 <code>E</code>:</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">even_ind : ∀ P : nat -&gt; <span class="keyword">Prop</span>,</span><br><span class="line">  P <span class="number">0</span> →</span><br><span class="line">  (∀ n : nat, even n -&gt; P n -&gt; P (S (S n))) →</span><br><span class="line">  ∀ n : nat, even n -&gt; P n *)</span><br></pre></td></tr></table></figure>
+
+<p>用人话说就是：</p>
+<ol>
+<li>P 对 0 成立，</li>
+<li>对任意 n，如果 n 是偶数且 P 对 n 成立，那么 P 对 S (S n) 成立。<br>&#x3D;&gt; P 对所有偶数成立</li>
+</ol>
+<h3 id="“General-Parameter”"><a href="#“General-Parameter”" class="headerlink" title="“General Parameter”"></a>“General Parameter”</h3><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> le : nat → nat → <span class="keyword">Prop</span> :=</span><br><span class="line">  | <span class="type">le_n</span> : ∀ n,               le n n</span><br><span class="line">  | <span class="type">le_S</span> : ∀ n m, (le n m) → (le n (S m)).</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Inductive</span> le (n:nat) : nat → <span class="keyword">Prop</span> :=</span><br><span class="line">  | <span class="type">le_n</span>                : le n n</span><br><span class="line">  | <span class="type">le_S</span> m (H : le n m) : le n (S m).</span><br></pre></td></tr></table></figure>
+
+<p>两者虽然等价，但是共同的 <code>∀ n</code> 可以被提升为 typecon 的参数, i.e. “General Parameter” to the whole definition.</p>
+<p>其生成的归纳假设也会不同: (after renaming)</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">le_ind : ∀ P : nat -&gt; nat -&gt; <span class="keyword">Prop</span>,</span><br><span class="line">  (∀ n : nat, P n n) -&gt;</span><br><span class="line">  (∀ n m : nat, le n m -&gt; P n m -&gt; P n (S m)) -&gt;</span><br><span class="line">  ∀ n m : nat, le n m -&gt; P n m </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">le_ind : ∀ (n : nat) (P : nat -&gt; <span class="keyword">Prop</span>),</span><br><span class="line">  P n -&gt;</span><br><span class="line">  (∀ m : nat, n &lt;= m -&gt; P m -&gt; P (S m)) -&gt;</span><br><span class="line">  ∀ m : nat, n &lt;= m -&gt; P m </span><br></pre></td></tr></table></figure>
+
+<p>The 1st one looks more symmetric but 2nd one is easier (for proving things).</p>
+<!-- flag of hidden posts -->
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">「SF-LC」10 IndPrinciples</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/992d.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/LF-%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/">#LF (逻辑基础)</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/SF-%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">#SF (软件基础)</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Coq/">#Coq</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic"><span class="nav-number">1.</span> <span class="nav-text">Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-recursive"><span class="nav-number">1.1.</span> <span class="nav-text">Non-recursive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structural-Recursive"><span class="nav-number">1.2.</span> <span class="nav-text">Structural-Recursive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Pattern"><span class="nav-number">1.3.</span> <span class="nav-text">The Pattern</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polymorphism"><span class="nav-number">2.</span> <span class="nav-text">Polymorphism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Induction-Hypotheses-%E5%BD%92%E7%BA%B3%E5%81%87%E8%AE%BE"><span class="nav-number">3.</span> <span class="nav-text">Induction Hypotheses 归纳假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#More-on-the-induction-Tactic"><span class="nav-number">4.</span> <span class="nav-text">More on the induction Tactic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9CRe-generalize%E2%80%9D-%E9%87%8D%E6%96%B0%E6%B3%9B%E5%8C%96"><span class="nav-number">4.1.</span> <span class="nav-text">“Re-generalize” 重新泛化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automatic-intros-i-e-specialize-variables-before-the-variable-we-induction-on"><span class="nav-number">4.2.</span> <span class="nav-text">Automatic intros i.e. specialize variables before the variable we induction on</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Induction-Principles-in-Prop"><span class="nav-number">5.</span> <span class="nav-text">Induction Principles in Prop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E4%BE%9D%E8%B5%96%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%BD%92%E7%BA%B3%E5%81%87%E8%AE%BE-%E4%B8%8E-Coq-%E6%8E%92%E9%99%A4%E8%AF%81%E6%8D%AE%E5%8F%82%E6%95%B0%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">5.1.</span> <span class="nav-text">理解依赖类型的归纳假设 与 Coq 排除证据参数的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9CGeneral-Parameter%E2%80%9D"><span class="nav-number">5.2.</span> <span class="nav-text">“General Parameter”</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

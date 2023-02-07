@@ -1,2 +1,865 @@
-<!DOCTYPE html><html lang="zh-CN"><head><link rel="stylesheet" href="/css/bilicard.css"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="PHP, Discuz"><meta name="description" content="在 Win7 下部署 Discuz! 的详细步骤。"><meta name="author" content="Pin Young"><title>Win7 下部署 Discuz! | 零域</title><link rel="stylesheet" href="/css/style.css"><link rel="shortcut icon" href="/img/favicon.png"><link rel="stylesheet" href="/font/css/fontawesome.min.css"><link rel="stylesheet" href="/font/css/regular.min.css"><link rel="stylesheet" href="/font/css/solid.min.css"><link rel="stylesheet" href="/font/css/brands.min.css"><script id="hexo-configurations">let KEEP=window.KEEP||{};KEEP.hexo_config={hostname:"0skyu.cn",root:"/",language:"zh-CN",path:"search.xml"},KEEP.theme_config={toc:{enable:!0,number:!0,expand_all:!0,init_open:!0},style:{primary_color:"#EE5A24",logo:"/img/favicon.png",favicon:"/img/favicon.png",avatar:"img/1.jpg",font_size:null,font_family:null,hover:{shadow:!0,scale:!1},first_screen:{enable:!0,header_transparent:!1,background_img:"/img/bg/333.jpg",description:"Keep writing and Keep loving.",font_color:"#f0d21a",hitokoto:!0},scroll:{progress_bar:!0,percent:!1}},local_search:{enable:!0,preload:!0},code_copy:{},code_block:{tools:{enable:!0,style:"default"},highlight_theme:"default"},side_tools:{},pjax:{enable:!0},lazyload:{enable:!0},comment:{enable:!1,use:"gitalk",valine:{appid:null,appkey:null,server_urls:null,placeholder:null},gitalk:{github_id:"DsTansice",github_admins:"DsTansice",repository:"Null-Comment",client_id:"b109b534b2268088d780",client_secret:"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f",proxy:null},twikoo:{env_id:"twikoo-0skyucn-1gkzaji32bb03146",region:null,version:"1.6.8"},waline:{server_url:null,reaction:!1,version:2}},post:{author_label:{enable:!0,auto:!0,custom_label_list:["Trainee","Engineer","Architect"]},word_count:{enable:!0,wordcount:!0,min2read:!0},img_align:"left",copyright_info:!0},version:"3.6.1"},KEEP.language_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},KEEP.language_code_block={copy:"复制代码",copied:"已复制",fold:"折叠代码块",folded:"已折叠"},KEEP.language_copy_copyright={copy:"复制版权信息",copied:"已复制",title:"原文标题",author:"原文作者",link:"原文链接"}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
-</head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span> <span class="pjax-progress-bar"></span> <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i></div><main class="page-container"><div class="page-main-content"><div class="page-main-content-top"><header class="header-wrapper"><div class="header-content"><div class="left"><a class="logo-image" href="/"><img src="/img/favicon.png"> </a><a class="logo-title" href="/">零域</a></div><div class="right"><div class="pc"><ul class="menu-list"><li class="menu-item"><a href="/">首页</a></li><li class="menu-item"><a href="/archives">归档</a></li><li class="menu-item"><a href="/tags">标签</a></li><li class="menu-item"><a href="/categories">分类</a></li><li class="menu-item"><a href="/links">友链</a></li><li class="menu-item"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li><li class="menu-item search search-popup-trigger"><i class="fas fa-search"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div><div class="icon-item menu-bar"><div class="menu-bar-middle"></div></div></div></div></div><div class="header-drawer"><ul class="drawer-menu-list"><li class="drawer-menu-item flex-center"><a href="/">首页</a></li><li class="drawer-menu-item flex-center"><a href="/archives">归档</a></li><li class="drawer-menu-item flex-center"><a href="/tags">标签</a></li><li class="drawer-menu-item flex-center"><a href="/categories">分类</a></li><li class="drawer-menu-item flex-center"><a href="/links">友链</a></li><li class="drawer-menu-item flex-center"><a target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a></li></ul></div><div class="window-mask"></div></header></div><div class="page-main-content-middle"><div class="main-content"><div class="fade-in-down-animation"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><span class="title-hover-animation">Win7 下部署 Discuz!</span></div><div class="article-header"><div class="avatar"><img src="/img/1.jpg"></div><div class="info"><div class="author"><span class="name">Pin Young</span> <span class="author-label">Lv9</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-calendar-plus"></i>&nbsp; <span class="pc">2021-03-28 00:00:00</span> <span class="mobile">2021-03-28 00:00</span> </span><span class="article-update-date article-meta-item"><i class="fas fa-file-pen"></i>&nbsp; <span class="pc">2023-02-05 21:25:09</span> </span><span class="article-categories article-meta-item"><i class="fas fa-folder"></i>&nbsp;<ul><li><a href="/categories/PHP/">PHP</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fas fa-file-word"></i>&nbsp;<span>1.9k 字</span> </span><span class="article-min2read article-meta-item"><i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span> </span><span class="article-pv article-meta-item"><i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content keep-markdown-body"><p>需要在开发机上部署 Discuz!，结果在根据官方文档 <a class="link" target="_blank" rel="noopener" href="http://faq.comsenz.com/library/system/env/env_windows.htm">Discuz! X 系统部署<i class="fas fa-external-link-alt"></i></a> 操作时遇到了一些坑，有些是因为使用的组件版本不一样，有些是官方文档有谬误，所以在此将自己从零开始到部署成功的步骤记录下来，供备忘和参考。</p><p><em>操作系统环境</em></p><p>Win7 64 with sp1</p><p><strong>目录</strong></p><ul><li>TOC<br>{:toc}</li></ul><h3 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h3><ol><li><p>Discuz! X3.2</p><p>我们要部署的目的程序。</p><p>下载地址：<a class="link" target="_blank" rel="noopener" href="http://www.discuz.net/thread-3570835-1-1.html">http://www.discuz.net/thread-3570835-1-1.html<i class="fas fa-external-link-alt"></i></a></p><p>我选的 GBK 版本。</p></li><li><p>IIS 7.5</p><p>Web 服务器。</p><p>下载地址：可直接在系统设置里安装，无需下载。</p><p>如果使用 IIS 7 以下的版本，可能需要额外安装 FastCGI，下载地址 <a class="link" target="_blank" rel="noopener" href="http://www.iis.net/expand/fastcgi">http://www.iis.net/expand/fastcgi<i class="fas fa-external-link-alt"></i></a>。</p></li><li><p>PHP 5.4.42</p><p>因为 PHP 5.2.10 开始已经不再提供 php5isapi.dll，也即在 IIS 上只能使用 FastCGI 而能使用 ISAPI 方式了，所以选用 Non Thread Safe 版本。关于 PHP5 的 Non Thread Safe 与 Thread Safe 的区别参见 <a class="link" target="_blank" rel="noopener" href="http://zhidao.baidu.com/question/2075132638027071628">http://zhidao.baidu.com/question/2075132638027071628<i class="fas fa-external-link-alt"></i></a>。</p><p>下载地址：<a class="link" target="_blank" rel="noopener" href="http://windows.php.net/download/#php-5.4-nts-VC9-x86">http://windows.php.net/download/#php-5.4-nts-VC9-x86<i class="fas fa-external-link-alt"></i></a></p></li><li><p>MySQL 5.5.44</p><p>数据库。我选用的 winx64 版本。</p><p>下载地址：<a class="link" target="_blank" rel="noopener" href="http://dev.mysql.com/downloads/mysql/5.5.html#downloads">http://dev.mysql.com/downloads/mysql/5.5.html#downloads<i class="fas fa-external-link-alt"></i></a></p></li><li><p>Zend Optimizer</p><p>用于提高 PHP 应用程序的执行速度。详见搜狗百科 <a class="link" target="_blank" rel="noopener" href="http://baike.sogou.com/v7557079.htm">http://baike.sogou.com/v7557079.htm<i class="fas fa-external-link-alt"></i></a>。</p><p>下载地址：<a class="link" target="_blank" rel="noopener" href="http://211.162.54.70/dl.softmgr.qq.com/original/System/ZendOptimizerwindows.exe">http://211.162.54.70/dl.softmgr.qq.com/original/System/ZendOptimizerwindows.exe<i class="fas fa-external-link-alt"></i></a></p></li><li><p>phpMyAdmin 4.4.9 （可选）</p><p>用于可视化管理 MySQL 数据库。</p><p>下载地址：<a class="link" target="_blank" rel="noopener" href="http://www.phpmyadmin.net/home_page/downloads.php">http://www.phpmyadmin.net/home_page/downloads.php<i class="fas fa-external-link-alt"></i></a></p></li></ol><h3 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h3><h4 id="安装-IIS"><a href="#安装-IIS" class="headerlink" title="安装 IIS"></a>安装 IIS</h4><p>打开「控制面板」–「程序」–「打开或关闭 Windows 功能」，勾选「Internet 信息服务」，<strong>确认「万维网服务」–「应用程序开发功能」–「CGI」是勾选状态</strong>，然后点「确定」安装。</p><p><img lazyload alt="image" data-src="/images/posts/php/iis.png"></p><h4 id="配置-PHP"><a href="#配置-PHP" class="headerlink" title="配置 PHP"></a>配置 PHP</h4><ol><li><p>解压前面下载的 PHP 的 zip 包，放在合适的地方。</p><p>比如我放在 D:\discuz\PHP。</p></li><li><p>修改 php.ini。</p><p>将 D:\discuz\PHP 文件夹内的 php.ini-development 拷贝一份为 php.ini，找到并修改下列内容如下：</p><ul><li><p>fastcgi.impersonate &#x3D; 1</p></li><li><p>cgi.fix_pathinfo &#x3D; 1</p></li><li><p>cgi.force_redirect &#x3D; 0</p></li><li><p>cgi.rfc2616_headers &#x3D; 1</p></li><li><p>extension_dir &#x3D; “D:\discuz\PHP\ext”</p></li><li><p>date.timezone &#x3D; Asia&#x2F;Shanghai</p></li><li><p>找到并打开以下模块的支持（删掉模块配置前的分号）</p><ul><li>php_gd2.dll</li><li>php_mbstring.dll</li><li>php_mysql.dll</li><li>php_mysqli.dll</li><li>php_openssl.dll</li><li>php_sockets.dll</li><li>php_xmlrpc.dll</li></ul></li><li><p>disable_functions</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server</span><br></pre></td></tr></table></figure></li></ul><p>据称 IIS 7 以下需要将 php.ini 复制到 C:\Windows\php.ini。</p><p>另外，官方文档上显示的需要找开的模块比上面列出的多，但是在配置文件里并没有找到。</p></li><li><p>添加 FastCGI 模块映射。</p><p>打开「控制面板」–「系统和安全」–「管理工具」–「Internet 信息服务(IIS)管理器」–「处理程序映射」，点击右方的「添加模块映射」，填写如下并确认：</p><p><img lazyload alt="image" data-src="/images/posts/php/fastcgi.png" alt="fastcgi"></p></li></ol><h4 id="配置-MySQL"><a href="#配置-MySQL" class="headerlink" title="配置 MySQL"></a>配置 MySQL</h4><p>如果需要安装 MySQL，首先确认有没有 MySQL 的历史残留文件，C:\ProgramData\MySQL 目录如果存在，删除之。不然 MySQL 的安装有可能总是在最后一步失败，提示 <code>error Nr. 1045</code> 和 <code>Access denied for user &#39;root&#39;@localhost&#39;(using password:No)</code> 之类的问题。</p><p><strong>安装 MySQL</strong></p><p>运行前面下载的 MySQL 安装程序安装到 D:\discuz\MySQL 目录下，安装过程如下（没有贴图的部分保持默认就好）：</p><p>选择 Custom 自定义安装。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-1.png" alt="custom"></p><p>更改安装路径。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-2.png" alt="install-path"></p><p>选择 MySQL 运行模式：Server Machine。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-3.png" alt="server-machine"></p><p>选择 MySQL 数据库默认存储方式：Non-Trans Only (MYISAM)。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-4.png" alt="non-trans"></p><p>设定 MySQL 的最大连接数，一般设置为 128 - 512 之间的整数。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-5.png" alt="connections"></p><p>设定网络参数，注意：勾消掉「Enable Strict Mode」。而「Add firewall exception for this port」仅在需要外连 MySQL 的时候勾上。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-6.png" alt="networking"></p><p>设定默认字符集，我根据官方文档选择了 gbk。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-7.png" alt="character set"></p><p>将 Bin 目录添加到 PATH。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-8.png" alt="path"></p><p>设置 root 用户密码，推荐设置复杂一点。</p><p><img lazyload alt="image" data-src="/images/posts/php/mysql-9.png" alt="password"></p><p>测试 MySQL 工作是否正常，在 CMD 运行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure><p>输入密码后，若能顺利进入 MySQL 控制台，表示安装正常。一定要是输入密码后，不然使用以下命令重置 root 用户的密码。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p password 新的密码</span><br></pre></td></tr></table></figure><p><strong>更改 MySQL 数据库存放目录</strong></p><p>在 CMD 运行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure><p>若提示权限不足，请使用管理员权限的 CMD。将 MySQL 服务成功停止后，找到 D:\discuz\MySQL\my.ini，将 datadir 修改为你想要放置数据库文件的地方，比如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datadir=&quot;D:/discuz/Database&quot;</span><br></pre></td></tr></table></figure><p>（当然据说最好应该是把数据库文件和程序不放在同一个地方。）</p><p>将 C:\ProgramData\MySQL\MySQL Server 5.5\data 下的内容复制到 D:\discuz\Database 里，然后删掉 C:\ProgramData\MySQL。</p><p>重新启动 MySQL 服务看是否正常工作。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure><p><strong>配置 LibMySQL</strong></p><p>将 D:\Discuz\MySQL\lib\libmysql.dll 复制到 C:\Windows\System32 目录下。</p><h4 id="检测环境是否准备好"><a href="#检测环境是否准备好" class="headerlink" title="检测环境是否准备好"></a>检测环境是否准备好</h4><p>在「Internet 信息服务(IIS)管理器」中右击「网站」，选「添加网站」：</p><p><img lazyload alt="image" data-src="/images/posts/php/add-website.png" alt="add-website"></p><p>然后在新建的网站的「默认文档」里添加 index.php。</p><p>在 D:\discuz\wwwroot 下新建 phpinfo.php 文件内容如下：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">phpinfo</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>打开浏览器访问 <a class="link" target="_blank" rel="noopener" href="http://localhost/phpinfo.php">http://localhost/phpinfo.php<i class="fas fa-external-link-alt"></i></a>，如果能显示如下网页表示环境已经准备就绪。</p><p><img lazyload alt="image" data-src="/images/posts/php/phpinfo.png"></p><h4 id="安装-Zend-Optimizer"><a href="#安装-Zend-Optimizer" class="headerlink" title="安装 Zend Optimizer"></a>安装 Zend Optimizer</h4><p>运行 Zend Optimizer 的安装包，安装到 D:\discuz\Zend，安装过程中需要指定你配置的 php.ini 的目标位置为 D:\discuz\PHP，指定 IIS 网站根目录位置为 D:\discuz\wwwroot。</p><p>安装时会重启 IIS 服务。</p><h4 id="部署-Discuz"><a href="#部署-Discuz" class="headerlink" title="部署 Discuz!"></a>部署 Discuz!</h4><p>将前面下载的 Discuz! 包解压，把 upload 文件夹里的内容复制到 D:\discuz\wwwroot下，当然你也可以新建子目录来放置。</p><p>然后在浏览器里访问 <a class="link" target="_blank" rel="noopener" href="http://localhost/install">http://localhost/install<i class="fas fa-external-link-alt"></i></a>，按提示进行安装，除了需要填上你的 MySQL 管理员密码和设置 Discuz! 管理员密码外，其它保持默认就行了，分分钟自动给部署好。</p><p>安装完成后直接访问 <a class="link" target="_blank" rel="noopener" href="http://localhost/">http://localhost<i class="fas fa-external-link-alt"></i></a> 就能看到熟悉的界面了：</p><p><img lazyload alt="image" data-src="/images/posts/php/discuz.png" alt="discuz"></p><p><strong>配置确认</strong></p><p>打开 D:\discuz\wwwroot\config\config_global.php 确认数据库密码正确：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_config[&#x27;db&#x27;][&#x27;1&#x27;][&#x27;dbpw&#x27;] = &#x27;你的数据库密码&#x27;;</span><br></pre></td></tr></table></figure><p>打开 D:\discuz\wwwroot\config\config_ucenter.php 确认数据库密码正确：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&#x27;UC_DBPW&#x27;, &#x27;你的数据库密码&#x27;);</span><br></pre></td></tr></table></figure><p>打开 D:\discuz\wwwroot\uc_server\data\config.inc.php 确认数据库密码正确：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&#x27;UC_DBPW&#x27;, &#x27;你的数据库密码&#x27;);</span><br></pre></td></tr></table></figure><h4 id="部署-phpMyAdmin（可选）"><a href="#部署-phpMyAdmin（可选）" class="headerlink" title="部署 phpMyAdmin（可选）"></a>部署 phpMyAdmin（可选）</h4><p>将下载的 phpMyAdmin 文件解压到 D:\discuz\wwwroot\phpmyadmin 下，将 config.sample.inc.php 更名为 config.inc.php，找到 blowfish_secret 并为它设置一个值，比如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cfg[&#x27;blowfish_secret&#x27;] = &#x27;hello&#x27;;  </span><br></pre></td></tr></table></figure><p>打开 <a class="link" target="_blank" rel="noopener" href="http://localhost/phpmyadmin">http://localhost/phpmyadmin<i class="fas fa-external-link-alt"></i></a> 用你的 MySQL 管理员账户密码登录就行了。</p><h4 id="常用入口"><a href="#常用入口" class="headerlink" title="常用入口"></a>常用入口</h4><p>打开论坛 <a class="link" target="_blank" rel="noopener" href="http://localhost/">http://localhost<i class="fas fa-external-link-alt"></i></a></p><p>论坛管理 <a class="link" target="_blank" rel="noopener" href="http://localhost/admin.php">http://localhost/admin.php<i class="fas fa-external-link-alt"></i></a></p><p>查看数据库 <a class="link" target="_blank" rel="noopener" href="http://localhost/phpmyadmin">http://localhost/phpmyadmin<i class="fas fa-external-link-alt"></i></a></p><p>打开UCenter <a class="link" target="_blank" rel="noopener" href="http://localhost/uc_server">http://localhost/uc_server<i class="fas fa-external-link-alt"></i></a></p><h4 id="让-Discuz-局域网内可访问"><a href="#让-Discuz-局域网内可访问" class="headerlink" title="让 Discuz! 局域网内可访问"></a>让 Discuz! 局域网内可访问</h4><p>完成如上步骤后，在局域网内使用 <a href="http://ip:port">http://ip:port</a> 并不能访问我们装好的 Discuz!，完成这个需要两个步骤：</p><ol><li><p>在防火墙添加 80 端口入站规则</p><p>打开「控制面板」–「系统和安全」–「Windows 防火墙」–「高级设置」，（若之前没有启动防火墙的请先开启）。</p><p>此时实际上是打开了「高级安全 Windows 防火墙」，右键「入站规则」，选择「新建规则」，规则类型选「端口」，协议和端口选择「TCP」和「特定本地端口：80」，操作选择「允许连接」，配置文件保持默认的全部勾选，然后取个名称后保存即可。</p></li><li><p>为网站添加本机 IP 绑定</p><p><img lazyload alt="image" data-src="/images/posts/php/nat-bind-ip.png"></p></li></ol></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul class="copyright-info-content"><li class="post-title"><span class="type">本文标题</span>：<span class="content">Win7 下部署 Discuz!</span></li><li class="post-author"><span class="type">本文作者</span>：<span class="content">Pin Young</span></li><li class="post-time"><span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span></li><li class="post-link"><span class="type">本文链接</span>：<span class="content">posts/3f51.html</span></li><li class="post-license"><span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span></li></ul><div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px"><i class="fa-solid fa-copy"></i></div></div></div><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/posts/2388.html"><span class="left arrow-icon flex-center"><i class="fas fa-chevron-left"></i> </span><span class="title flex-center"><span class="post-nav-title-item">去看特立独行的猪</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/posts/5db5.html"><span class="title flex-center"><span class="post-nav-title-item">为 Vim 添加 Smali 语法高亮和 Taglist 支持</span> <span class="post-nav-item">下一篇</span> </span><span class="right arrow-icon flex-center"><i class="fas fa-chevron-right"></i></span></a></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">使用软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">详细步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-IIS"><span class="nav-number">2.1.</span> <span class="nav-text">安装 IIS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-PHP"><span class="nav-number">2.2.</span> <span class="nav-text">配置 PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-MySQL"><span class="nav-number">2.3.</span> <span class="nav-text">配置 MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E5%87%86%E5%A4%87%E5%A5%BD"><span class="nav-number">2.4.</span> <span class="nav-text">检测环境是否准备好</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Zend-Optimizer"><span class="nav-number">2.5.</span> <span class="nav-text">安装 Zend Optimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-Discuz"><span class="nav-number">2.6.</span> <span class="nav-text">部署 Discuz!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-phpMyAdmin%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">2.7.</span> <span class="nav-text">部署 phpMyAdmin（可选）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%85%A5%E5%8F%A3"><span class="nav-number">2.8.</span> <span class="nav-text">常用入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A9-Discuz-%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E5%8F%AF%E8%AE%BF%E9%97%AE"><span class="nav-number">2.9.</span> <span class="nav-text">让 Discuz! 局域网内可访问</span></a></li></ol></li></ol></div></div></div></div></div></div></div><div class="page-main-content-bottom"><footer class="footer"><div class="info-container"><div class="copyright-info info-item">&copy; <span>2014</span> - 2023 &nbsp;<i class="fas fa-heart icon-animate"></i> &nbsp;<a href="/">Pin Young</a></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="website-count info-item">访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp; 总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></div><div class="theme-info info-item">由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a></div><script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script><div class="icp-info info-item"><div class="theme-info info-item"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px"><img src="https://0skyu.cn/beian.png" style="float:left"><p style="float:left;height:20px;line-height:20px;margin:0 0 0 5px;color:#939393">津公网安备 12011002021027号</p></a></div><div class="theme-info info-item"><center><a target="_blank" rel="nofollow" href="https://beian.miit.gov.cn">津ICP备2021004482号-1</a></center></div></div><div class="deploy-info info-item"><a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span>提供部署服务</a></div></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="tools-list"><li class="tools-item flex-center toggle-show-toc"><i class="fas fa-list"></i></li></ul></div></div><div class="right-bottom-side-tools"><div class="side-tools-container"><ul class="side-tools-list"><li class="tools-item tool-font-adjust-plus flex-center"><i class="fas fa-search-plus"></i></li><li class="tools-item tool-font-adjust-minus flex-center"><i class="fas fa-search-minus"></i></li><li class="tools-item tool-dark-light-toggle flex-center"><i class="fas fa-moon"></i></li><li class="tools-item rss flex-center"><a class="flex-center" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li><li class="tools-item tool-scroll-to-top flex-center"><i class="fas fa-arrow-up"></i></li><li class="tools-item tool-scroll-to-bottom flex-center"><i class="fas fa-arrow-down"></i></li></ul><ul class="exposed-tools-list"><li class="tools-item tool-toggle-show flex-center"><i class="fas fa-cog fa-spin"></i></li></ul></div></div><div class="zoom-in-image-mask"><img class="zoom-in-image"></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fas fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="close-popup-btn"><i class="fas fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script><script src="/js/local-search.js"></script><script src="/js/code-block.js"></script><script src="/js/lazyload.js"></script><div class="post-scripts pjax"><script src="/js/post-helper.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script></div><script src="/js/libs/pjax.min.js"></script><script>window.addEventListener("DOMContentLoaded",()=>{window.pjax=new Pjax({selectors:["head title",".page-container",".pjax"],history:!0,debug:!1,cacheBust:!1,timeout:0,analytics:!1,currentUrlFullReload:!1,scrollRestoration:!1}),document.addEventListener("pjax:send",()=>{KEEP.utils.pjaxProgressBarStart()}),document.addEventListener("pjax:complete",()=>{KEEP.utils.pjaxProgressBarEnd(),window.pjax.executeScripts(document.querySelectorAll("script[data-pjax], .pjax script")),KEEP.refresh()})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="PHP, Discuz">
+    <meta name="description" content="在 Win7 下部署 Discuz! 的详细步骤。">
+    <meta name="author" content="Pin Young">
+    <script defer data-pjax src="/js/iosurl.js"></script>
+    
+    <title>
+        
+            Win7 下部署 Discuz! |
+        
+        零域
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"0skyu.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#EE5A24","logo":"/img/favicon.png","favicon":"/img/favicon.png","avatar":"img/1.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/img/bg/333.jpg","description":"Keep writing and Keep loving.","font_color":"#f0d21a","hitokoto":true},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"gitalk","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":"DsTansice","github_admins":"DsTansice","repository":"Null-Comment","client_id":"b109b534b2268088d780","client_secret":"7808e138a1ffbcd9f02bb39cc1ee7fb41828c52f","proxy":null},"twikoo":{"env_id":"twikoo-0skyucn-1gkzaji32bb03146","region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="零域" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/img/favicon.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               零域
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="https://hao.0skyu.cn/"
+                            >
+                                HAO
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="https://hao.0skyu.cn/">HAO</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Win7 下部署 Discuz!</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/img/1.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Pin Young</span>
+                            
+                                <span class="author-label">Lv9</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2021-03-28 00:00:00</span>
+        <span class="mobile">2021-03-28 00:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-05 21:25:09</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/PHP/">PHP</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.9k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>需要在开发机上部署 Discuz!，结果在根据官方文档 <a class="link"   target="_blank" rel="noopener" href="http://faq.comsenz.com/library/system/env/env_windows.htm" >Discuz! X 系统部署<i class="fas fa-external-link-alt"></i></a> 操作时遇到了一些坑，有些是因为使用的组件版本不一样，有些是官方文档有谬误，所以在此将自己从零开始到部署成功的步骤记录下来，供备忘和参考。</p>
+<p><em>操作系统环境</em></p>
+<p>Win7 64 with sp1</p>
+<p><strong>目录</strong></p>
+<ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h3 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h3><ol>
+<li><p>Discuz! X3.2</p>
+<p>我们要部署的目的程序。</p>
+<p>下载地址：<a class="link"   target="_blank" rel="noopener" href="http://www.discuz.net/thread-3570835-1-1.html" >http://www.discuz.net/thread-3570835-1-1.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>我选的 GBK 版本。</p>
+</li>
+<li><p>IIS 7.5</p>
+<p>Web 服务器。</p>
+<p>下载地址：可直接在系统设置里安装，无需下载。</p>
+<p>如果使用 IIS 7 以下的版本，可能需要额外安装 FastCGI，下载地址 <a class="link"   target="_blank" rel="noopener" href="http://www.iis.net/expand/fastcgi" >http://www.iis.net/expand/fastcgi<i class="fas fa-external-link-alt"></i></a>。</p>
+</li>
+<li><p>PHP 5.4.42</p>
+<p>因为 PHP 5.2.10 开始已经不再提供 php5isapi.dll，也即在 IIS 上只能使用 FastCGI 而能使用 ISAPI 方式了，所以选用 Non Thread Safe 版本。关于 PHP5 的 Non Thread Safe 与 Thread Safe 的区别参见 <a class="link"   target="_blank" rel="noopener" href="http://zhidao.baidu.com/question/2075132638027071628" >http://zhidao.baidu.com/question/2075132638027071628<i class="fas fa-external-link-alt"></i></a>。</p>
+<p>下载地址：<a class="link"   target="_blank" rel="noopener" href="http://windows.php.net/download/#php-5.4-nts-VC9-x86" >http://windows.php.net/download/#php-5.4-nts-VC9-x86<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>MySQL 5.5.44</p>
+<p>数据库。我选用的 winx64 版本。</p>
+<p>下载地址：<a class="link"   target="_blank" rel="noopener" href="http://dev.mysql.com/downloads/mysql/5.5.html#downloads" >http://dev.mysql.com/downloads/mysql/5.5.html#downloads<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>Zend Optimizer</p>
+<p>用于提高 PHP 应用程序的执行速度。详见搜狗百科 <a class="link"   target="_blank" rel="noopener" href="http://baike.sogou.com/v7557079.htm" >http://baike.sogou.com/v7557079.htm<i class="fas fa-external-link-alt"></i></a>。</p>
+<p>下载地址：<a class="link"   target="_blank" rel="noopener" href="http://211.162.54.70/dl.softmgr.qq.com/original/System/ZendOptimizerwindows.exe" >http://211.162.54.70/dl.softmgr.qq.com/original/System/ZendOptimizerwindows.exe<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>phpMyAdmin 4.4.9 （可选）</p>
+<p>用于可视化管理 MySQL 数据库。</p>
+<p>下载地址：<a class="link"   target="_blank" rel="noopener" href="http://www.phpmyadmin.net/home_page/downloads.php" >http://www.phpmyadmin.net/home_page/downloads.php<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+</ol>
+<h3 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h3><h4 id="安装-IIS"><a href="#安装-IIS" class="headerlink" title="安装 IIS"></a>安装 IIS</h4><p>打开「控制面板」–「程序」–「打开或关闭 Windows 功能」，勾选「Internet 信息服务」，<strong>确认「万维网服务」–「应用程序开发功能」–「CGI」是勾选状态</strong>，然后点「确定」安装。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/iis.png"
+                     
+                ></p>
+<h4 id="配置-PHP"><a href="#配置-PHP" class="headerlink" title="配置 PHP"></a>配置 PHP</h4><ol>
+<li><p>解压前面下载的 PHP 的 zip 包，放在合适的地方。</p>
+<p>比如我放在 D:\discuz\PHP。</p>
+</li>
+<li><p>修改 php.ini。</p>
+<p>将 D:\discuz\PHP 文件夹内的 php.ini-development 拷贝一份为 php.ini，找到并修改下列内容如下：</p>
+<ul>
+<li><p>fastcgi.impersonate &#x3D; 1</p>
+</li>
+<li><p>cgi.fix_pathinfo &#x3D; 1</p>
+</li>
+<li><p>cgi.force_redirect &#x3D; 0</p>
+</li>
+<li><p>cgi.rfc2616_headers &#x3D; 1</p>
+</li>
+<li><p>extension_dir &#x3D; “D:\discuz\PHP\ext”</p>
+</li>
+<li><p>date.timezone &#x3D; Asia&#x2F;Shanghai</p>
+</li>
+<li><p>找到并打开以下模块的支持（删掉模块配置前的分号）</p>
+<ul>
+<li>php_gd2.dll</li>
+<li>php_mbstring.dll</li>
+<li>php_mysql.dll</li>
+<li>php_mysqli.dll</li>
+<li>php_openssl.dll</li>
+<li>php_sockets.dll</li>
+<li>php_xmlrpc.dll</li>
+</ul>
+</li>
+<li><p>disable_functions</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>据称 IIS 7 以下需要将 php.ini 复制到 C:\Windows\php.ini。</p>
+<p>另外，官方文档上显示的需要找开的模块比上面列出的多，但是在配置文件里并没有找到。</p>
+</li>
+<li><p>添加 FastCGI 模块映射。</p>
+<p>打开「控制面板」–「系统和安全」–「管理工具」–「Internet 信息服务(IIS)管理器」–「处理程序映射」，点击右方的「添加模块映射」，填写如下并确认：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/fastcgi.png"
+                      alt="fastcgi"
+                ></p>
+</li>
+</ol>
+<h4 id="配置-MySQL"><a href="#配置-MySQL" class="headerlink" title="配置 MySQL"></a>配置 MySQL</h4><p>如果需要安装 MySQL，首先确认有没有 MySQL 的历史残留文件，C:\ProgramData\MySQL 目录如果存在，删除之。不然 MySQL 的安装有可能总是在最后一步失败，提示 <code>error Nr. 1045</code> 和 <code>Access denied for user &#39;root&#39;@localhost&#39;(using password:No)</code> 之类的问题。</p>
+<p><strong>安装 MySQL</strong></p>
+<p>运行前面下载的 MySQL 安装程序安装到 D:\discuz\MySQL 目录下，安装过程如下（没有贴图的部分保持默认就好）：</p>
+<p>选择 Custom 自定义安装。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-1.png"
+                      alt="custom"
+                ></p>
+<p>更改安装路径。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-2.png"
+                      alt="install-path"
+                ></p>
+<p>选择 MySQL 运行模式：Server Machine。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-3.png"
+                      alt="server-machine"
+                ></p>
+<p>选择 MySQL 数据库默认存储方式：Non-Trans Only (MYISAM)。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-4.png"
+                      alt="non-trans"
+                ></p>
+<p>设定 MySQL 的最大连接数，一般设置为 128 - 512 之间的整数。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-5.png"
+                      alt="connections"
+                ></p>
+<p>设定网络参数，注意：勾消掉「Enable Strict Mode」。而「Add firewall exception for this port」仅在需要外连 MySQL 的时候勾上。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-6.png"
+                      alt="networking"
+                ></p>
+<p>设定默认字符集，我根据官方文档选择了 gbk。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-7.png"
+                      alt="character set"
+                ></p>
+<p>将 Bin 目录添加到 PATH。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-8.png"
+                      alt="path"
+                ></p>
+<p>设置 root 用户密码，推荐设置复杂一点。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/mysql-9.png"
+                      alt="password"
+                ></p>
+<p>测试 MySQL 工作是否正常，在 CMD 运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>输入密码后，若能顺利进入 MySQL 控制台，表示安装正常。一定要是输入密码后，不然使用以下命令重置 root 用户的密码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p password 新的密码</span><br></pre></td></tr></table></figure>
+
+<p><strong>更改 MySQL 数据库存放目录</strong></p>
+<p>在 CMD 运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure>
+
+<p>若提示权限不足，请使用管理员权限的 CMD。将 MySQL 服务成功停止后，找到 D:\discuz\MySQL\my.ini，将 datadir 修改为你想要放置数据库文件的地方，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datadir=&quot;D:/discuz/Database&quot;</span><br></pre></td></tr></table></figure>
+
+<p>（当然据说最好应该是把数据库文件和程序不放在同一个地方。）</p>
+<p>将 C:\ProgramData\MySQL\MySQL Server 5.5\data 下的内容复制到 D:\discuz\Database 里，然后删掉 C:\ProgramData\MySQL。</p>
+<p>重新启动 MySQL 服务看是否正常工作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置 LibMySQL</strong></p>
+<p>将 D:\Discuz\MySQL\lib\libmysql.dll 复制到 C:\Windows\System32 目录下。</p>
+<h4 id="检测环境是否准备好"><a href="#检测环境是否准备好" class="headerlink" title="检测环境是否准备好"></a>检测环境是否准备好</h4><p>在「Internet 信息服务(IIS)管理器」中右击「网站」，选「添加网站」：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/add-website.png"
+                      alt="add-website"
+                ></p>
+<p>然后在新建的网站的「默认文档」里添加 index.php。</p>
+<p>在 D:\discuz\wwwroot 下新建 phpinfo.php 文件内容如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">phpinfo</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>打开浏览器访问 <a class="link"   target="_blank" rel="noopener" href="http://localhost/phpinfo.php" >http://localhost/phpinfo.php<i class="fas fa-external-link-alt"></i></a>，如果能显示如下网页表示环境已经准备就绪。</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/phpinfo.png"
+                     
+                ></p>
+<h4 id="安装-Zend-Optimizer"><a href="#安装-Zend-Optimizer" class="headerlink" title="安装 Zend Optimizer"></a>安装 Zend Optimizer</h4><p>运行 Zend Optimizer 的安装包，安装到 D:\discuz\Zend，安装过程中需要指定你配置的 php.ini 的目标位置为 D:\discuz\PHP，指定 IIS 网站根目录位置为 D:\discuz\wwwroot。</p>
+<p>安装时会重启 IIS 服务。</p>
+<h4 id="部署-Discuz"><a href="#部署-Discuz" class="headerlink" title="部署 Discuz!"></a>部署 Discuz!</h4><p>将前面下载的 Discuz! 包解压，把 upload 文件夹里的内容复制到 D:\discuz\wwwroot下，当然你也可以新建子目录来放置。</p>
+<p>然后在浏览器里访问 <a class="link"   target="_blank" rel="noopener" href="http://localhost/install" >http://localhost/install<i class="fas fa-external-link-alt"></i></a>，按提示进行安装，除了需要填上你的 MySQL 管理员密码和设置 Discuz! 管理员密码外，其它保持默认就行了，分分钟自动给部署好。</p>
+<p>安装完成后直接访问 <a class="link"   target="_blank" rel="noopener" href="http://localhost/" >http://localhost<i class="fas fa-external-link-alt"></i></a> 就能看到熟悉的界面了：</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/discuz.png"
+                      alt="discuz"
+                ></p>
+<p><strong>配置确认</strong></p>
+<p>打开 D:\discuz\wwwroot\config\config_global.php 确认数据库密码正确：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_config[&#x27;db&#x27;][&#x27;1&#x27;][&#x27;dbpw&#x27;] = &#x27;你的数据库密码&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>打开 D:\discuz\wwwroot\config\config_ucenter.php 确认数据库密码正确：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&#x27;UC_DBPW&#x27;, &#x27;你的数据库密码&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>打开 D:\discuz\wwwroot\uc_server\data\config.inc.php 确认数据库密码正确：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(&#x27;UC_DBPW&#x27;, &#x27;你的数据库密码&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="部署-phpMyAdmin（可选）"><a href="#部署-phpMyAdmin（可选）" class="headerlink" title="部署 phpMyAdmin（可选）"></a>部署 phpMyAdmin（可选）</h4><p>将下载的 phpMyAdmin 文件解压到 D:\discuz\wwwroot\phpmyadmin 下，将 config.sample.inc.php 更名为 config.inc.php，找到 blowfish_secret 并为它设置一个值，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cfg[&#x27;blowfish_secret&#x27;] = &#x27;hello&#x27;;  </span><br></pre></td></tr></table></figure>
+
+<p>打开 <a class="link"   target="_blank" rel="noopener" href="http://localhost/phpmyadmin" >http://localhost/phpmyadmin<i class="fas fa-external-link-alt"></i></a> 用你的 MySQL 管理员账户密码登录就行了。</p>
+<h4 id="常用入口"><a href="#常用入口" class="headerlink" title="常用入口"></a>常用入口</h4><p>打开论坛 <a class="link"   target="_blank" rel="noopener" href="http://localhost/" >http://localhost<i class="fas fa-external-link-alt"></i></a></p>
+<p>论坛管理 <a class="link"   target="_blank" rel="noopener" href="http://localhost/admin.php" >http://localhost/admin.php<i class="fas fa-external-link-alt"></i></a></p>
+<p>查看数据库 <a class="link"   target="_blank" rel="noopener" href="http://localhost/phpmyadmin" >http://localhost/phpmyadmin<i class="fas fa-external-link-alt"></i></a></p>
+<p>打开UCenter <a class="link"   target="_blank" rel="noopener" href="http://localhost/uc_server" >http://localhost/uc_server<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="让-Discuz-局域网内可访问"><a href="#让-Discuz-局域网内可访问" class="headerlink" title="让 Discuz! 局域网内可访问"></a>让 Discuz! 局域网内可访问</h4><p>完成如上步骤后，在局域网内使用 <a href="http://ip:port">http://ip:port</a> 并不能访问我们装好的 Discuz!，完成这个需要两个步骤：</p>
+<ol>
+<li><p>在防火墙添加 80 端口入站规则</p>
+<p>打开「控制面板」–「系统和安全」–「Windows 防火墙」–「高级设置」，（若之前没有启动防火墙的请先开启）。</p>
+<p>此时实际上是打开了「高级安全 Windows 防火墙」，右键「入站规则」，选择「新建规则」，规则类型选「端口」，协议和端口选择「TCP」和「特定本地端口：80」，操作选择「允许连接」，配置文件保持默认的全部勾选，然后取个名称后保存即可。</p>
+</li>
+<li><p>为网站添加本机 IP 绑定</p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/images/posts/php/nat-bind-ip.png"
+                     
+                ></p>
+</li>
+</ol>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Win7 下部署 Discuz!</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">Pin Young</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-03-28 00:00:00</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/3f51.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/2388.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">去看特立独行的猪</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/5db5.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">为 Vim 添加 Smali 语法高亮和 Taglist 支持</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">使用软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">详细步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-IIS"><span class="nav-number">2.1.</span> <span class="nav-text">安装 IIS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-PHP"><span class="nav-number">2.2.</span> <span class="nav-text">配置 PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-MySQL"><span class="nav-number">2.3.</span> <span class="nav-text">配置 MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E5%87%86%E5%A4%87%E5%A5%BD"><span class="nav-number">2.4.</span> <span class="nav-text">检测环境是否准备好</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Zend-Optimizer"><span class="nav-number">2.5.</span> <span class="nav-text">安装 Zend Optimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-Discuz"><span class="nav-number">2.6.</span> <span class="nav-text">部署 Discuz!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-phpMyAdmin%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">2.7.</span> <span class="nav-text">部署 phpMyAdmin（可选）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%85%A5%E5%8F%A3"><span class="nav-number">2.8.</span> <span class="nav-text">常用入口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A9-Discuz-%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E5%8F%AF%E8%AE%BF%E9%97%AE"><span class="nav-number">2.9.</span> <span class="nav-text">让 Discuz! 局域网内可访问</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2014</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Pin Young</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/dstansice">零域Lite 1.3.1</a>
+        </div>
+        
+        
+        <script async defer data-website-id="b3b1feba-ef0f-4367-ba34-6a0152b8749b" src="https://analysis.0skyu.cn/umami.js"></script>
+         
+            <div class="icp-info info-item">
+            <div class="theme-info info-item">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12011002021027" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://0skyu.cn/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">津公网安备 12011002021027号</p></a> 
+                </div>
+                 <div class="theme-info info-item">
+               <center> <a target="_blank" rel="nofollow"
+                   href="https://beian.miit.gov.cn"
+                >
+                    津ICP备2021004482号-1
+                </a></center>
+                </div>
+                
+            </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://hao.0skyu.cn/">
+                
+                    本站由 <span class="tooltip" data-content="腾讯云"><img src="/images/deploy-provider/tencent_cloud.png"></span> 提供部署服务
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
